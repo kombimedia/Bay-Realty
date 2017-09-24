@@ -27,12 +27,4 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
       </head>
   <body>
-  	<div class="header">
-  		<nav>
 
-  		</nav>
-  		<div class="header-img">
-  			<h1>header</h1>
-  		</div>
-  	</div>
-  	<div class="inner-container">
