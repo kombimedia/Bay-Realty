@@ -1,9 +1,12 @@
 <?php
 
 ?>
-
-
-
+      <!-- closing div for main content area -->
+        </main>
+      <!-- closing div for content container row -->
+      </div>
+    <!-- closing div for content container -->
+    </div>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
