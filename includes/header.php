@@ -28,9 +28,11 @@
   </head>
 
 
-    <div class="header">
-          <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-      <a class="navbar-brand" href="#">Navbar</a>
+   
+
+  <body>
+ <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <a class="navbar-brand" href="#"><img src="images/bay-realty-logo.png"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -62,26 +64,19 @@
       </div>
     </nav>
 
-<div class="container-fluid" id="home-header">
-    <div class="row">
-        <div class="col-md-6">
-        <h2>Custom search field</h2>
-            <div id="custom-search-input">
-                <div class="input-group col-md-12">
-                    <input type="text" class="form-control input-lg" placeholder="Buscar" />
-                    <span class="input-group-btn">
-                        <button class="btn btn-info btn-lg" type="button">
-                            <i class="glyphicon glyphicon-search"></i>
-                        </button>
-                    </span>
-                </div>
-            </div>
-        </div>
-  </div>
-</div>
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+    	<img src="images/bay-realty-logo.png">
+        <div class="col-lg-12" id="search-bar">
+        	
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Search Listings...">
+      <span class="input-group-btn">
+        <button class="btn btn-secondary" type="button">Go!</button>
+      </span>
     </div>
-    <div class="inner-container">
+  </div>
+    </div>
 
 
-  <body>
 
