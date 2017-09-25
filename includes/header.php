@@ -29,19 +29,7 @@
     <link href="https://fonts.googleapis.com/css?family=Baumans" rel="stylesheet">
   </head>
 
-  <body>
- <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-      <a class="navbar-brand" href="#"><img src="images/bay-realty-logo.png"></a>
-  <body>
- <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-      <a class="navbar-brand" href="#"><img src="images/bay-realty-logo.png"></a>
-  <body>
-    <div class="header">
-          <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-      <a class="navbar-brand" href="#">Navbar</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+ 
 
 
   <body>
@@ -49,10 +37,14 @@
 	include 'includes/nav.php';
 ?>
 
- <div class="jumbotron" style="height: 300px">
- 	</div>
-
-
+  <div class="home-image">
+     
+        <!-- <div class="home-image-logo"> -->
+          <img class="img-fluid" id="header-img" src="../images/bay-realty-logo.png">
+        <!-- </div> -->
+      
+     
+    </div>
 
     <!-- Main jumbotron for a primary marketing message or call to action -->
 
