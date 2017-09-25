@@ -4,7 +4,7 @@ $metaD = "Category page";
 include 'includes/header.php';
 ?>
  <div class="container-fluid" >
-      <div class="container home-widget-top-container" >
+      <div class="container content-widget" >
         <div class="row">
           <div class="col-sm-12 col-md-12">
             <div class="home-widget-top">
@@ -15,7 +15,7 @@ include 'includes/header.php';
 </div>
 
  
-      <div class="container home-widget-top-container">
+      <div class="container content-widget">
         <div class="row">
           <div class="col-sm-12 col-md-6">
             <div class="home-widget-top">

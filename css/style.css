@@ -74,12 +74,9 @@ nav ul li a:hover {
   width: 100%;
 }
 
-.home-widget-top,
-.home-widget-bottom {
+.content-widget {
   padding: 100px 20px;
   text-align: center;
 }
 
-.home-widget-top{
-  border-bottom: solid 1pt;
-}
+
