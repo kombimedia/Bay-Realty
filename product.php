@@ -4,10 +4,6 @@ $metaD = "Product page";
 include 'includes/header.php';
 ?>
 
-
-
-    <h1>Product Page</h1>
-
-    <?php
+<?php
   include 'includes/footer.php';
 ?>
