@@ -19,14 +19,15 @@
     <?php
       include 'includes/nav.php';
     ?>
-    <!-- full page home image -->
     <div class="home-image full-height">
       <div class="home-image-widget">
-        <!-- <div class="home-image-logo"> -->
           <img class="img-fluid" src="images/bay-realty-logo.png">
-        <!-- </div> -->
         <h1>The Best In The Bay</h1>
       </div>
+      <form class="form-inline mt-2 mt-md-0 home-search-box">
+          <input class="form-control mr-sm-2" style="width: 700px" type="text" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
     </div>
 
     <!-- Home widget top area -->

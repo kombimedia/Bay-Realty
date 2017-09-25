@@ -56,6 +56,16 @@ span.copyrite {
 nav img{
   height: 30px;
 }
+nav {
+  background-color: #fff;
+  border-bottom: 1px solid #446da3;
+}
+nav ul li a {
+  color: #446da3;
+}
+nav ul li a:hover {
+  color: #189ebb;
+}
 .header-image {
   background-image: url("../images/home-image.jpg");
   background-position: center;

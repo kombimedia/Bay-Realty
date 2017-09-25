@@ -18,9 +18,10 @@ Sand #fffced
   position: relative;
   height: 100vh;
 }
-.home-image-widget {
+.home-image-widget,
+.home-search-box {
   position: absolute;
-  top: 45%;
+  top: 40%;
   left: 50%;
   margin: 0px auto;
   max-width: 100%;
@@ -39,6 +40,11 @@ Sand #fffced
 .home-widget-top,
 .home-widget-bottom {
   padding: 100px 20px;
+}
+.home-search-box {
+  top: 80%;
+  margin: 0px auto;
+  max-width: 800px;
 }
 
 
