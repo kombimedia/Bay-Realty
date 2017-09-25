@@ -9,17 +9,17 @@
                       <h2>About Us</h2>
                     </div>
                   </div>
-                  <div class="col-sm-6 col-md-3 footer-widget-area">
+                  <div class="col-sm-6 col-md-3">
                     <div class="footer-widget">
                       <h2>Our Team</h2>
                     </div>
                   </div>
-                  <div class="col-sm-6 col-md-3 footer-widget-area">
+                  <div class="col-sm-6 col-md-3">
                     <div class="footer-widget">
                       <h2>Property Press</h2>
                     </div>
                   </div>
-                  <div class="col-sm-6 col-md-3 footer-widget-area">
+                  <div class="col-sm-6 col-md-3">
                     <div class="footer-widget">
                       <h2>Newsletter</h2>
                     </div>

@@ -8,34 +8,42 @@ Beige #e1dad0
 Sand #fffced
 */
 
+/* site structure
+-------------------------------------------------- */
+body {
+  padding-top: 3.5rem;
+}
+.container {
+  width: 80%;
+  max-width: 1150px;
+}
 
+/* typography
+-------------------------------------------------- */
+h1, h2, h3, h4, h5 {
+  font-family: 'Baumans', cursive;
+}
 
 /* footer styles
 -------------------------------------------------- */
-html {
-  position: relative;
-  min-height: 100%;
-}
-body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
-<<<<<<< HEAD
-    padding-top: 3.5rem;
-=======
-  padding-top: 3.5rem;
+.footer-widget-area {
+  height: auto;
+  background-color: #446da3;
+  color: #fff;
 }
 .footer-widget {
   padding: 50px 20px;
->>>>>>> 6a207030023f856947a34930bfdc1b99b00352d0
 }
 .footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  /* Set the fixed height of the footer here */
   height: 60px;
-  line-height: 60px; /* Vertically center the text there */
-  background-color: #f5f5f5;
+  line-height: 60px;
+  font-size: .9em;
+  background-color: #152a69;
+  color: #fff;
+}
+span.copyrite {
+  width: 100%;
+  text-align: center;
 }
 
 
@@ -71,10 +79,10 @@ nav img{
   margin-top: -140%;
   margin-left: 20%
 }
-.container-fluid {
+/*.container-fluid {
     width: 100vw;
     height: 100vh;
-}
+}*/
 
 /*search bar */
 
