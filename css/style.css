@@ -8,24 +8,30 @@ Beige #e1dad0
 Sand #fffced
 */
 
-
+/* site structure
+-------------------------------------------------- */
+.container {
+  width: 80%;
+  max-width: 1150px;
+}
 
 /* footer styles
 -------------------------------------------------- */
-html {
-  position: relative;
-  min-height: 100%;
+.footer-widget-area {
+  height: auto;
+  background-color: #fffced;
 }
-body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+.footer-widget {
+  padding: 50px 20px;
 }
 .footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  /* Set the fixed height of the footer here */
   height: 60px;
-  line-height: 60px; /* Vertically center the text there */
-  background-color: #f5f5f5;
+  line-height: 60px;
+  font-size: .9em;
+  background-color: #152a69;
+  color: #fff;
+}
+span.copywrite {
+  width: 100%;
+  text-align: center;
 }
