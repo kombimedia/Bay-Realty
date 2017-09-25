@@ -31,7 +31,7 @@
         <div class="container-fluid footer">
           <div class="container">
             <div class="row">
-                  <span class="copywrite">Bay Realty Ltd 2017</span>
+                  <span class="copyrite">Bay Realty Ltd <i class="fa fa-copyright" aria-hidden="true"></i> <?php echo date("Y"); ?></span>
             </div>
           </div>
         </div>

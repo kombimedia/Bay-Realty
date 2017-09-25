@@ -19,7 +19,8 @@ Sand #fffced
 -------------------------------------------------- */
 .footer-widget-area {
   height: auto;
-  background-color: #fffced;
+  background-color: #446da3;
+  color: #fff;
 }
 .footer-widget {
   padding: 50px 20px;
@@ -31,7 +32,7 @@ Sand #fffced
   background-color: #152a69;
   color: #fff;
 }
-span.copywrite {
+span.copyrite {
   width: 100%;
   text-align: center;
 }
