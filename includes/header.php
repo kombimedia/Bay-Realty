@@ -40,7 +40,7 @@
   <div class="home-image">
      
         <!-- <div class="home-image-logo"> -->
-          <img class="img-fluid" id="header-img" src="../images/bay-realty-logo.png">
+          <img class="img-fluid" src="../images/bay-realty-logo.png">
         <!-- </div> -->
       
      

@@ -1,3 +1,4 @@
+
 /*
 Colours
 Dark Blue #152a69
@@ -36,14 +37,6 @@ h1, h2, h3, h4, h5 {
   position: relative;
   min-height: 100%;
 }
-body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
-
-    padding-top: 3.5rem;
-
-  padding-top: 3.5rem;
-}
 .footer-widget {
   padding: 50px 20px;
 }
@@ -59,36 +52,21 @@ span.copyrite {
   text-align: center;
 }
 
-
 /* header styles
 ----------------------------------------------------- */
-
-
-/* Home page header search bar */
-
-
-body {
-  padding-top: 3.5rem;
-}
-
 nav img{
   height: 30px;
 }
-
-#header-img{
-
-  height: 300px;
-}
-
-.home-image {
+.header-image {
   background-image: url("../images/home-image.jpg");
   background-position: center;
   padding: 0;
+  height: 300px;
+  width: 100%;
 }
 
-.home-image{
-  height: 300px;
-}
+
+
 
 
 
