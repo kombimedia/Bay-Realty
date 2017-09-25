@@ -15,6 +15,12 @@ Sand #fffced
   max-width: 1150px;
 }
 
+/* typography
+-------------------------------------------------- */
+h1, h2, h3, h4, h5 {
+  font-family: 'Baumans', cursive;
+}
+
 /* footer styles
 -------------------------------------------------- */
 .footer-widget-area {
