@@ -63,3 +63,13 @@ nav img{
   height: 300px;
   width: 100%;
 }
+
+.home-widget-top,
+.home-widget-bottom {
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.home-widget-top{
+  border-bottom: solid 1pt;
+}
