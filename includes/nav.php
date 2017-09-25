@@ -1,6 +1,4 @@
-
-  <body>
- <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
       <a class="navbar-brand" href="#"><img src="images/bay-realty-logo.png"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -32,20 +30,3 @@
         </form>
       </div>
     </nav>
-
-    <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
-    	<img src="images/bay-realty-logo.png">
-        <div class="col-lg-12" id="search-bar">
-        	
-    <div class="input-group">
-      <input type="text" class="form-control" placeholder="Search Listings...">
-      <span class="input-group-btn">
-        <button class="btn btn-secondary" type="button">Go!</button>
-      </span>
-    </div>
-  </div>
-    </div>
-
-
-
