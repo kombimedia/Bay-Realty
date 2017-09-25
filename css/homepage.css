@@ -1,0 +1,44 @@
+/*
+Colours
+Dark Blue #152a69
+Mid-blue #446da3
+Aqua #189ebb
+Mid-aqua #92becb
+Beige #e1dad0
+Sand #fffced
+*/
+
+.home-image {
+  background-image: url("../images/home-image.jpg");
+  background-position: center;
+  padding: 0;
+}
+.full-height {
+  background-size: cover;
+  position: relative;
+  height: 100vh;
+}
+.home-image-widget {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  margin: 0px auto;
+  max-width: 100%;
+  text-align: center;
+  -ms-transform: translate(-50%,-50%); /* IE 9 */
+  -webkit-transform: translate(-50%,-50%); /* Safari */
+  transform: translate(-50%,-50%);
+  color: #fff;
+}
+.home-image-widget img {
+  margin-bottom: 30px;
+}
+.home-widget-top-container {
+  border-bottom: 1px solid #189ebb;
+}
+.home-widget-top,
+.home-widget-bottom {
+  padding: 100px 20px;
+}
+
+

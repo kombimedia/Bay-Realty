@@ -26,7 +26,6 @@ h1, h2, h3, h4, h5 {
 
 /* footer styles
 -------------------------------------------------- */
-<<<<<<< HEAD
 .footer-widget-area {
   height: auto;
   background-color: #446da3;
@@ -34,8 +33,6 @@ h1, h2, h3, h4, h5 {
 }
 .footer-widget {
   padding: 50px 20px;
-=======
-html {
   position: relative;
   min-height: 100%;
 }
@@ -49,8 +46,6 @@ body {
 }
 .footer-widget {
   padding: 50px 20px;
-
->>>>>>> a315cbfd4dc5ace5c3b388ee59b24ce8fa174ccb
 }
 .footer {
   height: 60px;
@@ -97,14 +92,10 @@ background-size: contain;
   margin-top: -140%;
   margin-left: 20%
 }
-<<<<<<< HEAD
 /*.container-fluid {
     width: 100vw;
     height: 100vh;
 }*/
-=======
-
->>>>>>> a315cbfd4dc5ace5c3b388ee59b24ce8fa174ccb
 
 /*search bar */
 
