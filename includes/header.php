@@ -27,12 +27,23 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
   </head>
 
+<<<<<<< HEAD
 
    
 
   <body>
  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
       <a class="navbar-brand" href="#"><img src="images/bay-realty-logo.png"></a>
+=======
+  <body>
+ <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <a class="navbar-brand" href="#"><img src="images/bay-realty-logo.png"></a>
+  <body>
+    <div class="header">
+          <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <a class="navbar-brand" href="#">Navbar</a>
+
+>>>>>>> 6a207030023f856947a34930bfdc1b99b00352d0
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -68,7 +79,7 @@
     <div class="jumbotron">
     	<img src="images/bay-realty-logo.png">
         <div class="col-lg-12" id="search-bar">
-        	
+
     <div class="input-group">
       <input type="text" class="form-control" placeholder="Search Listings...">
       <span class="input-group-btn">

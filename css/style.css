@@ -19,7 +19,14 @@ html {
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
+<<<<<<< HEAD
     padding-top: 3.5rem;
+=======
+  padding-top: 3.5rem;
+}
+.footer-widget {
+  padding: 50px 20px;
+>>>>>>> 6a207030023f856947a34930bfdc1b99b00352d0
 }
 .footer {
   position: absolute;
@@ -49,7 +56,7 @@ nav img{
 
 .jumbotron{
   width: 100vw;
-    
+
     background-image: url("../images/mount.jpg");
     background-repeat: no-repeat;
 
@@ -74,7 +81,7 @@ nav img{
 #search-bar{
   text-align: center;
   position: absolute;
- 
+
   margin-right: 50%;
 }
 .input-group{
