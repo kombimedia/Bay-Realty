@@ -1,26 +1,49 @@
 /*
- * Base structure
- */
+Colours
+Dark Blue #152a69
+Mid-blue #446da3
+Aqua #189ebb
+Mid-aqua #92becb
+Beige #e1dad0
+Sand #fffced
+*/
 
-/* Move down content because we have a fixed navbar that is 3.5rem tall */
+/* Base structure
+-------------------------------------------------- */
 body {
   padding-top: 3.5rem;
 }
 
-/*
- * Typography
- */
-
+/* Typography
+-------------------------------------------------- */
 h1 {
   margin-bottom: 20px;
   padding-bottom: 9px;
   border-bottom: 1px solid #eee;
 }
 
-/*
- * Sidebar
- */
+/* Nav
+-------------------------------------------------- */
+nav {
+  background-color: #152a69;
+}
+nav a.navbar-brand {
+  font-size: 1rem;
+}
+nav ul li a,
+nav ul li a.dropdown-item {
+  color: #446da3;
+}
+nav ul li a:hover,
+nav ul li a.dropdown-item:hover {
+  color: #189ebb;
+}
+.welcome {
+  color: #fff;
+}
 
+/* Sidebar
+-------------------------------------------------- */
 .sidebar {
   position: fixed;
   top: 51px;
@@ -33,42 +56,33 @@ h1 {
   border-right: 1px solid #eee;
 }
 
-/* Sidebar navigation */
+/* Sidebar navigation
+-------------------------------------------------- */
 .sidebar {
+  background-color: #446da3;
   padding-left: 0;
   padding-right: 0;
 }
-
 .sidebar .nav {
   margin-bottom: 20px;
 }
-
 .sidebar .nav-item {
   width: 100%;
 }
-
 .sidebar .nav-item + .nav-item {
   margin-left: 0;
 }
-
 .sidebar .nav-link {
   border-radius: 0;
 }
-
-a.nav-link {
-  color: #152a69;
+a.nav-link,
+a.dropdown-item {
+  color: #fff;
+}
+a.nav-link:hover,
+a.dropdown-item:hover {
+  color: #92becb;
 }
 
-/*
- * Dashboard
- */
-
- /* Placeholders */
-.placeholders {
-  padding-bottom: 3rem;
-}
-
-.placeholder img {
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
-}
+/* Dashboard
+-------------------------------------------------- */

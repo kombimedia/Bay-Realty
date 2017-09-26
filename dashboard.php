@@ -5,10 +5,7 @@
   include 'includes/dashboard-sidebar.php';
 ?>
 
-          <h1>Dashboard</h1>
-
-
-
+    <h1>Dashboard</h1>
 
 <?php
   include 'includes/dashboard-footer.php';
