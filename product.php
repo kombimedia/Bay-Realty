@@ -2,8 +2,10 @@
 $title = "Bay Realty - Product Page";
 $metaD = "Product page";
 include 'includes/header.php';
+include 'includes/search.php';
 ?>
-<div class="container">
+<div class="container-fluid">
+<div class="container slider-inner">
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -31,8 +33,9 @@ include 'includes/header.php';
   </a>
 </div>
 </div>
+</div>
 
- 
+
       <div class="container content-widget">
         <div class="row">
           <div class="col-sm-12 col-md-6">
@@ -66,7 +69,7 @@ include 'includes/header.php';
           </div>
         </div>
       </div>
-    
+
 
 
 <?php
