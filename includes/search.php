@@ -30,7 +30,7 @@
         </div>
 
         <div class="form-row form-inline mb-2">
-          <div class="col-6 col-sm-6 col-xl-2">
+          <div class="col-6 col-xl-2">
             <select class="form-control mb-2" id="search-price-from">
               <option>Price from</option>
               <option>Any</option>
@@ -46,7 +46,7 @@
             </select>
           </div>
 
-          <div class="col-6 col-sm-6 col-xl-2">
+          <div class="col-6 col-xl-2">
             <select class="form-control mb-2" id="search-price-to">
               <option>Price to</option>
               <option>Any</option>
@@ -61,7 +61,7 @@
             </select>
           </div>
 
-          <div class="col-6 col-sm-6 col-xl-2">
+          <div class="col-6 col-xl-2">
               <select class="form-control mb-2" id="search-bedrooms-from">
                 <option>Beds from</option>
                 <option>any</option>
@@ -73,7 +73,7 @@
               </select>
           </div>
 
-          <div class="col-6 col-sm-6 col-xl-2">
+          <div class="col-6 col-xl-2">
               <select class="form-control mb-2" id="search-bedrooms-to">
                 <option>Beds to</option>
                 <option>any</option>
@@ -84,7 +84,7 @@
               </select>
           </div>
 
-          <div class="col-6 col-sm-6 col-xl-2">
+          <div class="col-6 col-xl-2">
               <select class="form-control mb-2" id="search-bath-from">
                 <option>Bath from</option>
                 <option>any</option>
@@ -96,7 +96,7 @@
               </select>
           </div>
 
-          <div class="col-6 col-sm-6 col-xl-2">
+          <div class="col-6 col-xl-2">
               <select class="form-control mb-2" id="search-bedrooms-to">
                 <option>Bath to</option>
                 <option>any</option>

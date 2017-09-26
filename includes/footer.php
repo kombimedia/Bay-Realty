@@ -6,22 +6,22 @@
             <div class="row">
                   <div class="col-sm-6 col-md-3">
                     <div class="footer-widget">
-                      <h2>About Us</h2>
+                      <h3>About Us</h3>
                     </div>
                   </div>
                   <div class="col-sm-6 col-md-3">
                     <div class="footer-widget">
-                      <h2>Our Team</h2>
+                      <h3>Our Team</h3>
                     </div>
                   </div>
                   <div class="col-sm-6 col-md-3">
                     <div class="footer-widget">
-                      <h2>Property Press</h2>
+                      <h3>Property Press</h3>
                     </div>
                   </div>
                   <div class="col-sm-6 col-md-3">
                     <div class="footer-widget">
-                      <h2>Newsletter</h2>
+                      <h3>Newsletter</h3>
                     </div>
                   </div>
             </div>

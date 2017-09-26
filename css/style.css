@@ -93,13 +93,13 @@ form.search-form select {
   min-width: 100%;
 }
 .search-form-outer {
-  background-color: #189ebb;
+  background-color: #f1f1f1;
 }
 .search-form-inner {
  padding: 70px 0;
 }
 form button.btn {
-  background-color: #446da3;
+  background-color: #189ebb;
   color: #fff;
   width: 100%;
 }
