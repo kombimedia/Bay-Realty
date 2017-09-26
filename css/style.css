@@ -73,10 +73,26 @@ nav ul li a:hover {
   height: 300px;
   width: 100%;
 }
-
 .content-widget {
   padding: 100px 20px;
   text-align: center;
 }
 
+/* Form styles
+----------------------------------------------------- */
+form.search-form select {
+  min-width: 100%;
+}
+.search-form-outer {
+  background-color: #e1dad0;
+}
+.search-form-inner {
+ padding: 70px 0;
+}
+
+/* Slider styles
+----------------------------------------------------- */
+.slider-inner {
+  padding: 30px 0;
+}
 
