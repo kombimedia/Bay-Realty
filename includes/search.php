@@ -29,7 +29,7 @@
           </div>
         </div>
 
-        <div class="form-row form-inline mb-2">
+        <div class="form-row form-inline">
           <div class="col-6 col-xl-2">
             <select class="form-control mb-2" id="search-price-from">
               <option>Price from</option>
