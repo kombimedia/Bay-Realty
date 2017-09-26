@@ -14,6 +14,7 @@ Sand #fffced
   background-image: url("../images/home-image.jpg");
   background-position: center;
   padding: 0;
+  margin-top: -3.5rem;
 }
 .full-height {
   background-size: cover;
