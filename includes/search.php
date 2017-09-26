@@ -1,6 +1,5 @@
 <div class="container-fluid search-form-outer">
   <div class="container search-form-inner">
-    <!-- <div class="row"> -->
       <form class="search-form">
         <div class="form-row mb-2 mt-4">
           <div class="col">
@@ -31,8 +30,8 @@
         </div>
 
         <div class="form-row form-inline mb-2">
-          <div class="col-sm-12 col-md-2">
-            <select class="form-control" id="search-price-from">
+          <div class="col-6 col-sm-6 col-xl-2">
+            <select class="form-control mb-2" id="search-price-from">
               <option>Price from</option>
               <option>Any</option>
               <option>$350,000</option>
@@ -47,8 +46,8 @@
             </select>
           </div>
 
-          <div class="col-sm-12 col-md-2">
-            <select class="form-control" id="search-price-to">
+          <div class="col-6 col-sm-6 col-xl-2">
+            <select class="form-control mb-2" id="search-price-to">
               <option>Price to</option>
               <option>Any</option>
               <option>$450,000</option>
@@ -62,8 +61,8 @@
             </select>
           </div>
 
-          <div class="col-sm-12 col-md-2">
-              <select class="form-control" id="search-bedrooms-from">
+          <div class="col-6 col-sm-6 col-xl-2">
+              <select class="form-control mb-2" id="search-bedrooms-from">
                 <option>Beds from</option>
                 <option>any</option>
                 <option>1</option>
@@ -74,8 +73,8 @@
               </select>
           </div>
 
-          <div class="col-sm-12 col-md-2">
-              <select class="form-control" id="search-bedrooms-to">
+          <div class="col-6 col-sm-6 col-xl-2">
+              <select class="form-control mb-2" id="search-bedrooms-to">
                 <option>Beds to</option>
                 <option>any</option>
                 <option>2</option>
@@ -85,8 +84,8 @@
               </select>
           </div>
 
-          <div class="col-sm-12 col-md-2">
-              <select class="form-control" id="search-bath-from">
+          <div class="col-6 col-sm-6 col-xl-2">
+              <select class="form-control mb-2" id="search-bath-from">
                 <option>Bath from</option>
                 <option>any</option>
                 <option>1</option>
@@ -97,8 +96,8 @@
               </select>
           </div>
 
-          <div class="col-sm-12 col-md-2">
-              <select class="form-control" id="search-bedrooms-to">
+          <div class="col-6 col-sm-6 col-xl-2">
+              <select class="form-control mb-2" id="search-bedrooms-to">
                 <option>Bath to</option>
                 <option>any</option>
                 <option>2</option>
@@ -108,8 +107,7 @@
               </select>
           </div>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn">Search for Homes!</button>
       </form>
-    <!-- </div> -->
   </div>
 </div>

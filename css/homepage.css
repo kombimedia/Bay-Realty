@@ -8,6 +8,8 @@ Beige #e1dad0
 Sand #fffced
 */
 
+/* VH Image styles
+----------------------------------------------------- */
 .home-image {
   background-image: url("../images/home-image.jpg");
   background-position: center;
@@ -24,27 +26,43 @@ Sand #fffced
   top: 40%;
   left: 50%;
   margin: 0px auto;
-  max-width: 100%;
+  width: 90%;
   text-align: center;
   -ms-transform: translate(-50%,-50%); /* IE 9 */
   -webkit-transform: translate(-50%,-50%); /* Safari */
   transform: translate(-50%,-50%);
   color: #fff;
 }
+.home-image-widget{
+  max-width: 500px;
+}
 .home-image-widget img {
   margin-bottom: 30px;
 }
+.home-search-box {
+  top: 70%;
+  margin: 0px auto;
+  max-width: 1150px;
+}
+.search-form-outer {
+  background-color: rgba(24,158,187, 0.2);
+  border-radius: 10px;
+}
+.search-form-inner {
+ padding: 50px 0;
+}
+form button.btn {
+  background-color: #189ebb;
+}
+
+/* Content styles
+----------------------------------------------------- */
 .home-widget-top-container {
   border-bottom: 1px solid #189ebb;
 }
 .home-widget-top,
 .home-widget-bottom {
   padding: 100px 20px;
-}
-.home-search-box {
-  top: 80%;
-  margin: 0px auto;
-  max-width: 800px;
 }
 
 

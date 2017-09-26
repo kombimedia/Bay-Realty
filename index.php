@@ -24,14 +24,13 @@
           <img class="img-fluid" src="images/bay-realty-logo.png">
         <h1>The Best In The Bay</h1>
       </div>
-      <form class="form-inline mt-2 mt-md-0 home-search-box">
-          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
+      <div class="container home-search-box">
+        <?php
+          include 'includes/search.php';
+        ?>
+      </div>
     </div>
-    <?php
-      include 'includes/search.php';
-    ?>
+
     <!-- Home widget top area -->
     <div class="container-fluid">
       <div class="container home-widget-top-container">
@@ -108,7 +107,6 @@
         </div>
       </div>
     </div>
-
 
     <?php
       include 'includes/footer.php';

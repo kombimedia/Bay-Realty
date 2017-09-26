@@ -1,11 +1,10 @@
-
           <nav class="navbar navbar-expand-md fixed-top">
             <div class="container">
 
                 <a class="navbar-brand" href="index.php"><img src="images/bay-realty-logo.png"></a>
 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
+                  <span><i class="fa fa-bars" aria-hidden="true"></i></span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarsExampleDefault">

@@ -60,15 +60,24 @@ nav {
   background-color: #fff;
   border-bottom: 1px solid #446da3;
 }
-nav ul li a {
+nav ul li a,
+nav ul li a.dropdown-item {
   color: #446da3;
 }
-nav ul li a:hover {
+nav ul li a:hover,
+nav ul li a.dropdown-item:hover {
   color: #189ebb;
+}
+.navbar-toggler {
+  border-color: #446da3;
+}
+button span i.fa-bars {
+  color: #446da3;
 }
 .header-image {
   background-image: url("../images/home-image.jpg");
   background-position: center;
+  background-size: cover;
   padding: 0;
   height: 300px;
   width: 100%;
@@ -84,10 +93,18 @@ form.search-form select {
   min-width: 100%;
 }
 .search-form-outer {
-  background-color: #e1dad0;
+  background-color: #189ebb;
 }
 .search-form-inner {
  padding: 70px 0;
+}
+form button.btn {
+  background-color: #446da3;
+  color: #fff;
+  width: 100%;
+}
+form button.btn:hover {
+  opacity: .8;
 }
 
 /* Slider styles
