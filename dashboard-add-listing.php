@@ -120,14 +120,14 @@
     </div>
 
     <div class="form-row form-inline">
-      <div class="col-12 col-md-3 mb-3">
+      <div class="col-12 col-md-6 col-xl-3 mb-3">
         <label for="house-sqm">House Size</label>
         <div class="input-group">
           <input type="number" class="form-control" id="house-sqm" aria-describedby="h-sqm" placeholder="90, 180, 240">
           <span class="input-group-addon" id="h-sqm">sqm</span>
         </div>
       </div>
-      <div class="col-12 col-md-3 mb-3">
+      <div class="col-12 col-md-6 col-xl-3 mb-3">
         <label for="land-sqm">Land Size</label>
         <div class="input-group">
           <input type="number" class="form-control" id="land-sqm" aria-describedby="l-sqm" placeholder="450, 1150, 5000">
