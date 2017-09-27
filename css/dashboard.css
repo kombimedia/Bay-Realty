@@ -12,6 +12,7 @@ Sand #fffced
 -------------------------------------------------- */
 body {
   padding-top: 3.5rem;
+  color: #152a69;
 }
 
 /* Typography
@@ -19,7 +20,10 @@ body {
 h1 {
   margin-bottom: 20px;
   padding-bottom: 9px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #92becb;
+}
+h1, h2, h3, h4, h5 {
+  color: #189ebb;
 }
 
 /* Nav
@@ -84,5 +88,29 @@ a.dropdown-item:hover {
   color: #92becb;
 }
 
-/* Dashboard
+/* Form styles
+----------------------------------------------------- */
+form.add-listing-form select,
+form.add-listing-form input.wide,
+form.add-listing-form textarea {
+  min-width: 100%;
+}
+.form-inline label {
+  justify-content: left;
+}
+form button.btn {
+  background-color: #189ebb;
+  color: #fff;
+}
+form button.btn:hover {
+  opacity: .8;
+}
+
+/* Media queries
 -------------------------------------------------- */
+@media (min-width: 576px) {
+a i.fa-home,
+a i.fa-user {
+  font-size: 1.2rem;
+}
+}

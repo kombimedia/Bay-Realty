@@ -3,7 +3,7 @@
       <form class="search-form">
         <div class="form-row mb-2 mt-4">
           <div class="col">
-            <input type="text" class="form-control" id="search-input" placeholder="location, keyword, property ID, ">
+            <input type="text" class="form-control" id="search-input" placeholder="location, keyword, property ID">
           </div>
         </div>
         <div class="form-row form-inline mb-2">
