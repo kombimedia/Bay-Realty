@@ -47,11 +47,14 @@
       </div>
       <div class="col-12 col-md-6 col-xl-3 mb-3">
         <label for="price">Price</label>
-        <input type="text" class="form-control wide" id="price" placeholder="$100,000, Negotiation, Auction">
+        <div class="input-group">
+          <span class="input-group-addon" id="price$">$</span>
+          <input type="number" class="form-control" id="price" aria-describedby="price$" placeholder="100,000">
+        </div>
       </div>
       <div class="col-12 col-md-6 col-xl-3 mb-3">
-        <label for="map">Map Co-ordinates</label>
-        <input type="text" class="form-control wide" id="map" placeholder="41.850, -87.650">
+        <label for="sale-method">Sale Method</label>
+        <input type="number" class="form-control wide" id="sale-method" placeholder="Negotiation, Auction, Tender">
       </div>
     </div>
 
@@ -120,6 +123,10 @@
     </div>
 
     <div class="form-row form-inline">
+      <div class="col-12 col-md-6 col-xl-3 mb-3">
+        <label for="map">Map Co-ordinates</label>
+        <input type="text" class="form-control wide" id="map" placeholder="41.850, -87.650">
+      </div>
       <div class="col-12 col-md-6 col-xl-3 mb-3">
         <label for="house-sqm">House Size</label>
         <div class="input-group">
