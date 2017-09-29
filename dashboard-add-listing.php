@@ -149,23 +149,14 @@
 
     <div class="form-row form-inline">
       <div class="col-12 col-md-6 col-xl-3 mb-3">
-        <label for="image1">Upload Image 1</label>
-        <input type="file" class="form-control-file" id="image1" aria-describedby="fileHelp1" required>
-        <small id="fileHelp1" class="form-text text-muted">png, jpg or jpeg file types accepted</small>
-      </div>
-      <div class="col-12 col-md-6 col-xl-3 mb-3">
-        <label for="image2">Upload Image 2</label>
-        <input type="file" class="form-control-file" id="image2" aria-describedby="fileHelp2">
-        <small id="fileHelp2" class="form-text text-muted">png, jpg or jpeg file types accepted</small>
-      </div>
-      <div class="col-12 col-md-6 col-xl-3 mb-3">
-        <label for="image3">Upload Image 3</label>
+        <label for="image3">Upload Featured Image</label>
         <input type="file" class="form-control-file" id="image3" aria-describedby="fileHelp3">
         <small id="fileHelp3" class="form-text text-muted">png, jpg or jpeg file types accepted</small>
       </div>
       <div class="col-12 col-md-6 col-xl-3 mb-3">
-        <label for="image4">Upload Image 4</label>
-        <input type="file" class="form-control-file" id="image4" aria-describedby="fileHelp4">
+        <label for="image4">Upload Property Images</label>
+        <input id="image4" name="image-upload" type="file" class="file" multiple
+    data-show-upload="false" data-show-caption="true" data-msg-placeholder="Select {files} for upload..." aria-describedby="fileHelp4">
         <small id="fileHelp4" class="form-text text-muted">png, jpg or jpeg file types accepted</small>
       </div>
     </div>

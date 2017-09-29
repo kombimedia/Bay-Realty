@@ -9,7 +9,7 @@
         <div class="form-row form-inline mb-2">
           <div class="col">
             <select class="form-control" id="search-area">
-              <option>Area</option>
+              <option value="" disabled selected>Area</option>
               <option>Tauranga</option>
               <option>Mt Maunganui</option>
               <option>Papamoa</option>
@@ -18,7 +18,7 @@
 
           <div class="col">
             <select class="form-control" id="search-type">
-              <option>Type</option>
+              <option value="" disabled selected>Type</option>
               <option>House</option>
               <option>Apartment</option>
               <option>Studio</option>
@@ -32,7 +32,7 @@
         <div class="form-row form-inline">
           <div class="col-6 col-xl-2">
             <select class="form-control mb-2" id="search-price-from">
-              <option>Price from</option>
+              <option value="" disabled selected>Price from</option>
               <option>Any</option>
               <option>$350,000</option>
               <option>$450,000</option>
@@ -48,7 +48,7 @@
 
           <div class="col-6 col-xl-2">
             <select class="form-control mb-2" id="search-price-to">
-              <option>Price to</option>
+              <option value="" disabled selected>Price to</option>
               <option>Any</option>
               <option>$450,000</option>
               <option>$550,000</option>
@@ -63,7 +63,7 @@
 
           <div class="col-6 col-xl-2">
               <select class="form-control mb-2" id="search-bedrooms-from">
-                <option>Beds from</option>
+                <option value="" disabled selected>Beds from</option>
                 <option>any</option>
                 <option>1</option>
                 <option>2</option>
@@ -75,7 +75,7 @@
 
           <div class="col-6 col-xl-2">
               <select class="form-control mb-2" id="search-bedrooms-to">
-                <option>Beds to</option>
+                <option value="" disabled selected>Beds to</option>
                 <option>any</option>
                 <option>2</option>
                 <option>3</option>
@@ -86,7 +86,7 @@
 
           <div class="col-6 col-xl-2">
               <select class="form-control mb-2" id="search-bath-from">
-                <option>Bath from</option>
+                <option value="" disabled selected>Bath from</option>
                 <option>any</option>
                 <option>1</option>
                 <option>2</option>
@@ -98,7 +98,7 @@
 
           <div class="col-6 col-xl-2">
               <select class="form-control mb-2" id="search-bedrooms-to">
-                <option>Bath to</option>
+                <option value="" disabled selected>Beds to</option>
                 <option>any</option>
                 <option>2</option>
                 <option>3</option>
