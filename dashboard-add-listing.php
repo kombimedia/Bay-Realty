@@ -49,15 +49,15 @@
         <label for="price">Price</label>
         <div class="input-group">
           <span class="input-group-addon" id="price$">$</span>
-          <input type="text" class="form-control" id="price" aria-describedby="pricehelp" aria-label="Amount (to the nearest dollar)" placeholder="100,000">
+          <input type="text" class="form-control" id="price" aria-describedby="pricehelp" aria-label="Amount (to the nearest dollar)" placeholder="100,000" required>
           <span class="input-group-addon">.00</span>
         </div>
-        <small id="pricehelp" class="form-text text-muted">complete if you have a set buy price</small>
+        <small id="pricehelp" class="form-text text-muted">set sale price, or market value </small>
       </div>
       <div class="col-12 col-md-6 col-xl-3 mb-3">
         <label for="sale-method">Sale Method</label>
         <input type="number" class="form-control wide" id="sale-method" aria-describedby="salehelp" placeholder="Negotiation, auction, tender">
-        <small id="salehelp" class="form-text text-muted">complete if you <b>DO NOT</b> have a set buy price</small>
+        <small id="salehelp" class="form-text text-muted"><b>NOT REQUIRED</b> if you have a set sale price</small>
       </div>
     </div>
 

@@ -5,7 +5,6 @@ $(window).scroll(function() {
     } else
     {
         $('.navbar-trans').removeClass('afterscroll');
-    }  
+    }
 
 });
-  

@@ -3,11 +3,11 @@
 
                 <a class="navbar-brand" href="/"><img src="images/bay-realty-logo.png"></a>
 
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars-main" aria-controls="navbars-main" aria-expanded="false" aria-label="Toggle navigation">
                   <span><i class="fa fa-bars" aria-hidden="true"></i></span>
                 </button>
 
-                <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                <div class="collapse navbar-collapse" id="navbars-main">
                   <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
                       <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
