@@ -31,5 +31,5 @@
     </nav>
   <div class="container-fluid">
     <div class="row">
-      <main class="col-9 ml-auto col-md-10 pt-3" role="main">
-
+      <main class="col-10 ml-auto pt-3" role="main">
+        <!-- <a href="#" data-target="#sidebar" data-toggle="collapse"><i class="fa fa-bars fa-2x d-sm-none py-2 p-1"></i></a> -->

@@ -12,6 +12,7 @@ Sand #fffced
 -------------------------------------------------- */
 body {
   padding-top: 3.5rem;
+  color: #152a69;
 }
 
 /* Typography
@@ -19,10 +20,16 @@ body {
 h1 {
   margin-bottom: 20px;
   padding-bottom: 9px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #92becb;
+}
+h1, h2, h3, h4, h5 {
+  color: #189ebb;
+}
+label {
+  color: #446da3;
 }
 
-/* Nav
+/* Navigation
 -------------------------------------------------- */
 nav {
   background-color: #152a69;
@@ -30,14 +37,14 @@ nav {
 nav a.navbar-brand {
   font-size: 1rem;
 }
-nav ul li a,
+/*nav ul li a,
 nav ul li a.dropdown-item {
-  color: #446da3;
-}
-nav ul li a:hover,
+  color: #fff;
+}*/
+/*nav ul li a:hover,
 nav ul li a.dropdown-item:hover {
   color: #189ebb;
-}
+}*/
 .welcome {
   color: #fff;
 }
@@ -51,8 +58,8 @@ nav ul li a.dropdown-item:hover {
   left: 0;
   z-index: 1000;
   padding: 20px;
-  overflow-x: hidden;
-  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+  overflow-x: visible;
+  overflow-y: visible;
   border-right: 1px solid #eee;
 }
 
@@ -75,14 +82,71 @@ nav ul li a.dropdown-item:hover {
 .sidebar .nav-link {
   border-radius: 0;
 }
-a.nav-link,
-a.dropdown-item {
+a.nav-link {
   color: #fff;
 }
-a.nav-link:hover,
+a.dropdown-item {
+  background-color: #92becb;
+  color: #fff;
+  min-width: 9rem;
+}
 a.dropdown-item:hover {
-  color: #92becb;
+  background-color: #92becb;
+  color: #152a69;
+}
+.navbar-toggler {
+  border-color: #fff;
+}
+/*button span i.fa-bars {
+  color: #fff;
+}
+a i.fa-bars {
+  color: #152a69;
+}*/
+.sidebar .dropdown-toggle::after {
+  display: none;
 }
 
-/* Dashboard
+/* Form styles
+----------------------------------------------------- */
+form.add-listing-form select,
+form.add-listing-form input.wide,
+form.add-listing-form textarea {
+  min-width: 100%;
+}
+.form-inline label {
+  justify-content: left;
+}
+form button.btn {
+  background-color: #189ebb;
+  color: #fff;
+  padding: .75rem 1.5rem;
+}
+form button.btn:hover {
+  opacity: .8;
+}
+
+/* Media queries
 -------------------------------------------------- */
+/*@media (min-width: 576px) {
+a i.fa-home,
+a i.fa-user {
+  font-size: 1.2rem;
+}
+}*/
+
+@media (min-width: 768px) {
+  .sidebar .dropdown-toggle::after {
+  display: inline-block;
+}
+a i.fa-home,
+a i.fa-user {
+  font-size: 1.2rem;
+}
+}
+
+@media (min-width: 1200px) {
+.mb-xl-24 {
+  margin-bottom: 2.4rem!important;
+}
+}
