@@ -39,6 +39,29 @@
           <div class="col-sm-12 col-md-6">
             <div class="home-widget-top">
               <h2>Featured Property</h2>
+              <table>
+             <?php
+  $sql = "SELECT address, price, bed_des, images, title FROM properties WHERE featured_property = 1";
+    $result = $mysqli->query($sql);
+      if ($result->num_rows > 0) {
+          while($row = $result->fetch_assoc()) {
+                    echo "<table>";
+                    echo "<tr>";
+                    echo "<td> <img src='images/" .$row['images'] . "'></td>";
+                    echo "</tr>";
+                    echo "<tr>";
+                    echo "<td><h3>" . $row['title'] . "</h3><br><span>Address: " . $row['address'] . "<br><span>Price: $" . $row['price'] . "</span><br><span>Bedrooms: " . $row['bed_des'] . "</span></td>";
+                    echo "</tr>";
+                    echo "</table>";
+          }
+  } else {
+        echo "0 results";
+    }
+?>
+
+
+              </table>
+
             </div>
           </div>
           <div class="col-sm-12 col-md-6">
