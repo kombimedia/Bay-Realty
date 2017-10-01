@@ -45,11 +45,20 @@ $_SESSION["storeLandSize"] = $landSize;
 $_SESSION["storeMapCoord"] = $map;
 $_SESSION["storeFImage"] = $fImage;
 $_SESSION["storePImage"] = $pImage;
-$_SESSION["storeFListing"] = fListing;
+$_SESSION["storeFListing"] = $fListing;
+
+// Upload images and save to 'uploads' folder
+if(isset($_POST['submitAddListing'])) {
+  for($i = 0;$i<count($_FILES["upload_file"]["name"]);$i++) {
+     $uploadfile = $_FILES["upload_file"]["tmp_name"][$i];
+     $folder = "../images/uploads/";
+     move_uploaded_file($_FILES["upload_file"]["tmp_name"][$i], "$folder".$_FILES["upload_file"]["name"][$i]);
+  }
+}
 
 // Insert new listing into database
 $addData = "INSERT INTO properties (address, price, sell_method, title, type, map_co_ords, agents, images, featured_image, categories, bed_no, bed_des, bath_no, bath_des, garage_no, garage_des, lounge_no, lounge_des, house_size, land_size, featured_property)
-    VALUES ('$address', '$price', '$sMethod', '$lTitle', '$type', '$map', '$agent', '$pImage', '$fImage', '$city',  '$bedrooms', '$bedD', '$bathrooms', '$bathD', '$garages', '$garageD', '$lounges', '$loungeD',  '$houseSize', '$landSize', '$fListing')";
+    VALUES ('$address', '$price', '$sMethod', '$lTitle', '$type', '$map', '$agent', '$folder', '$uploadfile', '$city', '$bedrooms', '$bedD', '$bathrooms', '$bathD', '$garages', '$garageD', '$lounges', '$loungeD',  '$houseSize', '$landSize', '$fListing')";
     // if insert is successful go back to dashboard add listing page and print success message
     if ($mysqli->query($addData)) {
         $_SESSION["dbSuccess"] = "<div class='db-success'>New listing successfully added</div>";
@@ -62,6 +71,5 @@ $addData = "INSERT INTO properties (address, price, sell_method, title, type, ma
        }
        // close db connection
        $mysqli->close();
-
 
 

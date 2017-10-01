@@ -121,6 +121,17 @@ form button.btn:hover {
   opacity: .8;
 }
 
+/* Upload Images
+-------------------------------------------------- */
+#image_preview {
+  padding: 0;
+}
+#image_preview img {
+  width: 100%;
+  max-width: 300px;
+  margin-right: 5px;
+}
+
 /* Error Messages
 -------------------------------------------------- */
 .db-success,
