@@ -30,6 +30,27 @@
         ?>
       </div>
     </div>
+<?php
+
+$resultSet = $mysqli->query("SELECT * FROM properties WHERE type = '00002'");
+
+if($resultSet->num_rows != 0){
+
+  while($rows = $resultSet->fetch_assoc()){
+
+    $address =$rows['address'];
+    $price =$rows['price'];
+    $bed_des =$rows['bed_des'];
+    $bath_des = $rows['bath_des'];
+    $title = $rows['title'];
+    
+  }
+
+
+}
+
+
+?>
 
     <!-- Home widget top area -->
     <div class="container-fluid">
@@ -38,6 +59,16 @@
           <div class="col-sm-12 col-md-6">
             <div class="home-widget-top">
               <h2>Featured Property</h2>
+              <table>
+              <?php
+              echo "<tr>";
+              echo "<td><img src='images/{$bath_des}' alt= ''></td></tr>";
+              echo "<td><h3> $title </h3> <br><p>Address: $address <br> Price: $price <br> Bedrooms: $bed_des</p></tr></td>";
+              echo "<tr>";
+              
+              ?>
+              </table>
+          
             </div>
           </div>
           <div class="col-sm-12 col-md-6">
