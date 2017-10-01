@@ -33,7 +33,12 @@
   ?>
   <div class="container-fluid">
     <div class="row">
-      <div class="header-image"></div>
+      <div class="header-image">
+        <div class="page-image-widget">
+          <a href="/"><img class="img-fluid" src="images/bay-realty-logo.png"></a>
+          <h1>The Best In The Bay</h1>
+      </div>
+      </div>
     </div>
   </div>
 

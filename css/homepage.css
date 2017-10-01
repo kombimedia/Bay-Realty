@@ -14,7 +14,7 @@ Sand #fffced
   background-image: url("../images/home-image.jpg");
   background-position: center;
   padding: 0;
-  margin-top: -3.5rem;
+  /*margin-top: -3.5rem;*/
 }
 .full-height {
   background-size: cover;
@@ -24,7 +24,7 @@ Sand #fffced
 .home-image-widget,
 .home-search-box {
   position: absolute;
-  top: 40%;
+  top: 35%;
   left: 50%;
   margin: 0px auto;
   width: 90%;
@@ -41,7 +41,7 @@ Sand #fffced
   margin-bottom: 30px;
 }
 .home-search-box {
-  top: 80%;
+  top: 70%;
   margin: 0px auto;
   max-width: 1150px;
 }

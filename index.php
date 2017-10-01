@@ -16,9 +16,11 @@
     <link href="https://fonts.googleapis.com/css?family=Baumans" rel="stylesheet">
   </head>
   <body>
-    <?php
-      include 'includes/nav.php';
-    ?>
+
+      <?php
+        include 'includes/nav.php';
+      ?>
+
     <div class="home-image full-height">
       <div class="home-image-widget">
           <img class="img-fluid" src="images/bay-realty-logo.png">

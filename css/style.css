@@ -11,7 +11,7 @@ Sand #fffced
 /* site structure
 -------------------------------------------------- */
 body {
-  padding-top: 3.5rem;
+  /*padding-top: 3.5rem;*/
 }
 .container {
   width: 80%;
@@ -22,6 +22,66 @@ body {
 -------------------------------------------------- */
 h1, h2, h3, h4, h5 {
   font-family: 'Baumans', cursive;
+}
+
+/* header styles
+----------------------------------------------------- */
+nav img{
+  height: 30px;
+}
+nav {
+  background-color: #fff;
+  border-bottom: 1px solid #446da3;
+}
+nav ul li a,
+nav ul li a.dropdown-item {
+  color: #446da3;
+}
+nav ul li a:hover,
+nav ul li a.dropdown-item:hover {
+  color: #189ebb;
+}
+.navbar-toggler {
+  border-color: #446da3;
+}
+button span i.fa-bars {
+  color: #446da3;
+}
+.navbar {
+  opacity: 0;
+  transition: opacity .5s;
+}
+.opaque {
+  opacity: 1;
+  transition: opacity .5s;
+}
+.header-image {
+  background-image: url("../images/home-image.jpg");
+  position: relative;
+  background-position: center;
+  background-size: cover;
+  padding: 0;
+  height: 400px;
+  width: 100%;
+}
+
+.page-image-widget {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: 0px auto;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  -ms-transform: translate(-50%,-50%); /* IE 9 */
+  -webkit-transform: translate(-50%,-50%); /* Safari */
+  transform: translate(-50%,-50%);
+  color: #fff;
+}
+
+.content-widget {
+  padding: 100px 20px;
+  text-align: center;
 }
 
 /* footer styles
@@ -48,42 +108,6 @@ h1, h2, h3, h4, h5 {
 }
 span.copyrite {
   width: 100%;
-  text-align: center;
-}
-
-/* header styles
------------------------------------------------------ */
-nav img{
-  height: 30px;
-}
-nav {
-  background-color: #fff;
-  border-bottom: 1px solid #446da3;
-}
-nav ul li a,
-nav ul li a.dropdown-item {
-  color: #446da3;
-}
-nav ul li a:hover,
-nav ul li a.dropdown-item:hover {
-  color: #189ebb;
-}
-.navbar-toggler {
-  border-color: #446da3;
-}
-button span i.fa-bars {
-  color: #446da3;
-}
-.header-image {
-  background-image: url("../images/home-image.jpg");
-  background-position: center;
-  background-size: cover;
-  padding: 0;
-  height: 300px;
-  width: 100%;
-}
-.content-widget {
-  padding: 100px 20px;
   text-align: center;
 }
 
