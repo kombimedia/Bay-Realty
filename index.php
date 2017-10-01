@@ -32,27 +32,6 @@
         ?>
       </div>
     </div>
-<?php
-
-$resultSet = $mysqli->query("SELECT * FROM properties WHERE type = '00002'");
-
-if($resultSet->num_rows != 0){
-
-  while($rows = $resultSet->fetch_assoc()){
-
-    $address =$rows['address'];
-    $price =$rows['price'];
-    $bed_des =$rows['bed_des'];
-    $bath_des = $rows['bath_des'];
-    $title = $rows['title'];
-    
-  }
-
-
-}
-
-
-?>
 
     <!-- Home widget top area -->
     <div class="container-fluid">
@@ -62,13 +41,26 @@ if($resultSet->num_rows != 0){
             <div class="home-widget-top">
               <h2>Featured Property</h2>
               <table>
-              <?php
-              echo "<tr>";
-              echo "<td><img src='images/{$bath_des}' alt= ''></td></tr>";
-              echo "<td><h3> $title </h3> <br><p>Address: $address <br> Price: $price <br> Bedrooms: $bed_des</p></tr></td>";
-              echo "<tr>";
-              
-              ?>
+             <?php
+  $sql = "SELECT address, price, bed_des, images, title FROM properties WHERE featured_property = 1";
+    $result = $mysqli->query($sql);
+      if ($result->num_rows > 0) {
+          while($row = $result->fetch_assoc()) {
+                    echo "<table>";
+                    echo "<tr>";
+                    echo "<td> <img src='images/" .$row['images'] . "'></td>";
+                    echo "</tr>";
+                    echo "<tr>";
+                    echo "<td><h3>" . $row['title'] . "</h3><br><span>Address: " . $row['address'] . "<br><span>Price: $" . $row['price'] . "</span><br><span>Bedrooms: " . $row['bed_des'] . "</span></td>";
+                    echo "</tr>";
+                    echo "</table>";
+          }
+  } else {
+        echo "0 results";
+    }
+?>
+
+
               </table>
           
             </div>
