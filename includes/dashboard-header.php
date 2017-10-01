@@ -26,7 +26,7 @@
 
   <body>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top">
-      <a class="navbar-brand" href="/dashboard"><i class="fa fa-dashboard"></i> Bay Realty</a>
+      <a class="navbar-brand" href="/bay-realty/dashboard"><i class="fa fa-dashboard"></i> Bay Realty</a>
       <div class="welcome ml-auto">Welcome 'your name'</div>
     </nav>
   <div class="container-fluid">
