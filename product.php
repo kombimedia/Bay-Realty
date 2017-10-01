@@ -70,8 +70,6 @@ include 'includes/search.php';
         </div>
       </div>
 
-
-
 <?php
   include 'includes/footer.php';
 ?>
