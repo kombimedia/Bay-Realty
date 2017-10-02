@@ -12,7 +12,7 @@
                     echo "<td><h3>" . $row['title'] . "</h3><br><span>" . $row['address'] . "<br><span>Price: $" . $row['price'] . "</span><br><span> <i class='fa fa-bed' aria-hidden='true'></i> Bedrooms: " . $row['bed_des'] . "</span></td><br>";
                     echo "</tr>";
                     echo "<tr>";
-                    echo "<br><td><span><i class='fa fa-bath' aria-hidden='true'> Bathrooms  " . $row['bath_des'] . "</span></td>";
+                    echo "<td><span> <i class='fa fa-bath' aria-hidden='true'></i>  Bathrooms:  " . $row['bath_des'] . "</span></td>";
                     echo "</tr>";
                     echo "</table>";
                     echo "</div>";
