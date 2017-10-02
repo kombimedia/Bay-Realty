@@ -7,14 +7,14 @@
 ?>
 
   <h1>Add New Listing</h1>
-  <div id="db-success"><?php if (isset($_SESSION['dbSuccess'])) { echo $_SESSION['dbSuccess']; unset($_SESSION['dbSuccess']); }; ?></div>
-  <div id="db-error"><?php if (isset($_SESSION['dbError'])) { echo $_SESSION['dbError']; unset($_SESSION['dbError']); }; ?></div>
+  <div><?php if (isset($_SESSION['dbSuccess'])) { echo $_SESSION['dbSuccess']; unset($_SESSION['dbSuccess']); }; ?></div>
+  <div><?php if (isset($_SESSION['dbError'])) { echo $_SESSION['dbError']; unset($_SESSION['dbError']); }; ?></div>
 
-  <form class="add-listing-form" id="newListingForm" method="post" role="form" action="processes/process-add-listing.php" enctype="multipart/form-data">
+  <form class="add-listing-form" method="post" role="form" action="processes/process-add-listing.php" enctype="multipart/form-data">
     <div class="form-row form-inline mt-4">
       <div class="col-12 col-xl-4 mb-3">
         <label for="agents">Sales Agent</label>
-        <select class="form-control" name="salesAgent" id="type" required value="<?php if (isset($_SESSION['storeSalesAgent'])) { echo $_SESSION['storeSalesAgent']; unset($_SESSION['storeSalesAgent']); }; ?>">
+        <select class="form-control" name="salesAgent" id="type" required value="">
           <option value="" disabled selected>Select</option>
           <option value="00001">Cy</option>
           <option value="00002">Dane</option>
@@ -38,7 +38,7 @@
     <div class="form-row form-inline">
       <div class="col-12 col-md-6 col-xl-3 mb-3 mb-xl-24">
         <label for="city">City</label>
-        <select class="form-control" name="city" id="city" required value="<?php if (isset($_SESSION['storeCity'])) { echo $_SESSION['storeCity']; unset($_SESSION['storeCity']); }; ?>">
+        <select class="form-control" name="city" id="city" required value="">
           <option value="" disabled selected>Select</option>
           <option value="00002">Tauranga</option>
           <option value="00003">Mt Maunganui</option>
@@ -47,7 +47,7 @@
       </div>
       <div class="col-12 col-md-6 col-xl-3 mb-3 mb-xl-24">
         <label for="type">Property Type</label>
-        <select class="form-control" name="propertyType" id="type" required value="<?php if (isset($_SESSION['storePropertyType'])) { echo $_SESSION['storePropertyType']; unset($_SESSION['storePropertyType']); }; ?>">
+        <select class="form-control" name="propertyType" id="type" required value="">
           <option value="" disabled selected>Select</option>
           <option value="00001">House</option>
           <option value="00002">Apartment</option>
@@ -76,7 +76,7 @@
     <div class="form-row form-inline">
       <div class="col-12 col-md-6 col-xl-3 mb-3">
         <label for="bedrooms">Bedrooms</label>
-        <select class="form-control" name="bedrooms" id="bedrooms" required value="<?php if (isset($_SESSION['storeBedrooms'])) { echo $_SESSION['storeBedrooms']; unset($_SESSION['storeBedrooms']); }; ?>">
+        <select class="form-control" name="bedrooms" id="bedrooms" required value="">
           <option value="" disabled selected>Select</option>
           <option>0</option>
           <option>1</option>
@@ -92,7 +92,7 @@
       </div>
       <div class="col-12 col-md-6 col-xl-3 mb-3">
         <label for="bathrooms">Bathrooms</label>
-        <select class="form-control" name="bathrooms" id="bathrooms" required value="<?php if (isset($_SESSION['storeBathrooms'])) { echo $_SESSION['storeBathrooms']; unset($_SESSION['storeBathrooms']); }; ?>">
+        <select class="form-control" name="bathrooms" id="bathrooms" required value="">
           <option value="" disabled selected>Select</option>
           <option>0</option>
           <option>1</option>
@@ -111,7 +111,7 @@
     <div class="form-row form-inline">
       <div class="col-12 col-md-6 col-xl-3 mb-3">
         <label for="lounges">Lounges</label>
-        <select class="form-control" name="lounges" id="lounges" required value="<?php if (isset($_SESSION['storeLounges'])) { echo $_SESSION['storeLounges']; unset($_SESSION['storeLounges']); }; ?>">
+        <select class="form-control" name="lounges" id="lounges" required value="">
           <option value="" disabled selected>Select</option>
           <option>0</option>
           <option>1</option>
@@ -125,7 +125,7 @@
       </div>
       <div class="col-12 col-md-6 col-xl-3 mb-3">
         <label for="garages">Garages</label>
-        <select class="form-control" name="garages" id="garages" required value="<?php if (isset($_SESSION['storeGarages'])) { echo $_SESSION['storeGarages']; unset($_SESSION['storeGarages']); }; ?>">
+        <select class="form-control" name="garages" id="garages" required value="">
           <option value="" disabled selected>Select</option>
           <option>0</option>
           <option>1</option>
@@ -163,25 +163,22 @@
     <div class="form-row form-inline">
       <!-- <div class="col-12 col-md-6 col-xl-3 mb-3">
         <label for="image3">Upload Featured Image</label>
-        <input class="file" type="file" id="upload_file" name="upload_file[]" onchange="preview_image();" aria-describedby="f-image-help"/>
+        <input type="file" class="form-control-file" name="fImage" id="image3" aria-describedby="f-image-help" value="">
         <small id="f-image-help" class="form-text text-muted">png, jpg or jpeg file types accepted</small>
       </div> -->
-      <div class="col-12 col-md-6 col-xl-4 mb-3">
-        <label for="upload_file[]">Upload Property Images</label>
-        <input class="file" type="file" id="upload_file" name="upload_file[]" onchange="preview_image();" multiple aria-describedby="p-image-help"/>
-        <!-- <input type="submit" name='submit_image' value="Upload Image"/> -->
+      <div class="col-12 col-md-6 col-xl-3 mb-3">
+        <label for="p-image">Upload Property Images</label>
+        <input id="p-image" name="pImage" type="file" class="file" multiple
+    data-show-upload="false" data-show-caption="true" data-msg-placeholder="Select {files} for upload..." aria-describedby="p-image-help" value="">
         <small id="p-image-help" class="form-text text-muted">png, jpg or jpeg file types accepted</small>
       </div>
     </div>
-    <!-- <div class="form-row"> -->
-      <div class="col mb-3" id="image_preview"></div>
-    <!-- </div> -->
 
     <div class="form-row">
       <div class="col mb-3">
         <div class="form-check">
           <label class="form-check-label">
-            <input class="form-check-input" name="fListing" type="checkbox" value="<?php if (isset($_SESSION['storeFListing'])) { echo $_SESSION['storeFListing']; unset($_SESSION['storeFListing']); }; ?>">
+            <input class="form-check-input" name="fListing" type="checkbox" value="1">
             Featured Listing
           </label>
         </div>
@@ -190,26 +187,6 @@
 
     <button type="submit" class="btn" name="submitAddListing">Add Listing</button>
   </form>
-
-
-<?php
-          // $addData = "SELECT images, featured_image FROM properties WHERE listing_id = 00095";
-          // $result = $mysqli->query($addData);
-
-          // if ($result->num_rows > 0) {
-          //     // output data of each row
-          //     while($row = $result->fetch_assoc()) {
-          //         $image_name=$row["featured_image"];
-          //         $image_path=$row["images"];
-          //         echo "<img src=".$image_path."/".$image_name.">";
-          //     }
-          // } else {
-          //     echo "0 results";
-?>
-
-
-
-
 
 <?php
   include 'includes/dashboard-footer.php';
