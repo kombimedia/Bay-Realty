@@ -1,5 +1,5 @@
  <?php
-  $sql = "SELECT address, price, bed_des, images, title FROM properties WHERE featured_property = 1";
+  $sql = "SELECT address, price, bed_des, bath_des, images, title FROM properties WHERE featured_property = 1";
     $result = $mysqli->query($sql);
       if ($result->num_rows > 0) {
           while($row = $result->fetch_assoc()) {
@@ -9,7 +9,10 @@
                     echo "<td> <img src='images/" .$row['images'] . "'></td>";
                     echo "</tr>";
                     echo "<tr>";
-                    echo "<td><h3>" . $row['title'] . "</h3><br><span>Address: " . $row['address'] . "<br><span>Price: $" . $row['price'] . "</span><br><span>Bedrooms: " . $row['bed_des'] . "</span></td>";
+                    echo "<td><h3>" . $row['title'] . "</h3><br><span>" . $row['address'] . "<br><span>Price: $" . $row['price'] . "</span><br><span> <i class='fa fa-bed' aria-hidden='true'></i> Bedrooms: " . $row['bed_des'] . "</span></td><br>";
+                    echo "</tr>";
+                    echo "<tr>";
+                    echo "<br><td><span><i class='fa fa-bath' aria-hidden='true'> Bathrooms  " . $row['bath_des'] . "</span></td>";
                     echo "</tr>";
                     echo "</table>";
                     echo "</div>";
