@@ -40,7 +40,7 @@
             <div class="home-widget-top">
               <h2>Featured Property</h2>
 
-             <?php
+ <?php
   $sql = "SELECT address, price, bed_des, images, title FROM properties WHERE featured_property = 1";
     $result = $mysqli->query($sql);
       if ($result->num_rows > 0) {
@@ -60,9 +60,6 @@
         echo "0 results";
     }
 ?>
-
-
-
 
             </div>
           </div>
