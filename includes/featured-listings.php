@@ -1,5 +1,5 @@
  <?php
-  $sql = "SELECT address, price, bed_des, bath_des, images, title FROM properties WHERE featured_property = 1";
+  $sql = "SELECT address, price, bed_des, bath_des, images, title FROM properties WHERE featured_property = 1 ORDER BY RAND() LIMIT 2";
     $result = $mysqli->query($sql);
       if ($result->num_rows > 0) {
           while($row = $result->fetch_assoc()) {
