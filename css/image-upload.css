@@ -68,11 +68,11 @@ input#add_more:hover {
     text-align: left;
 }
 #img{
-    width: 17px;
+    width: 27px;
     border: none;
-    height:17px;
-    margin-left: -20px;
-    margin-bottom: 91px;
+    height:27px;
+    margin-left: -25px;
+    margin-bottom: 130px;
 }
 
 /*.abcd{
@@ -80,7 +80,7 @@ input#add_more:hover {
 }*/
 
 .abcd img{
-    height: 100px;
+    height: 150px;
     padding: 5px;
     border: 1px solid rgb(232, 222, 189);
 }

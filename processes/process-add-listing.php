@@ -1,7 +1,8 @@
 <?php
 session_start();
 include '../includes/db-connect.php';
-include '../includes/image-upload.php';
+// include 'processes/process-image-upload.php';
+include '/includes/process-image-upload.php';
 
 // Set variables
 $agent = ($_POST['salesAgent']);
@@ -44,7 +45,7 @@ $addData = "INSERT INTO properties (address, price, sell_method, title, type, ma
     VALUES ('$address', '$price', '$sMethod', '$lTitle', '$type', '$map', '$agent', '$pImage', '$city',  '$bedrooms', '$bedD', '$bathrooms', '$bathD', '$garages', '$garageD', '$lounges', '$loungeD',  '$houseSize', '$landSize', '$fListing')";
     // if insert is successful go back to dashboard add listing page and print success message
     if ($mysqli->query($addData)) {
-        $_SESSION["dbSuccess"] = "<div class='db-success'>New listing successfully added</div>";
+        $_SESSION["dbSuccess"] = "<div class='db-success'>New listing successfully created</div>";
         header('Location: ../dashboard-add-listing');
     }  else {
       // if insert is unsuccessful throw error

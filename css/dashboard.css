@@ -96,6 +96,9 @@ a.nav-link.no-dropdown:hover {
 
 /* Form styles
 ----------------------------------------------------- */
+form {
+  margin-bottom: 50px;
+}
 .listing-form {
   background-color: #f1f1f1;
   padding: 40px 20px;
@@ -135,16 +138,22 @@ input.btn:hover {
 /* Error Messages
 -------------------------------------------------- */
 .db-success,
-.db-error {
+.db-error,
+.image-success,
+.image-error {
   width: 100%;
   padding: 8px 0 8px 10px;
   color: #152a69;
 }
-.db-success {
+.db-success,
+.image-success {
   background-color: rgba(111,216,6, 0.6);
+  margin-bottom: 25px;
 }
-.db-error {
+.db-error,
+.image-error {
   background-color: rgba(255,0,0, 0.6);
+  margin-bottom: 25px;
 }
 
 /* Media queries

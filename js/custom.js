@@ -48,7 +48,8 @@ $('body').on('change', '#file', function(){
         var name = $(":file").val();
         if (!name)
         {
-            alert("First Image Must Be Selected");
+            //alert("First Image Must Be Selected");
+            document.getElementById("return-messages").innerHTML = "<div class='image-error'>Please select an image to upload</div>";
             e.preventDefault();
         }
     });
