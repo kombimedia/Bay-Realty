@@ -12,7 +12,7 @@
     <script src="http://malsup.github.com/jquery.form.js"></script>
     <!-- <script type="text/javascript" src="../js/jquery.js"></script>
     <script type="text/javascript" src="../js/jquery-form.js"></script> -->
-    <script type="text/javascript" src="../js/custom.js" ></script>
+    <script type="text/javascript" src="js/custom.js" ></script>
   </body>
 </html>
 <!-- Close database connection -->

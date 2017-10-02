@@ -18,6 +18,7 @@ if (($_FILES["file"]["size"][$i] < 500000) // Approx. 500kb files can be uploade
 && in_array($file_extension, $validextensions)) {
 //PHP Image Uploading Code
 }
+echo "<span>***Invalid file Type or file Size Exceeded***<span>";
 
 
 

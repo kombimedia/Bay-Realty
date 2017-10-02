@@ -1,6 +1,6 @@
 <?php
 session_start();
-include '../includes/db-connect.php';
+include 'includes/db-connect.php';
 
 // Set variables
 $agent = ($_POST['salesAgent']);
@@ -51,7 +51,7 @@ $_SESSION["storeFListing"] = $fListing;
 if(isset($_POST['submitAddListing'])) {
   for($i = 0;$i<count($_FILES["upload_file"]["name"]);$i++) {
      $uploadfile = $_FILES["upload_file"]["tmp_name"][$i];
-     $folder = "../images/uploads/";
+     $folder = "images/uploads/";
      move_uploaded_file($_FILES["upload_file"]["tmp_name"][$i], "$folder".$_FILES["upload_file"]["name"][$i]);
   }
 }
@@ -62,12 +62,12 @@ $addData = "INSERT INTO properties (address, price, sell_method, title, type, ma
     // if insert is successful go back to dashboard add listing page and print success message
     if ($mysqli->query($addData)) {
         $_SESSION["dbSuccess"] = "<div class='db-success'>New listing successfully added</div>";
-        header('Location: ../dashboard-add-listing');
+        header('Location: dashboard-add-listing');
     }  else {
       // if insert is unsuccessful throw error
        $_SESSION["dbError"] = "<div class='db-error'>Something went wrong! Please check that all fields have been filled correctly</div>";
         // $_SESSION["dbError"] = "<div class='db-error'>An error has occurred: " . $addData . " " . $mysqli->error . "</div>";
-        header('location: ../dashboard-add-listing');
+        header('location: dashboard-add-listing');
        }
        // close db connection
        $mysqli->close();
