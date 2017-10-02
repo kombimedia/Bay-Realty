@@ -160,20 +160,6 @@
       </div>
     </div>
 
-    <div class="form-row form-inline">
-      <!-- <div class="col-12 col-md-6 col-xl-3 mb-3">
-        <label for="image3">Upload Featured Image</label>
-        <input type="file" class="form-control-file" name="fImage" id="image3" aria-describedby="f-image-help" value="">
-        <small id="f-image-help" class="form-text text-muted">png, jpg or jpeg file types accepted</small>
-      </div> -->
-      <div class="col-12 col-md-6 col-xl-3 mb-3">
-        <label for="p-image">Upload Property Images</label>
-        <input id="p-image" name="pImage" type="file" class="file" multiple
-    data-show-upload="false" data-show-caption="true" data-msg-placeholder="Select {files} for upload..." aria-describedby="p-image-help" value="">
-        <small id="p-image-help" class="form-text text-muted">png, jpg or jpeg file types accepted</small>
-      </div>
-    </div>
-
     <div class="form-row">
       <div class="col mb-3">
         <div class="form-check">
@@ -185,7 +171,25 @@
       </div>
     </div>
 
-    <button type="submit" class="btn" name="submitAddListing">Add Listing</button>
+    <div class="form-row form-inline">
+      <!-- <div class="col-12 col-md-6 col-xl-3 mb-3">
+        <label for="p-image">Upload Featured Image</label>
+        <input type="file" class="form-control-file" name="fImage" id="p-image" aria-describedby="p-image-help" value="">
+        <small id="p-image-help" class="form-text text-muted">png, jpg or jpeg file types accepted</small>
+      </div> -->
+      <div class="col-12 col-md-6 col-xl-3 mb-3">
+        <label for="file">Upload Property Images</label>
+        <div id="filediv">
+          <input name="file[]" type="file" id="file" aria-describedby="p-image-help"/>
+        </div>
+        <input type="button" id="add_more" class="btn" value="Add More Files"/>
+        <input type="submit" value="Upload File" name="submit" id="upload" class="btn"/>
+        <small id="p-image-help" class="form-text text-muted">png, jpg or jpeg file types accepted, max size 500MB</small>
+      </div>
+    </div>
+
+    <!-- <button type="submit" class="btn" name="submit" id="upload">Add Listing</button> -->
+
   </form>
 
 <?php

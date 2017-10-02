@@ -112,25 +112,27 @@ form.add-listing-form textarea {
 .form-inline label {
   justify-content: left;
 }
-form button.btn {
+form button.btn,
+input.btn {
   background-color: #189ebb;
   color: #fff;
   padding: .75rem 1.5rem;
 }
-form button.btn:hover {
+form button.btn:hover,
+input.btn:hover {
   opacity: .8;
 }
 
 /* Upload Images
 -------------------------------------------------- */
-#image_preview {
+/*#image_preview {
   padding: 0;
 }
 #image_preview img {
   width: 100%;
   max-width: 300px;
   margin-right: 5px;
-}
+}*/
 
 /* Error Messages
 -------------------------------------------------- */

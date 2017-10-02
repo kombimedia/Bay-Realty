@@ -1,6 +1,7 @@
 <?php
 session_start();
 include '../includes/db-connect.php';
+include '../includes/image-upload.php';
 
 // Set variables
 $agent = ($_POST['salesAgent']);
