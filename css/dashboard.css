@@ -37,14 +37,6 @@ nav {
 nav a.navbar-brand {
   font-size: 1rem;
 }
-/*nav ul li a,
-nav ul li a.dropdown-item {
-  color: #fff;
-}*/
-/*nav ul li a:hover,
-nav ul li a.dropdown-item:hover {
-  color: #189ebb;
-}*/
 .welcome {
   color: #fff;
 }
@@ -104,6 +96,12 @@ a.nav-link.no-dropdown:hover {
 
 /* Form styles
 ----------------------------------------------------- */
+.listing-form {
+  background-color: #f1f1f1;
+  padding: 40px 20px;
+  border-radius: 5px;
+  margin-bottom: 25px;
+}
 form.add-listing-form select,
 form.add-listing-form input.wide,
 form.add-listing-form textarea {
