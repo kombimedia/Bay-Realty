@@ -1,32 +1,41 @@
 <?php
-//if (isset($_POST['submit'])) {
-    $j = 0; //Variable for indexing uploaded image
+session_start();
+//Declaring Path for uploaded images
+$target_path = "../images/uploads/";
+//loop through images array to get individual element - name, extension
+for ($i = 0; $i < count($_FILES['file']['name']); $i++) {
+    // Accepted extensions
+    $validextensions = array('jpeg', 'jpg', 'png');
+    // Separate file name from dot(.)
+    $ext = explode('.', basename($_FILES['file']['name'][$i]));
+    // store extensions to a variable
+    $file_extension = end($ext);
+    // Set image path and name to a variable
+    $image_name = $target_path . (basename($_FILES['file']['name'][$i]));
+    // Set image name to a variable
+    $images = ($_FILES['file']['name'][$i]);
+    // Store image name to a session to use 'process-add-listing.php'
+    $_SESSION["images"] = $images;
 
-  $target_path = "../images/uploads/"; //Declaring Path for uploaded images
-    for ($i = 0; $i < count($_FILES['file']['name']); $i++) {//loop to get individual element from the array
-
-        $validextensions = array("jpeg", "jpg", "png");  //Extensions which are allowed
-        $ext = explode('.', basename($_FILES['file']['name'][$i]));//explode file name from dot(.)
-        $file_extension = end($ext); //store extensions in the variable
-
-    $target_path = $target_path . md5(uniqid()) . "." . $ext[count($ext) - 1];//set the target path with a new name of image
-        $j = $j + 1; // increment the number of uploaded images according to the files in array
-
-    if (($_FILES["file"]["size"][$i] < 500000) //Approx. 100kb files can be uploaded.
+    // Validate image before storing to folder and DB
+    // Limit file size to less than 500kb
+    if (($_FILES['file']['size'][$i] < 500000)
+                // Check for valid file extensio
                 && in_array($file_extension, $validextensions)) {
-            if (move_uploaded_file($_FILES['file']['tmp_name'][$i], $target_path)) {//if file moved to uploads folder
+            // if all ok, image is moved to uploads folder
+            if  (move_uploaded_file($_FILES['file']['tmp_name'][$i], $image_name)) {
                 $_SESSION["imageSuccess"] = "<div class='image-success'>Image(s) successfully uploaded</div>";
-                //echo $j. ').<span id="noerror">Image uploaded successfully!.</span><br/><br/>';
-            } else {//if file was not moved.
+                // echo '<span id="noerror">Image uploaded successfully!.</span><br/><br/>';
+                // if there is a problem with the move
+            } else {
                 $_SESSION["imageError"] = "<div class='image-error'>Please try again...</div>";
-                //echo $j. ').<span id="error">please try again!.</span><br/><br/>';
+                // echo '.<span id="error">please try again!.</span><br/><br/>';
             }
-        } else {//if file size and file type was incorrect.
+            // if file size and file type check fails
+        } else {
             $_SESSION["imageError"] = "<div class='image-error'>Invalid file size or type</div>";
-            //echo $j. ').<span id="error">***Invalid file Size or Type***</span><br/><br/>';
+            // echo '<span id="error">***Invalid file Size or Type***</span><br/><br/>';
         }
-        //header('location: ../dashboard-add-listing');
-    }
-//}
+}
 
 ?>
