@@ -10,9 +10,10 @@
   <!-- DB error/success messages -->
   <div><?php if (isset($_SESSION['dbSuccess'])) { echo $_SESSION['dbSuccess']; unset($_SESSION['dbSuccess']); }; ?></div>
   <div><?php if (isset($_SESSION['dbError'])) { echo $_SESSION['dbError']; unset($_SESSION['dbError']); }; ?></div>
+  <div id="ajax-message"></div>
 
 
-    <form class="add-listing-form" method="post" role="form" action="" enctype="multipart/form-data">
+    <form class="add-listing-form" method="post" role="form" action="processes/process-add-listing-form.php" enctype="multipart/form-data">
       <div class="listing-form">
         <div class="form-row form-inline mt-4">
           <div class="col-12 col-xl-4 mb-3">
@@ -197,7 +198,5 @@
 </form>
 
 <?php
-  include 'processes/process-image-upload.php';
-  include 'processes/process-add-listing.php';
   include 'includes/dashboard-footer.php';
 ?>
