@@ -22,6 +22,7 @@ $houseSize = ($_POST['houseSize']);
 $landSize = ($_POST['landSize']);
 $map = ($_POST['mapCoord']);
 $images = ($_SESSION['images']);
+$images = $images +1;
 $fListing = ($_POST['fListing']);
 // Global session variables
 

@@ -181,6 +181,7 @@ input#add_more:hover {
   width: 100%;
   padding: 8px 0 8px 10px;
   color: #152a69;
+  transition: opacity .5s;
 }
 .db-success,
 .image-success {

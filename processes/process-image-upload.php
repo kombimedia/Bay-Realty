@@ -22,7 +22,7 @@ for ($i = 0; $i < count($_FILES['file']['name']); $i++) {
     // Rename image and path to include property listing_id
     $image_name = $listing_id . '_' . $image_name;
     // Get image size
-    $image_size = $_FILES['file']['size'][$i];
+    $image_size = $_FILES['file']['size'][$i] . 'KB';
     // Store images listing_id to a session to use as reference in 'process-add-listing.php'
     $_SESSION["images"] = $listing_id;
     // Declare path for uploaded images
@@ -32,8 +32,7 @@ for ($i = 0; $i < count($_FILES['file']['name']); $i++) {
     // Limit file size to less than 500kb
     if (($image_size < 500001) && in_array($image_type, $validextensions)) {
 
-            $addData = "INSERT INTO images (img_name, img_size, img_type, listing_id)
-            VALUES ('$image_name', '$image_size', '$image_type', '$listing_id')";
+            $addData = "INSERT INTO images (img_name, img_size, img_type, listing_id) VALUES ('$image_name', '$image_size', '$image_type', '$listing_id')";
             // if insert is successful go back to dashboard add listing page and return success message
             if ($mysqli->query($addData)) {
                 $_SESSION["dbSuccess"] = "<div class='db-success'>New listing successfully created</div>";

@@ -15,6 +15,7 @@
 
     <form class="add-listing-form" method="post" role="form" action="processes/process-add-listing-form.php" enctype="multipart/form-data">
       <div class="listing-form">
+        <h3>Property Details</h3>
         <div class="form-row form-inline mt-4">
           <div class="col-12 col-xl-4 mb-3">
             <label for="agents">Sales Agent</label>
@@ -169,7 +170,7 @@
             <div class="form-check">
               <label class="form-check-label">
                 <input class="form-check-input" name="fListing" type="checkbox" value="1">
-                Featured Listing
+                <h5 class="ml-1">Featured Listing</h5>
               </label>
             </div>
           </div>
@@ -185,6 +186,7 @@
   <div class="form-row form-inline">
     <div class="col col-lg-6">
       <div class="image-form">
+        <h3 class="mb-4">Property Images</h3>
         <label for="file">Upload Property Images</label>
         <small id="p-image-help" class="form-text text-muted">png, jpg or jpeg file types accepted, max size 500MB</small><br>
         <div id="filediv">
