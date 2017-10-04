@@ -24,10 +24,9 @@ for ($i = 0; $i < count($_FILES['file']['name']); $i++) {
     // Get image size
     $image_size = $_FILES['file']['size'][$i] . 'KB';
     // Store images listing_id to a session to use as reference in 'process-add-listing.php'
-    $_SESSION["images"] = $listing_id;
+    //$_SESSION["images"] = $listing_id;
     // Declare path for uploaded images
     $file_path = "../images/uploads/".$image_name;
-
     // Validate image before storing to folder and DB
     // Limit file size to less than 500kb
     if (($image_size < 500001) && in_array($image_type, $validextensions)) {

@@ -21,8 +21,8 @@ $garageD = ($_POST['garageDescription']);
 $houseSize = ($_POST['houseSize']);
 $landSize = ($_POST['landSize']);
 $map = ($_POST['mapCoord']);
-$images = ($_SESSION['images']);
-$images = $images +1;
+//$images = ($_SESSION['images']);
+//$images = $images +1;
 $fListing = ($_POST['fListing']);
 // Global session variables
 
@@ -40,8 +40,8 @@ $_SESSION["storeMapCoord"] = $map;
 //$_SESSION["storePImage"] = $images;
 
 // Insert new listing into database
-$addData = "INSERT INTO properties (agents, title, address, categories, type, price, sell_method, bed_no, bed_des, bath_no, bath_des, lounge_no, lounge_des, garage_no, garage_des, house_size, land_size, map_co_ords, images, featured_property)
-    VALUES ('$agent', '$lTitle', '$address', '$city', '$type', '$price', '$sMethod', '$bedrooms', '$bedD', '$bathrooms', '$bathD', '$lounges', '$loungeD', '$garages', '$garageD', '$houseSize', '$landSize', '$map', '$images', '$fListing')";
+$addData = "INSERT INTO properties (agents, title, address, categories, type, price, sell_method, bed_no, bed_des, bath_no, bath_des, lounge_no, lounge_des, garage_no, garage_des, house_size, land_size, map_co_ords, featured_property)
+    VALUES ('$agent', '$lTitle', '$address', '$city', '$type', '$price', '$sMethod', '$bedrooms', '$bedD', '$bathrooms', '$bathD', '$lounges', '$loungeD', '$garages', '$garageD', '$houseSize', '$landSize', '$map', '$fListing')";
     // if insert is successful go back to dashboard add listing page and print success message
     if ($mysqli->query($addData)) {
         $_SESSION["dbSuccess"] = "<div class='db-success'>New listing successfully created</div>";

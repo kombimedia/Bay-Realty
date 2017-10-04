@@ -26,6 +26,16 @@ include 'includes/dashboard-sidebar.php';
   </div>
 
 <?php
+            if ($mysqli->query($addData)) {
+                $_SESSION["dbSuccess"] = "<div class='db-success'>New listing successfully created</div>";
+                //echo '<span class="db-success">Your listing was created successfully</span><br/><br/>';
+            }  else {
+              // if insert is unsuccessful throw error
+               $_SESSION["dbError"] = "<div class='db-error'>Something went wrong! Please check that all fields have been filled correctly</div>";
+               //echo '<span class="db-error">Something went wrong! Please check that all fields have been filled correctly</span><br/><br/>';
+              //$_SESSION["dbError"] = "<div class='db-error'>An error has occurred: " . $addData . " " . $mysqli->error . "</div>";
+               }
+
 
 
 // // Get the listing_id of the new created property listing
@@ -93,67 +103,16 @@ include 'includes/dashboard-sidebar.php';
 
 
 <?php
-
-// if (isset($_POST['submit'])) {
-// // Variable for indexing uploaded image.
-// $j = 0;
-// // Declaring Path for uploaded images.
-// $target_path = "uploads/test/";
-
-// // Loop to get individual element from the array
-// for ($i = 0; $i < count($_FILES['file']['name']); $i++) {
-
-//     // Extensions which are allowed.
-//     $validextensions = array("jpeg", "jpg", "png");
-
-//     // Explode file name from dot(.)
-//     $ext = explode('.', basename($_FILES['file']['name'][$i]));
-
-//     // Store extensions in the variable.
-//     $file_extension = end($ext);
-//     // Set the target path with a new name of image.
-//     $target_path = $target_path . md5(uniqid()) . "." . $ext[count($ext) - 1];
-
-//     // Increment the number of uploaded images according to the files in array.
-//     $j = $j + 1;
-
-//     if (($_FILES["file"]["size"][$i] < 100000) && in_array($file_extension, $validextensions)) {
-
-//         // If file moved to uploads folder.
-//         if (move_uploaded_file($_FILES['file']['tmp_name'][$i], $target_path)) {
-
-//             echo '<div id="noerror">Image '.$j.'-->Image Uploaded!</div>';
-
-//             // File was moved, so execute code here
-//             //Connection to DB
-
-//             $mysqli = new mysqli("localhost", "my_user", "my_password", "table_name");
-
-//             // check connection
-//             if ($mysqli->connect_errno) {
-//                 printf("Connect failed: %s\n", $mysqli->connect_error);
-//                 exit();
-//             }
-
-//             $mysqli->query("INSERT INTO images_table (img_column_1) VALUES ('".$_FILES['file']['tmp_name'][$i]."')");
-
-//             //Close DB connection
-//             mysqli_close($con);
-
-//         //  If File Was Not Moved.
-//         } else {
-
-//             echo '<div id="error">Image '.$j.'--> <b>Please Try Again!</b></div>';
-//         }
-
-//     //If File Size And File Type Was Incorrect.
-//     } else {
-
-//         echo '<div id="error">Image '.$j.'--> <b>Check file Size or Type</b></div>';
-
-//     }
-// }
-// }
+// $addData = "SELECT images.img_name FROM images INNER JOIN properties WHERE properties.listing_id = images.listing_id ORDER BY images.image_id ASC LIMIT 1";
+// $result = $mysqli->query($addData);
+//             // if insert is successful go back to dashboard add listing page and return success message
+//       if ($result->num_rows > 0) {
+//               // output data of each row
+//               while($row = $result->fetch_assoc()) {
+//                 $featured_image = $row["img_name"];
+//                   echo $featured_image;
+//               }
+//           }
 ?>
 
 
