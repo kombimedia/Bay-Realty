@@ -103,16 +103,16 @@ include 'includes/dashboard-sidebar.php';
 
 
 <?php
-// $addData = "SELECT images.img_name FROM images INNER JOIN properties WHERE properties.listing_id = images.listing_id ORDER BY images.image_id ASC LIMIT 1";
-// $result = $mysqli->query($addData);
-//             // if insert is successful go back to dashboard add listing page and return success message
-//       if ($result->num_rows > 0) {
-//               // output data of each row
-//               while($row = $result->fetch_assoc()) {
-//                 $featured_image = $row["img_name"];
-//                   echo $featured_image;
-//               }
-//           }
+$getImages = "SELECT images.img_name FROM images INNER JOIN properties WHERE properties.listing_id = images.listing_id ORDER BY images.image_id ASC LIMIT 1";
+$result = $mysqli->query($getImages);
+            // if insert is successful go back to dashboard add listing page and return success message
+      if ($result->num_rows > 0) {
+              // output data of each row
+              while($row = $result->fetch_assoc()) {
+                $featured_image = $row["img_name"];
+                  echo $featured_image;
+              }
+          }
 ?>
 
 
