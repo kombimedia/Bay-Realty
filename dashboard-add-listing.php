@@ -193,6 +193,7 @@
           <input class="form-control" name="file[]" type="file" id="file" aria-describedby="p-image-help"/>
         </div>
         <input type="button" id="add_more" class="btn" value="Add Another Image"/>
+        <small class="form-text text-muted mt-4">The last image uploaded will be used as your featured image</small>
       </div>
     </div>
   </div>

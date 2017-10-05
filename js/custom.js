@@ -16,7 +16,8 @@ $(window).scroll(function() {
 // });
 
 // Image upload handler
-var abc = 0; //Declaring and defining global increment variable
+// Declare global increment variable
+var abc = 0;
 
 $(document).ready(function() {
 
@@ -29,10 +30,11 @@ $(document).ready(function() {
 
 // following function will executes on change event of file input to select different file
 $('body').on('change', '#file', function(){
-            if (this.files && this.files[0]) {
-                 abc += 1; // incrementing global variable by 1
+          if (this.files && this.files[0]) {
+              // incrementing global variable by 1
+              abc += 1;
 
-        var z = abc - 1;
+          var z = abc - 1;
                 var x = $(this).parent().find('#previewimg' + z).remove();
                 $(this).before("<div id='abcd"+ abc +"' class='abcd'><img id='previewimg" + abc + "' src=''/></div>");
 
@@ -47,7 +49,7 @@ $('body').on('change', '#file', function(){
             }
         });
 
-// To preview image
+    // To preview image
     function imageIsLoaded(e) {
         $('#previewimg' + abc).attr('src', e.target.result);
     };
