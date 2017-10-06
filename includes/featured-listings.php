@@ -8,6 +8,7 @@ $result = $mysqli->query($addData);
               while($row = $result->fetch_assoc()) {
                 $featured_image = $row["img_name"];
                
+               echo $featured_image;
               }
           }
 
