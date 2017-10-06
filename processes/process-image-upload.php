@@ -59,7 +59,7 @@ for ($i = 0; $i < count($_FILES['file']['name']); $i++) {
                // Save image files to images/uploads folder
             if (move_uploaded_file($image_tmp, $file_path)) {
                 // if image is moved to uploads folder return success message
-                $_SESSION["imageSuccess"] = "<div class='image-success'>Image(s) successfully uploaded</div>";
+                //$_SESSION["imageSuccess"] = "<div class='image-success'>Image(s) successfully uploaded</div>";
                 // if file was not moved throw error message
             } else {
                 $_SESSION["imageError"] = "<div class='image-error'>Image(s) were not moved to uploads folder</div>";

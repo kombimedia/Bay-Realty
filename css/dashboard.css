@@ -28,6 +28,10 @@ h1, h2, h3, h4, h5 {
 label {
   color: #446da3;
 }
+/*sup {
+  top: .3em !important;
+  bottom: .3px !important;
+}*/
 
 /* Navigation
 -------------------------------------------------- */
@@ -162,6 +166,31 @@ input#add_more:hover {
   height: 150px;
   padding: 10px;
   border: 1px solid #189ebb;
+}
+
+/* View Listings Table
+-------------------------------------------------- */
+thead.view-listings-head {
+  background-color: #92becb;
+  color: #fff;
+}
+.table td,
+.table th {
+  vertical-align: middle;
+}
+td a.view-listing-edit,
+td a.view-listing-delete {
+  text-decoration: none;
+}
+td a.view-listing-edit:hover,
+td a.view-listing-delete:hover {
+  text-decoration: underline;
+}
+td a.view-listing-edit {
+  color: green;
+}
+td a.view-listing-delete {
+  color: red;
 }
 
 /* Error Messages
