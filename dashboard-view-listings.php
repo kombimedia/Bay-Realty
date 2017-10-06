@@ -4,6 +4,7 @@ $title = "View Listings";
 $metaD = "Admin dashboard page, view listings";
 include 'includes/dashboard-header.php';
 include 'includes/dashboard-sidebar.php';
+$link = include 'includes/db-connect.php';
 ?>
 
   <h1>View Listing</h1>
@@ -33,6 +34,36 @@ echo "<table class='table table-hover table-responsive view-listings'>";
   echo "</thead>";
 echo "<tbody>";
 
+
+$query = "SELECT listing_id, agents, title, address, categories, type, price, sell_method, bed_no, bath_no, lounge_no, garage_no, house_size, land_size, featured_image, featured_property
+        FROM properties;";
+$query.= "SELECT first_name, surname
+        FROM agents
+        INNER JOIN properties WHERE properties.agents = agents.agent_id;";
+
+/* execute multi query */
+if (mysqli_multi_query($link, $query)) {
+    do {
+        /* store first result set */
+        if ($result = mysqli_store_result($link)) {
+            while ($row = mysqli_fetch_row($result)) {
+                printf("%s\n", $row[0]);
+            }
+            mysqli_free_result($result);
+        }
+        /* print divider */
+        if (mysqli_more_results($link)) {
+            printf("-----------------\n");
+        }
+    } while (mysqli_next_result($link));
+}
+
+
+       echo "</tbody>";
+       echo  "</table>";
+
+
+
 // $getData2 = "SELECT first_name, surname
 //              FROM agents
 //              INNER JOIN properties WHERE properties.agents = agents.agent_id";
@@ -49,102 +80,109 @@ echo "<tbody>";
 
 
 
-$getData1 = "SELECT listing_id, agents, title, address, categories, type, price, sell_method, bed_no, bath_no, lounge_no, garage_no, house_size, land_size, featured_image, featured_property
-             FROM properties";
-        $result1 = $mysqli->query($getData1);
-        // Check if there are any records to show
-        if ($result1->num_rows > 0) {
-            // Loop through data and output each row
-            while($row1 = $result1->fetch_assoc()) {
 
-              $featured = $row1['featured_property'];
-              switch ($featured) {
-                  case "0":
-                    $featured = "No";
-                    break;
-                  case "1":
-                    $featured = "Yes";
-                    break;
-              }
-              $city = $row1['categories'];
-              switch ($city) {
-                  case "00002":
-                    $city = "Tauranga";
-                    break;
-                  case "00003":
-                    $city = "Mt Maunganui";
-                    break;
-                  case "00004":
-                    $city = "Papamoa";
-                    break;
-              }
-              $type = $row1['type'];
-              switch ($type) {
-                  case "00001":
-                    $type = "House";
-                    break;
-                  case "00002":
-                    $type = "Apartment";
-                    break;
-                  case "00003":
-                    $type = "Studio";
-                    break;
-                  case "00004":
-                    $type = "Unit";
-                    break;
-                  case "00005":
-                    $type = "Section";
-                    break;
-                  case "00006":
-                    $type = "Lifestyle";
-                    break;
-              }
-              $agent = $row1['agents'];
-              switch ($agent) {
-                  case "00001":
-                    $agent = "Cy";
-                    break;
-                  case "00002":
-                    $agent = "Dane";
-                    break;
-                  case "00003":
-                    $agent = "Belinda";
-                    break;
-                  case "00004":
-                    $agent = "Lily";
-                    break;
-                  case "00005":
-                    $agent = "Kobi";
-                    break;
-                  case "00006":
-                    $agent = "Celia";
-                    break;
-              }
 
-                    echo "<tr>";
-                      echo "<td><img width='150' src='images/uploads/" . $row1['featured_image'] . "'></td>";
-                      echo "<td>" . $row1['listing_id'] . "<br><a class='view-listing-edit' href='#'>Edit</a> <a class='view-listing-delete' href='#'>Delete</a></td>";
-                      echo "<td>" . $agent . "</td>";
-                      echo "<td>" . $row1['title'] . "</td>";
-                      echo "<td>" . $row1['address'] . "</td>";
-                      echo "<td>" . $city . "</td>";
-                      echo "<td>" . $type . "</td>";
-                      echo "<td>" . $row1['price'] . "</td>";
-                      echo "<td>" . $row1['sell_method'] . "</td>";
-                      echo "<td>" . $row1['bed_no'] . "</td>";
-                      echo "<td>" . $row1['bath_no'] . "</td>";
-                      echo "<td>" . $row1['lounge_no'] . "</td>";
-                      echo "<td>" . $row1['garage_no'] . "</td>";
-                      echo "<td>" . $row1['house_size'] . "m<sub>2</sub></td>";
-                      echo "<td>" . $row1['land_size'] . "m<sub>2</sub></td>";
-                      echo "<td>" . $featured . "</td>";
-                    echo "</tr>";
-            }
-        } else {
-            echo "No property listings to show";
-        }
-  echo "</tbody>";
-echo  "</table>";
+
+
+
+
+
+// $getData1 = "SELECT listing_id, agents, title, address, categories, type, price, sell_method, bed_no, bath_no, lounge_no, garage_no, house_size, land_size, featured_image, featured_property
+//              FROM properties";
+//         $result1 = $mysqli->query($getData1);
+//         // Check if there are any records to show
+//         if ($result1->num_rows > 0) {
+//             // Loop through data and output each row
+//             while($row1 = $result1->fetch_assoc()) {
+
+//               $featured = $row1['featured_property'];
+//               switch ($featured) {
+//                   case "0":
+//                     $featured = "No";
+//                     break;
+//                   case "1":
+//                     $featured = "Yes";
+//                     break;
+//               }
+//               $city = $row1['categories'];
+//               switch ($city) {
+//                   case "00002":
+//                     $city = "Tauranga";
+//                     break;
+//                   case "00003":
+//                     $city = "Mt Maunganui";
+//                     break;
+//                   case "00004":
+//                     $city = "Papamoa";
+//                     break;
+//               }
+//               $type = $row1['type'];
+//               switch ($type) {
+//                   case "00001":
+//                     $type = "House";
+//                     break;
+//                   case "00002":
+//                     $type = "Apartment";
+//                     break;
+//                   case "00003":
+//                     $type = "Studio";
+//                     break;
+//                   case "00004":
+//                     $type = "Unit";
+//                     break;
+//                   case "00005":
+//                     $type = "Section";
+//                     break;
+//                   case "00006":
+//                     $type = "Lifestyle";
+//                     break;
+//               }
+//               $agent = $row1['agents'];
+//               switch ($agent) {
+//                   case "00001":
+//                     $agent = "Cy";
+//                     break;
+//                   case "00002":
+//                     $agent = "Dane";
+//                     break;
+//                   case "00003":
+//                     $agent = "Belinda";
+//                     break;
+//                   case "00004":
+//                     $agent = "Lily";
+//                     break;
+//                   case "00005":
+//                     $agent = "Kobi";
+//                     break;
+//                   case "00006":
+//                     $agent = "Celia";
+//                     break;
+//               }
+
+//                     echo "<tr>";
+//                       echo "<td><img width='150' src='images/uploads/" . $row1['featured_image'] . "'></td>";
+//                       echo "<td>" . $row1['listing_id'] . "<br><a class='view-listing-edit' href='#'>Edit</a> <a class='view-listing-delete' href='#'>Delete</a></td>";
+//                       echo "<td>" . $agent . "</td>";
+//                       echo "<td>" . $row1['title'] . "</td>";
+//                       echo "<td>" . $row1['address'] . "</td>";
+//                       echo "<td>" . $city . "</td>";
+//                       echo "<td>" . $type . "</td>";
+//                       echo "<td>" . $row1['price'] . "</td>";
+//                       echo "<td>" . $row1['sell_method'] . "</td>";
+//                       echo "<td>" . $row1['bed_no'] . "</td>";
+//                       echo "<td>" . $row1['bath_no'] . "</td>";
+//                       echo "<td>" . $row1['lounge_no'] . "</td>";
+//                       echo "<td>" . $row1['garage_no'] . "</td>";
+//                       echo "<td>" . $row1['house_size'] . "m<sub>2</sub></td>";
+//                       echo "<td>" . $row1['land_size'] . "m<sub>2</sub></td>";
+//                       echo "<td>" . $featured . "</td>";
+//                     echo "</tr>";
+//             }
+//         } else {
+//             echo "No property listings to show";
+//         }
+//   echo "</tbody>";
+// echo  "</table>";
 
 ?>
 
