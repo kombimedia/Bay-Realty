@@ -64,3 +64,12 @@ $('body').on('change', '#file', function(){
         }
     });
 });
+
+// Delete listing confirmation box
+// function listingDel(listing_id, title)
+// {
+// if (confirm("Are you sure you want to delete '" + title + "'"))
+// {
+// window.location.href = 'dashboard-view-listings.php?listingDel=' + listing_id;
+// }
+// }
