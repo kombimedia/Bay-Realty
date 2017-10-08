@@ -36,113 +36,112 @@ include 'includes/dashboard-sidebar.php';
 <?php
 $getData1 = "SELECT listing_id, agents, title, address, categories, type, price, sell_method, bed_no, bath_no, lounge_no, garage_no, house_size, land_size, featured_image, featured_property
              FROM properties";
-        $result1 = $mysqli->query($getData1);
-        // Check if there are any records to show
-        if ($result1->num_rows > 0) {
-            // Loop through data and output each row
-            while($row1 = $result1->fetch_assoc()) {
+    $result1 = $mysqli->query($getData1);
+    // Check if there are any records to show
+    if ($result1->num_rows > 0) {
+        // Loop through data and output each row
+        while($row1 = $result1->fetch_assoc()) {
 
-              $listing_id = $row1['listing_id'];
-              $featured = $row1['featured_property'];
-              switch ($featured) {
-                  case "0":
-                    $featured = "No";
-                    break;
-                  case "1":
-                    $featured = "Yes";
-                    break;
-              }
-              $city = $row1['categories'];
-              switch ($city) {
-                  case "00002":
-                    $city = "Tauranga";
-                    break;
-                  case "00003":
-                    $city = "Mt Maunganui";
-                    break;
-                  case "00004":
-                    $city = "Papamoa";
-                    break;
-              }
-              $type = $row1['type'];
-              switch ($type) {
-                  case "00001":
-                    $type = "House";
-                    break;
-                  case "00002":
-                    $type = "Apartment";
-                    break;
-                  case "00003":
-                    $type = "Studio";
-                    break;
-                  case "00004":
-                    $type = "Unit";
-                    break;
-                  case "00005":
-                    $type = "Section";
-                    break;
-                  case "00006":
-                    $type = "Lifestyle";
-                    break;
-              }
-              $agent = $row1['agents'];
-              switch ($agent) {
-                  case "00001":
-                    $agent = "Cy";
-                    break;
-                  case "00002":
-                    $agent = "Dane";
-                    break;
-                  case "00003":
-                    $agent = "Belinda";
-                    break;
-                  case "00004":
-                    $agent = "Lily";
-                    break;
-                  case "00005":
-                    $agent = "Kobi";
-                    break;
-                  case "00006":
-                    $agent = "Celia";
-                    break;
-              }
+          $listing_id = $row1['listing_id'];
+          $featured = $row1['featured_property'];
+          switch ($featured) {
+              case "0":
+                $featured = "No";
+                break;
+              case "1":
+                $featured = "Yes";
+                break;
+          }
+          $city = $row1['categories'];
+          switch ($city) {
+              case "00002":
+                $city = "Tauranga";
+                break;
+              case "00003":
+                $city = "Mt Maunganui";
+                break;
+              case "00004":
+                $city = "Papamoa";
+                break;
+          }
+          $type = $row1['type'];
+          switch ($type) {
+              case "00001":
+                $type = "House";
+                break;
+              case "00002":
+                $type = "Apartment";
+                break;
+              case "00003":
+                $type = "Studio";
+                break;
+              case "00004":
+                $type = "Unit";
+                break;
+              case "00005":
+                $type = "Section";
+                break;
+              case "00006":
+                $type = "Lifestyle";
+                break;
+          }
+          $agent = $row1['agents'];
+          switch ($agent) {
+              case "00001":
+                $agent = "Cy";
+                break;
+              case "00002":
+                $agent = "Dane";
+                break;
+              case "00003":
+                $agent = "Belinda";
+                break;
+              case "00004":
+                $agent = "Lily";
+                break;
+              case "00005":
+                $agent = "Kobi";
+                break;
+              case "00006":
+                $agent = "Celia";
+                break;
+          }
 ?>
-                    <tr>
-                        <td><img width="150" src="images/uploads/<?php echo $row1['featured_image'] ?>"></td>
-                        <td> <?php echo $row1['listing_id'] ?><br> <a class="view-listing-edit" href="#">Edit</a> <a class="view-listing-delete" href="#" onClick="deletelisting('<?php echo $row1['listing_id']; ?>')">Delete</a> </td>
-                        <td> <?php echo $agent; ?> </td>
-                        <td> <?php echo $row1['title']; ?> </td>
-                        <td> <?php echo $row1['address']; ?> </td>
-                        <td> <?php echo $city; ?> </td>
-                        <td> <?php echo $type; ?> </td>
-                        <td> <?php echo $row1['price']; ?> </td>
-                        <td> <?php echo $row1['sell_method']; ?> </td>
-                        <td> <?php echo $row1['bed_no']; ?> </td>
-                        <td> <?php echo $row1['bath_no']; ?> </td>
-                        <td> <?php echo $row1['lounge_no']; ?> </td>
-                        <td> <?php echo $row1['garage_no']; ?> </td>
-                        <td> <?php echo $row1['house_size']; ?> m<sub>2</sub></td>
-                        <td> <?php echo $row1['land_size']; ?> m<sub>2</sub></td>
-                        <td> <?php echo $featured; ?></td>
-                    </tr>
+          <tr>
+              <td><img width="150" src="images/uploads/<?php echo $row1['featured_image'] ?>"></td>
+              <td> <?php echo $row1['listing_id'] ?><br> <a class="view-listing-edit" href="dashboard-update-listing.php?listing_id=<?php echo $row1['listing_id']; ?>">Edit</a> <a class="view-listing-delete" href="#" onClick="deletelisting('<?php echo $row1['listing_id']; ?>')">Delete</a> </td>
+              <td> <?php echo $agent; ?> </td>
+              <td> <?php echo $row1['title']; ?> </td>
+              <td> <?php echo $row1['address']; ?> </td>
+              <td> <?php echo $city; ?> </td>
+              <td> <?php echo $type; ?> </td>
+              <td> <?php echo $row1['price']; ?> </td>
+              <td> <?php echo $row1['sell_method']; ?> </td>
+              <td> <?php echo $row1['bed_no']; ?> </td>
+              <td> <?php echo $row1['bath_no']; ?> </td>
+              <td> <?php echo $row1['lounge_no']; ?> </td>
+              <td> <?php echo $row1['garage_no']; ?> </td>
+              <td> <?php echo $row1['house_size']; ?> m<sub>2</sub></td>
+              <td> <?php echo $row1['land_size']; ?> m<sub>2</sub></td>
+              <td> <?php echo $featured; ?></td>
+          </tr>
 <?php
-                  }
-        } else {
-            echo "No property listings to show";
         }
+      } else {
+          echo "No property listings to show";
+      }
 ?>
     </tbody>
   </table>
 
-  <script language="javascript">
- function deletelisting(dellisting)
- {
- if(confirm("Are you sure you want to remove this listing?")){
- window.location.href='processes/process-delete-listing.php?del_listing=' +dellisting+'';
- return true;
+<script language="javascript">
+ function deletelisting(dellisting) {
+     if (confirm("Are you sure you want to remove this listing?")) {
+     window.location.href='processes/process-delete-listing.php?del_listing=' +dellisting+'';
+     return true;
+    }
  }
- }
- </script>
+</script>
 
 <?php
 

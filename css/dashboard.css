@@ -195,26 +195,19 @@ td a.view-listing-delete {
 
 /* Error Messages
 -------------------------------------------------- */
-.db-success,
-.db-error,
-.image-success,
-.image-error,
-.list-del-success,
-.list-del-error {
+
+.success-message,
+.error-message {
   width: 100%;
   padding: 8px 0 8px 10px;
   color: #152a69;
   transition: opacity .5s;
 }
-.db-success,
-.image-success,
-.list-del-success {
+.success-message {
   background-color: rgba(111,216,6, 0.6);
   margin-bottom: 25px;
 }
-.db-error,
-.image-error,
-.list-del-error {
+.error-message {
   background-color: rgba(255,0,0, 0.6);
   margin-bottom: 25px;
 }

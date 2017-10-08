@@ -41,11 +41,11 @@ $addData = "INSERT INTO properties (agents, title, address, categories, type, pr
             VALUES ('$agent', '$lTitle', '$address', '$city', '$type', '$price', '$sMethod', '$bedrooms', '$bedD', '$bathrooms', '$bathD', '$lounges', '$loungeD', '$garages', '$garageD', '$houseSize', '$landSize', '$map', '$fListing')";
     // if insert is successful go back to dashboard add listing page and print success message
     if ($mysqli->query($addData)) {
-        $_SESSION["dbSuccess"] = "<div class='db-success'>New listing successfully created</div>";
+        $_SESSION["dbSuccess"] = "<div class='success-message'>New listing successfully created</div>";
     }  else {
       // if insert is unsuccessful throw error
-       $_SESSION["dbError"] = "<div class='db-error'>Something went wrong! Please check that all fields have been filled correctly</div>";
-        //$_SESSION["dbError"] = "<div class='db-error'>An error has occurred: " . $addData . " " . $mysqli->error . "</div>";
+       $_SESSION["dbError"] = "<div class='error-message'>Something went wrong! Please check that all fields have been filled correctly</div>";
+        //$_SESSION["dbError"] = "<div class='error-message'>An error has occurred: " . $addData . " " . $mysqli->error . "</div>";
        }
 // close db connection
 $mysqli->close();

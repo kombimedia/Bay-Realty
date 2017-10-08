@@ -37,11 +37,11 @@ for ($i = 0; $i < count($_FILES['file']['name']); $i++) {
                         VALUES ('$image_name', '$image_size', '$image_type', '$listing_id')";
             // if insert is successful go back to dashboard add listing page and return success message
             if ($mysqli->query($addData)) {
-                $_SESSION["dbSuccess"] = "<div class='db-success'>New listing successfully created</div>";
+                $_SESSION["dbSuccess"] = "<div class='success-message'>New listing successfully created</div>";
             }  else {
               // if insert is unsuccessful throw error
-               $_SESSION["dbError"] = "<div class='db-error'>Something went wrong! Please check that all fields have been filled correctly</div>";
-              //$_SESSION["dbError"] = "<div class='db-error'>An error has occurred: " . $addData . " " . $mysqli->error . "</div>";
+               $_SESSION["dbError"] = "<div class='error-message'>Something went wrong! Please check that all fields have been filled correctly</div>";
+              //$_SESSION["dbError"] = "<div class='error-message'>An error has occurred: " . $addData . " " . $mysqli->error . "</div>";
                }
 
             // Add featured image file name to the properties table, featured_image
@@ -49,24 +49,24 @@ for ($i = 0; $i < count($_FILES['file']['name']); $i++) {
                          SET featured_image = '$image_name'
                          WHERE listing_id = $listing_id";
             if ($mysqli->query($addData1)) {
-                // $_SESSION["imageSuccess"] = "<div class='db-success'>Properties table update</div>";
+                // $_SESSION["imageSuccess"] = "<div class='success-message'>Properties table update</div>";
             }  else {
               // if update is unsuccessful throw error
-               $_SESSION["imageError"] = "<div class='db-error'>Something went wrong! Properties table was not updated</div>";
-              // $_SESSION["dbError"] = "<div class='db-error'>An error has occurred: " . $addData1 . " " . $mysqli->error . "</div>";
+               $_SESSION["imageError"] = "<div class='error-message'>Something went wrong! Properties table was not updated</div>";
+              // $_SESSION["dbError"] = "<div class='error-message'>An error has occurred: " . $addData1 . " " . $mysqli->error . "</div>";
                }
 
                // Save image files to images/uploads folder
             if (move_uploaded_file($image_tmp, $file_path)) {
                 // if image is moved to uploads folder return success message
-                //$_SESSION["imageSuccess"] = "<div class='image-success'>Image(s) successfully uploaded</div>";
+                //$_SESSION["imageSuccess"] = "<div class='success-message'>Image(s) successfully uploaded</div>";
                 // if file was not moved throw error message
             } else {
-                $_SESSION["imageError"] = "<div class='image-error'>Image(s) were not moved to uploads folder</div>";
+                $_SESSION["imageError"] = "<div class='error-message'>Image(s) were not moved to uploads folder</div>";
             }
             // if file size or file type were incorrect throw error message
         } else {
-            $_SESSION["imageError"] = "<div class='image-error'>Invalid file size or type</div>";
+            $_SESSION["imageError"] = "<div class='error-message'>Invalid file size or type</div>";
         }
 }
   // close db connection

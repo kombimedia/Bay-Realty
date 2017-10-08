@@ -1,12 +1,28 @@
 <?php
   session_start();
-  $title = "Add Listing";
-  $metaD = "Admin dashboard page, add listing";
+  $title = "Update Listing";
+  $metaD = "Admin dashboard page, update listing";
   include 'includes/dashboard-header.php';
   include 'includes/dashboard-sidebar.php';
 ?>
+<?php
+$listing_id = $_GET['listing_id'];
+echo $listing_id;
 
-  <h1>Add New Listing</h1>
+$getData = "SELECT agents, title, address, categories, type, price, sell_method, bed_no, bed_des, bath_no, bath_des, lounge_no, lounge_des, garage_no, garage_des, house_size, land_size, map_co_ords, featured_property
+            FROM properties
+            WHERE listing_id = $listing_id";
+    $result = $mysqli->query($getData);
+    // Check if there are any records to show
+    if ($result->num_rows > 0) {
+        // Loop through data and output each row
+        while($row = $result->fetch_assoc()) {
+          echo $row['agents'];
+        }
+    }
+?>
+
+  <h1>Update Listing</h1>
   <!-- DB error/success messages -->
   <div><?php if (isset($_SESSION['dbSuccess'])) { echo $_SESSION['dbSuccess']; unset($_SESSION['dbSuccess']); }; ?></div>
   <div><?php if (isset($_SESSION['dbError'])) { echo $_SESSION['dbError']; unset($_SESSION['dbError']); }; ?></div>
@@ -18,7 +34,7 @@
           <div class="col-12 col-xl-4 mb-3">
             <label for="agents">Sales Agent</label>
             <select class="form-control" name="salesAgent" id="type" required value="">
-              <option value="" disabled selected>Select</option>
+              <option value="" disabled selected><?php echo $row['agents'] ?></option>
               <option value="00001">Cy</option>
               <option value="00002">Dane</option>
               <option value="00003">Belinda</option>
@@ -29,7 +45,7 @@
           </div>
           <div class="col-12 col-xl-4 mb-3">
             <label for="title">Listing Title</label>
-            <input class="form-control wide" name="listingTitle" id="title" placeholder="Inspiring title for your listing" required value="<?php if (isset($_SESSION['storeListingTitle'])) { echo $_SESSION['storeListingTitle']; unset($_SESSION['storeListingTitle']); }; ?>">
+            <input class="form-control wide" name="listingTitle" id="title" placeholder="Inspiring title for your listing" required value="<?php echo $row['agents'] ?>">
           </div>
           <div class="col-12 col-xl-4 mb-3">
             <label for="address">Street Address</label>
