@@ -34,16 +34,18 @@ include 'includes/dashboard-sidebar.php';
     </thead>
   <tbody>
 <?php
-$getData1 = "SELECT listing_id, agents, title, address, categories, type, price, sell_method, bed_no, bath_no, lounge_no, garage_no, house_size, land_size, featured_image, featured_property
-             FROM properties";
-    $result1 = $mysqli->query($getData1);
-    // Check if there are any records to show
-    if ($result1->num_rows > 0) {
-        // Loop through data and output each row
-        while($row1 = $result1->fetch_assoc()) {
 
-          $listing_id = $row1['listing_id'];
-          $featured = $row1['featured_property'];
+$getData = "SELECT listing_id, agents, title, address, categories, type, price, sell_method, bed_no, bath_no, lounge_no, garage_no, house_size, land_size, featured_image, featured_property
+             FROM properties";
+    $result = $mysqli->query($getData);
+    // Check if there are any records to show
+    if ($result->num_rows > 0) {
+        // Loop through data and output each row
+        while($row = $result->fetch_assoc()) {
+
+          $listing_id = $row['listing_id'];
+          // Check box returns 0 or 1. We needed to display 0 as No and 1 as Yes using a switch statement
+          $featured = $row['featured_property'];
           switch ($featured) {
               case "0":
                 $featured = "No";
@@ -52,77 +54,59 @@ $getData1 = "SELECT listing_id, agents, title, address, categories, type, price,
                 $featured = "Yes";
                 break;
           }
-          $city = $row1['categories'];
-          switch ($city) {
-              case "00002":
-                $city = "Tauranga";
-                break;
-              case "00003":
-                $city = "Mt Maunganui";
-                break;
-              case "00004":
-                $city = "Papamoa";
-                break;
-          }
-          $type = $row1['type'];
-          switch ($type) {
-              case "00001":
-                $type = "House";
-                break;
-              case "00002":
-                $type = "Apartment";
-                break;
-              case "00003":
-                $type = "Studio";
-                break;
-              case "00004":
-                $type = "Unit";
-                break;
-              case "00005":
-                $type = "Section";
-                break;
-              case "00006":
-                $type = "Lifestyle";
-                break;
-          }
-          $agent = $row1['agents'];
-          switch ($agent) {
-              case "00001":
-                $agent = "Cy";
-                break;
-              case "00002":
-                $agent = "Dane";
-                break;
-              case "00003":
-                $agent = "Belinda";
-                break;
-              case "00004":
-                $agent = "Lily";
-                break;
-              case "00005":
-                $agent = "Kobi";
-                break;
-              case "00006":
-                $agent = "Celia";
-                break;
-          }
+// Category, property type and agent are stored in the properties table as their ID. To convert this id to the string value we needed to loop through and compare the Id to the corresponding table (categories, property_type and agents) then output the matching value string e.g Cy Messenger instead of 00001
+          $getData1 = "SELECT *
+                       FROM categories";
+          $result1 = $mysqli->query($getData1);
+              // Loop through data and output each row
+              while($row1 = $result1->fetch_array()) {
+                  $cat_id = $row1['cat_id'];
+                  $city = $row1['city'];
+                  if ($row['categories'] == $cat_id) {
+                      $row['categories'] = $city;
+                  }
+              }
+
+        $getData2 = "SELECT *
+                     FROM property_type";
+        $result2 = $mysqli->query($getData2);
+            // Loop through data and output each row
+            while($row2 = $result2->fetch_array()) {
+                $pt_id = $row2['pt_id'];
+                $type = $row2['type'];
+                if ($row['type'] == $pt_id) {
+                    $row['type'] = $type;
+                  }
+              }
+
+        $getData3 = "SELECT agent_id, first_name, surname
+                     FROM agents";
+        $result3 = $mysqli->query($getData3);
+            // Loop through data and output each row
+            while($row3 = $result3->fetch_array()) {
+                $agent_id = $row3['agent_id'];
+                $name = $row3['first_name'] . " " . $row3['surname'];
+                if ($row['agents'] == $agent_id) {
+                    $row['agents'] = $name;
+                  }
+              }
 ?>
           <tr>
-              <td><img width="150" src="images/uploads/<?php echo $row1['featured_image'] ?>"></td>
-              <td> <?php echo $row1['listing_id'] ?><br> <a class="view-listing-edit" href="dashboard-update-listing.php?listing_id=<?php echo $row1['listing_id']; ?>">Edit</a> <a class="view-listing-delete" href="#" onClick="deletelisting('<?php echo $row1['listing_id']; ?>')">Delete</a> </td>
-              <td> <?php echo $agent; ?> </td>
-              <td> <?php echo $row1['title']; ?> </td>
-              <td> <?php echo $row1['address']; ?> </td>
-              <td> <?php echo $city; ?> </td>
-              <td> <?php echo $type; ?> </td>
-              <td> <?php echo $row1['price']; ?> </td>
-              <td> <?php echo $row1['sell_method']; ?> </td>
-              <td> <?php echo $row1['bed_no']; ?> </td>
-              <td> <?php echo $row1['bath_no']; ?> </td>
-              <td> <?php echo $row1['lounge_no']; ?> </td>
-              <td> <?php echo $row1['garage_no']; ?> </td>
-              <td> <?php echo $row1['house_size']; ?> m<sub>2</sub></td>
-              <td> <?php echo $row1['land_size']; ?> m<sub>2</sub></td>
+              <td><img width="150" src="images/uploads/<?php echo $row['featured_image'] ?>"></td>
+              <td> <?php echo $row['listing_id'] ?><br> <a class="view-listing-edit" href="dashboard-update-listing.php?listing_id=<?php echo $row['listing_id']; ?>">Edit</a> <a class="view-listing-delete" href="#" onClick="deletelisting('<?php echo $row['listing_id']; ?>')">Delete</a> </td>
+              <td> <?php echo $row['agents'] ?> </td>
+              <td> <?php echo $row['title']; ?> </td>
+              <td> <?php echo $row['address']; ?> </td>
+              <td> <?php echo $row['categories'] ?> </td>
+              <td> <?php echo $row['type'] ?> </td>
+              <td> <?php echo $row['price']; ?> </td>
+              <td> <?php echo $row['sell_method']; ?> </td>
+              <td> <?php echo $row['bed_no']; ?> </td>
+              <td> <?php echo $row['bath_no']; ?> </td>
+              <td> <?php echo $row['lounge_no']; ?> </td>
+              <td> <?php echo $row['garage_no']; ?> </td>
+              <td> <?php echo $row['house_size']; ?> m<sub>2</sub></td>
+              <td> <?php echo $row['land_size']; ?> m<sub>2</sub></td>
               <td> <?php echo $featured; ?></td>
           </tr>
 <?php

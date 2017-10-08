@@ -6,6 +6,39 @@
   include 'includes/dashboard-sidebar.php';
 ?>
 
+<?php>
+$option_agents = "";
+$getData = "SELECT *
+            FROM agents";
+    $result = $mysqli->query($getData);
+        // Loop through data and output data array
+        while($agents = $result->fetch_array()) {
+            $agent_name = $agents['first_name'] . " " . $agents['surname'];
+            // for each value found, create an 'option' for the select list
+            $option_agents = $option_agents . "<option value='$agents[agent_id]'>$agent_name</option>";
+        }
+
+$option_city = "";
+$getData1 = "SELECT *
+            FROM categories";
+    $result1 = $mysqli->query($getData1);
+        // Loop through data and output data array
+        while($city = $result1->fetch_array()) {
+            // for each value found, create an 'option' for the select list
+            $option_city = $option_city . "<option value='$city[cat_id]'>$city[city]</option>";
+        }
+
+$option_type = "";
+$getData2 = "SELECT *
+            FROM property_type";
+    $result2 = $mysqli->query($getData2);
+        // Loop through data and output data array
+        while($type = $result2->fetch_array()) {
+            // for each value found, create an 'option' for the select list
+            $option_type = $option_type . "<option value='$type[pt_id]'>$type[type]</option>";
+        }
+?>
+
   <h1>Add New Listing</h1>
   <!-- DB error/success messages -->
   <div><?php if (isset($_SESSION['dbSuccess'])) { echo $_SESSION['dbSuccess']; unset($_SESSION['dbSuccess']); }; ?></div>
@@ -19,12 +52,7 @@
             <label for="agents">Sales Agent</label>
             <select class="form-control" name="salesAgent" id="type" required value="">
               <option value="" disabled selected>Select</option>
-              <option value="00001">Cy</option>
-              <option value="00002">Dane</option>
-              <option value="00003">Belinda</option>
-              <option value="00004">Lily</option>
-              <option value="00005">Kobi</option>
-              <option value="00006">Celia</option>
+              <?php echo $option_agents ?>
             </select>
           </div>
           <div class="col-12 col-xl-4 mb-3">
@@ -42,21 +70,14 @@
             <label for="city">City</label>
             <select class="form-control" name="city" id="city" required value="">
               <option value="" disabled selected>Select</option>
-              <option value="00002">Tauranga</option>
-              <option value="00003">Mt Maunganui</option>
-              <option value="00004">Papamoa</option>
+              <?php echo $option_city ?>
             </select>
           </div>
           <div class="col-12 col-md-6 col-xl-3 mb-3 mb-xl-24">
             <label for="type">Property Type</label>
             <select class="form-control" name="propertyType" id="type" required value="">
               <option value="" disabled selected>Select</option>
-              <option value="00001">House</option>
-              <option value="00002">Apartment</option>
-              <option value="00003">Studio</option>
-              <option value="00004">Unit</option>
-              <option value="00005">Section</option>
-              <option value="00006">Life-style</option>
+              <?php echo $option_type ?>
             </select>
           </div>
           <div class="col-12 col-md-6 col-xl-3 mb-3">
