@@ -9,31 +9,31 @@ include 'includes/dashboard-sidebar.php';
   <h1>View Listing</h1>
   <div><?php if (isset($_SESSION['listDelSuccess'])) { echo $_SESSION['listDelSuccess']; unset($_SESSION['listDelSuccess']); }; ?></div>
   <div><?php if (isset($_SESSION['listDelError'])) { echo $_SESSION['listDelError']; unset($_SESSION['listDelError']); }; ?></div>
+
+
+  <table class='table table-hover table-responsive view-listings'>
+    <thead class='view-listings-head'>
+      <tr>
+        <th></th>
+        <th>Listing No.</th>
+        <th>Agent</th>
+        <th>Listing Title</th>
+        <th>Address</th>
+        <th>City</th>
+        <th>Type</th>
+        <th>Price</th>
+        <th>Sell Method</th>
+        <th>Bedrooms</th>
+        <th>Bathrooms</th>
+        <th>Lounges</th>
+        <th>Garages</th>
+        <th>House Size</th>
+        <th>Land Size</th>
+        <th>Featured Listing</th>
+      </tr>
+    </thead>
+  <tbody>
 <?php
-
-echo "<table class='table table-hover table-responsive view-listings'>";
-  echo "<thead class='view-listings-head'>";
-    echo "<tr>";
-      echo "<th></th>";
-      echo "<th>Listing No.</th>";
-      echo "<th>Agent</th>";
-      echo "<th>Listing Title</th>";
-      echo "<th>Address</th>";
-      echo "<th>City</th>";
-      echo "<th>Type</th>";
-      echo "<th>Price</th>";
-      echo "<th>Sell Method</th>";
-      echo "<th>Bedrooms</th>";
-      echo "<th>Bathrooms</th>";
-      echo "<th>Lounges</th>";
-      echo "<th>Garages</th>";
-      echo "<th>House Size</th>";
-      echo "<th>Land Size</th>";
-      echo "<th>Featured Listing</th>";
-    echo "</tr>";
-  echo "</thead>";
-echo "<tbody>";
-
 $getData1 = "SELECT listing_id, agents, title, address, categories, type, price, sell_method, bed_no, bath_no, lounge_no, garage_no, house_size, land_size, featured_image, featured_property
              FROM properties";
         $result1 = $mysqli->query($getData1);
@@ -42,8 +42,7 @@ $getData1 = "SELECT listing_id, agents, title, address, categories, type, price,
             // Loop through data and output each row
             while($row1 = $result1->fetch_assoc()) {
 
-              $_SESSION["listing_id"] = $row1['listing_id'];
-
+              $listing_id = $row1['listing_id'];
               $featured = $row1['featured_property'];
               switch ($featured) {
                   case "0":
@@ -107,33 +106,45 @@ $getData1 = "SELECT listing_id, agents, title, address, categories, type, price,
                     $agent = "Celia";
                     break;
               }
-
-                    echo "<tr>";
-                      echo "<td><img width='150' src='images/uploads/" . $row1['featured_image'] . "'></td>";
-                      echo "<td>" . $row1['listing_id'] . "<br><a class='view-listing-edit' href='#'>Edit</a> <a class='view-listing-delete' href='processes/process-delete-listing.php'>Delete</a></td>";
-                      echo "<td>" . $agent . "</td>";
-                      echo "<td>" . $row1['title'] . "</td>";
-                      echo "<td>" . $row1['address'] . "</td>";
-                      echo "<td>" . $city . "</td>";
-                      echo "<td>" . $type . "</td>";
-                      echo "<td>" . $row1['price'] . "</td>";
-                      echo "<td>" . $row1['sell_method'] . "</td>";
-                      echo "<td>" . $row1['bed_no'] . "</td>";
-                      echo "<td>" . $row1['bath_no'] . "</td>";
-                      echo "<td>" . $row1['lounge_no'] . "</td>";
-                      echo "<td>" . $row1['garage_no'] . "</td>";
-                      echo "<td>" . $row1['house_size'] . "m<sub>2</sub></td>";
-                      echo "<td>" . $row1['land_size'] . "m<sub>2</sub></td>";
-                      echo "<td>" . $featured . "</td>";
-                    echo "</tr>";
-            }
+?>
+                    <tr>
+                        <td><img width="150" src="images/uploads/<?php echo $row1['featured_image'] ?>"></td>
+                        <td> <?php echo $row1['listing_id'] ?><br> <a class="view-listing-edit" href="#">Edit</a> <a class="view-listing-delete" href="#" onClick="deletelisting('<?php echo $row1['listing_id']; ?>')">Delete</a> </td>
+                        <td> <?php echo $agent; ?> </td>
+                        <td> <?php echo $row1['title']; ?> </td>
+                        <td> <?php echo $row1['address']; ?> </td>
+                        <td> <?php echo $city; ?> </td>
+                        <td> <?php echo $type; ?> </td>
+                        <td> <?php echo $row1['price']; ?> </td>
+                        <td> <?php echo $row1['sell_method']; ?> </td>
+                        <td> <?php echo $row1['bed_no']; ?> </td>
+                        <td> <?php echo $row1['bath_no']; ?> </td>
+                        <td> <?php echo $row1['lounge_no']; ?> </td>
+                        <td> <?php echo $row1['garage_no']; ?> </td>
+                        <td> <?php echo $row1['house_size']; ?> m<sub>2</sub></td>
+                        <td> <?php echo $row1['land_size']; ?> m<sub>2</sub></td>
+                        <td> <?php echo $featured; ?></td>
+                    </tr>
+<?php
+                  }
         } else {
             echo "No property listings to show";
         }
-  echo "</tbody>";
-echo  "</table>";
+?>
+    </tbody>
+  </table>
 
+  <script language="javascript">
+ function deletelisting(dellisting)
+ {
+ if(confirm("Are you sure you want to remove this listing?")){
+ window.location.href='processes/process-delete-listing.php?del_listing=' +dellisting+'';
+ return true;
+ }
+ }
+ </script>
 
+<?php
 
 
 // $query = "SELECT listing_id, title, address, type, price, sell_method, bed_no, bath_no, lounge_no, garage_no, house_size, land_size, featured_image, featured_property
