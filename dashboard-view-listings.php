@@ -7,6 +7,8 @@ include 'includes/dashboard-sidebar.php';
 ?>
 
   <h1>View Listing</h1>
+  <div><?php if (isset($_SESSION['updateListingSuccess'])) { echo $_SESSION['updateListingSuccess']; unset($_SESSION['updateListingSuccess']); }; ?></div>
+  <div><?php if (isset($_SESSION['updateListingError'])) { echo $_SESSION['updateListingError']; unset($_SESSION['updateListingError']); }; ?></div>
   <div><?php if (isset($_SESSION['listDelSuccess'])) { echo $_SESSION['listDelSuccess']; unset($_SESSION['listDelSuccess']); }; ?></div>
   <div><?php if (isset($_SESSION['listDelError'])) { echo $_SESSION['listDelError']; unset($_SESSION['listDelError']); }; ?></div>
 
@@ -60,8 +62,11 @@ $getData = "SELECT listing_id, agents, title, address, categories, type, price, 
           $result1 = $mysqli->query($getData1);
               // Loop through data and output each row
               while($row1 = $result1->fetch_array()) {
+                  // define output field to compare against
                   $cat_id = $row1['cat_id'];
+                  // define field to output to listings table
                   $city = $row1['city'];
+                  // compare stored data to categories table and save ID as string value
                   if ($row['categories'] == $cat_id) {
                       $row['categories'] = $city;
                   }
@@ -72,8 +77,11 @@ $getData = "SELECT listing_id, agents, title, address, categories, type, price, 
         $result2 = $mysqli->query($getData2);
             // Loop through data and output each row
             while($row2 = $result2->fetch_array()) {
+                 // define output field to compare against
                 $pt_id = $row2['pt_id'];
+                // define field to output to listings table
                 $type = $row2['type'];
+                // compare stored data to property_type table and save ID as string value
                 if ($row['type'] == $pt_id) {
                     $row['type'] = $type;
                   }
@@ -84,8 +92,11 @@ $getData = "SELECT listing_id, agents, title, address, categories, type, price, 
         $result3 = $mysqli->query($getData3);
             // Loop through data and output each row
             while($row3 = $result3->fetch_array()) {
+                // define output field to compare against
                 $agent_id = $row3['agent_id'];
+                // define field to output to listings table
                 $name = $row3['first_name'] . " " . $row3['surname'];
+                // compare stored data to agents table and save ID as string value
                 if ($row['agents'] == $agent_id) {
                     $row['agents'] = $name;
                   }
