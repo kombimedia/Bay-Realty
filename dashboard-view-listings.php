@@ -13,7 +13,7 @@ include 'includes/dashboard-sidebar.php';
   <div><?php if (isset($_SESSION['listDelError'])) { echo $_SESSION['listDelError']; unset($_SESSION['listDelError']); }; ?></div>
 
 
-  <table class='table table-hover table-responsive view-listings'>
+  <table class='table table-striped table-responsive view-listings'>
     <thead class='view-listings-head'>
       <tr>
         <th></th>
@@ -34,7 +34,7 @@ include 'includes/dashboard-sidebar.php';
         <th>Featured Listing</th>
       </tr>
     </thead>
-  <tbody>
+    <tbody>
 <?php
 
 $getData = "SELECT listing_id, agents, title, address, categories, type, price, sell_method, bed_no, bath_no, lounge_no, garage_no, house_size, land_size, featured_image, featured_property
@@ -131,7 +131,7 @@ $getData = "SELECT listing_id, agents, title, address, categories, type, price, 
 
 <script language="javascript">
  function deletelisting(dellisting) {
-     if (confirm("Are you sure you want to remove this listing?")) {
+     if (confirm("Are you sure you want to delete this listing?")) {
      window.location.href='processes/process-delete-listing.php?del_listing=' +dellisting+'';
      return true;
     }

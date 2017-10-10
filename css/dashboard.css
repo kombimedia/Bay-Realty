@@ -170,7 +170,8 @@ input#add_more:hover {
 
 /* View Listings Table
 -------------------------------------------------- */
-thead.view-listings-head {
+thead.view-listings-head,
+thead.images-head {
   background-color: #92becb;
   color: #fff;
 }
@@ -220,6 +221,7 @@ td a.view-listing-delete {
 }
 a i.fa-home,
 a i.fa-user,
+a i.fa-camera-retro,
 a.nav-link i.fa-dashboard {
   font-size: 1.2rem;
 }
