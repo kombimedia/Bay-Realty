@@ -158,7 +158,7 @@
       <div class="image-form">
         <h3 class="mb-4">Property Images</h3>
         <label for="file">Upload Property Images</label>
-        <small id="p-image-help" class="form-text text-muted">png, jpg or jpeg file types accepted, max size 500MB</small><br>
+        <small id="p-image-help" class="form-text text-muted">png, jpg or jpeg file types accepted, max size 500KB</small><br>
         <div id="filediv">
           <input class="form-control" name="file[]" type="file" id="file" aria-describedby="p-image-help"/>
         </div>

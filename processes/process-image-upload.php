@@ -26,9 +26,9 @@ for ($i = 0; $i < count($_FILES['file']['name']); $i++) {
     // Rename image and path to include property listing_id
     $image_name = $listing_id . '_' . $image_name;
     // Get image size
-    $image_size = $_FILES['file']['size'][$i] . 'KB';
+    $image_size = ($_FILES['file']['size'][$i]). 'B';
     // Declare path for uploaded images
-    $file_path = "../images/uploads/".$image_name;
+    $file_path = "../images/uploads/" . $image_name;
     // Validate image before storing to folder and DB
     // Limit file size to less than 500kb
     if (($image_size < 500001) && in_array($image_type, $validextensions)) {
