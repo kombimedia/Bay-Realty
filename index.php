@@ -38,7 +38,7 @@
         <div class="row">
           <div class="col">
             <div class="home-widget-top">
-              <h2>Featured Properties</h2>
+              <h2 class="text-center" >Featured Properties</h2>
 
 <?php
 
@@ -52,58 +52,36 @@ include 'includes/featured-listings.php';
     </div>
 
     <!-- Home widget bottom area - property listings -->
-    <div class="container-fluid">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-12 col-md-4">
-            <div class="home-widget-bottom">
-              <h2>Property 1</h2>
-            </div>
-          </div>
-          <div class="col-sm-12 col-md-4">
-            <div class="home-widget-bottom">
-              <h2>Property 2</h2>
-            </div>
-          </div>
-          <div class="col-sm-12 col-md-4">
-            <div class="home-widget-bottom">
-              <h2>Property 3</h2>
-            </div>
-          </div>
-        </div>
 
+       <div class="container-fluid">
+      <div class="container property-listings-home">
         <div class="row">
-          <div class="col-sm-12 col-md-4">
-            <div class="home-widget-bottom">
-              <h2>Property 4</h2>
-            </div>
-          </div>
-          <div class="col-sm-12 col-md-4">
-            <div class="home-widget-bottom">
-              <h2>Property 5</h2>
-            </div>
-          </div>
-          <div class="col-sm-12 col-md-4">
-            <div class="home-widget-bottom">
-              <h2>Property 6</h2>
-            </div>
-          </div>
-        </div>
+          <div class="col property-listings-home-div">
+            <div class="home-widget-listings">
+              <h2 class="text-center" >Listed Properties</h2>
+   <?php
+  $sql = "SELECT address, price, bed_no, bath_no, featured_image, title, garage_no FROM properties ORDER BY RAND() LIMIT 4";
+    $result = $mysqli->query($sql);
+      if ($result->num_rows > 0) {
+          while($row = $result->fetch_assoc()) {
+                    echo "<div class='col col-md-6 col-lg-4 col-xl-4  property-listing-table'>";
+                    echo "<table>";
+                    echo "<tr>";
+                    echo "<td> <img src='images/uploads/" .$row['featured_image'] . "'></td>";
+                    echo "</tr>";
+                    echo "<tr>";
+                    echo "<td><h3>" . $row['title'] . "</h3><span>" . $row['address'] . "<br><span>Price: $" . $row['price'] . "</span><br><span> <i class='fa fa-bed' aria-hidden='true'></i> : " . $row['bed_no'] . " " .  "<i class='fa fa-bath' aria-hidden='true'></i>  :  " . $row['bath_no']  . " " .  "<i class='fa fa-car' aria-hidden='true'></i>  :  " . $row['garage_no'] . "</span></td>";
+                    echo "</tr>";
+                   
+                    echo "</table>";
+                    echo "</div>";
+          }
+  } else {
+        echo "0 results";
+    }
+?>
 
-        <div class="row">
-          <div class="col-sm-12 col-md-4">
-            <div class="home-widget-bottom">
-              <h2>Property 7</h2>
-            </div>
-          </div>
-          <div class="col-sm-12 col-md-4">
-            <div class="home-widget-bottom">
-              <h2>Property 8</h2>
-            </div>
-          </div>
-          <div class="col-sm-12 col-md-4">
-            <div class="home-widget-bottom">
-              <h2>Property 9</h2>
+
             </div>
           </div>
         </div>
