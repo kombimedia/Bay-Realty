@@ -137,7 +137,7 @@ form button.btn:hover {
   padding: 30px 0;
 }
 
-/* featured listing image
+/* featured listings
 ----------------------------------------------------- */
 .page-content-top img{
   width: 100%;
@@ -145,8 +145,11 @@ form button.btn:hover {
 }
 
 .featured-property-table {
-  padding: 10px 10px 30px 0;
   float: left;
   display: inline-block;
+  background-color: #f1f1f1;
+  box-shadow: 10px 10px 5px #888888;
+  padding: 10px 10px 20px 10px !important;
 }
+
 
