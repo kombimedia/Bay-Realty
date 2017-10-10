@@ -58,9 +58,7 @@ form button.btn {
 
 /* Content styles
 ----------------------------------------------------- */
-.home-widget-top-container {
-  border-bottom: 1px solid #189ebb;
-}
+
 .home-widget-top img{
   width: 100%;
   height: 300px;
@@ -74,5 +72,7 @@ form button.btn {
 .home-widget-bottom {
   padding: 100px 20px;
 }
-
+.home-widget-top h2{
+  text-align: center;
+}
 

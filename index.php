@@ -38,7 +38,7 @@
         <div class="row">
           <div class="col">
             <div class="home-widget-top">
-              <h2>Featured Property</h2>
+              <h2>Featured Properties</h2>
 
 <?php
 
