@@ -44,8 +44,8 @@ $addData = "INSERT INTO properties (agents, title, address, categories, type, pr
         $_SESSION["dbSuccess"] = "<div class='success-message'>New listing successfully created</div>";
     }  else {
       // if insert is unsuccessful throw error
-       $_SESSION["dbError"] = "<div class='error-message'>Something went wrong! Please check that all fields have been filled correctly</div>";
-        //$_SESSION["dbError"] = "<div class='error-message'>An error has occurred: " . $addData . " " . $mysqli->error . "</div>";
+       //$_SESSION["dbError"] = "<div class='error-message'>Something went wrong! Please check that all fields have been filled correctly</div>";
+        $_SESSION["dbError"] = "<div class='error-message'>An error has occurred: " . $addData . " " . $mysqli->error . "</div>";
        }
 // close db connection
 $mysqli->close();
