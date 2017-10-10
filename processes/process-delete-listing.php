@@ -5,7 +5,7 @@ include '../includes/db-connect.php';
     $deleteData = "DELETE FROM images
                    WHERE listing_id ='".$_GET['del_listing']."'";
     if ($mysqli->query($deleteData)) {
-        $_SESSION["listDelSuccess"] = "<div class='success-message'>Images successfully deleted</div>";
+        $_SESSION["listDelSuccess"] = "<div class='success-message'>Image(s) successfully deleted</div>";
     } else {
         $_SESSION["listDelError"] = "<div class='error-message'>Images were not deleted. Please contact website administrator</div>";
     }

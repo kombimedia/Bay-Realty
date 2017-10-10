@@ -28,7 +28,7 @@ $(document).ready(function() {
                 ));
     });
 
-// following function will executes on change event of file input to select different file
+// Executes on change event of file input to select different file
 $('body').on('change', '#file', function(){
           if (this.files && this.files[0]) {
               // incrementing global variable by 1
