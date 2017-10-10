@@ -65,15 +65,19 @@ include 'includes/featured-listings.php';
       if ($result->num_rows > 0) {
           while($row = $result->fetch_assoc()) {
                     echo "<div class='col col-md-6 col-lg-4 col-xl-4  property-listing-table'>";
+                    echo "<div class='card' style='width: 20rem;'>";
                     echo "<table>";
-                    echo "<tr>";
-                    echo "<td> <img src='images/uploads/" .$row['featured_image'] . "'></td>";
+                    echo "<tr><td><img class='card-img-top' src='images/uploads/" .$row['featured_image'] . "' alt='Card image cap''><td>";
                     echo "</tr>";
+                    echo "<div class='card-block'>";
                     echo "<tr>";
-                    echo "<td><h3>" . $row['title'] . "</h3><span>" . $row['address'] . "<br><span>Price: $" . $row['price'] . "</span><br><span> <i class='fa fa-bed' aria-hidden='true'></i> : " . $row['bed_no'] . " " .  "<i class='fa fa-bath' aria-hidden='true'></i>  :  " . $row['bath_no']  . " " .  "<i class='fa fa-car' aria-hidden='true'></i>  :  " . $row['garage_no'] . "</span></td>";
+                    echo "<td><div class='card-data'><h4 class='card-title' >" . $row['title'] . "</h4><span>" . $row['address'] . "<br><span>Price: $" . $row['price'] . "</span><br><span> <i class='fa fa-bed' aria-hidden='true'></i> : " . $row['bed_no'] . " " .  "<i class='fa fa-bath' aria-hidden='true'></i>  :  " . $row['bath_no']  . " " .  "<i class='fa fa-car' aria-hidden='true'></i>  :  " . $row['garage_no'] . "</span></div></td>";
                     echo "</tr>";
                    
+                    
+                    echo "</div>";
                     echo "</table>";
+                    echo "</div>";
                     echo "</div>";
           }
   } else {
