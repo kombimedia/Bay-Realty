@@ -16,7 +16,7 @@ include 'includes/dashboard-sidebar.php';
   <table class='table table-striped table-responsive view-listings'>
     <thead class='view-listings-head'>
       <tr>
-        <th></th>
+        <th>Featured Image</th>
         <th>Listing No.</th>
         <th>Agent</th>
         <th>Listing Title</th>

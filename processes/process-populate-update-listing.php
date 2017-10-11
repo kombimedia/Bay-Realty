@@ -1,7 +1,7 @@
 <?php
 $listing_id = $_GET['listing_id'];
 $_SESSION["update_listing_id"] = $listing_id;
-$getData = "SELECT agents, title, address, categories, type, price, sell_method, bed_no, bed_des, bath_no, bath_des, lounge_no, lounge_des, garage_no, garage_des, house_size, land_size, map_co_ords, featured_property
+$getData = "SELECT agents, title, address, categories, type, price, sell_method, bed_no, bed_des, bath_no, bath_des, lounge_no, lounge_des, garage_no, garage_des, house_size, land_size, map_co_ords, featured_image, featured_property
             FROM properties
             WHERE listing_id = $listing_id";
 $result = $mysqli->query($getData);
@@ -21,6 +21,7 @@ $result = $mysqli->query($getData);
       $house_size = $row['house_size'];
       $land_size = $row['land_size'];
       $map_co_ords = $row['map_co_ords'];
+      $featured_image = $row['featured_image'];
       $featured_property = $row['featured_property'];
 
         // Get data for the 'select lists' to dynamically build each list with the saved option preselected
@@ -118,6 +119,36 @@ $result = $mysqli->query($getData);
                         $options_garage = $options_garage . "<option value='$i'>$i</option>";
                       }
                 }
+
+        $radio_featured_image = "";
+        $getData4 = "SELECT image_id, img_name
+                    FROM images
+                    WHERE listing_id = $listing_id";
+            $result4 = $mysqli->query($getData4);
+            // Check if there are any records to show
+            if ($result4->num_rows > 0) {
+                // Loop through data and output each row
+                 while($row4 = $result4->fetch_assoc()) {
+                    if ($row4['img_name'] == $featured_image) {
+                        $radio_featured_image = $radio_featured_image .
+                        "<label class='custom-control custom-radio'>
+                        <input id='$row4[image_id]' name='updateFImage' type='radio' class='custom-control-input' checked='checked' value='$row4[img_name]'>
+                        <span class='custom-control-indicator'></span>
+                        <span class='custom-control-description'><img class='img-fluid' src='images/uploads/$row4[img_name]' width='300'></span>
+                        </label>";
+                    } else {
+                        $radio_featured_image = $radio_featured_image .
+                        "<label class='custom-control custom-radio'>
+                        <input id='$row4[image_id]' name='updateFImage' type='radio' class='custom-control-input' value='$row4[img_name]'>
+                        <span class='custom-control-indicator'></span>
+                        <span class='custom-control-description'><img class='img-fluid' src='images/uploads/$row4[img_name]' width='300'></span>
+                        </label>";
+                    }
+                 }
+              } else {
+                  echo "No images listings to show";
+              }
+
 
     }
   }
