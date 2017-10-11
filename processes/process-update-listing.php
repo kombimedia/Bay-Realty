@@ -22,12 +22,13 @@ $garageD = ($_POST['updateGarageDescription']);
 $houseSize = ($_POST['updateHouseSize']);
 $landSize = ($_POST['updateLandSize']);
 $map = ($_POST['updateMapCoord']);
+$propDes = ($_POST['propDes']);
 $fImage = ($_POST['updateFImage']);
 $fListing = ($_POST['updateFListing']);
 
 // Insert new listing into database
 $addData = "UPDATE properties
-            SET agents = '$agent', title = '$lTitle', address = '$address', categories = '$city', type = '$type', price = '$price', sell_method = '$sMethod', bed_no = '$bedrooms', bed_des = '$bedD', bath_no = '$bathrooms', bath_des = '$bathD', lounge_no = '$lounges', lounge_des = '$loungeD', garage_no = '$garages', garage_des = '$garageD', house_size = '$houseSize', land_size = '$landSize', map_co_ords = '$map', featured_image = '$fImage', featured_property = '$fListing'
+            SET agents = '$agent', title = '$lTitle', address = '$address', categories = '$city', type = '$type', price = '$price', sell_method = '$sMethod', property_des = '$propDes', bed_no = '$bedrooms', bed_des = '$bedD', bath_no = '$bathrooms', bath_des = '$bathD', lounge_no = '$lounges', lounge_des = '$loungeD', garage_no = '$garages', garage_des = '$garageD', house_size = '$houseSize', land_size = '$landSize', map_co_ords = '$map', featured_image = '$fImage', featured_property = '$fListing'
             WHERE listing_id = $update_listing_id";
     // if insert is successful go back to dashboard view listing page and print success message
     if ($mysqli->query($addData)) {

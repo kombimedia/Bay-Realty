@@ -1,7 +1,7 @@
 <?php
 $listing_id = $_GET['listing_id'];
 $_SESSION["update_listing_id"] = $listing_id;
-$getData = "SELECT agents, title, address, categories, type, price, sell_method, bed_no, bed_des, bath_no, bath_des, lounge_no, lounge_des, garage_no, garage_des, house_size, land_size, map_co_ords, featured_image, featured_property
+$getData = "SELECT agents, title, address, categories, type, price, sell_method, property_des, bed_no, bed_des, bath_no, bath_des, lounge_no, lounge_des, garage_no, garage_des, house_size, land_size, map_co_ords, featured_image, featured_property
             FROM properties
             WHERE listing_id = $listing_id";
 $result = $mysqli->query($getData);
@@ -14,6 +14,7 @@ $result = $mysqli->query($getData);
       $address = $row['address'];
       $price = $row['price'];
       $sell_method = $row['sell_method'];
+      $prop_des = $row['property_des'];
       $bed_des = $row['bed_des'];
       $bath_des = $row['bath_des'];
       $lounge_des = $row['lounge_des'];

@@ -138,6 +138,13 @@
         </div>
 
         <div class="form-row">
+          <div class="col-12 col-xl-6 pl-0 mb-3">
+            <label for="description">Property Description</label>
+            <textarea class="form-control" id="description" name="propDes" rows="3" placeholder="Write all the good stuff about your listing here..."><?php echo $prop_des ?></textarea>
+          </div>
+        </div>
+
+        <div class="form-row">
           <div class="col mb-3">
             <div class="form-check">
               <label class="form-check-label">
