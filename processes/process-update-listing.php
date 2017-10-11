@@ -35,8 +35,8 @@ $addData = "UPDATE properties
         $_SESSION["updateListingSuccess"] = "<div class='success-message'>Listing updated successfully</div>";
     }  else {
       // if insert is unsuccessful throw error
-       //$_SESSION["updateListingError"] = "<div class='error-message'>Something went wrong! Please try again</div>";
-       $_SESSION["updateListingError"] = "<div class='error-message'>An error has occurred: " . $addData . " " . $mysqli->error . "</div>";
+        $_SESSION["updateListingError"] = "<div class='error-message'>Something went wrong! Please try again</div>";
+       //$_SESSION["updateListingError"] = "<div class='error-message'>An error has occurred: " . $addData . " " . $mysqli->error . "</div>";
        }
 
 // Upload new image(s) to listing
@@ -86,9 +86,6 @@ for ($i = 0; $i < count($_FILES['file']['name']); $i++) {
             $_SESSION["imageError"] = "<div class='error-message'>Invalid file size or type</div>";
         }
 }
-
-
-
 
 // close db connection
 $mysqli->close();

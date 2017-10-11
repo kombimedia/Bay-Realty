@@ -9,7 +9,7 @@ $(window).scroll(function() {
 
 // $(document).ready(function()
 // {
-//  $('form').ajaxForm(function()
+//  $('.add-listing-form').ajaxForm(function()
 //  {
 //   document.getElementById("ajax-message").innerHTML = "<div class='db-success'>Your listing was successfully created</div>";
 //  });
