@@ -72,18 +72,6 @@ for ($i = 0; $i < count($_FILES['file']['name']); $i++) {
               //$_SESSION["dbError"] = "<div class='error-message'>An error has occurred: " . $addData . " " . $mysqli->error . "</div>";
                }
 
-            // // Add featured image file name to the properties table, featured_image
-            // $addData2 = "UPDATE properties
-            //              SET featured_image = '$image_name'
-            //              WHERE listing_id = $update_listing_id";
-            // if ($mysqli->query($addData2)) {
-            //     // $_SESSION["imageSuccess"] = "<div class='success-message'>Properties table update</div>";
-            // }  else {
-            //   // if update is unsuccessful throw error
-            //    $_SESSION["imageError"] = "<div class='error-message'>Something went wrong! Properties table was not updated</div>";
-            //   // $_SESSION["dbError"] = "<div class='error-message'>An error has occurred: " . $addData1 . " " . $mysqli->error . "</div>";
-            //    }
-
                // Save image files to images/uploads folder
             if (move_uploaded_file($image_tmp, $file_path)) {
                 // if image is moved to uploads folder return success message

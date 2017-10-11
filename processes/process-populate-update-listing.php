@@ -119,7 +119,7 @@ $result = $mysqli->query($getData);
                         $options_garage = $options_garage . "<option value='$i'>$i</option>";
                       }
                 }
-
+// Change featured image
         $radio_featured_image = "";
         $getData4 = "SELECT image_id, img_name
                     FROM images
@@ -129,7 +129,9 @@ $result = $mysqli->query($getData);
             if ($result4->num_rows > 0) {
                 // Loop through data and output each row
                  while($row4 = $result4->fetch_assoc()) {
+                    // Check to see which image is currently the featured image and 'check' this radio - current featured image will be preselected
                     if ($row4['img_name'] == $featured_image) {
+                        // Build radio list populated with listing's images
                         $radio_featured_image = $radio_featured_image .
                         "<label class='custom-control custom-radio'>
                         <input id='$row4[image_id]' name='updateFImage' type='radio' class='custom-control-input' checked='checked' value='$row4[img_name]'>
@@ -137,6 +139,7 @@ $result = $mysqli->query($getData);
                         <span class='custom-control-description'><img class='img-fluid' src='images/uploads/$row4[img_name]' width='300'></span>
                         </label>";
                     } else {
+                        // Radio's will be built with all other images
                         $radio_featured_image = $radio_featured_image .
                         "<label class='custom-control custom-radio'>
                         <input id='$row4[image_id]' name='updateFImage' type='radio' class='custom-control-input' value='$row4[img_name]'>
