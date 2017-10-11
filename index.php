@@ -60,7 +60,7 @@ include 'includes/featured-listings.php';
             <div class="home-widget-listings">
               <h2 class="text-center" >Listed Properties</h2>
    <?php
-  $sql = "SELECT address, price, bed_no, bath_no, featured_image, title, garage_no FROM properties ORDER BY RAND() LIMIT 4";
+  $sql = "SELECT address, price, bed_no, bath_no, featured_image, title, garage_no FROM properties ORDER BY RAND() LIMIT 3";
     $result = $mysqli->query($sql);
       if ($result->num_rows > 0) {
           while($row = $result->fetch_assoc()) {
