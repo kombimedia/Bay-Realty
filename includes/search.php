@@ -3,7 +3,7 @@
       <form class="search-form">
         <div class="form-row mb-2 mt-4">
           <div class="col">
-            <input type="text" class="form-control" id="search-input" placeholder="location, keyword, property ID">
+            <input name="search-bar" type="text" class="form-control" id="search-input" placeholder="location, keyword, property ID">
           </div>
         </div>
         <div class="form-row form-inline mb-2">
@@ -107,7 +107,7 @@
               </select>
           </div>
         </div>
-        <button type="submit" class="btn">Search for Homes!</button>
+        <button name= "submit-search" type="submit" class="btn">Search for Homes!</button>
       </form>
   </div>
 </div>
