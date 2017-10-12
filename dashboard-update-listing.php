@@ -138,6 +138,13 @@
         </div>
 
         <div class="form-row">
+          <div class="col-12 col-xl-6 pl-0 mb-3">
+            <label for="description">Property Description</label>
+            <textarea class="form-control" id="description" name="propDes" rows="3" placeholder="Write all the good stuff about your listing here..."><?php echo $prop_des ?></textarea>
+          </div>
+        </div>
+
+        <div class="form-row">
           <div class="col mb-3">
             <div class="form-check">
               <label class="form-check-label">
@@ -154,13 +161,16 @@
     <div><?php if (isset($_SESSION['imageError'])) { echo $_SESSION['imageError']; unset($_SESSION['imageError']); }; ?></div>
   </div>
 
-<!-- <div class="update-images">
-  <table class="table table-responsive table-update-images">
-    <tbody>
-
-    </tbody>
-  </table>
-</div> -->
+<!-- Update Featured Image -->
+<div id="featured-image-form">
+    <div class="col pl-0 pr-0">
+      <div class="featured-image-form">
+          <h3 class="mb-4">Change Featured Image</h3>
+          <?php echo $radio_featured_image; ?>
+          <small id="" class="form-text text-muted">Select an image to replace the existing featured image</small>
+      </div>
+    </div>
+</div>
 
   <!-- Image upload tool -->
   <div class="form-row form-inline">
@@ -173,7 +183,6 @@
           <input class="form-control" name="file[]" type="file" id="file" aria-describedby="p-image-help"/>
         </div>
         <input type="button" id="add_more" class="btn" value="Add Another Image"/>
-        <small class="form-text text-muted mt-4">The last image uploaded will be used as your featured image</small>
       </div>
     </div>
   </div>
@@ -181,5 +190,5 @@
 </form>
 
 <?php
-  include 'includes/dashboard-footer.php';
+include 'includes/dashboard-footer.php';
 ?>

@@ -13,7 +13,7 @@ include 'includes/dashboard-sidebar.php';
 <table class="table table-responsive table-striped table-images">
   <thead class="images-head">
     <tr>
-      <th></th>
+      <th>Featured Image</th>
       <th>Image ID</th>
       <th>Listing ID</th>
       <th>Name</th>

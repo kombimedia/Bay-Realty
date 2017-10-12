@@ -21,6 +21,7 @@
             <select class="form-control" name="salesAgent" id="type" required value="">
               <option value="" disabled selected>Select</option>
               <?php echo $option_agents ?>
+              <option value="FAIL">Fail</option>
             </select>
           </div>
           <div class="col-12 col-xl-4 mb-3">
@@ -136,6 +137,13 @@
         </div>
 
         <div class="form-row">
+          <div class="col-12 col-xl-6 pl-0 mb-3">
+            <label for="description">Property Description</label>
+            <textarea class="form-control" id="description" name="propDes" rows="3" required placeholder="Write all the good stuff about your listing here..."><?php if (isset($_SESSION['storeListingDescription'])) { echo $_SESSION['storeListingDescription']; unset($_SESSION['storeListingDescription']); }; ?></textarea>
+          </div>
+        </div>
+
+        <div class="form-row">
           <div class="col mb-3">
             <div class="form-check">
               <label class="form-check-label">
@@ -145,6 +153,7 @@
             </div>
           </div>
         </div>
+
     </div> <!-- listing form div -->
 
   <!-- Image error/success messages -->
@@ -160,7 +169,7 @@
         <label for="file">Upload Property Images</label>
         <small id="p-image-help" class="form-text text-muted">png, jpg or jpeg file types accepted, max size 500KB</small><br>
         <div id="filediv">
-          <input class="form-control" name="file[]" type="file" id="file" aria-describedby="p-image-help"/>
+          <input class="form-control" name="file[]" type="file" id="file" aria-describedby="p-image-help" required/>
         </div>
         <input type="button" id="add_more" class="btn" value="Add Another Image"/>
         <small class="form-text text-muted mt-4">The last image uploaded will be used as your featured image</small>

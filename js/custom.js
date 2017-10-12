@@ -9,7 +9,7 @@ $(window).scroll(function() {
 
 // $(document).ready(function()
 // {
-//  $('form').ajaxForm(function()
+//  $('.add-listing-form').ajaxForm(function()
 //  {
 //   document.getElementById("ajax-message").innerHTML = "<div class='db-success'>Your listing was successfully created</div>";
 //  });
@@ -56,11 +56,11 @@ $('body').on('change', '#file', function(){
 
     $('#upload').click(function(e) {
         var name = $(":file").val();
-        if (!name)
-        {
-            // Throw error message if an image isn't selected
-            document.getElementById("return-messages").innerHTML = "<div class='image-error'>Please select an image to upload</div>";
-            e.preventDefault();
-        }
+        // if (!name)
+        // {
+        //     // Throw error message if an image isn't selected
+        //     document.getElementById("return-messages").innerHTML = "<div class='image-error'>Please select an image to upload</div>";
+        //     e.preventDefault();
+        // }
     });
 });

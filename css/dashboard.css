@@ -128,6 +128,12 @@ input.btn:hover {
   opacity: .8;
 }
 
+/* Change Featured Images
+-------------------------------------------------- */
+.custom-control-indicator {
+  top: 45%;
+}
+
 /* Upload Images
 -------------------------------------------------- */
 input#add_more {
@@ -140,7 +146,8 @@ input#add_more:hover {
   background-color: #f1f1f1;
   opacity: 1;
 }
-.image-form {
+.image-form,
+.featured-image-form {
   background-color: #f1f1f1;
   padding: 40px 20px;
   margin-bottom: 25px;

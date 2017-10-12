@@ -16,7 +16,7 @@ include 'includes/dashboard-sidebar.php';
   <table class='table table-striped table-responsive view-listings'>
     <thead class='view-listings-head'>
       <tr>
-        <th></th>
+        <th>Featured Image</th>
         <th>Listing No.</th>
         <th>Agent</th>
         <th>Listing Title</th>
@@ -59,6 +59,10 @@ $getData = "SELECT listing_id, agents, title, address, categories, type, price, 
           $land_size = $row['land_size'];
           $featured_image = $row['featured_image'];
           $featured_property = $row['featured_property'];
+          // Convert decimal from DB to currency to display on the page
+          $number = $price;
+          setlocale(LC_MONETARY,"en_NZ");
+          $price = money_format("%.0n", $number);
           // Check box returns 0 or 1. We needed to display 0 as No and 1 as Yes using a switch statement
           switch ($featured_property) {
               case "0":

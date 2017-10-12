@@ -22,19 +22,21 @@ $garageD = ($_POST['updateGarageDescription']);
 $houseSize = ($_POST['updateHouseSize']);
 $landSize = ($_POST['updateLandSize']);
 $map = ($_POST['updateMapCoord']);
+$propDes = ($_POST['propDes']);
+$fImage = ($_POST['updateFImage']);
 $fListing = ($_POST['updateFListing']);
 
 // Insert new listing into database
 $addData = "UPDATE properties
-            SET agents = '$agent', title = '$lTitle', address = '$address', categories = '$city', type = '$type', price = '$price', sell_method = '$sMethod', bed_no = '$bedrooms', bed_des = '$bedD', bath_no = '$bathrooms', bath_des = '$bathD', lounge_no = '$lounges', lounge_des = '$loungeD', garage_no = '$garages', garage_des = '$garageD', house_size = '$houseSize', land_size = '$landSize', map_co_ords = '$map', featured_property = '$fListing'
+            SET agents = '$agent', title = '$lTitle', address = '$address', categories = '$city', type = '$type', price = '$price', sell_method = '$sMethod', property_des = '$propDes', bed_no = '$bedrooms', bed_des = '$bedD', bath_no = '$bathrooms', bath_des = '$bathD', lounge_no = '$lounges', lounge_des = '$loungeD', garage_no = '$garages', garage_des = '$garageD', house_size = '$houseSize', land_size = '$landSize', map_co_ords = '$map', featured_image = '$fImage', featured_property = '$fListing'
             WHERE listing_id = $update_listing_id";
     // if insert is successful go back to dashboard view listing page and print success message
     if ($mysqli->query($addData)) {
         $_SESSION["updateListingSuccess"] = "<div class='success-message'>Listing updated successfully</div>";
     }  else {
       // if insert is unsuccessful throw error
-       $_SESSION["updateListingError"] = "<div class='error-message'>Something went wrong! Please try again</div>";
-       ///$_SESSION["updateListingError"] = "<div class='error-message'>An error has occurred: " . $addData . " " . $mysqli->error . "</div>";
+        $_SESSION["updateListingError"] = "<div class='error-message'>Something went wrong! Please try again</div>";
+       //$_SESSION["updateListingError"] = "<div class='error-message'>An error has occurred: " . $addData . " " . $mysqli->error . "</div>";
        }
 
 // Upload new image(s) to listing
@@ -71,18 +73,6 @@ for ($i = 0; $i < count($_FILES['file']['name']); $i++) {
               //$_SESSION["dbError"] = "<div class='error-message'>An error has occurred: " . $addData . " " . $mysqli->error . "</div>";
                }
 
-            // // Add featured image file name to the properties table, featured_image
-            // $addData2 = "UPDATE properties
-            //              SET featured_image = '$image_name'
-            //              WHERE listing_id = $update_listing_id";
-            // if ($mysqli->query($addData2)) {
-            //     // $_SESSION["imageSuccess"] = "<div class='success-message'>Properties table update</div>";
-            // }  else {
-            //   // if update is unsuccessful throw error
-            //    $_SESSION["imageError"] = "<div class='error-message'>Something went wrong! Properties table was not updated</div>";
-            //   // $_SESSION["dbError"] = "<div class='error-message'>An error has occurred: " . $addData1 . " " . $mysqli->error . "</div>";
-            //    }
-
                // Save image files to images/uploads folder
             if (move_uploaded_file($image_tmp, $file_path)) {
                 // if image is moved to uploads folder return success message
@@ -96,9 +86,6 @@ for ($i = 0; $i < count($_FILES['file']['name']); $i++) {
             $_SESSION["imageError"] = "<div class='error-message'>Invalid file size or type</div>";
         }
 }
-
-
-
 
 // close db connection
 $mysqli->close();
