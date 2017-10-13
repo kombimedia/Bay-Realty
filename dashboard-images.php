@@ -11,6 +11,7 @@ include 'processes/process-populate-images.php';
 <div><?php if (isset($_SESSION['imageError'])) { echo $_SESSION['imageError']; unset($_SESSION['imageError']); }; ?></div>
 <div><?php if (isset($_SESSION['imageDelSuccess'])) { echo $_SESSION['imageDelSuccess']; unset($_SESSION['imageDelSuccess']); }; ?></div>
 <div><?php if (isset($_SESSION['imageDelError'])) { echo $_SESSION['imageDelError']; unset($_SESSION['imageDelError']); }; ?></div>
+<div><?php if (isset($_SESSION["imageDelFileError"])) { echo $_SESSION["imageDelFileError"]; unset($_SESSION["imageDelFileError"]); }; ?></div>
 
 <table class="table table-responsive table-striped table-images">
   <thead class="images-head">

@@ -3,31 +3,29 @@ session_start();
 include '../includes/db-connect.php';
 
 // Delete image from uploads folder
-$deleteFile = "SELECT img_name
-               FROM images
-               WHERE image_id ='".$_GET['del_image']."'";
-$result = $mysqli->query($deleteFile);
-    // Check if there are any records to show
-    if ($result->num_rows > 0) {
-        // Loop through data and output each row
-        while($row = $result->fetch_assoc()) {
-            $path = "../images/uploads/" . $row['img_name'];
+$stmt = $mysqli->prepare ("SELECT img_name FROM images WHERE image_id = ?");
+$stmt->bind_param ("i", $_GET['del_image']);
+$stmt->execute ();
+$result = $stmt->get_result ();
+if ($result->num_rows === 1) {
+  $row = $result->fetch_assoc ();
+  $path = "../images/uploads/" . $row['img_name'];
+  } else {
+      $_SESSION["imageDelFileError"] = "<div class='error-message'>Image was not deleted from the server. Please contact website administrator</div>";
     }
-    unlink($path);
-}
+  unlink($path);
+  $stmt->close();
 
 // Delete images from db
-$deleteData = "DELETE FROM images
-               WHERE image_id ='".$_GET['del_image']."'";
-if ($mysqli->query($deleteData)) {
-    $_SESSION["imageDelSuccess"] = "<div class='success-message'>Image successfully deleted</div>";
-} else {
-    $_SESSION["imageDelError"] = "<div class='error-message'>Images were not deleted. Please contact website administrator</div>";
-}
+$stmt = $mysqli->prepare("DELETE FROM images WHERE image_id = ?");
+$stmt->bind_param("i", $_GET['del_image']);
+if ($stmt->execute()) {
+  $_SESSION["imageDelSuccess"] = "<div class='success-message'>Image successfully deleted</div>";
+  } else {
+      $_SESSION["imageDelError"] = "<div class='error-message'>Image was not deleted from the database. Please contact website administrator</div>";
+  }
+  $stmt->close();
 
-
-$_SESSION["path"] = "Path is: ".$path;
-
-$mysqli->close();
-header('location: ../dashboard-images');
+  $mysqli->close();
+  header('location: ../dashboard-images');
 ?>

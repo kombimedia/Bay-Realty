@@ -55,7 +55,7 @@ for ($i = 0; $i < count($_FILES['file']['name']); $i++) {
     // Rename image and path to include property listing_id
     $image_name = $update_listing_id . '_' . $image_name;
     // Get image size
-    $image_size = $_FILES['file']['size'][$i] . 'KB';
+    $image_size = $_FILES['file']['size'][$i] . 'B';
     // Declare path for uploaded images
     $file_path = "../images/uploads/".$image_name;
     // Validate image before storing to folder and DB

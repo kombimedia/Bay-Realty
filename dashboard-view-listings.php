@@ -155,53 +155,6 @@ $getData = "SELECT listing_id, agents, title, address, categories, type, price, 
 </script>
 
 <?php
-
-
-// $query = "SELECT listing_id, title, address, type, price, sell_method, bed_no, bath_no, lounge_no, garage_no, house_size, land_size, featured_image, featured_property
-//            FROM properties;";
-// $query.= "SELECT first_name, surname
-//           FROM agents
-//           INNER JOIN properties
-//           WHERE properties.agents = agents.agent_id;";
-// $query.= "SELECT city
-//           FROM categories
-//           INNER JOIN properties
-//           WHERE properties.categories = categories.cat_id;";
-
-// $query.= "SELECT type
-//           FROM property_type
-//           INNER JOIN properties
-//           WHERE properties.type = property_type.pt_id;";
-
-//  execute multi query
-// if ($mysqli->multi_query($query)) {
-
-//     $result = $mysqli->store_result();
-//     $row = $result->fetch_assoc();
-//     echo "<pre>";
-//     print_r($row);
-
-//     $mysqli->next_result();
-//     $result = $mysqli->store_result();
-//     $row = $result->fetch_assoc();
-//     echo "<pre>";
-//     print_r($row);
-
-//     $mysqli->next_result();
-//     $result = $mysqli->store_result();
-//     $row = $result->fetch_assoc();
-//     echo "<pre>";
-//     print_r($row);
-
-//     $mysqli->next_result();
-//     $result = $mysqli->store_result();
-//     $row = $result->fetch_assoc();
-//     echo "<pre>";
-//     print_r($row);
-
-?>
-
-<?php
 include 'includes/dashboard-footer.php';
 ?>
 

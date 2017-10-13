@@ -9,8 +9,11 @@
 
 <h1>Update Listing</h1>
   <!-- DB error/success messages -->
-  <div><?php if (isset($_SESSION['dbSuccess'])) { echo $_SESSION['dbSuccess']; unset($_SESSION['dbSuccess']); }; ?></div>
-  <div><?php if (isset($_SESSION['dbError'])) { echo $_SESSION['dbError']; unset($_SESSION['dbError']); }; ?></div>
+  <div><?php if (isset($_SESSION['successMessage'])) { echo $_SESSION['successMessage']; unset($_SESSION['successMessage']); }; ?></div>
+  <div><?php if (isset($_SESSION['propertiesErrorMessage'])) { echo $_SESSION['propertiesErrorMessage']; unset($_SESSION['propertiesErrorMessage']); }; ?></div>
+  <div><?php if (isset($_SESSION['agentsErrorMessage'])) { echo $_SESSION['agentsErrorMessage']; unset($_SESSION['agentsErrorMessage']); }; ?></div>
+  <div><?php if (isset($_SESSION['categoriesErrorMessage'])) { echo $_SESSION['categoriesErrorMessage']; unset($_SESSION['categoriesErrorMessage']); }; ?></div>
+  <div><?php if (isset($_SESSION['typeErrorMessage'])) { echo $_SESSION['typeErrorMessage']; unset($_SESSION['typeErrorMessage']); }; ?></div>
 
     <form class="add-listing-form" method="post" role="form" action="processes/process-update-listing.php" enctype="multipart/form-data">
       <div class="listing-form">

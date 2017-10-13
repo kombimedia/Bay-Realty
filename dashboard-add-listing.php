@@ -9,10 +9,10 @@
 
   <h1>Add New Listing</h1>
   <!-- DB error/success messages -->
-  <div><?php if (isset($_SESSION['dbSuccess'])) { echo $_SESSION['dbSuccess']; unset($_SESSION['dbSuccess']); }; ?></div>
-  <div><?php if (isset($_SESSION['dbError'])) { echo $_SESSION['dbError']; unset($_SESSION['dbError']); }; ?></div>
+  <div><?php if (isset($_SESSION['successMessage'])) { echo $_SESSION['successMessage']; unset($_SESSION['successMessage']); }; ?></div>
+  <div><?php if (isset($_SESSION['errorMessage'])) { echo $_SESSION['errorMessage']; unset($_SESSION['errorMessage']); }; ?></div>
 
-    <form class="add-listing-form" method="post" role="form" action="processes/process-add-listing-form.php" enctype="multipart/form-data">
+    <form class="add-listing-form" method="post" role="form" action="processes/process-add-listing.php" enctype="multipart/form-data">
       <div class="listing-form">
         <h3>Property Details</h3>
         <div class="form-row form-inline mt-4">
@@ -21,7 +21,7 @@
             <select class="form-control" name="salesAgent" id="type" required value="">
               <option value="" disabled selected>Select</option>
               <?php echo $option_agents ?>
-              <option value="FAIL">Fail</option>
+              <option value="14">Fail</option>
             </select>
           </div>
           <div class="col-12 col-xl-4 mb-3">
@@ -158,8 +158,6 @@
 
   <!-- Image error/success messages -->
   <div id="return-messages">
-    <div><?php if (isset($_SESSION['imageSuccess'])) { echo $_SESSION['imageSuccess']; unset($_SESSION['imageSuccess']); }; ?></div>
-    <div><?php if (isset($_SESSION['imageError'])) { echo $_SESSION['imageError']; unset($_SESSION['imageError']); }; ?></div>
   </div>
   <!-- Image upload tool -->
   <div class="form-row form-inline">

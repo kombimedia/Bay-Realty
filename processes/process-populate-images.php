@@ -14,7 +14,7 @@ if($result->num_rows > 0) {
               <td>$row[img_name]</td>
               <td>$row[img_size]</td>
               <td>$row[img_type]</td>
-              <td><a class='delete-image' href='#' onClick='deleteimage('$row[image_id]')'><img src='images/x.png'></a></td>
+              <td><a class='delete-image' href='#' onClick='deleteimage($row[image_id])'><img src='images/x.png'></a></td>
           </tr>";
         }
       } else {
