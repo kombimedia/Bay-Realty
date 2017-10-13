@@ -8,9 +8,10 @@ include 'includes/dashboard-sidebar.php';
 
   <h1>View Listing</h1>
 
-  <div><?php if (isset($_SESSION['updateListingSuccess'])) { echo $_SESSION['updateListingSuccess']; unset($_SESSION['updateListingSuccess']); }; ?></div>
-  <div><?php if (isset($_SESSION['updateListingError'])) { echo $_SESSION['updateListingError']; unset($_SESSION['updateListingError']); }; ?></div>
-  <div><?php if (isset($_SESSION['listDelSuccess'])) { echo $_SESSION['listDelSuccess']; unset($_SESSION['listDelSuccess']); }; ?></div>
+  <div><?php if (isset($_SESSION['successMessage'])) { echo $_SESSION['successMessage']; unset($_SESSION['successMessage']); }; ?></div>
+  <div><?php if (isset($_SESSION['errorMessage'])) { echo $_SESSION['errorMessage']; unset($_SESSION['errorMessage']); }; ?></div>
+  <div><?php if (isset($_SESSION['serverDelError'])) { echo $_SESSION['serverDelError']; unset($_SESSION['serverDelError']); }; ?></div>
+  <div><?php if (isset($_SESSION['imgDelError'])) { echo $_SESSION['imgDelError']; unset($_SESSION['imgDelError']); }; ?></div>
   <div><?php if (isset($_SESSION['listDelError'])) { echo $_SESSION['listDelError']; unset($_SESSION['listDelError']); }; ?></div>
 
   <table class='table table-striped table-responsive view-listings'>

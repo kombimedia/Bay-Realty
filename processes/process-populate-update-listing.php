@@ -185,6 +185,7 @@ if ($result->num_rows > 0) {
     }
 } else {
       // If there is no data to be displayed throw an error message
-      $_SESSION["typeErrorMessage"] = "<div class='error-message'>Hmmmm... For some reason the Featured Image isn't showing. That's annoying! You should maybe contact the website administrator and get that fixed.</div>";
+      $_SESSION["featuredImErrorMessage"] = "<div class='error-message'>Hmmmm... For some reason the Featured Image isn't showing. That's annoying! You should maybe contact the website administrator and get that fixed.</div>";
       }
 $stmt->close();
+exit;
