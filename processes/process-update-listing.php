@@ -6,10 +6,61 @@ if (isset($_POST['submit'])) {
 
     // Get listing ID and save to a variable
     $update_listing_id = $_SESSION["update_listing_id"];
+    // Get form data and save to variables
+    $sales_agent = $_POST["updateSalesAgent"];
+    $listing_title = $_POST["updateListingTitle"];
+    $address = $_POST["updateStreetAddress"];
+    $city = $_POST["updateCity"];
+    $type = $_POST["updatePropertyType"];
+    $price = $_POST["updatePrice"];
+    $sell_method = $_POST["updateSaleMethod"];
+    $bedrooms = $_POST["updateBedrooms"];
+    $bed_des = $_POST["updateBedDescription"];
+    $bathrooms = $_POST["updateBathrooms"];
+    $bath_des = $_POST["updateBathDescription"];
+    $lounges = $_POST["updateLounges"];
+    $lounge_des = $_POST["updateLoungeDescription"];
+    $garages = $_POST["updateGarages"];
+    $garage_des = $_POST["updateGarageDescription"];
+    $house_size = $_POST["updateHouseSize"];
+    $land_size = $_POST["updateLandSize"];
+    $map_co_ords = $_POST["updateMapCoord"];
+    $property_des = $_POST["updatePropDes"];
+    $featured_image = $_POST["updateFImage"];
+
+    if (isset($_POST['updateFListing'])) {
+        $featured_listing = 1;
+    } else {
+        $featured_listing = 0;
+    }
+
+
+    // Get post data from validation script
+    // $sales_agent = $_SESSION["storeSalesAgent"];
+    // $listing_title = $_SESSION["storeListingTitle"];
+    // $address = $_SESSION["storeStreetAddress"];
+    // $city = $_SESSION["storeCity"];
+    // $type = $_SESSION["storePropertyType"];
+    // $price = $_SESSION["storePrice"];
+    // $sell_method = $_SESSION["storeSaleMethod"];
+    // $bedrooms = $_SESSION["storeBedrooms"];
+    // $bed_des = $_SESSION["storeBedDescription"];
+    // $bathrooms = $_SESSION["storeBathrooms"];
+    // $bath_des = $_SESSION["storeBathDescription"];
+    // $lounges = $_SESSION["storeLounges"];
+    // $lounge_des = $_SESSION["storeLoungeDescription"];
+    // $garages = $_SESSION["storeGarages"];
+    // $garage_des = $_SESSION["storeGarageDescription"];
+    // $house_size = $_SESSION["storeHouseSize"];
+    // $land_size = $_SESSION["storeLandSize"];
+    // $map_co_ords = $_SESSION["storeMapCoord"];
+    // $property_des = $_SESSION["storeListingDescription"];
+    // $featured_listing = $_SESSION["storeFeaturedListing"];
+    // $featured_image = $_SESSION["storeupdateFImage"];
 
     // Update existing listing in database
     $stmt = $mysqli->prepare("UPDATE properties SET agents = ?, title = ?, address = ?, categories = ?, type = ?, price = ?, sell_method = ?, property_des = ?, bed_no = ?, bed_des = ?, bath_no = ?, bath_des = ?, lounge_no = ?, lounge_des = ?, garage_no = ?, garage_des = ?, house_size = ?, land_size = ?, map_co_ords = ?, featured_image = ?, featured_property = ? WHERE listing_id = ?");
-    $stmt->bind_param("issiidssisisisisssssii", $_POST['updateSalesAgent'], $_POST['updateListingTitle'], $_POST['updateStreetAddress'], $_POST['updateCity'], $_POST['updatePropertyType'], $_POST['updatePrice'], $_POST['updateSaleMethod'], $_POST['propDes'], $_POST['updateBedrooms'], $_POST['updateBedDescription'], $_POST['updateBathrooms'], $_POST['updateBathDescription'], $_POST['updateLounges'], $_POST['updateLoungeDescription'], $_POST['updateGarages'], $_POST['updateGarageDescription'], $_POST['updateHouseSize'], $_POST['updateLandSize'], $_POST['updateMapCoord'], $_POST['updateFImage'], $_POST['updateFListing'], $update_listing_id);
+    $stmt->bind_param("issiidssisisisisssssii", $sales_agent, $listing_title, $address, $city, $type, $price, $sell_method, $property_des, $bedrooms, $bath_des, $bathrooms, $bath_des, $lounges, $lounge_des, $garages, $garage_des, $house_size, $land_size, $map_co_ord, $featured_image, $featured_listing, $update_listing_id);
     if (!$stmt->execute()) {
           $_SESSION["errorMessage"] = "<div class='error-message'>Oops! Something went wrong... Please check you have entered all fields correctly</div>";
           //$_SESSION["errorMessage"] = "<div class='error-message'>Oops! Something went wrong... (" . $stmt->errno . ") " . $stmt->error . "</div>";
@@ -19,7 +70,7 @@ if (isset($_POST['submit'])) {
     }
     $stmt->close();
 
-    // Upload new image(s) to listing
+    // Upload more image(s) to listing
     // loop through images array to get individual element - name, extension
     for ($i = 0; $i < count($_FILES['file']['name']); $i++) {
         // Accepted extensions

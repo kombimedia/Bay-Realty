@@ -220,6 +220,10 @@ td a.view-listing-delete {
   margin-bottom: 25px;
 }
 
+.validate-error-message {
+  color: red;
+}
+
 /* Media queries
 -------------------------------------------------- */
 @media (min-width: 768px) {

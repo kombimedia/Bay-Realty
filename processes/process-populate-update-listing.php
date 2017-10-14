@@ -1,4 +1,5 @@
 <?php
+//include 'includes/db-connect.php';
 $listing_id = $_GET['listing_id'];
 $_SESSION["update_listing_id"] = $listing_id;
 
@@ -45,7 +46,7 @@ $result = $stmt->get_result();
 if($result->num_rows > 0) {
     // Loop through data and output each row
     while($row1 = $result->fetch_assoc()) {
-        $arr[] = row1;
+        $arr[] = $row1;
         $agent_name = $row1['first_name'] . " " . $row1['surname'];
           // compare the stored value from the properties table to that of the agents table. If there is a match add the 'selected' tag to that option
         if ($agents == $row1['agent_id']) {
@@ -188,4 +189,3 @@ if ($result->num_rows > 0) {
       $_SESSION["featuredImErrorMessage"] = "<div class='error-message'>Hmmmm... For some reason the Featured Image isn't showing. That's annoying! You should maybe contact the website administrator and get that fixed.</div>";
       }
 $stmt->close();
-exit;

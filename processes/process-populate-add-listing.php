@@ -1,4 +1,4 @@
-<?php>
+<?php
 $option_agents = "";
 $stmt = $mysqli->prepare("SELECT agent_id, first_name, surname FROM agents");
 $stmt->execute();
@@ -51,9 +51,9 @@ if($result->num_rows > 0) {
 $option_beds = "";
 for($i = 0; $i <= 5; $i++) {
     if ($i == 5) {
-      $option_bed = $option_bed . "<option value='$i'>$i +</option>";
+      $option_beds = $option_beds . "<option value='$i'>$i +</option>";
       } else {
-        $option_bed = $option_bed . "<option value='$i'>$i</option>";
+        $option_beds = $option_beds . "<option value='$i'>$i</option>";
       }
 }
 
