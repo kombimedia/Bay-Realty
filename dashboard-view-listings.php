@@ -8,9 +8,10 @@ include 'includes/dashboard-sidebar.php';
 
   <h1>View Listing</h1>
 
-  <div><?php if (isset($_SESSION['updateListingSuccess'])) { echo $_SESSION['updateListingSuccess']; unset($_SESSION['updateListingSuccess']); }; ?></div>
-  <div><?php if (isset($_SESSION['updateListingError'])) { echo $_SESSION['updateListingError']; unset($_SESSION['updateListingError']); }; ?></div>
-  <div><?php if (isset($_SESSION['listDelSuccess'])) { echo $_SESSION['listDelSuccess']; unset($_SESSION['listDelSuccess']); }; ?></div>
+  <div><?php if (isset($_SESSION['successMessage'])) { echo $_SESSION['successMessage']; unset($_SESSION['successMessage']); }; ?></div>
+  <div><?php if (isset($_SESSION['errorMessage'])) { echo $_SESSION['errorMessage']; unset($_SESSION['errorMessage']); }; ?></div>
+  <div><?php if (isset($_SESSION['serverDelError'])) { echo $_SESSION['serverDelError']; unset($_SESSION['serverDelError']); }; ?></div>
+  <div><?php if (isset($_SESSION['imgDelError'])) { echo $_SESSION['imgDelError']; unset($_SESSION['imgDelError']); }; ?></div>
   <div><?php if (isset($_SESSION['listDelError'])) { echo $_SESSION['listDelError']; unset($_SESSION['listDelError']); }; ?></div>
 
   <table class='table table-striped table-responsive view-listings'>
@@ -153,53 +154,6 @@ $getData = "SELECT listing_id, agents, title, address, categories, type, price, 
     }
  }
 </script>
-
-<?php
-
-
-// $query = "SELECT listing_id, title, address, type, price, sell_method, bed_no, bath_no, lounge_no, garage_no, house_size, land_size, featured_image, featured_property
-//            FROM properties;";
-// $query.= "SELECT first_name, surname
-//           FROM agents
-//           INNER JOIN properties
-//           WHERE properties.agents = agents.agent_id;";
-// $query.= "SELECT city
-//           FROM categories
-//           INNER JOIN properties
-//           WHERE properties.categories = categories.cat_id;";
-
-// $query.= "SELECT type
-//           FROM property_type
-//           INNER JOIN properties
-//           WHERE properties.type = property_type.pt_id;";
-
-//  execute multi query
-// if ($mysqli->multi_query($query)) {
-
-//     $result = $mysqli->store_result();
-//     $row = $result->fetch_assoc();
-//     echo "<pre>";
-//     print_r($row);
-
-//     $mysqli->next_result();
-//     $result = $mysqli->store_result();
-//     $row = $result->fetch_assoc();
-//     echo "<pre>";
-//     print_r($row);
-
-//     $mysqli->next_result();
-//     $result = $mysqli->store_result();
-//     $row = $result->fetch_assoc();
-//     echo "<pre>";
-//     print_r($row);
-
-//     $mysqli->next_result();
-//     $result = $mysqli->store_result();
-//     $row = $result->fetch_assoc();
-//     echo "<pre>";
-//     print_r($row);
-
-?>
 
 <?php
 include 'includes/dashboard-footer.php';

@@ -2,36 +2,41 @@
 session_start();
 include '../includes/db-connect.php';
 
+// Get listing ID
+$listing_id = $_GET['del_listing'];
 // Delete images from uploads folder
-$deleteImages = "SELECT img_name
-                 FROM images
-                 WHERE listing_id ='".$_GET['del_listing']."'";
-$result = $mysqli->query($deleteImages);
-        // Loop through data and output each row
-        while($row = $result->fetch_assoc()) {
-            $path = "../images/uploads/" . $row['img_name'];
-            unlink($path);
-    }
+$stmt = $mysqli->prepare("SELECT img_name FROM images WHERE listing_id = ?");
+$stmt->bind_param("i", $listing_id);
+$stmt->execute();
+$result = $stmt->get_result();
+if($result->num_rows > 0) {
+  while($row = $result->fetch_assoc()) {
+    $arr[] = $row;
+    $path = "../images/uploads/" . $row['img_name'];
+    unlink($path);
+  }
+} else {
+    $_SESSION["serverDelError"] = "<div class='error-message'>No images to delete from the server</div>";
+}
+$stmt->close();
 
 // Delete images from db
-$deleteData = "DELETE FROM images
-               WHERE listing_id ='".$_GET['del_listing']."'";
-if ($mysqli->query($deleteData)) {
-    $_SESSION["listDelSuccess"] = "<div class='success-message'>Image(s) successfully deleted</div>";
-} else {
-    $_SESSION["listDelError"] = "<div class='error-message'>Images were not deleted. Please contact website administrator</div>";
+$stmt = $mysqli->prepare("DELETE FROM images WHERE listing_id = ?");
+$stmt->bind_param("i", $listing_id);
+if (!$stmt->execute()) {
+    $_SESSION["imgDelError"] = "<div class='error-message'>Uh oh.. Images weren't deleted from the database. Please contact the website administrator</div>";
 }
+$stmt->close();
 
 // Delete listing from db
-$deleteData1 = "DELETE FROM properties
-                WHERE listing_id ='".$_GET['del_listing']."'";
-if ($mysqli->query($deleteData1)) {
-    $_SESSION["listDelSuccess"] = "<div class='success-message'>Listing successfully deleted</div>";
+$stmt = $mysqli->prepare("DELETE FROM properties WHERE listing_id = ?");
+$stmt->bind_param("i", $listing_id);
+if (!$stmt->execute()) {
+    $_SESSION["listDelError"] = "<div class='error-message'>Uh oh.. Listing wasn't deleted. Please contact website administrator</div>";
 } else {
-    $_SESSION["listDelError"] = "<div class='error-message'>Listing was not deleted. Please contact website administrator</div>";
+    $_SESSION["successMessage"] = "<div class='success-message'>Listing ID: " . $listing_id ." was successfully deleted</div>";
 }
-
+$stmt->close();
 $mysqli->close();
 header('location: ../dashboard-view-listings');
 
-?>
