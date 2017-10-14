@@ -1,9 +1,30 @@
+
+
+<?php
+
+
+?>
+
+
+
+
+<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+  <input type="text" name="searchquery" placeholder="search database">
+    <select name="filter1">
+     <option value="Whole site">Whole site</option> 
+    <option value="properties">properties</option>
+  </select>
+  <input type="submit" name="myBtn" >
+
+</form>
+
+
 <div class="container-fluid search-form-outer">
   <div class="container search-form-inner">
       <form class="search-form">
         <div class="form-row mb-2 mt-4">
           <div class="col">
-            <input type="text" class="form-control" id="search-input" placeholder="location, keyword, property ID">
+            <input name="search-bar" type="text" class="form-control" id="search-input" placeholder="location, keyword, property ID">
           </div>
         </div>
         <div class="form-row form-inline mb-2">
@@ -107,7 +128,11 @@
               </select>
           </div>
         </div>
-        <button type="submit" class="btn">Search for Homes!</button>
+        <button name= "submit-search" type="submit" class="btn">Search for Homes!</button>
       </form>
   </div>
 </div>
+
+
+
+
