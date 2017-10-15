@@ -110,7 +110,7 @@ session_start();
         }
     }
 
-// if listing is successful created go back to dashboard 'add listing' page and print success message
+// if listing is successfully created go back to dashboard 'add listing' page and print success message
 $_SESSION["successMessage"] = "<div class='success-message'>New listing successfully created. Listing ID is: " . $new_listing_id . "</div>";
 header('location: ../dashboard-add-listing');
 

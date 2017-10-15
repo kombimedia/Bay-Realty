@@ -12,7 +12,7 @@ include 'includes/search.php';
                        <div class="page-content-top">
                          <h2 class="text-center">Featured Properties</h2>
 
-              
+
 <?php
 
 include 'includes/featured-listings.php';
@@ -20,7 +20,7 @@ include 'includes/featured-listings.php';
 
             </div>
           </div>
-         
+
         </div>
       </div>
     </div>
@@ -32,7 +32,7 @@ include 'includes/featured-listings.php';
             <div class="home-widget-listings">
               <h2 class="text-center" >Listed Properties</h2>
    <?php
-        
+
         if (isset($_POST['submit-search'])) {
           $search = mysqli_real_escape_string($mysqli, $POST['/category/search-bar']);
           $sql = "SELECT * FROM properties WHERE title LIKE '%$search%' OR title LIKE '%$search%' ";
@@ -50,8 +50,8 @@ include 'includes/featured-listings.php';
                     echo "<tr>";
                     echo "<td><div class='card-data'><h4 class='card-title' >" . $row['title'] . "</h4><span>" . $row['address'] . "<br><span>Price: $" . $row['price'] . "</span><br><span> <i class='fa fa-bed' aria-hidden='true'></i> : " . $row['bed_no'] . " " .  "<i class='fa fa-bath' aria-hidden='true'></i>  :  " . $row['bath_no']  . " " .  "<i class='fa fa-car' aria-hidden='true'></i>  :  " . $row['garage_no'] . "</span></div></td>";
                     echo "</tr>";
-                   
-                    
+
+
                     echo "</div>";
                     echo "</table>";
                     echo "</div>";

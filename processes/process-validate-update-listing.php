@@ -1,8 +1,8 @@
 <?php
 session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Save form data to global variables to repopulate form if submit fails
 
+    // Save form data to global variables to repopulate form if submit fails
     $_SESSION["storeListingTitle"] = $_POST['updateListingTitle'];
     $_SESSION["storeStreetAddress"] = $_POST['updateStreetAddress'];
     $_SESSION["storePrice"] = $_POST['updatePrice'];
@@ -195,10 +195,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
      // Valid entry Garages
     $valid_featured_image = true;
-    //$_SESSION["storeupdateFImage"] = $_POST['updateFImage'];
+    //$_SESSION["storeFImage"] = $_POST['updateFImage'];
 
     // Validate image(s) and store in the temp folder until we need to use them
-    $valid_image = true;
+    $valid_image_upload = true;
     //loop through images array to get individual element - name, extension
     for ($i = 0; $i < count($_FILES['file']['name']); $i++) {
         // Accepted extensions
@@ -216,30 +216,165 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Declare path for uploaded images
         $file_path = "../images/temp/" . $image_name;
 
-        // Validate image before storing to temp folder
-        // Limit file size to less than 500kb
+        //Validate image before storing to temp folder
+        //Limit file size to less than 500kb
         if (($image_size < 500001) && in_array($image_type, $validextensions)) {
 
             // Save image files to images/uploads folder
             if (!move_uploaded_file($image_tmp, $file_path)) {
                 // if file was not moved throw error message
                 $_SESSION["imgUploadError"] = "<div class='validate-error-message'>Uh oh... Image(s) were not saved to temp folder.</div>";
-                $valid_image = false;
+                $valid_image_upload = false;
             }
-            // if file size or file type were incorrect throw error message
+        // if file size or file type were incorrect throw error message
         } else {
                 $_SESSION["imgFileError"] = "<div class='validate-error-message'>Oops... Image should be max 500kb and a jpg, jpeg or png.</div>";
-                $valid_image = false;
+                $valid_image_upload = false;
               }
     }
              // $_SESSION["imgError"] = "<div class='validate-error-message'>Please select at least one image.</div>";
-             // $valid_image = false;
+             // $valid_image_upload = false;
 }
 
-$valid_listing = $valid_agent && $valid_title && $valid_address && $valid_city && $valid_type && $valid_price && $valid_sale_method && $valid_bedrooms && $valid_bed_des && $valid_bathrooms && $valid_bath_des && $valid_lounges && $valid_lounge_des && $valid_garages && $valid_garage_des && $valid_h_size && $valid_l_size && $valid_map && $valid_prop_des && $valid_featured_image && $valid_image;
+$valid_listing = $valid_agent && $valid_title && $valid_address && $valid_city && $valid_type && $valid_price && $valid_sale_method && $valid_bedrooms && $valid_bed_des && $valid_bathrooms && $valid_bath_des && $valid_lounges && $valid_lounge_des && $valid_garages && $valid_garage_des && $valid_h_size && $valid_l_size && $valid_map && $valid_prop_des && $valid_featured_image && $valid_image_upload;
+
+//if ($valid_listing) {
+//     header('Location: process-update-listing.php');
+// } else {
+//     header('Location: ../dashboard-update-listing.php');
+// }
+
+
 
 if ($valid_listing) {
-    header('Location: process-update-listing.php');
+
+include '../includes/db-connect.php';
+
+    // Get listing ID and save to a variable
+    $update_listing_id = $_SESSION["update_listing_id"];
+    // Get form data and save to variables
+    $sales_agent = $_POST["updateSalesAgent"];
+    $listing_title = $_POST["updateListingTitle"];
+    $address = $_POST["updateStreetAddress"];
+    $city = $_POST["updateCity"];
+    $type = $_POST["updatePropertyType"];
+    $price = $_POST["updatePrice"];
+    $sell_method = $_POST["updateSaleMethod"];
+    $bedrooms = $_POST["updateBedrooms"];
+    $bed_des = $_POST["updateBedDescription"];
+    $bathrooms = $_POST["updateBathrooms"];
+    $bath_des = $_POST["updateBathDescription"];
+    $lounges = $_POST["updateLounges"];
+    $lounge_des = $_POST["updateLoungeDescription"];
+    $garages = $_POST["updateGarages"];
+    $garage_des = $_POST["updateGarageDescription"];
+    $house_size = $_POST["updateHouseSize"];
+    $land_size = $_POST["updateLandSize"];
+    $map_co_ords = $_POST["updateMapCoord"];
+    $property_des = $_POST["updatePropDes"];
+    $featured_image = $_POST["updateFImage"];
+
+    if (isset($_POST['updateFListing'])) {
+        $featured_listing = 1;
+    } else {
+        $featured_listing = 0;
+    }
+
+
+    // Get post data from validation script
+    // $sales_agent = $_SESSION["storeSalesAgent"];
+    // $listing_title = $_SESSION["storeListingTitle"];
+    // $address = $_SESSION["storeStreetAddress"];
+    // $city = $_SESSION["storeCity"];
+    // $type = $_SESSION["storePropertyType"];
+    // $price = $_SESSION["storePrice"];
+    // $sell_method = $_SESSION["storeSaleMethod"];
+    // $bedrooms = $_SESSION["storeBedrooms"];
+    // $bed_des = $_SESSION["storeBedDescription"];
+    // $bathrooms = $_SESSION["storeBathrooms"];
+    // $bath_des = $_SESSION["storeBathDescription"];
+    // $lounges = $_SESSION["storeLounges"];
+    // $lounge_des = $_SESSION["storeLoungeDescription"];
+    // $garages = $_SESSION["storeGarages"];
+    // $garage_des = $_SESSION["storeGarageDescription"];
+    // $house_size = $_SESSION["storeHouseSize"];
+    // $land_size = $_SESSION["storeLandSize"];
+    // $map_co_ords = $_SESSION["storeMapCoord"];
+    // $property_des = $_SESSION["storeListingDescription"];
+    // $featured_listing = $_SESSION["storeFeaturedListing"];
+    // $featured_image = $_SESSION["storeupdateFImage"];
+
+    // Update existing listing in database
+    $stmt = $mysqli->prepare("UPDATE properties SET agents = ?, title = ?, address = ?, categories = ?, type = ?, price = ?, sell_method = ?, property_des = ?, bed_no = ?, bed_des = ?, bath_no = ?, bath_des = ?, lounge_no = ?, lounge_des = ?, garage_no = ?, garage_des = ?, house_size = ?, land_size = ?, map_co_ords = ?, featured_image = ?, featured_property = ? WHERE listing_id = ?");
+    $stmt->bind_param("issiidssisisisisssssii", $sales_agent, $listing_title, $address, $city, $type, $price, $sell_method, $property_des, $bedrooms, $bath_des, $bathrooms, $bath_des, $lounges, $lounge_des, $garages, $garage_des, $house_size, $land_size, $map_co_ord, $featured_image, $featured_listing, $update_listing_id);
+    if (!$stmt->execute()) {
+          $_SESSION["errorMessage"] = "<div class='error-message'>Oops! Something went wrong... Please check you have entered all fields correctly</div>";
+          //$_SESSION["errorMessage"] = "<div class='error-message'>Oops! Something went wrong... (" . $stmt->errno . ") " . $stmt->error . "</div>";
+          $stmt->close();
+          header('location: ../dashboard-update-listing');
+          exit;
+    }
+    $stmt->close();
+
+    //if (!empty($_FILES['file']['name'])) {
+    // Define directory where images are stored
+    $tempdir = "../images/temp/";
+    // Define images to get from folder
+    $image_files = glob("$tempdir{*.jpg,*.jpeg,*.png}", GLOB_BRACE);
+    //loop through images array to get individual element - name, extension
+    for ($i = 0; $i < count($image_files); $i++) {
+        // Get extensions and store to a variable
+        $ext = explode('.', basename($image_files[$i]));
+        $image_type = end($ext);
+        // Get file size
+        $image_size = filesize($image_files[$i]). 'Bytes';
+        // Save temp file path to a variable
+        $temp_files = $image_files[$i];
+        // Get file name to a variable
+        $image_name = basename($image_files[$i]);
+        // Rename image and path to include property listing_id
+        $image_name = $update_listing_id . '_' . $image_name;
+        // Define path to uploads folder
+        $file_path = "../images/uploads/" . $image_name;
+
+        $stmt = $mysqli->prepare("INSERT INTO images (img_name, img_size, img_type, listing_id) VALUES (?, ?, ?, ?)");
+        $stmt->bind_param("sssi", $image_name, $image_size, $image_type, $update_listing_id);
+        // if insert execution is unsuccessful throw error
+        if (!$stmt->execute()) {
+              $_SESSION["errorMessage"] = "<div class='error-message'>Oops! Something went wrong... Image data wasn't added to the database. Please contact the site administrator</div>";
+              //$_SESSION["errorMessage"] = "<div class='error-message'>Oops! Something went wrong... (" . $stmt->errno . ") " . $stmt->error . "</div>";
+              $stmt->close();
+              header('location: ../dashboard-update-listing');
+        }
+        $stmt->close();
+
+        // Add featured image file name to the properties table, featured_image
+        $stmt = $mysqli->prepare("UPDATE properties SET featured_image = ? WHERE listing_id = ?");
+        $stmt->bind_param("si", $image_name, $update_listing_id);
+        // if update execution is unsuccessful throw error
+        if (!$stmt->execute()) {
+            $_SESSION["errorMessage"] = "<div class='error-message'>Oops! Something went wrong... The featured image wasn't added to the database. Please contact the site administrator</div>";
+            //$_SESSION["errorMessage"] = "<div class='error-message'>Oops! Something went wrong... (" . $stmt->errno . ") " . $stmt->error . "</div>";
+            $stmt->close();
+            header('location: ../dashboard-update-listing');
+        }
+        $stmt->close();
+
+        // Move images from temp folder to uploads folder
+        if (!rename($temp_files, $file_path)) {
+            // if file was not moved throw error message
+            $_SESSION["errorMessage"] = "<div class='error-message'>Image(s) were not saved to uploads folder</div>";
+            header('location: ../dashboard-update-listing');
+        }
+    }
+    //}
+    // if listing is successful updated go to dashboard 'view listings' page and print success message
+    $_SESSION["successMessage"] = "<div class='success-message'>Listing was successfully updated.</div>";   //with ID: " . $update_listing_id . "
+    header('location: ../dashboard-view-listings');
+
+// close db connection
+//$mysqli->close();
+
 } else {
     header('Location: ../dashboard-update-listing.php');
 }

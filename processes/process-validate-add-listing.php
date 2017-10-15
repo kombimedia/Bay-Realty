@@ -251,14 +251,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $image_name = $_FILES['file']['name'][$i];
         // Get image size
         $image_size = ($_FILES['file']['size'][$i]);
-        // Declare path for uploaded images
+        // Declare path for temp images
         $file_path = "../images/temp/" . $image_name;
 
         // Validate image before storing to temp folder
         // Limit file size to less than 500kb
         if (($image_size < 500001) && in_array($image_type, $validextensions)) {
 
-            // Save image files to images/uploads folder
+            // Save image files to temp folder
             if (!move_uploaded_file($image_tmp, $file_path)) {
                 // if file was not moved throw error message
                 $_SESSION["imgUploadError"] = "<div class='validate-error-message'>Uh oh... Image(s) were not saved to temp folder.</div>";

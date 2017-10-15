@@ -25,7 +25,7 @@
         <div class="form-row form-inline mt-4">
           <div class="col-12 col-xl-4 mb-3">
             <label for="agents">Sales Agent</label>
-            <select class="form-control" name="updateSalesAgent" id="type" value="">
+            <select class="form-control" required name="updateSalesAgent" id="type" value="">
               <option value="" disabled>Select</option>
               <?php echo $options_agents; ?>
             </select>
@@ -33,12 +33,12 @@
 
           <div class="col-12 col-xl-4 mb-3">
             <label for="title">Listing Title</label>
-            <input class="form-control wide" name="updateListingTitle" id="title" placeholder="Inspiring title for your listing" value="<?php echo $listing_title ?>">
+            <input class="form-control wide" required name="updateListingTitle" id="title" placeholder="Inspiring title for your listing" value="<?php echo $listing_title ?>">
             <div><?php if (isset($_SESSION['titleError'])) { echo $_SESSION['titleError']; unset($_SESSION['titleError']); }; ?></div>
           </div>
           <div class="col-12 col-xl-4 mb-3">
             <label for="address">Street Address</label>
-            <input class="form-control wide" name="updateStreetAddress" id="address" placeholder="number, street, suburb" value="<?php echo $address ?>">
+            <input class="form-control wide" required name="updateStreetAddress" id="address" placeholder="number, street, suburb" value="<?php echo $address ?>">
             <div><?php if (isset($_SESSION['addressError'])) { echo $_SESSION['addressError']; unset($_SESSION['addressError']); }; ?></div>
           </div>
         </div>
@@ -46,14 +46,14 @@
         <div class="form-row form-inline">
           <div class="col-12 col-md-6 col-xl-3 mb-3 mb-xl-24">
             <label for="city">City</label>
-            <select class="form-control" name="updateCity" id="city" value="">
+            <select class="form-control" required name="updateCity" id="city" value="">
               <option value="" disabled>Select</option>
               <?php echo $options_city; ?>
             </select>
           </div>
           <div class="col-12 col-md-6 col-xl-3 mb-3 mb-xl-24">
             <label for="type">Property Type</label>
-            <select class="form-control" name="updatePropertyType" id="type" value="">
+            <select class="form-control" required name="updatePropertyType" id="type" value="">
               <option value="" disabled>Select</option>
               <?php echo $options_type; ?>
             </select>
@@ -62,7 +62,7 @@
             <label for="price">Price</label>
             <div class="input-group">
               <span class="input-group-addon" id="price$">$</span>
-              <input type="number" class="form-control" name="updatePrice" id="price" aria-describedby="pricehelp" aria-label="Amount (to the nearest dollar)" placeholder="100000" value="<?php echo $price ?>">
+              <input type="number" class="form-control" required name="updatePrice" id="price" aria-describedby="pricehelp" aria-label="Amount (to the nearest dollar)" placeholder="100000" value="<?php echo $price ?>">
               <span class="input-group-addon">.00</span>
             </div>
             <small id="pricehelp" class="form-text text-muted">set sale price, or market value </small>
@@ -79,7 +79,7 @@
         <div class="form-row form-inline">
           <div class="col-12 col-md-6 col-xl-3 mb-3">
             <label for="bedrooms">Bedrooms</label>
-            <select class="form-control" name="updateBedrooms" id="bedrooms" value="">
+            <select class="form-control" required name="updateBedrooms" id="bedrooms" value="">
               <option value="" disabled>Select</option>
               <?php echo $options_beds ?>
             </select>
@@ -87,19 +87,19 @@
           </div>
           <div class="col-12 col-md-6 col-xl-3 mb-3">
             <label for="bed-des">Bedroom Description</label>
-            <input class="form-control wide" name="updateBedDescription" id="bed-des" placeholder="Double bedrooms, double wardrobes" value="<?php echo $bed_des ?>">
+            <input class="form-control wide" required name="updateBedDescription" id="bed-des" placeholder="Double bedrooms, double wardrobes" value="<?php echo $bed_des ?>">
             <div><?php if (isset($_SESSION['bedDesError'])) { echo $_SESSION['bedDesError']; unset($_SESSION['bedDesError']); }; ?></div>
           </div>
           <div class="col-12 col-md-6 col-xl-3 mb-3">
             <label for="bathrooms">Bathrooms</label>
-            <select class="form-control" name="updateBathrooms" id="bathrooms" value="">
+            <select class="form-control" required name="updateBathrooms" id="bathrooms" value="">
               <option value="" disabled>Select</option>
               <?php echo $options_bath ?>
             </select>
           </div>
           <div class="col-12 col-md-6 col-xl-3 mb-3">
             <label for="bath-des">Bathroom Description</label>
-            <input class="form-control wide" name="updateBathDescription" id="bath-des" placeholder="Main, ensuite, seperate toilet" value="<?php echo $bath_des ?>">
+            <input class="form-control wide" required name="updateBathDescription" id="bath-des" placeholder="Main, ensuite, seperate toilet" value="<?php echo $bath_des ?>">
             <div><?php if (isset($_SESSION['bathDesError'])) { echo $_SESSION['bathDesError']; unset($_SESSION['bathDesError']); }; ?></div>
           </div>
         </div>
@@ -107,26 +107,26 @@
         <div class="form-row form-inline">
           <div class="col-12 col-md-6 col-xl-3 mb-3">
             <label for="lounges">Lounges</label>
-            <select class="form-control" name="updateLounges" id="lounges" value="">
+            <select class="form-control" required name="updateLounges" id="lounges" value="">
               <option value="" disabled>Select</option>
               <?php echo $options_lounge ?>
             </select>
           </div>
           <div class="col-12 col-md-6 col-xl-3 mb-3">
             <label for="lou-des">Lounge Description</label>
-            <input class="form-control wide" name="updateLoungeDescription" id="lou-des" placeholder="TV room, family room, rumpus" value="<?php echo $lounge_des ?>">
+            <input class="form-control wide" required name="updateLoungeDescription" id="lou-des" placeholder="TV room, family room, rumpus" value="<?php echo $lounge_des ?>">
             <div><?php if (isset($_SESSION['loungeDesError'])) { echo $_SESSION['loungeDesError']; unset($_SESSION['loungeDesError']); }; ?></div>
           </div>
           <div class="col-12 col-md-6 col-xl-3 mb-3">
             <label for="garages">Garages</label>
-            <select class="form-control" name="updateGarages" id="garages" value="">
+            <select class="form-control" required name="updateGarages" id="garages" value="">
               <option value="" disabled>Select</option>
               <?php echo $options_garage ?>
             </select>
           </div>
           <div class="col-12 col-md-6 col-xl-3 mb-3">
             <label for="gar-des">Garage Description</label>
-            <input class="form-control wide" name="updateGarageDescription" id="gar-des" placeholder="Double, single, workshop" value="<?php echo $garage_des ?>">
+            <input class="form-control wide" required name="updateGarageDescription" id="gar-des" placeholder="Double, single, workshop" value="<?php echo $garage_des ?>">
             <div><?php if (isset($_SESSION['garageDesError'])) { echo $_SESSION['garageDesError']; unset($_SESSION['garageDesError']); }; ?></div>
           </div>
         </div>
@@ -135,7 +135,7 @@
           <div class="col-12 col-md-6 col-xl-3 mb-3">
             <label for="house-sqm">House Size</label>
             <div class="input-group">
-              <input type="number" class="form-control" name="updateHouseSize" id="house-sqm" aria-describedby="h-sqm" placeholder="180" value="<?php echo $house_size ?>">
+              <input type="number" class="form-control" required name="updateHouseSize" id="house-sqm" aria-describedby="h-sqm" placeholder="180" value="<?php echo $house_size ?>">
               <span class="input-group-addon" id="h-sqm">m<sub>2</sub></span>
             </div>
             <div><?php if (isset($_SESSION['hSizeError'])) { echo $_SESSION['hSizeError']; unset($_SESSION['hSizeError']); }; ?></div>
@@ -143,14 +143,14 @@
           <div class="col-12 col-md-6 col-xl-3 mb-3">
             <label for="land-sqm">Land Size</label>
             <div class="input-group">
-              <input type="number" class="form-control" name="updateLandSize" id="land-sqm" aria-describedby="l-sqm" placeholder="800" value="<?php echo $land_size ?>">
+              <input type="number" class="form-control" required name="updateLandSize" id="land-sqm" aria-describedby="l-sqm" placeholder="800" value="<?php echo $land_size ?>">
               <span class="input-group-addon" id="l-sqm">m<sub>2</sub></span>
             </div>
             <div><?php if (isset($_SESSION['lSizeError'])) { echo $_SESSION['lSizeError']; unset($_SESSION['lSizeError']); }; ?></div>
           </div>
           <div class="col-12 col-md-6 col-xl-3 mb-3">
             <label for="map">Map Co-ordinates</label>
-            <input type="text" class="form-control wide" name="updateMapCoord" id="map" placeholder="41.850, -87.650" value="<?php echo $map_co_ords ?>">
+            <input type="text" class="form-control wide" required name="updateMapCoord" id="map" placeholder="41.850, -87.650" value="<?php echo $map_co_ords ?>">
             <div><?php if (isset($_SESSION['mapCoordError'])) { echo $_SESSION['mapCoordError']; unset($_SESSION['mapCoordError']); }; ?></div>
           </div>
         </div>
@@ -158,7 +158,7 @@
         <div class="form-row">
           <div class="col-12 col-xl-6 pl-0 mb-3">
             <label for="description">Property Description</label>
-            <textarea class="form-control" id="description" name="updatePropDes" rows="3" placeholder="Write all the good stuff about your listing here..."><?php echo $prop_des ?></textarea>
+            <textarea class="form-control" id="description" required name="updatePropDes" rows="3" placeholder="Write all the good stuff about your listing here..."><?php echo $prop_des ?></textarea>
             <div><?php if (isset($_SESSION['propDesError'])) { echo $_SESSION['propDesError']; unset($_SESSION['propDesError']); }; ?></div>
           </div>
         </div>
@@ -199,7 +199,7 @@
         <input type="button" id="add_more" class="btn" value="Add Another Image"/>
         <div><?php if (isset($_SESSION['imgUploadError'])) { echo $_SESSION['imgUploadError']; unset($_SESSION['imgUploadError']); }; ?></div>
         <div><?php if (isset($_SESSION['imgFileError'])) { echo $_SESSION['imgFileError']; unset($_SESSION['imgFileError']); }; ?></div>
-        <div><?php if (isset($_SESSION['imgErrorr'])) { echo $_SESSION['imgErrorr']; unset($_SESSION['imgErrorr']); }; ?></div>
+        <div><?php if (isset($_SESSION['imgError'])) { echo $_SESSION['imgError']; unset($_SESSION['imgError']); }; ?></div>
         <!-- <div id="return-messages"></div> -->  <!-- Image error messages -->
       </div>
     </div>
