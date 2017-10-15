@@ -64,7 +64,7 @@ include 'includes/featured-listings.php';
     $result = $mysqli->query($sql);
       if ($result->num_rows > 0) {
           while($row = $result->fetch_assoc()) {
-                    echo "<div class='col col-md-6 col-lg-4 col-xl-4  property-listing-table'>";
+                    echo "<div class='col col-sm-12 col-md-6 col-lg-4 col-xl-4  property-listing-table'>";
                     echo "<div class='card' style='width: 20rem;'>";
                     echo "<table>";
                     echo "<tr><td><img class='card-img-top' src='images/uploads/" .$row['featured_image'] . "' alt='Card image cap''><td>";
