@@ -72,9 +72,7 @@ include 'includes/featured-listings.php';
                     echo "<div class='card-block'>";
                     echo "<tr>";
                     echo "<td><div class='card-data'><h4 class='card-title' >" . $row['title'] . "</h4><span>" . $row['address'] . "<br><span>Price: $" . $row['price'] . "</span><br><span> <i class='fa fa-bed' aria-hidden='true'></i> : " . $row['bed_no'] . " " .  "<i class='fa fa-bath' aria-hidden='true'></i>  :  " . $row['bath_no']  . " " .  "<i class='fa fa-car' aria-hidden='true'></i>  :  " . $row['garage_no'] . "</span></div></td>";
-                    echo "</tr>";
-                   
-                    
+                    echo "</tr>"; 
                     echo "</div>";
                     echo "</table>";
                     echo "</div>";
