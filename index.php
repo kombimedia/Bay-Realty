@@ -60,7 +60,7 @@ include 'includes/featured-listings.php';
             <div class="home-widget-listings">
               <h2 class="text-center" >Listed Properties</h2>
    <?php
-  $sql = "SELECT address, price, bed_no, bath_no, featured_image, title, garage_no FROM properties ORDER BY RAND() LIMIT 3";
+  $sql = "SELECT address, price, bed_no, bath_no, featured_image, title, garage_no FROM properties ORDER BY RAND()";
     $result = $mysqli->query($sql);
       if ($result->num_rows > 0) {
           while($row = $result->fetch_assoc()) {
@@ -72,7 +72,13 @@ include 'includes/featured-listings.php';
                     echo "<div class='card-block'>";
                     echo "<tr>";
                     echo "<td><div class='card-data'><h4 class='card-title' >" . $row['title'] . "</h4><span>" . $row['address'] . "<br><span>Price: $" . $row['price'] . "</span><br><span> <i class='fa fa-bed' aria-hidden='true'></i> : " . $row['bed_no'] . " " .  "<i class='fa fa-bath' aria-hidden='true'></i>  :  " . $row['bath_no']  . " " .  "<i class='fa fa-car' aria-hidden='true'></i>  :  " . $row['garage_no'] . "</span></div></td>";
+<<<<<<< HEAD
                     echo "</tr>"; 
+=======
+                    echo "</tr>";
+
+
+>>>>>>> c49e890d8999a8d273508da0b6631b630605a2f5
                     echo "</div>";
                     echo "</table>";
                     echo "</div>";
