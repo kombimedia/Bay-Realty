@@ -138,7 +138,7 @@ form button.btn:hover {
   padding: 5em 5em;
   border-radius: .5em;
   background-color: #f1f1f1;
-  box-shadow: 1px 1px 7px #a5a5a5;
+  border: 1px solid #eee;
 }
 /* Slider styles
 ----------------------------------------------------- */
@@ -157,7 +157,7 @@ form button.btn:hover {
   float: left;
   display: inline-block;
   background-color: #f1f1f1;
-  
+
   padding: 10px 10px 20px 10px !important;
 }
 

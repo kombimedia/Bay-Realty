@@ -2,6 +2,7 @@
 
 <?php
 session_start();
+include 'processes/process-populate-search-form.php';
 $search_output = "";
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
@@ -59,23 +60,14 @@ $_SESSION['search_output'] = $search_output;
           <div class="col">
             <select name="city" class="form-control" id="search-area">
               <option value="" disabled selected>Area</option>
-              <option value="2">Tauranga</option>
-              <option>Mt Maunganui</option>
-              <option>Papamoa</option>
-              <option value="3">Mt Maunganui</option>
-              <option value="4">Papamoa</option>
+              <?php echo $option_city ?>
             </select>
           </div>
 
           <div class="col">
             <select name="type" class="form-control" id="search-type">
               <option value="" disabled selected>Type</option>
-              <option value="1">House</option>
-              <option value="2">Apartment</option>
-              <option value="3">Studio</option>
-              <option value="4">Unit</option>
-              <option value="5">Section</option>
-              <option value="6">Life-style</option>
+              <?php echo $option_type ?>
             </select>
           </div>
         </div>
