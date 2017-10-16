@@ -11,7 +11,7 @@
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
   <input type="text" name="searchquery" placeholder="search database">
     <select name="filter1">
-     <option value="Whole site">Whole site</option> 
+     <option value="Whole site">Whole site</option>
     <option value="properties">properties</option>
   </select>
   <input type="submit" name="myBtn" >
@@ -31,7 +31,7 @@
           <div class="col">
             <select class="form-control" id="search-area">
               <option value="" disabled selected>Area</option>
-              <option>Tauranga</option>
+              <option value="2">Tauranga</option>
               <option>Mt Maunganui</option>
               <option>Papamoa</option>
             </select>
