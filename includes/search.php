@@ -24,15 +24,12 @@ if($result->num_rows > 0) {
     $search_output = $search_output . "
 
         <tr>
-        <td><img width='250' height='200' src='images/uploads/$row[featured_image]'></td>
-        <td><h3 style='color: #42b3f4'>$row[title]</h3><p style='color: grey'>$row[address]</p><hr>
+        <td><img width='350px' height='200px'  src='images/uploads/$row[featured_image]'></td>
+        <td><h4 style='color: #42b3f4'>$row[title]</h4><p style='color: grey'>$row[address]</p><hr>
         <p>$row[property_des]</p>
-        <h3>$ $row[price]</h3>
-        
+        <h4>$ $row[price]</h4>
       
-        
-        
-        <p><i class='fa fa-bed' aria-hidden='true'></i>  : $row[bed_no] <i class='fa fa-car' aria-hidden='true'></i> : $row[bath_no]</p>
+        <p><i class='fa fa-bed' aria-hidden='true'></i>  : $row[bed_no] <i class='fa fa-bath' aria-hidden='true'></i> : $row[bath_no] <i class='fa fa-car' aria-hidden='true'></i> : $row[garage_no]</p>
 
 
         </tr>";

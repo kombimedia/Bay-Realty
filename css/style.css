@@ -197,16 +197,17 @@ form button.btn:hover {
   background-color: #f1f1f1;
 }
 
-.search-listings tr{
 
-height: 100px;
-min-width: 100%;
-}
 
 
 .search-listings td{
 
-padding: 10px 10px 10px 10px;
+padding: 5px 10px 5px 10px;
+}
+
+.search-listings p{
+
+font-size: 10pt;
 }
 
 
