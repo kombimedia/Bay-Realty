@@ -29,16 +29,17 @@ include 'includes/featured-listings.php';
 
 
                    
-                      
-<table>
+   <div class="container col">                    
+<table class="table-striped table-responsive search-listings">
+ 
    
+<?php echo $search_output ?>
 
- <?php echo $search_output ?>
 
 
 
 </table>
-
+</div>
    
 <?php
   include 'includes/footer.php';

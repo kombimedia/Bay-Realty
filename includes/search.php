@@ -10,7 +10,8 @@ $search_bar = preg_replace('#[^a-z 0-9?!]#i', '', $_POST['search_bar']);
 $search_bar = "%" . $search_bar . "%";
 
 
-$stmt = $mysqli->prepare("SELECT address, price, bed_no, bath_no, featured_image, title, garage_no FROM properties WHERE MATCH(title) AGAINST  (?) AND categories = ? AND type = ?");
+
+$stmt = $mysqli->prepare("SELECT address, price, bed_no, bath_no, property_des, featured_image, title, garage_no FROM properties WHERE MATCH(title) AGAINST  (?) AND categories = ? AND type = ?");
 $stmt->bind_param("sii", $search_bar, $_POST['city'], $_POST['type']);
 $stmt->execute();
 $result = $stmt->get_result();
@@ -22,8 +23,10 @@ if($result->num_rows > 0) {
     $search_output = $search_output . "
 
         <tr>
+        <td><img width='150' height='100' src='images/uploads/$row[featured_image]'></td>
         <td>$row[title]</td>
         <td>$row[price]</td>
+        <td>$row[property_des]</td>
 
 
         </tr>";
@@ -36,13 +39,6 @@ if($result->num_rows > 0) {
 $stmt->close();
 
 
-<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-  <input type="text" name="searchquery" placeholder="search database">
-    <select name="filter1">
-     <option value="Whole site">Whole site</option>
-    <option value="properties">properties</option>
-  </select>
-  <input type="submit" name="myBtn" >
 
 }
 $_SESSION['search_output'] = $search_output;
