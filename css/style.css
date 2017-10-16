@@ -81,7 +81,7 @@ button span i.fa-bars {
 
 .content-widget {
   padding: 100px 20px;
-  
+
 }
 
 /* footer styles
@@ -131,6 +131,15 @@ form button.btn:hover {
   opacity: .8;
 }
 
+.login-form-box {
+  margin: 10em auto;
+  width: 100%;
+  max-width: 500px;
+  padding: 5em 5em;
+  border-radius: .5em;
+  background-color: #f1f1f1;
+  box-shadow: 1px 1px 7px #a5a5a5;
+}
 /* Slider styles
 ----------------------------------------------------- */
 .slider-inner {
@@ -160,7 +169,7 @@ form button.btn:hover {
   display: inline-block;
   width: 100%;
   padding: 10px 10px 50px 10px !important;
-  
+
 }
 .property-listing-table img{
   width: 100%;
@@ -174,12 +183,12 @@ form button.btn:hover {
 .property-listings-home-div{
   padding-bottom: 40px;
   min-width: 100%;
- 
+
   white-space: wrap;
 }
 .card-image-top img{
    width: 100% !important;
-  
+
 }
 .card-data{
   padding-left: 5px !important;
