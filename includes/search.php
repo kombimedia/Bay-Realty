@@ -10,7 +10,8 @@ $search_bar = preg_replace('#[^a-z 0-9?!]#i', '', $_POST['search_bar']);
 $search_bar = "%" . $search_bar . "%";
 
 
-$stmt = $mysqli->prepare("SELECT address, price, bed_no, bath_no, property_des, featured_image, title, garage_no FROM properties WHERE MATCH(title) AGAINST  (?) AND categories = ? AND type = ?"); 
+
+$stmt = $mysqli->prepare("SELECT address, price, bed_no, bath_no, property_des, featured_image, title, garage_no FROM properties WHERE MATCH(title) AGAINST  (?) AND categories = ? AND type = ?");
 $stmt->bind_param("sii", $search_bar, $_POST['city'], $_POST['type']);
 $stmt->execute();
 $result = $stmt->get_result();
@@ -20,7 +21,7 @@ if($result->num_rows > 0) {
   while($row = $result->fetch_assoc()) {
     $arr[] = $row;
     $search_output = $search_output . "
-        
+
         <tr>
         <td><img width='150' height='100' src='images/uploads/$row[featured_image]'></td>
         <td>$row[title]</td>
@@ -28,9 +29,9 @@ if($result->num_rows > 0) {
         <td>$row[property_des]</td>
 
 
-        </tr>";          
-                    
-               
+        </tr>";
+
+
 }
 } else{
   echo "no listins to show";
@@ -59,6 +60,8 @@ $_SESSION['search_output'] = $search_output;
             <select name="city" class="form-control" id="search-area">
               <option value="" disabled selected>Area</option>
               <option value="2">Tauranga</option>
+              <option>Mt Maunganui</option>
+              <option>Papamoa</option>
               <option value="3">Mt Maunganui</option>
               <option value="4">Papamoa</option>
             </select>
