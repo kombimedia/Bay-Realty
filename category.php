@@ -29,7 +29,8 @@ include 'includes/featured-listings.php';
 
 
                    
-   <div class="container col">                    
+   <div class="container col search-listings-container">      
+   <h4>Search Results </h4><hr>           
 <table class="table-striped table-responsive search-listings">
  
    
