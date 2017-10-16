@@ -191,6 +191,7 @@ form button.btn:hover {
 .search-listings tr{
 
 height: 100px;
+min-width: 100%;
 }
 
 
