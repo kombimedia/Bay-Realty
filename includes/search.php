@@ -1,49 +1,76 @@
 
 
 <?php
-$stmt = $mysqli->prepare("SELECT * FROM myTable WHERE name = ?");
-$stmt->bind_param("s", $_POST['name']);
+session_start();
+$search_output = "";
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
+if(isset($_POST['submit_search'])){
+$search_bar = preg_replace('#[^a-z 0-9?!]#i', '', $_POST['search_bar']);
+$search_bar = "%" . $search_bar . "%";
+
+
+$stmt = $mysqli->prepare("SELECT address, price, bed_no, bath_no, featured_image, title, garage_no FROM properties WHERE MATCH(title) AGAINST  (?) AND categories = ? AND type = ?"); 
+$stmt->bind_param("sii", $search_bar, $_POST['city'], $_POST['type']);
 $stmt->execute();
 $result = $stmt->get_result();
+
+
 if($result->num_rows > 0) {
   while($row = $result->fetch_assoc()) {
-    $id[] = $row['id'];
-    $name[] = $row['name'];
-    $age[] = $row['age'];
-  }
+    $arr[] = $row;
+    $search_output = $search_output . "
+        
+        <tr>
+        <td>$row[title]</td>
+        <td>$row[price]</td>
+
+
+        </tr>";          
+                    
+               
+}
+} else{
+  echo "no listins to show";
 }
 $stmt->close();
+
+
+
+}
+$_SESSION['search_output'] = $search_output;
+
 ?>
 
 
 
 <div class="container-fluid search-form-outer">
   <div class="container search-form-inner">
-      <form action="<?php echo $_SERVER['PHP_SELF']; ?>" class="search-form">
+      <form action="category.php" method="post" role="form" class="search-form">
         <div class="form-row mb-2 mt-4">
           <div class="col">
-            <input name="search-bar" type="text" class="form-control" id="search-input" placeholder="location, keyword, property ID">
+            <input name="search_bar" type="text" maxlength="88" class="form-control" id="search-input" placeholder="location, keyword, property ID">
           </div>
         </div>
         <div class="form-row form-inline mb-2">
           <div class="col">
-            <select class="form-control" id="search-area">
+            <select name="city" class="form-control" id="search-area">
               <option value="" disabled selected>Area</option>
-              <option>Tauranga</option>
-              <option>Mt Maunganui</option>
-              <option>Papamoa</option>
+              <option value="2">Tauranga</option>
+              <option value="3">Mt Maunganui</option>
+              <option value="4">Papamoa</option>
             </select>
           </div>
 
           <div class="col">
-            <select class="form-control" id="search-type">
+            <select name="type" class="form-control" id="search-type">
               <option value="" disabled selected>Type</option>
-              <option>House</option>
-              <option>Apartment</option>
-              <option>Studio</option>
-              <option>Unit</option>
-              <option>Section</option>
-              <option>Life-style</option>
+              <option value="1">House</option>
+              <option value="2">Apartment</option>
+              <option value="3">Studio</option>
+              <option value="4">Unit</option>
+              <option value="5">Section</option>
+              <option value="6">Life-style</option>
             </select>
           </div>
         </div>
@@ -126,7 +153,7 @@ $stmt->close();
               </select>
           </div>
         </div>
-        <button name= "submit-search" type="submit" class="btn">Search for Homes!</button>
+        <button name= "submit_search" type="submit" class="btn">Search for Homes!</button>
       </form>
   </div>
 </div>
