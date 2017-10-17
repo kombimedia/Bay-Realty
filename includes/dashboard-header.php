@@ -1,5 +1,5 @@
 <?php
-  include 'includes/db-connect.php';
+include 'includes/db-connect.php';
 ?>
 <html lang="en">
   <head>
@@ -25,7 +25,7 @@
   <body>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top">
       <a class="navbar-brand" href="/bay-realty/dashboard"><i class="fa fa-dashboard"></i> Bay Realty</a>
-      <div class="welcome ml-auto">Welcome 'your name'</div>
+      <div class="welcome ml-auto">Welcome 'User Name'</div>
     </nav>
   <div class="container-fluid">
     <div class="row">

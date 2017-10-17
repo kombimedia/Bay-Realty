@@ -1,7 +1,8 @@
 <?php
-$_SESSION['logged_in'] = false;
+session_start();
+// $_SESSION['logged_in'] = false;
 if (!$_SESSION['logged_in']) {
-    header('location: dashboard-login.php');
+    header('location: dashboard-login');
 }
 
 $title = "Dashboard";

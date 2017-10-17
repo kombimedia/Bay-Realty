@@ -244,7 +244,8 @@ td a.view-listing-delete {
 a i.fa-home,
 a i.fa-user,
 a i.fa-camera-retro,
-a.nav-link i.fa-dashboard {
+a.nav-link i.fa-dashboard,
+a i.fa-sign-out {
   font-size: 1.2rem;
 }
 }

@@ -23,5 +23,8 @@
                 <a class="dropdown-item" href="/bay-realty/dashboard-add-user">Add User</a>
               </div>
             </li>
+            <li class="nav-item">
+              <a class="nav-link no-dropdown" href="processes/process-dashboard-logout"><i class="fa fa-sign-out fa-2x fa-fw"></i><span class="d-none d-md-inline"> Logout</span></a>
+            </li>
           </ul>
         </nav>
