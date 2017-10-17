@@ -1,10 +1,15 @@
 <?php
-  session_start();
-  $title = "Add Listing";
-  $metaD = "Admin dashboard page, add listing";
-  include 'includes/dashboard-header.php';
-  include 'includes/dashboard-sidebar.php';
-  include 'processes/process-populate-add-listing.php';
+$_SESSION['logged_in'] = true;
+if (!$_SESSION['logged_in']) {
+    header('location: dashboard-login.php');
+}
+
+session_start();
+$title = "Add Listing";
+$metaD = "Admin dashboard page, add listing";
+include 'includes/dashboard-header.php';
+include 'includes/dashboard-sidebar.php';
+include 'processes/process-populate-add-listing.php';
 ?>
 
   <h1>Add New Listing</h1>

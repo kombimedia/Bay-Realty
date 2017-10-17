@@ -128,6 +128,17 @@ input.btn:hover {
   opacity: .8;
 }
 
+.login-form-box {
+  margin: 10em auto;
+  margin-left: 20em;
+  width: 100%;
+  max-width: 500px;
+  padding: 5em 5em;
+  border-radius: .5em;
+  background-color: #f1f1f1;
+  border: 1px solid #eee;
+}
+
 /* Change Featured Images
 -------------------------------------------------- */
 .custom-control-indicator {

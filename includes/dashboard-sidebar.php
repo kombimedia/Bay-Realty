@@ -1,4 +1,3 @@
-
         <nav class="col-2 sidebar">
           <ul class="nav nav-pills flex-column">
             <li class="nav-item">

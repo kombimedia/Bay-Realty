@@ -1,7 +1,6 @@
 
 
 <?php
-session_start();
 include 'processes/process-populate-search-form.php';
 $search_output = "";
 error_reporting(E_ALL);
@@ -28,7 +27,7 @@ if($result->num_rows > 0) {
         <td><h4 style='color: #42b3f4'>$row[title]</h4><p style='color: grey'>$row[address]</p><hr>
         <p>$row[property_des]</p>
         <h4>$ $row[price]</h4>
-      
+
         <p><i class='fa fa-bed' aria-hidden='true'></i>  : $row[bed_no] <i class='fa fa-bath' aria-hidden='true'></i> : $row[bath_no] <i class='fa fa-car' aria-hidden='true'></i> : $row[garage_no]</p>
 
 
