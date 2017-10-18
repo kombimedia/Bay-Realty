@@ -1,9 +1,7 @@
 
 
 <?php
-<<<<<<< HEAD
-include 'processes/process-populate-search-listing.php'
-=======
+
 include 'processes/process-populate-search-form.php';
 $search_output = "";
 error_reporting(E_ALL);
@@ -48,7 +46,7 @@ $stmt->close();
 }
 $_SESSION['search_output'] = $search_output;
 
->>>>>>> dea931bc69dfccc1b68729693e775aa311cfd33b
+
 ?>
 
 
