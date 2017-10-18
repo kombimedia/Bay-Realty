@@ -189,7 +189,8 @@ input#add_more:hover {
 /* View Listings Table
 -------------------------------------------------- */
 thead.view-listings-head,
-thead.images-head {
+thead.images-head,
+thead.users-head {
   background-color: #92becb;
   color: #fff;
 }
