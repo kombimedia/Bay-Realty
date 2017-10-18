@@ -137,6 +137,9 @@ if ($validForm) {
     header('Location: ../dashboard-add-user');
     exit;
   }
+// Get the just created listing_id and save to a variable
+$new_user_id = mysqli_insert_id($mysqli);
+
 // if user is successfully created go back to dashboard 'add user' page and print success message
-$_SESSION["successMessage"] = "<div class='success-message'>New User successfully created.</div>";
+$_SESSION["successMessage"] = "<div class='success-message'>New User with ID: " . $new_user_id . " successfully created.</div>";
 header('location: ../dashboard-add-user');
