@@ -1,13 +1,11 @@
 <?php
-  include 'includes/db-connect.php';
+include 'includes/db-connect.php';
 ?>
-
-<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="<?php
+   <meta name="description" content="<?php
     if(isset($metaD) && !empty($metaD)) {
        echo $metaD;
     } else {
@@ -27,7 +25,7 @@
   <body>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top">
       <a class="navbar-brand" href="/bay-realty/dashboard"><i class="fa fa-dashboard"></i> Bay Realty</a>
-      <div class="welcome ml-auto">Welcome 'your name'</div>
+      <div class="welcome ml-auto"><?php if (isset($_SESSION['userName'])) { echo $_SESSION['userName']; }; ?></div>
     </nav>
   <div class="container-fluid">
     <div class="row">

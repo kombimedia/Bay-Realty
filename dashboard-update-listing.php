@@ -1,5 +1,9 @@
 <?php
-  session_start();
+session_start();
+if (!$_SESSION['logged_in']) {
+    header('location: dashboard-login');
+}
+
   $title = "Update Listing";
   $metaD = "Admin dashboard page, update listing";
   include 'includes/dashboard-header.php';
