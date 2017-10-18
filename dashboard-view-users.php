@@ -26,14 +26,14 @@ include 'processes/process-populate-view-users.php';
     </tr>
   </thead>
   <tbody>
-    <?php //echo $populate_images ?>
+    <?php echo $populate_users ?>
   </tbody>
 </table>
 
 <script language="javascript">
- function deleteimage(dellimage) {
-     if (confirm("Are you sure you want to delete this image?")) {
-     window.location.href='processes/process-delete-image.php?del_image=' +dellimage+'';
+ function deleteUser(delluser) {
+     if (confirm("Are you sure you want to delete this User?")) {
+     window.location.href='processes/process-delete-user.php?del_user=' +delluser+'';
      return true;
     }
  }

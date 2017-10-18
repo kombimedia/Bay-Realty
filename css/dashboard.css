@@ -199,17 +199,23 @@ thead.users-head {
   vertical-align: middle;
 }
 td a.view-listing-edit,
-td a.view-listing-delete {
+td a.view-listing-delete,
+td a.view-user-edit,
+td a.view-user-delete {
   text-decoration: none;
 }
 td a.view-listing-edit:hover,
-td a.view-listing-delete:hover {
+td a.view-listing-delete:hover,
+td a.view-user-edit:hover,
+td a.view-user-delete:hover {
   text-decoration: underline;
 }
-td a.view-listing-edit {
+td a.view-listing-edit,
+td a.view-user-edit {
   color: green;
 }
-td a.view-listing-delete {
+td a.view-listing-delete,
+td a.view-user-delete {
   color: red;
 }
 
