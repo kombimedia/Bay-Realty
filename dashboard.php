@@ -1,6 +1,5 @@
 <?php
 session_start();
-// $_SESSION['logged_in'] = false;
 if (!$_SESSION['logged_in']) {
     header('location: dashboard-login');
 }

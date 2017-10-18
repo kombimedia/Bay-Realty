@@ -1,4 +1,9 @@
 <?php
+session_start();
+if (!$_SESSION['logged_in']) {
+    header('location: dashboard-login');
+}
+
   $title = "Add Users";
   $metaD = "Admin dashboard page, add users";
   include 'includes/dashboard-header.php';

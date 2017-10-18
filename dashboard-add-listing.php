@@ -1,10 +1,9 @@
 <?php
-$_SESSION['logged_in'] = true;
+session_start();
 if (!$_SESSION['logged_in']) {
-    header('location: dashboard-login.php');
+    header('location: dashboard-login');
 }
 
-session_start();
 $title = "Add Listing";
 $metaD = "Admin dashboard page, add listing";
 include 'includes/dashboard-header.php';

@@ -1,5 +1,5 @@
 <?php
 session_start();
-// session_destroy();
 $_SESSION['logged_in'] = false;
+unset($_SESSION['userName']);
 header('location: ../dashboard-login');
