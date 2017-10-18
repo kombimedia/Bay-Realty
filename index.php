@@ -33,7 +33,7 @@
       </div>
     </div>
     <!-- Home widget top area -->
-    <div class="container-fluid">
+    <div class="container-fluid" id="featured-container">
       <div class="container home-widget-top-container">
         <div class="row">
           <div class="col">

@@ -105,7 +105,12 @@ form button.btn {
 }
 
 
+/* Homepage featured listings*/
 
+#featured-container{
+  background-color: #f1f1f1;
+  padding-bottom: 20px;
+}
 
 
 
