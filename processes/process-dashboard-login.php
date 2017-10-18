@@ -23,7 +23,7 @@ if (isset($_POST['submit'])) {
     } else {
       $valid_login_password = true;
       }
-    //$login_password = md5($login_password);
+    $login_password = md5($login_password);
 }
 // If all validation passes set validLoginForm variable to true
 $valid_Login_form = $valid_Login_email && $valid_login_password;
@@ -59,8 +59,9 @@ if ($valid_Login_form) {
         $_SESSION['logged_in'] = true;
         header('location: ../dashboard');
     } else {
-        $_SESSION['user_access_error'] = "<div class='validate-error-message mb-2'>Oops... You don't have access to the Admin Dashboard.<?div>";
+        $_SESSION['user_access_error'] = "<div class='validate-error-message mb-2'>Sorry " . $stored_name . ", you don't have access to the Admin Dashboard.<?div>";
         $_SESSION['logged_in'] = false;
+        unset($_SESSION['userName']);
         header('location: ../dashboard-login');
         exit;
       }

@@ -8,70 +8,57 @@ if (!$_SESSION['logged_in']) {
   $metaD = "Admin dashboard page, add users";
   include 'includes/dashboard-header.php';
   include 'includes/dashboard-sidebar.php';
+  include 'processes/process-populate-add-user.php'
 ?>
 
   <h1>Add New User</h1>
+<!-- DB error/success messages -->
+  <div><?php if (isset($_SESSION['successMessage'])) { echo $_SESSION['successMessage']; unset($_SESSION['successMessage']); }; ?></div>
+  <div><?php if (isset($_SESSION['errorMessage'])) { echo $_SESSION['errorMessage']; unset($_SESSION['errorMessage']); }; ?></div>
 
+    <form class="add-listing-form" method="post" role="form" action="processes/process-validate-add-user.php">
+      <div class="listing-form">
+        <h3>User Details</h3>
+        <div class="form-row form-inline mt-4">
+          <div class="col-12 col-xl-3 mb-3">
+            <label for="first-name">First Name</label>
+            <input class="form-control wide" name="firstName" id="first-name" placeholder="User's first name" required value="<?php if (isset($_SESSION['storeFirstName'])) { echo $_SESSION['storeFirstName']; unset($_SESSION['storeFirstName']); }; ?>">
+            <div><?php if (isset($_SESSION['firstNameError'])) { echo $_SESSION['firstNameError']; unset($_SESSION['firstNameError']); }; ?></div>
+          </div>
+          <div class="col-12 col-xl-3 mb-3">
+            <label for="surname">Surname</label>
+            <input class="form-control wide" name="surname" id="surname" placeholder="User's surname" required value="<?php if (isset($_SESSION['storeSurname'])) { echo $_SESSION['storeSurname']; unset($_SESSION['storeSurname']); }; ?>">
+            <div><?php if (isset($_SESSION['surnameError'])) { echo $_SESSION['surnameError']; unset($_SESSION['surnameError']); }; ?></div>
+          </div>
+        </div>
 
-<?php
-// array with values for each form field, most empty
-$fval = array('fname'=>'', 'femail'=>'', 'fgen'=>'', 'fgenm'=>'male', 'fgenf'=>'female', 'ffood'=>'', 'fmess'=>'');
+        <div class="form-row form-inline">
+          <div class="col-12 col-xl-3 mb-3">
+            <label for="email">Email Address</label>
+            <input type="email" class="form-control wide" name="email" id="email" placeholder="User's email address" required value="<?php if (isset($_SESSION['storeEmail'])) { echo $_SESSION['storeEmail']; unset($_SESSION['storeEmail']); }; ?>">
+            <div><?php if (isset($_SESSION['emailError'])) { echo $_SESSION['emailError']; unset($_SESSION['emailError']); }; ?></div>
+          </div>
 
-// a variable for errors, initially empty
-$ferror = '';
+          <div class="col-12 col-xl-3 mb-3">
+            <label for="password">Password</label>
+            <input type="password" class="form-control wide" name="password" id="password" placeholder="User's password" required value="<?php if (isset($_SESSION['storePassword'])) { echo $_SESSION['storePassword']; unset($_SESSION['storePassword']); }; ?>">
+            <div><?php if (isset($_SESSION['passwordError'])) { echo $_SESSION['passwordError']; unset($_SESSION['passwordError']); }; ?></div>
+          </div>
+        </div>
 
-// if there is data submited from form,
-if(isset($_POST['fsubmit'])) {
-  $fval = array_replace($fval, $_POST);      // add $_POST data in $fval to replace the initial values
-
-  // validate the fields and add the errors in $ferror variable
-  if(strlen($_POST['fname'])<3) $ferror .= '- The Name must contains at least 3 characters <br/>';
-  if(!preg_match("/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/", $_POST['femail'])) {
-    $ferror .= '- Add a valid e-mail address <br/>';
-  }
-  if(!isset($_POST['fgen'])) $ferror .= '- Select a Gender <br/>';
-  if($_POST['ffood']=='--' or $_POST['ffood']=='') $ferror .= '- Select a Food preference <br/>';
-
-  // if there is no errors ($ferror is empty) sets a $confirm
-  if($ferror==='') $confirm = '<h3>The data was successfully added</h3>';
-}
-
-          /* Now define the Form */
-
-// array with values for Select dropdown list
-$select_food = array('fruits', 'vegetables', 'cereals', 'dairy', 'cakes');
-
-// sets the <option> tags for Select list
-$ffood = '<option>--</option>';
-for($i=0; $i<count($select_food); $i++) {
-  // sets selected attribute
-  $selattr = ($select_food[$i]==$fval['ffood']) ? ' selected="selected"' : '';
-
-  $ffood .= '<option value="'. $select_food[$i]. '"'. $selattr. '>'. $select_food[$i]. '</option>';
-}
-
-// define the checked attribute for radio buttons, according to the value of 'fgen'
-$fgenm_check = ($fval['fgen']==$fval['fgenm']) ? ' checked="checked"' : '';
-$fgenf_check = ($fval['fgen']==$fval['fgenf']) ? ' checked="checked"' : '';
-
-// sets a variable with the HTML code for form
-$form = '<form action="" method="post">
- Name: <input type="text" name="fname" id="fname" value="'. $fval['fname']. '" /><br/>
- E-mail: <input type="text" name="femail" id="femail" value="'. $fval['femail']. '" /><br/>
- Gender: <input type="radio" name="fgen" id="fgenm" value="'. $fval['fgenm']. '"'. $fgenm_check. ' />Male
- <input type="radio" name="fgen" id="fgenf" value="'. $fval['fgenf']. '"'. $fgenf_check. ' />Female<br/>
- Food preference: <select id="ffood" name="ffood">'. $ffood. '</select><br/>
- Message (<i>optional</i>):<br/>
- <textarea name="fmess" id="fmess" rows="5", cols="30">'. $fval['fmess']. '</textarea><br/>
- <input type="submit" name="fsubmit" id="fsubmit" value="Submit" /><br/>
-</form>';
-
-// if $confirm is set, display it, else, display $ferror and $form
-if(isset($confirm)) echo $confirm;
-else echo '<div style="color:red;">'. $ferror. '</div><br/>'. $form;
-?>
-
-
+        <div class="form-row form-inline">
+          <div class="col-12 col-xl-3 mb-3">
+            <label for="role">User Role</label>
+            <select class="form-control wide" name="role" id="role" required value="">
+              <option value="" disabled selected>Select role</option>
+              <?php echo $option_role ?>
+            </select>
+            <div><?php if (isset($_SESSION['userRoleError'])) { echo $_SESSION['userRoleError']; unset($_SESSION['userRoleError']); }; ?></div>
+          </div>
+        </div>
+        <input type="submit" value="Create User" name="submit" class="btn"/>
+    </div>
+  </form>
 
 <?php
 include 'includes/dashboard-footer.php';

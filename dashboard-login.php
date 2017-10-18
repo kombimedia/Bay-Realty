@@ -15,7 +15,7 @@ include 'includes/dashboard-header.php';
           <input type="password" id="inputPassword" name="loginPassword" class="form-control mb-3" placeholder="Password" required>
           <div><?php if (isset($_SESSION['login_error'])) { echo $_SESSION['login_error']; unset($_SESSION['login_error']); }; ?></div>
           <div><?php if (isset($_SESSION['user_access_error'])) { echo $_SESSION['user_access_error']; unset($_SESSION['user_access_error']); }; ?></div>
-          <button class="btn btn-lg btn-block" type="submit" name="submit">Log in</button>
+          <button class="btn btn-md btn-block" type="submit" name="submit">Log in</button>
         </form>
     </div>
 </div>
