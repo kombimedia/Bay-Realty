@@ -156,7 +156,7 @@ form button.btn:hover {
 .featured-property-table {
   float: left;
   display: inline-block;
-  background-color: #f1f1f1;
+  background-color: #fff;
 
   padding: 10px 10px 20px 10px !important;
 }

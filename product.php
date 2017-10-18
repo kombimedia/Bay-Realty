@@ -4,21 +4,28 @@ $metaD = "Product page";
 include 'includes/header.php';
 include 'includes/search.php';
 ?>
+
+<?php
+include 'processes/process-populate-product.php';
+include 'processes/process-populate-image-carousel.php';
+?>
+
 <div class="container-fluid">
 <div class="container slider-inner">
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
     <!-- <li data-target="#carouselExampleIndicators" data-slide-to="2"></li> -->
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img class="d-block w-100" src="images/house1image1.jpg" alt="First slide">
+      <img class="d-block w-100" src="images/uploads/<?php echo $featured_image ?>" alt="First slide">
     </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="images/house1image2.jpg" alt="Second slide">
-    </div>
+    <?php echo $display_image ?>
     <!-- <div class="carousel-item">
       <img class="d-block w-100" src="..." alt="Third slide">
     </div> -->
@@ -34,10 +41,12 @@ include 'includes/search.php';
 </div>
 </div>
 </div>
-
-
-
-
+<table>
+<?php echo $display_product ?>
+</table>
+<table>
+<?php echo $display_image ?>
+</table>
       <div class="container content-widget">
         <div class="row">
           <div class="col-sm-12 col-md-6">

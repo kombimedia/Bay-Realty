@@ -1,6 +1,9 @@
 
 
 <?php
+<<<<<<< HEAD
+include 'processes/process-populate-search-listing.php'
+=======
 include 'processes/process-populate-search-form.php';
 $search_output = "";
 error_reporting(E_ALL);
@@ -45,6 +48,7 @@ $stmt->close();
 }
 $_SESSION['search_output'] = $search_output;
 
+>>>>>>> dea931bc69dfccc1b68729693e775aa311cfd33b
 ?>
 
 
@@ -60,7 +64,7 @@ $_SESSION['search_output'] = $search_output;
         <div class="form-row form-inline mb-2">
           <div class="col">
             <select name="city" class="form-control" id="search-area">
-              <option value="" disabled selected>Area</option>
+              <option value="1,2,3" disabled selected>Area</option>
               <?php echo $option_city ?>
             </select>
           </div>
