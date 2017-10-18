@@ -21,4 +21,3 @@ if($result->num_rows > 0) {
           $_SESSION["imageError"] = "<div class='error-message'>No listing images to show</div>";
       }
 $stmt->close();
-?>
