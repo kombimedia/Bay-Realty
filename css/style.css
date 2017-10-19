@@ -211,7 +211,16 @@ form .form-link {
 }
 
 
+.search-listings p{
+  {
+    text-overflow: ellipsis; /* will make [...] at the end */
+    max-width: 100px; /* change to your preferences */
+    white-space: nowrap; /* paragraph to one line */
+    overflow:hidden; /* older browsers */
+    color: red !important;
+    }
 
+}
 
 .search-listings td{
 
@@ -221,14 +230,67 @@ padding: 5px 10px 5px 10px;
 .search-listings p{
 
 font-size: 10pt;
+
 }
 
 .search-listings-container h4{
-text-align: center;
+text-align: left;
+color: #42b3f4;
+}
+
+/* Carasaul styling on product page
+--------------------------------------- */
+
+.carousel-item img {
+       
+        width: 100% !important;
+        height: 450px !important;
+       
+      }
+
+.carousel-item{
+   padding-left: 20px;
+   padding-right: 20px;
+}
+
+/* product content
+----------------------------------------*/
+
+#product-3{
+  padding-left: 2em;
+  padding-top: 2em;
+  background-color: #eaeaea;
+  font-size: 10pt;
+  margin-top: 16px;
 
 }
 
+#product-3 span{
+display: inline;
+color: grey;
+}
 
+
+#product-2 p{
+
+font-size: 11pt;
+padding-right: 40px;
+
+}
+.product-full{
+  margin-top: 5em;
+  padding-bottom: 5em;
+  border: 1pt solid;
+  border-color: #eaeaea;
+  border-radius: 3pt;
+}
+#product_content{
+  padding: 0px 40px 0px 40px !important;
+}
+
+.display-block-2{
+  padding-right: 80px;
+}
 
 
 

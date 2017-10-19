@@ -7,6 +7,8 @@ $(window).scroll(function() {
       }
 });
 
+
+
 // $(document).ready(function()
 // {
 //  $('.add-listing-form').ajaxForm(function()
