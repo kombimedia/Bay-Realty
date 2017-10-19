@@ -1,32 +1,28 @@
 <?php
 session_start();
+include 'process-validation.php';
+
 if (isset($_POST['submit'])) {
-    // Get for data and save into variables
-    $login_email = ($_POST['loginEmail']);
-    $login_password = ($_POST['loginPassword']);
     // Save login email to session to repopulate email field if login fails
-    $_SESSION["storeLoginEmail"] = $login_email;
+    $_SESSION["storeLoginEmail"] = $_POST['loginEmail'];
+
     // Validate input fields
-    // validate email
-    $valid_Login_email = true;
-    // check if field is populated
-    if (empty($_POST["loginEmail"])) {
-      $valid_Login_email = false;
-    } else {
-      $valid_Login_email = true;
-      }
-    // validate password
-    $valid_login_password = true;
-    // check if field is populated
-    if (empty($_POST["loginPassword"])) {
-      $valid_login_password = false;
-    } else {
-      $valid_login_password = true;
-      }
-    $login_password = md5($login_password);
+    // Validate email address
+    $validEmail = true;
+    if (!validate_email ($_POST["loginEmail"])) {
+        $validEmail = false;
+    }
+
+    // Validate password
+    $validPassword = true;
+    if (!validate_password ($_POST['loginPassword'])) {
+        $validPassword = false;
+    }
+    $_POST['loginPassword'] = md5($_POST['loginPassword']);
 }
+
 // If all validation passes set validLoginForm variable to true
-$valid_Login_form = $valid_Login_email && $valid_login_password;
+$valid_Login_form = $validEmail && $validPassword;
 
 // Only connect to database if form passes validation
 if ($valid_Login_form) {
@@ -34,7 +30,7 @@ if ($valid_Login_form) {
     include '../includes/db-connect.php';
     // get users details from database and save to variables
     $stmt = $mysqli->prepare("SELECT role, first_name FROM users WHERE email = ? AND  password = ?");
-    $stmt->bind_param("ss", $login_email, $login_password);
+    $stmt->bind_param("ss", $_POST['loginEmail'], $_POST['loginPassword']);
     $stmt->execute();
     $result = $stmt->get_result();
     if($result->num_rows > 0) {
@@ -49,6 +45,9 @@ if ($valid_Login_form) {
     exit;
   }
     $stmt->close();
+} else {
+    header('location: ../dashboard-login');
+    exit;
 }
     // Register variables for user role
     $_SESSION['userName'] = "Welcome " . $stored_name . "!";
@@ -65,3 +64,33 @@ if ($valid_Login_form) {
         header('location: ../dashboard-login');
         exit;
       }
+
+
+
+
+
+//       if (isset($_POST['submit'])) {
+//     // Get form data and save into variables
+//     $login_email = ($_POST['loginEmail']);
+//     $login_password = ($_POST['loginPassword']);
+//     // Save login email to session to repopulate email field if login fails
+//     $_SESSION["storeLoginEmail"] = $login_email;
+//     // Validate input fields
+//     // validate email
+//     $valid_Login_email = true;
+//     // check if field is populated
+//     if (empty($_POST["loginEmail"])) {
+//       $valid_Login_email = false;
+//     } else {
+//       $valid_Login_email = true;
+//       }
+//     // validate password
+//     $valid_login_password = true;
+//     // check if field is populated
+//     if (empty($_POST["loginPassword"])) {
+//       $valid_login_password = false;
+//     } else {
+//       $valid_login_password = true;
+//       }
+//     $login_password = md5($login_password);
+// }

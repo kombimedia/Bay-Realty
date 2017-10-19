@@ -16,7 +16,7 @@ if (!$_SESSION['logged_in']) {
   <div><?php if (isset($_SESSION['successMessage'])) { echo $_SESSION['successMessage']; unset($_SESSION['successMessage']); }; ?></div>
   <div><?php if (isset($_SESSION['errorMessage'])) { echo $_SESSION['errorMessage']; unset($_SESSION['errorMessage']); }; ?></div>
 
-    <form class="add-listing-form" method="post" role="form" action="processes/process-validate-add-user.php">
+    <form class="add-listing-form" method="post" role="form" action="processes/process-add-user.php">
       <div class="listing-form">
         <h3>User Details</h3>
         <div class="form-row form-inline mt-4">
