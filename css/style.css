@@ -23,7 +23,14 @@ body {
 h1, h2, h3, h4, h5 {
   font-family: 'Baumans', cursive;
 }
-
+a {
+  color: #189ebb;
+  text-decoration: none;
+}
+a:hover {
+  color: #446da3;
+  text-decoration: underline;
+}
 /* header styles
 ----------------------------------------------------- */
 nav img{
@@ -81,7 +88,6 @@ button span i.fa-bars {
 
 .content-widget {
   padding: 100px 20px;
-
 }
 
 /* footer styles
@@ -130,15 +136,22 @@ form button.btn {
 form button.btn:hover {
   opacity: .8;
 }
-
 .login-form-box {
   margin: 10em auto;
   width: 100%;
   max-width: 500px;
-  padding: 5em 5em;
+  padding: 4em 5em;
   border-radius: .5em;
   background-color: #f1f1f1;
   border: 1px solid #eee;
+}
+.login-form-box p {
+  margin-top: 1em;
+  margin-bottom: 0;
+}
+
+form .form-link {
+
 }
 /* Slider styles
 ----------------------------------------------------- */
