@@ -15,6 +15,7 @@ $listing_id = $_GET['listing_id'];
     while($row = $result->fetch_assoc()) {
       // Loop through each row and save the array to a variable
       $img_name = $row['img_name'];
+      
       $display_image = $display_image . "
 
         <tr>

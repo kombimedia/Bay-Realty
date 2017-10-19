@@ -10,8 +10,8 @@ include 'processes/process-populate-product.php';
 include 'processes/process-populate-image-carousel.php';
 ?>
 
-<div class="container-fluid">
-<div class="container slider-inner">
+<div class="container product-full">
+<div class=" slider-inner">
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -40,47 +40,31 @@ include 'processes/process-populate-image-carousel.php';
   </a>
 </div>
 </div>
-</div>
-<table>
-<?php echo $display_product ?>
-</table>
-<table>
-<?php echo $display_image ?>
-</table>
-      <div class="container content-widget">
-        <div class="row">
-          <div class="col-sm-12 col-md-6">
-            <div class="home-widget-top">
-              <h2>About Property</h2>
-            </div>
-          </div>
-          <div class="col-sm-12 col-md-6">
-            <div class="home-widget-top">
-              <h2>Map</h2>
-            </div>
-          </div>
-        </div>
-      </div>
-          <div class="container content-widget">
-        <div class="row">
-          <div class="col-sm-12 col-md-4">
-            <div class="home-widget-top">
-              <h2>Office</h2>
-            </div>
-          </div>
-          <div class="col-sm-12 col-md-4">
-            <div class="home-widget-top">
-              <h2>Agent</h2>
-            </div>
-          </div>
-          <div class="col-sm-12 col-md-4">
-            <div class="home-widget-top">
-              <h2>Agent</h2>
-            </div>
-          </div>
-        </div>
-      </div>
 
+<div class="col" id="product_content">
+  <div class="row">
+  <div class="col">
+   <table>
+     <?php echo $display_product ?>
+   </table> 
+ </div>
+</div>
+  <div id="product-2" class="row no-gutters">
+<div class=" col-lg-9 col-md-9 display-block-2">
+<table>
+<?php echo $display_product2 ?>
+</table>
+</div>
+
+<div  id="product-3" class=" col-lg-3 col-md-3">
+<table>
+<?php echo $display_product3 ?>
+</table>
+</div>
+</div>
+</div>
+</div>
+      
 <?php
   include 'includes/footer.php';
 ?>
