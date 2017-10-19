@@ -1,6 +1,8 @@
 <?php
+// Get User ID
 $user_id = $_GET['user_id'];
 $_SESSION['update_user_id'] = $user_id;
+// Define variable to save 'Select option' into
 $option_user_role = "";
 
 $stmt = $mysqli->prepare("SELECT users.user_id, users.first_name, users.surname, users.email, users.role, user_roles.role_id, user_roles.user_role FROM users INNER JOIN user_roles WHERE ? = users.user_id");

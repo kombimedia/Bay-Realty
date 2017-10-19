@@ -1,6 +1,6 @@
 <?php
 $populate_users = "";
-$stmt = $mysqli->prepare("SELECT users.user_id, users.first_name, users.surname, users.email, users.role, user_roles.role_id, user_roles.user_role FROM users INNER JOIN user_roles WHERE users.role = user_roles.role_id ORDER BY users.user_id ASC");
+$stmt = $mysqli->prepare("SELECT users.user_id, users.first_name, users.surname, users.email, users.role, user_roles.role_id, user_roles.user_role FROM users INNER JOIN user_roles ON users.role = user_roles.role_id ORDER BY users.user_id ASC");
 $stmt->execute();
 $result = $stmt->get_result();
 if($result->num_rows > 0) {
