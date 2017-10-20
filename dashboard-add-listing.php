@@ -16,7 +16,7 @@ include 'processes/process-populate-add-listing.php';
   <div><?php if (isset($_SESSION['successMessage'])) { echo $_SESSION['successMessage']; unset($_SESSION['successMessage']); }; ?></div>
   <div><?php if (isset($_SESSION['errorMessage'])) { echo $_SESSION['errorMessage']; unset($_SESSION['errorMessage']); }; ?></div>
 
-    <form class="add-listing-form" method="post" role="form" action="processes/process-validate-add-listing.php" enctype="multipart/form-data">
+    <form class="add-listing-form" method="post" role="form" action="processes/process-add-listing.php" enctype="multipart/form-data">
       <div class="listing-form">
         <h3>Property Details</h3>
         <div class="form-row form-inline mt-4">
@@ -81,6 +81,7 @@ include 'processes/process-populate-add-listing.php';
             <label for="bedrooms">Bedrooms</label>
             <select class="form-control" name="bedrooms" id="bedrooms" required value="">
               <option value="" disabled selected>Select</option>
+              <option value="N/A">N/A</option>
               <?php echo $option_beds ?>
             </select>
             <div><?php if (isset($_SESSION['bedError'])) { echo $_SESSION['bedError']; unset($_SESSION['bedError']); }; ?></div>
@@ -94,6 +95,7 @@ include 'processes/process-populate-add-listing.php';
             <label for="bathrooms">Bathrooms</label>
             <select class="form-control" name="bathrooms" id="bathrooms" required value="">
               <option value="" disabled selected>Select</option>
+              <option value="N/A">N/A</option>
               <?php echo $option_bath ?>
             </select>
             <div><?php if (isset($_SESSION['bathError'])) { echo $_SESSION['bathError']; unset($_SESSION['bathError']); }; ?></div>
@@ -110,6 +112,7 @@ include 'processes/process-populate-add-listing.php';
             <label for="lounges">Lounges</label>
             <select class="form-control" name="lounges" id="lounges" required value="">
               <option value="" disabled selected>Select</option>
+              <option value="N/A">N/A</option>
               <?php echo $option_lounge ?>
             </select>
             <div><?php if (isset($_SESSION['loungeError'])) { echo $_SESSION['loungeError']; unset($_SESSION['loungeError']); }; ?></div>
@@ -123,6 +126,7 @@ include 'processes/process-populate-add-listing.php';
             <label for="garages">Garages</label>
             <select class="form-control" name="garages" id="garages" required value="">
               <option value="" disabled selected>Select</option>
+              <option value="N/A">N/A</option>
               <?php echo $option_garage ?>
             </select>
             <div><?php if (isset($_SESSION['garageError'])) { echo $_SESSION['garageError']; unset($_SESSION['garageError']); }; ?></div>

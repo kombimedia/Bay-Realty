@@ -107,7 +107,7 @@ if($result->num_rows > 0) {
 $stmt->close();
 
 $options_beds = "";
-for($i = 0; $i <= 5; $i++) {
+for($i = 1; $i <= 5; $i++) {
     if ($bed_no == $i) {
         $options_beds = $options_beds . "<option selected value='$bed_no'>$bed_no</option>";
           // if the stored value does not match the value in the type table create an option with no 'selected' tag
@@ -119,7 +119,7 @@ for($i = 0; $i <= 5; $i++) {
         }
 
 $options_bath = "";
-for($i = 0; $i <= 5; $i++) {
+for($i = 1; $i <= 5; $i++) {
     if ($bath_no == $i) {
         $options_bath = $options_bath . "<option selected value='$bath_no'>$bath_no</option>";
           // if the stored value does not match the value in the type table create an option with no 'selected' tag
@@ -132,7 +132,7 @@ for($i = 0; $i <= 5; $i++) {
         }
 
 $options_lounge = "";
-for($i = 0; $i <= 3; $i++) {
+for($i = 1; $i <= 3; $i++) {
     if ($lounge_no == $i) {
         $options_lounge = $options_lounge . "<option selected value='$lounge_no'>$lounge_no</option>";
           // if the stored value does not match the value in the type table create an option with no 'selected' tag
@@ -144,7 +144,7 @@ for($i = 0; $i <= 3; $i++) {
         }
 
 $options_garage = "";
-  for($i = 0; $i <= 3; $i++) {
+  for($i = 1; $i <= 3; $i++) {
       if ($garage_no == $i) {
           $options_garage = $options_garage . "<option selected value='$garage_no'>$garage_no</option>";
             // if the stored value does not match the value in the type table create an option with no 'selected' tag

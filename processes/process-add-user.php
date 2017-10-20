@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'process-validation.php';
+include 'process-functions-validation.php';
 // Save form data to global variables to repopulate form if submit fails
 $_SESSION['storeFirstName'] = $_POST['firstName'];
 $_SESSION['storeSurname'] = $_POST['surname'];
@@ -36,7 +36,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Validate user role
     $validRole = true;
-    if (!validate_user_role ($_POST["role"])) {
+    if (empty($_POST["role"])) {
+        $_SESSION["userRoleError"] = "<div class='validate-error-message'>A User Role is required</div>";
         $validRole = false;
     }
 }

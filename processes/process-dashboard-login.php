@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'process-validation.php';
+include 'process-functions-validation.php';
 
 if (isset($_POST['submit'])) {
     // Save login email to session to repopulate email field if login fails
