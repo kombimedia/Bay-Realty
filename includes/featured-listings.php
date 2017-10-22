@@ -9,7 +9,7 @@
                     echo "<td> <img src='images/uploads/" .$row['featured_image'] . "'></td>";
                     echo "</tr>";
                     echo "<tr>";
-                    echo "<td><h3>" . $row['title'] . "</h3><span>" . $row['address'] . "<br><span>Price: $" . $row['price'] . "</span><br><span> <i class='fa fa-bed' aria-hidden='true'></i> : " . $row['bed_no'] . " " .  "<i class='fa fa-bath' aria-hidden='true'></i>  :  " . $row['bath_no']  . " " .  "<i class='fa fa-car' aria-hidden='true'></i>  :  " . $row['garage_no'] . "</span></td>";
+                    echo "<td><h3>" . $row['title'] . "</h3><span>" . $row['address'] . "<br><span>Price: $" . $row['price'] . "</span><br><span> <i class='fa fa-bed' aria-hidden='true'></i> : " . $row['bed_no'] . " " .  "<i class='fa fa-bath' aria-hidden='true'></i>  :  " . $row['bath_no']  . " " .  "<i class='fa fa-car' aria-hidden='true'></i>  :  " . $row['garage_no'] . "<a id= 'wishlist-icon' href='guest-login.php' action= 'post' ><i class='fa fa-heart' aria-hidden='true'> Add to Wishlist</i></a></span></td>";
                     echo "</tr>";
                    
                     echo "</table>";
