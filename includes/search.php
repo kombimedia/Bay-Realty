@@ -17,7 +17,7 @@ include 'processes/process-populate-search-listing.php'
         <div class="form-row form-inline mb-2">
           <div class="col">
             <select name="city" class="form-control" id="search-area">
-              <option value="1,2,3" disabled selected>Area</option>
+              <option value="2,3,4" disabled selected>Area</option>
               <?php echo $option_city ?>
             </select>
           </div>
