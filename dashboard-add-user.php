@@ -16,7 +16,7 @@ if (!$_SESSION['logged_in']) {
   <div><?php if (isset($_SESSION['successMessage'])) { echo $_SESSION['successMessage']; unset($_SESSION['successMessage']); }; ?></div>
   <div><?php if (isset($_SESSION['errorMessage'])) { echo $_SESSION['errorMessage']; unset($_SESSION['errorMessage']); }; ?></div>
 
-    <form class="add-listing-form" method="post" role="form" action="processes/process-validate-add-user.php">
+    <form class="add-listing-form" method="post" role="form" action="processes/process-add-user.php">
       <div class="listing-form">
         <h3>User Details</h3>
         <div class="form-row form-inline mt-4">
@@ -49,7 +49,7 @@ if (!$_SESSION['logged_in']) {
         <div class="form-row form-inline">
           <div class="col-12 col-xl-3 mb-3">
             <label for="role">User Role</label>
-            <select class="form-control wide" name="role" id="role" required value="">
+            <select class="form-control wide" name="role" id="role" value="">
               <option value="" disabled selected>Select role</option>
               <?php echo $option_role ?>
             </select>

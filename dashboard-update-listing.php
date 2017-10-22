@@ -85,6 +85,7 @@ if (!$_SESSION['logged_in']) {
             <label for="bedrooms">Bedrooms</label>
             <select class="form-control" required name="updateBedrooms" id="bedrooms" value="">
               <option value="" disabled>Select</option>
+              <option value="N/A">N/A</option>
               <?php echo $options_beds ?>
             </select>
 
@@ -98,6 +99,7 @@ if (!$_SESSION['logged_in']) {
             <label for="bathrooms">Bathrooms</label>
             <select class="form-control" required name="updateBathrooms" id="bathrooms" value="">
               <option value="" disabled>Select</option>
+              <option value="N/A">N/A</option>
               <?php echo $options_bath ?>
             </select>
           </div>
@@ -113,6 +115,7 @@ if (!$_SESSION['logged_in']) {
             <label for="lounges">Lounges</label>
             <select class="form-control" required name="updateLounges" id="lounges" value="">
               <option value="" disabled>Select</option>
+              <option value="N/A">N/A</option>
               <?php echo $options_lounge ?>
             </select>
           </div>
@@ -125,6 +128,7 @@ if (!$_SESSION['logged_in']) {
             <label for="garages">Garages</label>
             <select class="form-control" required name="updateGarages" id="garages" value="">
               <option value="" disabled>Select</option>
+              <option value="N/A">N/A</option>
               <?php echo $options_garage ?>
             </select>
           </div>

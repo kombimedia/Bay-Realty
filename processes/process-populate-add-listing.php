@@ -49,7 +49,7 @@ if($result->num_rows > 0) {
   $stmt->close();
 
 $option_beds = "";
-for($i = 0; $i <= 5; $i++) {
+for($i = 1; $i <= 5; $i++) {
     if ($i == 5) {
       $option_beds = $option_beds . "<option value='$i'>$i +</option>";
       } else {
@@ -58,7 +58,7 @@ for($i = 0; $i <= 5; $i++) {
 }
 
 $option_bath = "";
-for($i = 0; $i <= 5; $i++) {
+for($i = 1; $i <= 5; $i++) {
     if ($i == 5) {
       $option_bath = $option_bath . "<option value='$i'>$i +</option>";
       } else {
@@ -67,7 +67,7 @@ for($i = 0; $i <= 5; $i++) {
 }
 
 $option_lounge = "";
-for($i = 0; $i <= 3; $i++) {
+for($i = 1; $i <= 3; $i++) {
     if ($i == 3) {
       $option_lounge = $option_lounge . "<option value='$i'>$i +</option>";
       } else {
@@ -76,7 +76,7 @@ for($i = 0; $i <= 3; $i++) {
 }
 
 $option_garage = "";
-  for($i = 0; $i <= 3; $i++) {
+  for($i = 1; $i <= 3; $i++) {
     if ($i == 3) {
       $option_garage = $option_garage . "<option value='$i'>$i +</option>";
       } else {
