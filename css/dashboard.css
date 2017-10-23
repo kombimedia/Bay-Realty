@@ -252,7 +252,8 @@ a i.fa-home,
 a i.fa-user,
 a i.fa-camera-retro,
 a.nav-link i.fa-dashboard,
-a i.fa-sign-out {
+a i.fa-sign-out,
+a i.fa-handshake-o {
   font-size: 1.2rem;
 }
 }

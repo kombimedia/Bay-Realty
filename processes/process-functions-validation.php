@@ -312,7 +312,7 @@ function validate_property_description($property_description) {
 
 // Validate image(s) and store in the temp folder until we need to use them
 function validate_image_temp_folder($files) {
-    //loop through images array to get individual element - name, extension
+    // loop through images array to get individual element - name, extension
     for ($i = 0; $i < count($files['name']); $i++) {
         // Accepted extensions
         $validextensions = array('jpeg', 'jpg', 'png');

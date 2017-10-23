@@ -18,7 +18,7 @@ if (isset($_POST['submit'])) {
           header('location: ../dashboard-update-user');
           exit;
     } else {
-        // if listing is successful updated go to dashboard 'view users' page and print success message
+        // if listing is successful updated go to dashboard 'all users' page and print success message
         $_SESSION["successMessage"] = "<div class='success-message'>User with ID: " . $update_user_id . " was successfully updated.</div>";
         header('location: ../dashboard-view-users');
         }

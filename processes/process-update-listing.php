@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (isset($_POST['submit'])) {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     include '../includes/db-connect.php';
 
@@ -26,7 +26,7 @@ if (isset($_POST['submit'])) {
     }
     $stmt->close();
 
-    //if ($_FILES['file']['name'] != "") {
+    if (isset($_FILES['file'])) {
         // Upload more image(s) to listing
         // loop through images array to get individual element - name, extension
         for ($i = 0; $i < count($_FILES['file']['name']); $i++) {
@@ -43,7 +43,7 @@ if (isset($_POST['submit'])) {
             // Rename image and path to include property listing_id
             $image_name = $update_listing_id . '_' . $image_name;
             // Get image size
-            $image_size = $_FILES['file']['size'][$i] . 'B';
+            $image_size = $_FILES['file']['size'][$i] . 'Bytes';
             // Declare path for uploaded images
             $file_path = "../images/uploads/".$image_name;
             // Validate image before storing to folder and DB
@@ -74,13 +74,26 @@ if (isset($_POST['submit'])) {
                 header('location: ../dashboard-update-listing');
               }
         }
-    //}
+    }
     // if listing is successful updated go to dashboard 'view listings' page and print success message
     $_SESSION["successMessage"] = "<div class='success-message'>Listing with ID: " . $update_listing_id . " was successfully updated.</div>";
     header('location: ../dashboard-view-listings');
 }
 // close db connection
 $mysqli->close();
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

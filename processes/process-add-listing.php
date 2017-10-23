@@ -186,8 +186,8 @@ if ($valid_listing) {
     exit;
 }
 
-// Move image(s) to uploads folder, insert image details into db, rename image(s) with listing id
-// Define directory where images are stored
+// Get image(s) data from temp folder, rename image(s) with listing id, insert image details into db
+// Define temporary directory where images are stored
 $tempdir = "../images/temp/";
 // Define images to get from folder
 $image_files = glob("$tempdir{*.jpg,*.jpeg,*.png}", GLOB_BRACE);
@@ -200,13 +200,13 @@ for ($i = 0; $i < count($image_files); $i++) {
     $image_size = filesize($image_files[$i]). 'Bytes';
     // Save temp file path to a variable
     $temp_files = $image_files[$i];
-    // Get file name to a variable
+    // Get file name and save to a variable
     $image_name = basename($image_files[$i]);
     // Rename image and path to include property listing_id
     $image_name = $new_listing_id . '_' . $image_name;
     // Define path to uploads folder
     $file_path = "../images/uploads/" . $image_name;
-
+    // Insert image(s) data to db
     $stmt = $mysqli->prepare("INSERT INTO images (img_name, img_size, img_type, listing_id) VALUES (?, ?, ?, ?)");
     $stmt->bind_param("sssi", $image_name, $image_size, $image_type, $new_listing_id);
     // if insert execution is unsuccessful throw error
@@ -232,7 +232,7 @@ for ($i = 0; $i < count($image_files); $i++) {
     }
     $stmt->close();
 
-    // Move images from temp folder to uploads folder
+    // Move image file(s) from temp folder to uploads folder
     if (!rename($temp_files, $file_path)) {
         // if file was not moved throw error message
         $_SESSION["errorMessage"] = "<div class='error-message'>Image(s) were not saved to uploads folder</div>";

@@ -21,7 +21,7 @@ if (isset($_POST['submit'])) {
     $_POST['loginPassword'] = md5($_POST['loginPassword']);
 }
 
-// If all validation passes set validLoginForm variable to true
+// If all validation passes set valid_login_form variable to true
 $valid_Login_form = $validEmail && $validPassword;
 
 // Only connect to database if form passes validation
@@ -49,7 +49,7 @@ if ($valid_Login_form) {
     header('location: ../dashboard-login');
     exit;
 }
-    // Register variables for user role
+    // Register global variables for user role
     $_SESSION['userName'] = "Welcome " . $stored_name . "!";
     $_SESSION['logged_in'] = true;
     $admin_user_role = 4;
