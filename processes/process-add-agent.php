@@ -103,14 +103,14 @@ if ($validForm) {
         if (!$stmt1->execute()) {
             // if insert is unsuccessful throw error
            header('location: ../dashboard-add-agent');
-           $_SESSION["errorMessage"] = "<div class='error-message'>An error has occurred: " . $stmt1->errno . " " . $stmt1->error. "</div>";
+           //$_SESSION["errorMessage"] = "<div class='error-message'>An error has occurred: " . $stmt1->errno . " " . $stmt1->error. "</div>";
            exit;
            }
            $stmt1->close();
     } else {
         // if email already exists in db, throw error
         header('location: ../dashboard-add-agent');
-        $_SESSION["errorMessage"] = "<div class='error-message'>This email address is already registered</div>";
+        $_SESSION["emailError"] = "<div class='validate-error-message'>Oops, this email address is already registered with another Agent</div>";
         exit;
         }
         $stmt->close();
