@@ -11,8 +11,9 @@ $stmt->execute();
 $result = $stmt->get_result();
 if($result->num_rows > 0) {
   while($row = $result->fetch_assoc()) {
-    $arr[] = $row;
+    // Define path to image(s)
     $path = "../images/uploads/" . $row['img_name'];
+    // Run file delete function, passing path to image(s)
     unlink($path);
   }
 } else {

@@ -16,6 +16,7 @@ include 'processes/process-populate-view-agents.php';
 <div><?php if (isset($_SESSION['successMessage'])) { echo $_SESSION['successMessage']; unset($_SESSION['successMessage']); }; ?></div>
 <div><?php if (isset($_SESSION['errorMessage'])) { echo $_SESSION['errorMessage']; unset($_SESSION['errorMessage']); }; ?></div>
 <div><?php if (isset($_SESSION['agentDelError'])) { echo $_SESSION['agentDelError']; unset($_SESSION['agentDelError']); }; ?></div>
+<div><?php if (isset($_SESSION['serverDelError'])) { echo $_SESSION['serverDelError']; unset($_SESSION['serverDelError']); }; ?></div>
 
 <table class='table table-striped table-responsive view-agents'>
     <thead class='agents-head'>

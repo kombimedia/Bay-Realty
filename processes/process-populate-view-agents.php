@@ -16,7 +16,7 @@ if($result->num_rows > 0) {
     $populate_view_agents = $populate_view_agents . "
     <tr>
         <td><img width='100' height='100' src='images/uploads/$row[profile_pic]'></td>
-        <td> $row[agent_id]<br> <a class='view-agents-edit' href='dashboard-update-agents.php?agents_id=$row[agent_id]'>Edit</a> <a class='view-agents-delete' href='#' onClick='deleteAgent($row[agent_id])'>Delete</a> </td>
+        <td> $row[agent_id]<br> <a class='view-agents-edit' href='dashboard-update-agent.php?agent_id=$row[agent_id]'>Edit</a> <a class='view-agents-delete' href='#' onClick='deleteAgent($row[agent_id])'>Delete</a> </td>
         <td>$name</td>
         <td>$row[email]</td>
         <td>$row[phone]</td>
