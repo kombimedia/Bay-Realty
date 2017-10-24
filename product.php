@@ -69,7 +69,9 @@ include 'processes/process-populate-agent.php';
     <div class="contact-agent">
       <h4>Contact-details</h4>
     </div>
+    <div class="agent-data">
     <?php echo $display_agent ?>
+  </div>
   </div>
   <div class=" col-lg-8 col-md-8 display-block-3 ">
 <?php echo $display_map ?>

@@ -310,6 +310,7 @@ float: right;
   background-color: #189ebb;
   color: #fff;
   padding: 5px 5px 5px 5px;
+  padding: 5px;
 }
 #product-map-agent{
   margin-top: 40px;
@@ -333,9 +334,18 @@ a[href^="tel:"]:before {
     display: inline-block;
     margin-right: 0.6em;
     color: #189ebb;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 a[href^="tel:"] {
     
     color: #189ebb;
+}
+
+.agent-descr{
+  font-size: 10pt;
+}
+.agent-data{
+  padding:10px;
 }

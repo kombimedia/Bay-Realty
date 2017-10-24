@@ -32,7 +32,7 @@ $listing_id = $_GET['listing_id'];
       <p>$first_name  $surname </p>
       <a href='mailto:$email' style='color: #42b3f4'>$email</a>
       <br><a href='tel:$phone'>$phone</a><br> 
-      <p>$description</p></td></tr>";
+      <p class='agent-descr'>$description</p></td></tr>";
         
 
 
