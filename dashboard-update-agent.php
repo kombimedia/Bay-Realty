@@ -40,7 +40,7 @@ include 'processes/process-populate-update-agent.php';
 
           <div class="col-12 col-xl-3 mb-3">
             <label for="phone">Phone Number</label>
-            <input type="text" class="form-control wide" name="phone" id="phone" placeholder="(+64) 21 2880078" required value="<?php echo $phone ?>">
+            <input type="text" class="form-control wide" name="phone" id="phone" placeholder="(021)1234567" required value="<?php echo $phone ?>">
           </div>
         </div>
 

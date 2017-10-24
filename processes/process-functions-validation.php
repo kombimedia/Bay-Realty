@@ -362,9 +362,9 @@ function validate_phone ($phone) {
         $validPhone = false;
         return false;
     // Check the string length is not more than 500 characters
-    } elseif (!preg_match('/^\(?\+?([0-9]{1,4})\)?[-\. ]?(\d{2})[-\. ]?([0-9]{7})$/', trim($phone))) {
+    } elseif (!preg_match('/^(\(0\d\)\d{7}|\(02\d\)\d{6,8}|0800\s\d{5,8})$/', ($phone))) {
       //(!preg_match('/^\(?\+?([0-9]{1,4})\)?[-\. ]?(\d{3})[-\. ]?([0-9]{7})$/', trim($phone)))
-      $_SESSION["phoneError"] = "<div class='validate-error-message'>Oops... Please enter a valid phone number - (+64) 21 2880078.</div>";
+      $_SESSION["phoneError"] = "<div class='validate-error-message'>Oops... Please enter a valid phone number - (021)1234567.</div>";
       $validPhone = false;
       return false;
       }
