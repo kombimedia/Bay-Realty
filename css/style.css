@@ -325,4 +325,17 @@ float: right;
   height: 100px;
   display:block;
   margin:auto;
+  padding-top: 10px;
+}
+
+a[href^="tel:"]:before {
+    content: "\260E";
+    display: inline-block;
+    margin-right: 0.6em;
+    color: #189ebb;
+}
+
+a[href^="tel:"] {
+    
+    color: #189ebb;
 }

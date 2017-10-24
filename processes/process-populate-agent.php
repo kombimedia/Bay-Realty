@@ -8,7 +8,7 @@ $listing_id = $_GET['listing_id'];
 
 
 
- $stmt = $mysqli->prepare("SELECT first_name, surname, email, phone, description FROM agents LIMIT 1");
+ $stmt = $mysqli->prepare("SELECT first_name, surname, email, phone, description, profile_pic FROM agents  ORDER BY RAND() LIMIT 1");
  
  $stmt->execute();
  $result = $stmt->get_result();
@@ -19,17 +19,19 @@ $listing_id = $_GET['listing_id'];
       $surname = $row['surname'];
       $email = $row['email'];
       $phone = $row['phone'];
+      $picture = $row['profile_pic'];
       $description = $row['description'];
+
       
       $display_agent = $display_agent . "
       <tr>
 
       <td>
 
-      <img src='https://ssl.cdn-redfin.com/system_files/images/7123/500x500/8_46.jpg' class='rounded-circle'><br>
+      <img src='images/uploads/$picture' alt='Agent pic' class='rounded-circle'><br>
       <p>$first_name  $surname </p>
-      <a style='color: #42b3f4'>$email</a><br>
-      <a style='color: grey'>$phone</a> 
+      <a href='mailto:$email' style='color: #42b3f4'>$email</a>
+      <br><a href='tel:$phone'>$phone</a><br> 
       <p>$description</p></td></tr>";
         
 
