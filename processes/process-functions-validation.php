@@ -4,7 +4,7 @@
 function validate_first_name ($name) {
      // check if field is populated
     if (empty($name)) {
-      $error = "<div class='validate-error-message'>Your first name is required</div>";
+      $_SESSION["firstNameError"] = "<div class='validate-error-message'>Your first name is required</div>";
       $validName = false;
       return false;
     } else {
@@ -300,9 +300,9 @@ function validate_property_description($property_description) {
         $valid_prop_des = false;
         return false;
     // Check the string length is not more than 500 characters
-    } elseif (strlen($property_description) > 500) {
+    } elseif (strlen($property_description) > 1000) {
           $char_count = strlen($property_description);
-          $_SESSION["propDesError"] = "<div class='validate-error-message'>Oops... Property Description must be max 500 characters. You currently have " . $char_count . " characters.</div>";
+          $_SESSION["propDesError"] = "<div class='validate-error-message'>Oops... Property Description must be max 1000 characters. You currently have " . $char_count . " characters.</div>";
           $valid_prop_des = false;
           return false;
     }
@@ -336,7 +336,7 @@ function validate_image_temp_folder($files) {
             // Save image files to temp folder
             if (!move_uploaded_file($image_tmp, $file_path)) {
                 // if file was not moved throw error message
-                $_SESSION["imgUploadError"] = "<div class='validate-error-message'>Uh oh... Image(s) were not saved to temp folder.</div>";
+                $_SESSION["imgUploadError"] = "<div class='validate-error-message'>Uh oh... Image(s) were not saved to uploads folder.</div>";
                 $valid_image = false;
                 return false;
             }
@@ -350,5 +350,42 @@ function validate_image_temp_folder($files) {
              // $_SESSION["imgError"] = "<div class='validate-error-message'>Please select at least one image.</div>";
              // $valid_image = false;
     $valid_image = true;
+    return true;
+}
+
+//--------------  ADD AGENT ----------------------------------
+// Validate phone number
+function validate_phone ($phone) {
+    // Check that the field has an entry
+    if (empty($phone)) {
+        $_SESSION["phoneError"] = "<div class='validate-error-message'>Your phone number is required.</div>";
+        $validPhone = false;
+        return false;
+    // Check the string length is not more than 500 characters
+    } elseif (!preg_match('/^\(?\+?([0-9]{1,4})\)?[-\. ]?(\d{2})[-\. ]?([0-9]{7})$/', trim($phone))) {
+      //(!preg_match('/^\(?\+?([0-9]{1,4})\)?[-\. ]?(\d{3})[-\. ]?([0-9]{7})$/', trim($phone)))
+      $_SESSION["phoneError"] = "<div class='validate-error-message'>Oops... Please enter a valid phone number - (+64) 21 2880078.</div>";
+      $validPhone = false;
+      return false;
+      }
+    $validPhone = true;
+    return true;
+}
+
+// Validate agent Description
+function validate_agent_description($agent_description) {
+    // Check that the field has an entry
+    if (empty($agent_description)) {
+        $_SESSION["agentDesError"] = "<div class='validate-error-message'>An Agent description is required.</div>";
+        $valid_prop_des = false;
+        return false;
+    // Check the string length is not more than 500 characters
+    } elseif (strlen($agent_description) > 500) {
+          $char_count = strlen($agent_description);
+          $_SESSION["agentDesError"] = "<div class='validate-error-message'>Oops... Agent Description must be max 500 characters. You currently have " . $char_count . " characters.</div>";
+          $valid_prop_des = false;
+          return false;
+    }
+    $valid_prop_des = true;
     return true;
 }

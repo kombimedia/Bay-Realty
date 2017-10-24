@@ -16,7 +16,7 @@ include 'processes/process-populate-add-agent.php';
   <div><?php if (isset($_SESSION['successMessage'])) { echo $_SESSION['successMessage']; unset($_SESSION['successMessage']); }; ?></div>
   <div><?php if (isset($_SESSION['errorMessage'])) { echo $_SESSION['errorMessage']; unset($_SESSION['errorMessage']); }; ?></div>
 
-    <form class="add-listing-form" method="post" role="form" action="processes/process-add-agent.php">
+    <form class="add-listing-form" method="post" role="form" action="processes/process-add-agent.php" enctype="multipart/form-data">
       <div class="listing-form">
         <h3>Agent Details</h3>
         <div class="form-row form-inline mt-4">
@@ -41,7 +41,7 @@ include 'processes/process-populate-add-agent.php';
 
           <div class="col-12 col-xl-3 mb-3">
             <label for="phone">Phone Number</label>
-            <input type="text" class="form-control wide" name="phone" id="phone" placeholder="Agent's phone number" required value="<?php if (isset($_SESSION['storePhone'])) { echo $_SESSION['storePhone']; unset($_SESSION['storePhone']); }; ?>">
+            <input type="text" class="form-control wide" name="phone" id="phone" placeholder="(+64) 21 2880078" required value="<?php if (isset($_SESSION['storePhone'])) { echo $_SESSION['storePhone']; unset($_SESSION['storePhone']); }; ?>">
             <div><?php if (isset($_SESSION['phoneError'])) { echo $_SESSION['phoneError']; unset($_SESSION['phoneError']); }; ?></div>
           </div>
         </div>
@@ -49,7 +49,7 @@ include 'processes/process-populate-add-agent.php';
         <div class="form-row form-inline">
           <div class="col-12 col-xl-6 mb-3">
               <label for="agent-des">Description</label>
-              <textarea rows="3" class="form-control" name="agentDes" id="agent-des" placeholder="Something about the agent" required value="<?php if (isset($_SESSION['storeAgentDes'])) { echo $_SESSION['storeAgentDes']; unset($_SESSION['storeAgentDes']); }; ?>"></textarea>
+              <textarea rows="3" class="form-control" name="agentDes" id="agent-des" required  placeholder="Something about the agent"><?php if (isset($_SESSION['storeAgentDes'])) { echo $_SESSION['storeAgentDes']; unset($_SESSION['storeAgentDes']); }; ?></textarea>
               <div><?php if (isset($_SESSION['agentDesError'])) { echo $_SESSION['agentDesError']; unset($_SESSION['agentDesError']); }; ?></div>
           </div>
         </div>
@@ -57,7 +57,7 @@ include 'processes/process-populate-add-agent.php';
         <div class="form-row form-inline">
           <div class="col-12 col-xl-3 mb-3">
             <label for="role">Area</label>
-            <select class="form-control wide" name="area" id="area" value="">
+            <select class="form-control wide" name="area" id="area" required value="">
               <option value="" disabled selected>Select area</option>
               <?php echo $option_area ?>
             </select>
@@ -75,11 +75,11 @@ include 'processes/process-populate-add-agent.php';
           <label for="file">Upload Profile Image</label>
           <small id="pro-image-help" class="form-text text-muted">png, jpg or jpeg file types accepted, max size 500KB</small><br>
           <div id="filediv">
-            <input class="form-control" name="file[]" type="file" id="file" required aria-describedby="pro-image-help"/>
+            <input class="form-control" name="file[]" type="file" id="file" required  aria-describedby="pro-image-help"/>
           </div>
           <div><?php if (isset($_SESSION['imgUploadError'])) { echo $_SESSION['imgUploadError']; unset($_SESSION['imgUploadError']); }; ?></div>
           <div><?php if (isset($_SESSION['imgFileError'])) { echo $_SESSION['imgFileError']; unset($_SESSION['imgFileError']); }; ?></div>
-          <div><?php if (isset($_SESSION['imgErrorr'])) { echo $_SESSION['imgErrorr']; unset($_SESSION['imgErrorr']); }; ?></div>
+          <div><?php if (isset($_SESSION['imgError'])) { echo $_SESSION['imgError']; unset($_SESSION['imgError']); }; ?></div>
         </div>
       </div>
     </div>

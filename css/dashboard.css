@@ -190,7 +190,8 @@ input#add_more:hover {
 -------------------------------------------------- */
 thead.view-listings-head,
 thead.images-head,
-thead.users-head {
+thead.users-head,
+thead.agents-head {
   background-color: #92becb;
   color: #fff;
 }
@@ -201,21 +202,27 @@ thead.users-head {
 td a.view-listing-edit,
 td a.view-listing-delete,
 td a.view-user-edit,
-td a.view-user-delete {
+td a.view-user-delete,
+td a.view-agents-edit,
+td a.view-agents-delete {
   text-decoration: none;
 }
 td a.view-listing-edit:hover,
 td a.view-listing-delete:hover,
 td a.view-user-edit:hover,
-td a.view-user-delete:hover {
+td a.view-user-delete:hover,
+td a.view-agents-edit:hover,
+td a.view-agents-delete:hover {
   text-decoration: underline;
 }
 td a.view-listing-edit,
-td a.view-user-edit {
+td a.view-user-edit,
+td a.view-agents-edit {
   color: green;
 }
 td a.view-listing-delete,
-td a.view-user-delete {
+td a.view-user-delete,
+td a.view-agents-delete {
   color: red;
 }
 
