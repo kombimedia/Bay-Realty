@@ -30,9 +30,13 @@ $listing_id = $_GET['listing_id'];
 
       <img src='images/uploads/$picture' alt='Agent pic' class='rounded-circle'><br>
       <h4 style='text-align: center'>$first_name  $surname </h4>
-      <a href='mailto:$email' style='color: #42b3f4'>$email</a>
-      <br><a href='tel:$phone'>$phone</a><br> 
-      <p class='agent-descr'>$description</p></td></tr>";
+      
+      <a href='tel:$phone'>$phone</a><br>
+      <a class='email' href='mailto:$email' style='color: #42b3f4'>$email<br></a>
+      <button type='button' class='btn btn-info agent-btn' data-toggle='collapse' data-target='#demo'>View more...</button>
+       <div id='demo' class='collapse'>
+      <p class='agent-descr'>$description</p></td></tr>
+      </div>";
         
 
 
