@@ -12,6 +12,7 @@ Sand #fffced
 -------------------------------------------------- */
 body {
   /*padding-top: 3.5rem;*/
+  color: #152a69;
 }
 .container {
   width: 80%;
@@ -22,6 +23,14 @@ body {
 -------------------------------------------------- */
 h1, h2, h3, h4, h5 {
   font-family: 'Baumans', cursive;
+  color: #446da3;
+}
+.page-image-widget h1 {
+  color: #fff;
+}
+.view-listing h3,
+.view-listing h4 {
+  color: #189ebb;
 }
 a {
   color: #189ebb;
@@ -95,15 +104,14 @@ button span i.fa-bars {
 .footer-widget-area {
   height: auto;
   background-color: #446da3;
-  color: #fff;
 }
 .footer-widget {
-  padding: 50px 20px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding: 30px 30px 20px 30px;
   position: relative;
-  min-height: 100%;
-}
-.footer-widget {
-  padding: 50px 20px;
+  /*min-height: 100%;*/
+  background-color: #fff;
 }
 .footer {
   height: 60px;
