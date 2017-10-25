@@ -54,8 +54,8 @@ if($result->num_rows > 0) {
         <td>$row[bath_no]</td>
         <td>$row[lounge_no]</td>
         <td>$row[garage_no]</td>
-        <td>$row[house_size] m<sub>2</sub></td>
-        <td>$row[land_size] m<sub>2</sub></td>
+        <td>$row[house_size] m<sup>2</sup></td>
+        <td>$row[land_size] m<sup>2</sup></td>
         <td>$row[featured_property]</td>
     </tr>";
  }
