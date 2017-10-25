@@ -43,7 +43,7 @@ if($result->num_rows > 0) {
         <td><a class='view-listing' href='product.php?listing_id=$listing_id'><h4 >$row[title]</h4></a><a id= 'wishlist-icon' href='guest-login.php' action= 'post' ><i class='fa fa-heart' aria-hidden='true'>  Add to Wishlist</i></a><p style='color: grey'>$row[address] </p><hr>
         <p>$string ...</p>
         <h4>$price</h4>
-      
+
         <p><i class='fa fa-bed' aria-hidden='true'></i>  : $row[bed_no] <i class='fa fa-bath' aria-hidden='true'></i> : $row[bath_no] <i class='fa fa-car' aria-hidden='true'></i> : $row[garage_no]</p>
 
 
