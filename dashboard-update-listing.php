@@ -136,14 +136,14 @@ include 'processes/process-populate-update-listing.php';
             <label for="house-sqm">House Size</label>
             <div class="input-group">
               <input type="number" class="form-control" required name="updateHouseSize" id="house-sqm" aria-describedby="h-sqm" placeholder="180" value="<?php echo $house_size ?>">
-              <span class="input-group-addon" id="h-sqm">m<sub>2</sub></span>
+              <span class="input-group-addon" id="h-sqm">m<sup>2</sup></span>
             </div>
           </div>
           <div class="col-12 col-md-6 col-xl-3 mb-3">
             <label for="land-sqm">Land Size</label>
             <div class="input-group">
               <input type="number" class="form-control" required name="updateLandSize" id="land-sqm" aria-describedby="l-sqm" placeholder="800" value="<?php echo $land_size ?>">
-              <span class="input-group-addon" id="l-sqm">m<sub>2</sub></span>
+              <span class="input-group-addon" id="l-sqm">m<sup>2</sup></span>
             </div>
           </div>
           <div class="col-12 col-md-6 col-xl-3 mb-3">

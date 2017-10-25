@@ -63,7 +63,7 @@ button span i.fa-bars {
   transition: opacity .5s;
 }
 .header-image {
-  background-image: url("../images/home-image.jpg");
+  background-image: url("../images/page-header.jpg");
   position: relative;
   background-position: center;
   background-size: cover;
@@ -242,10 +242,10 @@ color: #42b3f4;
 --------------------------------------- */
 
 .carousel-item img {
-       
+
         width: 100% !important;
         height: 450px !important;
-       
+
       }
 
 .carousel-item{
@@ -348,7 +348,7 @@ a[href^="tel:"]:before {
 }
 
 a[href^="tel:"] {
-    
+
     color: #189ebb;
 }
 
@@ -372,4 +372,4 @@ a[href^="tel:"] {
 
 
 
- 
+

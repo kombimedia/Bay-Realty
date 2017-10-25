@@ -143,7 +143,7 @@ include 'processes/process-populate-add-listing.php';
             <label for="house-sqm">House Size</label>
             <div class="input-group">
               <input type="number" class="form-control" name="houseSize" id="house-sqm" aria-describedby="h-sqm" placeholder="180" required value="<?php if (isset($_SESSION['storeHouseSize'])) { echo $_SESSION['storeHouseSize']; unset($_SESSION['storeHouseSize']); }; ?>">
-              <span class="input-group-addon" id="h-sqm">m<sub>2</sub></span>
+              <span class="input-group-addon" id="h-sqm">m<sup>2</sup></span>
             </div>
             <div><?php if (isset($_SESSION['hSizeError'])) { echo $_SESSION['hSizeError']; unset($_SESSION['hSizeError']); }; ?></div>
           </div>
@@ -151,7 +151,7 @@ include 'processes/process-populate-add-listing.php';
             <label for="land-sqm">Land Size</label>
             <div class="input-group">
               <input type="number" class="form-control" name="landSize" id="land-sqm" aria-describedby="l-sqm" placeholder="800" required value="<?php if (isset($_SESSION['storeLandSize'])) { echo $_SESSION['storeLandSize']; unset($_SESSION['storeLandSize']); }; ?>">
-              <span class="input-group-addon" id="l-sqm">m<sub>2</sub></span>
+              <span class="input-group-addon" id="l-sqm">m<sup>2</sup></span>
             </div>
             <div><?php if (isset($_SESSION['lSizeError'])) { echo $_SESSION['lSizeError']; unset($_SESSION['lSizeError']); }; ?></div>
           </div>
