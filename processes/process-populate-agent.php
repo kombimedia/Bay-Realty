@@ -29,7 +29,7 @@ $listing_id = $_GET['listing_id'];
       <td>
 
       <img src='images/uploads/$picture' alt='Agent pic' class='rounded-circle'><br>
-      <p>$first_name  $surname </p>
+      <h4 style='text-align: center'>$first_name  $surname </h4>
       <a href='mailto:$email' style='color: #42b3f4'>$email</a>
       <br><a href='tel:$phone'>$phone</a><br> 
       <p class='agent-descr'>$description</p></td></tr>";
