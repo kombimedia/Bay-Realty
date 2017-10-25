@@ -38,6 +38,8 @@ $listing_id = $_GET['listing_id'];
       $house_size = $row['house_size'];
       $land_size = $row['land_size'];
       $map_co_ords = $row['map_co_ords'];
+      list($mapa, $mapb) = explode(',', $map_co_ords);
+
       $featured_image = $row['featured_image'];
       $featured_property = $row['featured_property'];
       $listing_id = $row['listing_id'];
@@ -46,6 +48,8 @@ $listing_id = $_GET['listing_id'];
       $number = $price;
       setlocale(LC_MONETARY,"en_NZ");
       $price = money_format("%.0n", $number);
+      echo $mapa ;
+      echo $mapb ;
       $display_product = $display_product . "
       <tr>
       <td><p>listing id: $listing_id </p><h4 style='color: #42b3f4'>$listing_title</h4><p style='color: grey'>$address </p><a class= 'wishlist-icon' href='guest-login.php' action= 'post' ><i class='fa fa-heart' aria-hidden='true'> Add to Wishlist</i></a>
@@ -80,7 +84,7 @@ $listing_id = $_GET['listing_id'];
 
          $display_map = $display_map . "
 
-         
+
          ";
 
          $display_map = $display_map . "
@@ -91,9 +95,9 @@ $listing_id = $_GET['listing_id'];
 
         <script>
       function initMap() {
-        var uluru = {lat: -25.363, lng: 131.044};
+        var uluru = {lat: $mapa , lng: $mapb};
         var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 4,
+          zoom: 8,
           center: uluru
         });
         var marker = new google.maps.Marker({
