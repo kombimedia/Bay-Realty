@@ -123,6 +123,6 @@ if ($validForm) {
 // Get the just created listing_id and save to a variable
 $new_agent_id = mysqli_insert_id($mysqli);
 
-// if user is successfully created go back to dashboard 'add agent' page and print success message
+// if agent is successfully created go back to dashboard 'add agent' page and print success message
 $_SESSION["successMessage"] = "<div class='success-message'>New Agent with ID: " . $new_agent_id . " successfully created.</div>";
 header('location: ../dashboard-add-agent');

@@ -84,32 +84,7 @@ function validate_password ($password) {
     return true;
 }
 
-// // Validate user role
-// function validate_user_role ($role) {
-//     if (empty($role)) {
-//         $_SESSION["userRoleError"] = "<div class='validate-error-message'>A User Role is required</div>";
-//         $validRole = false;
-//         return false;
-//     } else {
-//         $validRole = true;
-//     }
-//     return true;
-// }
-
 //--------------  PROPERTY LISTINGS ----------------------------------
-// // Validate Sales Agent
-// function validate_sales_agent ($sales_agent) {
-//     // Check that the field has an entry
-//     if (empty($sales_agent)) {
-//         $_SESSION["agentError"] = "<div class='validate-error-message'>Oops... Please select an Agent.</div>";
-//         $valid_agent = false;
-//         return false;
-//     } else {
-//         $valid_agent = true;
-//     }
-//     return true;
-// }
-
 // Validate Listing Title
 function validate_listing_title ($listing_title) {
     // Check that the field has an entry
