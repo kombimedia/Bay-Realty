@@ -13,10 +13,10 @@
                       <a class="nav-link" href="/bay-realty">Home<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="/bay-realty/product">Product</a>
+                      <a class="nav-link" href="/bay-realty/about-us">About Us</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="/bay-realty/category">Category</a>
+                      <a class="nav-link" href="/bay-realty/contact-us">Contact Us</a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link" href="/bay-realty/wishlist"><i class="fa fa-heart fa-lg"></i></a>
