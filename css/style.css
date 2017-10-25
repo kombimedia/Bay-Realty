@@ -305,12 +305,20 @@ float: right;
 
 /* agent contact on product page
 ----------------------------------------*/
-
+.agent{
+ padding-right: 0px !important;
+ padding-left: 0px !important;
+  border: 1pt solid;
+  border-color: #189ebb;
+  border-radius: 2;
+}
 .contact-agent h4{
   background-color: #189ebb;
   color: #fff;
   padding: 5px 5px 5px 5px;
   padding: 5px;
+  border: 1pt solid;
+  border-color: #189ebb;
 }
 #product-map-agent{
   margin-top: 40px;
