@@ -267,7 +267,7 @@ color: #42b3f4;
 
 #product-3 span{
 display: inline;
-color: grey;
+color: #446da3;
 }
 
 
@@ -350,6 +350,7 @@ a[href^="tel:"] {
     
     color: #189ebb;
 }
+
 
 .agent-descr{
   font-size: 10pt;

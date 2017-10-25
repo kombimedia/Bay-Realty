@@ -78,7 +78,7 @@ $listing_id = $_GET['listing_id'];
         <p>Bedrooms : <span>$bed_des </span></p>
         <p>Bathrooms <span>$bath_des </span></p>
         <p>Garage :  <span>$garage_des </span></p>
-        <p>housesize : <span> $house_size </span></p></td>
+        </td>
         </tr>
         </div>";
 
