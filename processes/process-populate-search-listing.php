@@ -11,7 +11,7 @@ $search_bar = "%" . $search_bar . "%";
 
 // select query based on user input
 
-$stmt = $mysqli->prepare("SELECT listing_id, address, price, bed_no, bath_no, property_des, featured_image, title, garage_no FROM properties WHERE MATCH(title) AGAINST  (?) OR categories = ? AND type = ?");
+$stmt = $mysqli->prepare("SELECT listing_id, address, price, bed_no, bath_no, property_des, featured_image, title, garage_no FROM properties WHERE  property_des LIKE  (?) OR categories = ? AND type = ?");
 $stmt->bind_param("sii", $search_bar, $_POST['city'], $_POST['type']);
 $stmt->execute();
 $result = $stmt->get_result();
