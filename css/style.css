@@ -327,6 +327,7 @@ float: right;
 .display-block-3{
   float: right;
   display: inline-block;
+  padding-right: 0px !important;
 }
 
 .agent img{
@@ -358,3 +359,17 @@ a[href^="tel:"] {
 .agent-data{
   padding:10px;
 }
+
+.agent-btn{
+ display:block;
+  margin:auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.email{
+  color: #189ebb !important;
+}
+
+
+
+ 
