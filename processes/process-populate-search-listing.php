@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 include 'processes/process-populate-search-form.php';
 $search_output = "";
 $search_output2 = "";
