@@ -5,22 +5,23 @@ include 'processes/process-populate-footer-our-team.php';
         <div class="container-fluid footer-widget-area">
           <div class="container">
             <div class="row">
-                  <div class="col-12 col-xl-4 footer-widget">
+                  <div class="col col-md-12 col-lg-4 footer-widget">
                     <div class="footer-widget-content">
                       <h3>About Us</h3>
                       <p>With three offices situated in Tauranga, Mt Maunganui and Papamoa we have specialised sales consultants covering residential, lifestyle, sections and apartment sales throughout the Bay of Plenty.</p>
+                      <p>Bay Realty is a locally owned and operated business...</p>
                       <a href="/bay-realty/about-us">Read more...</a>
                     </div>
                   </div>
-                  <div class="col-12 col-xl-4 footer-widget">
+                  <div class="col col-md-6 col-lg-4 footer-widget">
                     <div class="footer-widget-content">
                       <h3>Our Team</h3>
-                          <table class="table table-sm table-responsive our-team">
+                          <table class="table table-responsive our-team">
                               <?php echo $populate_our_team ?>
                           </table>
                     </div>
                   </div>
-                  <div class="col-12 col-xl-4 footer-widget">
+                  <div class="col col-md-6 col-lg-4 footer-widget">
                     <div class="footer-widget-content">
                       <h3>Contact Us</h3>
                       <ul class="property-press">
@@ -30,6 +31,7 @@ include 'processes/process-populate-footer-our-team.php';
                           <li>PO Box 885, Tauranga 3110</li>
                           <li>07 578 0879</li>
                           <li><a href="mailto:info@bayrealty.co.nz">info@bayrealty.co.nz</a></li>
+                          <li class="mt-2"><img src="../bay-realty/images/bay-realty-head-office.jpg" width="200"></li>
                       </ul>
                     </div>
                   </div>
