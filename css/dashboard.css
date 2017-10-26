@@ -33,6 +33,27 @@ label {
   bottom: .3px !important;
 }*/
 
+/* Button styles
+----------------------------------------------------- */
+form button.btn,
+input.btn,
+.dash-btn {
+  background-color: #189ebb;
+  color: #fff;
+  padding: .75rem 1.5rem;
+}
+form button.btn:hover,
+input.btn:hover,
+.dash-btn:hover {
+  opacity: .8;
+}
+.dash-btn,
+a.a-btn {
+  width: 100%;
+  max-width: 15rem;
+  text-decoration: none;
+}
+
 /* Navigation
 -------------------------------------------------- */
 nav {
@@ -117,17 +138,6 @@ form.add-listing-form textarea {
 .form-inline label {
   justify-content: left;
 }
-form button.btn,
-input.btn {
-  background-color: #189ebb;
-  color: #fff;
-  padding: .75rem 1.5rem;
-}
-form button.btn:hover,
-input.btn:hover {
-  opacity: .8;
-}
-
 .login-form-box {
   margin: 10em auto;
   margin-left: 20em;
