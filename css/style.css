@@ -394,6 +394,18 @@ a[href^="tel:"] {
 .email{
   color: #189ebb !important;
 }
+/* contact us page
+----------------------------------------*/
+
+
+.contact-content-container {
+  padding: 100px 10px;
+}
+.contact-map {
+  height: 100%;
+  max-height: 322px;
+}
+
 
 /* Media Queries
 ----------------------------------------*/
