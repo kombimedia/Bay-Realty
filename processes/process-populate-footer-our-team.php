@@ -1,6 +1,6 @@
 <?php
 $populate_our_team = "";
-$stmt = $mysqli->prepare("SELECT agents.agent_id, agents.first_name, agents.surname, agents.email, agents.phone, agents.description, agents.area_id, agents.profile_pic, categories.cat_id, categories.city FROM agents INNER JOIN categories ON agents.area_id = categories.cat_id ORDER BY agents.agent_id ASC");
+$stmt = $mysqli->prepare("SELECT agents.first_name, agents.surname, agents.email, agents.phone, agents.area_id, agents.profile_pic, categories.cat_id, categories.city FROM agents INNER JOIN categories ON agents.area_id = categories.cat_id ORDER BY agents.agent_id ASC");
 $stmt->execute();
 $result = $stmt->get_result();
 // Check if there are any records to show
