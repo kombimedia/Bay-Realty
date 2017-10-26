@@ -20,6 +20,7 @@ include 'processes/process-populate-agent.php';
         <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
         <!-- <li data-target="#carouselExampleIndicators" data-slide-to="2"></li> -->
       </ol>
       <div class="carousel-inner">
@@ -57,7 +58,7 @@ include 'processes/process-populate-agent.php';
     </table>
   </div>
 
-  <div  id="product-3" class=" col-lg-3 col-md-2">
+  <div  id="product-3" class=" col-lg-3 col-md-3">
     <table>
       <?php echo $display_product3 ?>
     </table>

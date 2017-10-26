@@ -422,7 +422,17 @@ a[href^="tel:"] {
   margin-bottom: 50px;
 }*/
 }
+@media (max-width: 720px) {
 
+.display-block-3{
+  margin-top: 20px;
+  padding-top: 20px;
+  padding-left: 0px !important;
+}
 
+.carousel-item img{
+  height: 80% !important;
+}
+}
 
 
