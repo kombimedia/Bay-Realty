@@ -16,7 +16,7 @@ if($result->num_rows > 0) {
     $populate_our_team = $populate_our_team . "
     <tr>
         <td><img width='70' height='70' src='images/uploads/$row[profile_pic]'></td>
-        <td>$name<br>$row[phone]<br>$row[email]<br>$row[area_id]</td>
+        <td>$name<br>$row[phone]<br><a href='mailto:$row[email]'>$row[email]</a><br>$row[area_id]</td>
     </tr>";
 
   }

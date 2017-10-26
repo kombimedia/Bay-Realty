@@ -1,19 +1,8 @@
 <?php
-
 $title = "Bay Realty - About us";
 $metaD = "About us page";
 include 'includes/header.php';
-
 ?>
-
-
-
-
-
-
-Content-------------------------------------
---------------About Us---------------------
-
 
 <div class="container">
   <div class="content pt-5 pb-5">
@@ -30,9 +19,6 @@ Content-------------------------------------
   </div>
 </div>
 
-
-
 <?php
   include 'includes/footer.php';
-
 ?>
