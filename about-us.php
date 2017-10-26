@@ -1,11 +1,13 @@
-<?php
 
+<?php
 $title = "Bay Realty - About_us";
 $metaD = "About_us_page";
+
+$title = "Bay Realty - About us";
+$metaD = "About us page";
+
 include 'includes/header.php';
-
 ?>
-
 
 
 
@@ -13,6 +15,7 @@ include 'includes/header.php';
 
 <!-- Content------------------------------------- -->
 <!-- --------------About Us--------------------- -->
+
 
 
 <div class="container">
@@ -30,9 +33,6 @@ include 'includes/header.php';
   </div>
 </div>
 
-
-
 <?php
   include 'includes/footer.php';
-
 ?>

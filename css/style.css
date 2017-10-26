@@ -104,14 +104,20 @@ button span i.fa-bars {
 .footer-widget-area {
   height: auto;
   background-color: #446da3;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 .footer-widget {
-  margin-top: 30px;
-  margin-bottom: 30px;
-  padding: 30px 30px 20px 30px;
-  position: relative;
-  /*min-height: 100%;*/
+  margin-top: 10px;
+  margin-bottom: 10px;
+  /*position: relative;*/
+}
+.footer-widget-content {
   background-color: #fff;
+  height: 100%;
+  border-radius: 5px;
+  padding: 2em 1em;
+  min-width: 266px;
 }
 .footer {
   height: 60px;
@@ -120,9 +126,19 @@ button span i.fa-bars {
   background-color: #152a69;
   color: #fff;
 }
+/*table.our-team {
+  width: 100%;
+}*/
 span.copyrite {
   width: 100%;
   text-align: center;
+}
+table.our-team {
+  font-size: 75%;
+}
+ul.property-press{
+  list-style: none;
+  padding-left: 0px;
 }
 
 /* Form styles
@@ -376,6 +392,15 @@ a[href^="tel:"] {
 }
 .email{
   color: #189ebb !important;
+}
+
+/* Media Queries
+----------------------------------------*/
+@media (min-width: 1200px) {
+/*.footer-widget {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}*/
 }
 
 
