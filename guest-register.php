@@ -1,15 +1,15 @@
 <?php
+session_start();
 $title = "Bay Realty - Wish List Register Page";
 $metaD = "Wish List login page";
 include 'includes/header.php';
-include 'processes/process-populate-guest-register.php'
 ?>
   <div><?php if (isset($_SESSION['successMessage'])) { echo $_SESSION['successMessage']; unset($_SESSION['successMessage']); }; ?></div>
   <div><?php if (isset($_SESSION['errorMessage'])) { echo $_SESSION['errorMessage']; unset($_SESSION['errorMessage']); }; ?></div>
 
 <div class="container-fluid">
     <div class="login-form-box">
-      <form class="form-signin" method="post" role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+      <form class="form-signin" method="post" role="form" action="processes/process-populate-guest-register.php">
           <h2 class="form-signin-heading mb-4">Wish List Sign Up</h2>
           <label for="guest-first-name" class="sr-only">First Name</label>
           <input type="text" id="guest-first-name" name="guestFirstName" class="form-control mb-2" placeholder="First Name" required value="<?php if (isset($_SESSION['storeguestFirstName'])) { echo $_SESSION['storeguestFirstName']; unset($_SESSION['storeguestFirstName']); }; ?>" autofocus>

@@ -8,11 +8,70 @@ $title = "Dashboard";
 $metaD = "Admin dashboard page";
 include 'includes/dashboard-header.php';
 include 'includes/dashboard-sidebar.php';
+include 'processes/process-populate-dashboard-home.php';
 ?>
 
 <h1>Dashboard</h1>
-<div>
-  <p>This is where you can manage property listings, images and website users.</p>
+<div class="row">
+  <div class="col-12">
+      <h2>Latest Listings</h2>
+      <table class='table table-striped table-responsive view-listings'>
+        <thead class='view-listings-head'>
+          <tr>
+            <th>Featured Image</th>
+            <th>Listing No.</th>
+            <th>Agent</th>
+            <th>Listing Title</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>Price</th>
+            <th>Sell Method</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php echo $populate_dashboard_listings ?>
+        </tbody>
+      </table>
+  </div>
+  <a class="a-btn mb-5 ml-3" href="/bay-realty/dashboard-view-listings"><button class="btn btn-md btn-block dash-btn">See All Listings</button></a>
+
+  <div class="col-12">
+      <h2>Newest Agents</h2>
+      <table class='table table-striped table-responsive view-agents'>
+          <thead class='agents-head'>
+            <tr>
+              <th>Agent Image</th>
+              <th>Agent ID</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Area</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php echo $populate_dashboard_agents ?>
+          </tbody>
+      </table>
+  </div>
+  <a class="a-btn mb-5 ml-3" href="/bay-realty/dashboard-view-agents"><button class="btn btn-md btn-block dash-btn">See All Agents</button></a>
+
+  <div class="col-12">
+      <h2>Latest Users</h2>
+      <table class="table table-responsive table-striped table-users">
+        <thead class="users-head">
+          <tr>
+            <th>User ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>User Role</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php echo $populate_dashboard_users ?>
+        </tbody>
+      </table>
+  </div>
+  <a class="a-btn mb-5 ml-3" href="/bay-realty/dashboard-view-users"><button class="btn btn-md btn-block dash-btn">See All Users</button></a>
 </div>
 <?php
 include 'includes/dashboard-footer.php';
