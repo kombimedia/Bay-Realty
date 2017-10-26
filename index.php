@@ -53,20 +53,18 @@ include 'includes/featured-listings.php';
 
     <!-- Home widget bottom area - property listings -->
 
-       <div class="container-fluid">
-      <div class="container property-listings-home">
-        <div class="row">
-          <div class="col property-listings-home-div">
-            <div class="home-widget-listings">
-              <h2 class="text-center" >Listed Properties</h2>
+       <div class="container property-listing-div">
+      
+              <h2 class="text-center mt-4">Listed Properties</h2>
+              <div class="row no-gutters">
    <?php
   $sql = "SELECT listing_id, address, price, bed_no, bath_no, featured_image, title, garage_no FROM properties ORDER BY RAND()";
     $result = $mysqli->query($sql);
       if ($result->num_rows > 0) {
           while($row = $result->fetch_assoc()) {
             $listing_id = $row['listing_id'];
-                    echo "<div class='col col-sm-12 col-md-4 col-lg-4 col-xl-4  property-listing-table'>";
-                    echo "<div class='card' style='width: 20rem;'>";
+                    echo "<div class='col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4  property-listing-table'>";
+                    echo "<div class='card'>";
                     echo "<table>";
                     echo "<tr><td><a class='view-listing' href='product.php?listing_id=$listing_id'><img class='card-img-top' src='images/uploads/" .$row['featured_image'] . "' alt='Card image cap''></a><td>";
                     echo "</tr>";
@@ -87,9 +85,7 @@ include 'includes/featured-listings.php';
 
             </div>
           </div>
-        </div>
-      </div>
-    </div>
+     
 
     <?php
       include 'includes/footer.php';
