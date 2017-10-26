@@ -35,21 +35,9 @@ include 'processes/process-populate-footer-our-team.php';
                       </ul>
                     </div>
                   </div>
-                  <!-- <div class="col-md-6 col-xl-3 footer-widget">
-                    <div class="col footer-widget-content">
-                      <h3>Receive Our Newsletter</h3>
-                      <form class="form-signin" method="post" role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-                        <label for="newsletterName" class="sr-only">Email address</label>
-                        <input type="text" id="newsletterName" name="nlName" class="form-control mb-2" placeholder="Full name" required autofocus>
-                        <label for="newsletterEmail" class="sr-only">Password</label>
-                        <input type="email" id="newsletterEmail" name="nlEmail" class="form-control mb-3" placeholder="Your email" required>
-                        <button class="btn btn-md btn-block" type="submit">Sign Up</button>
-                      </form>
-                    </div>
-                  </div> -->
-            </div>
+            </div> <!-- closing .row -->
           </div>
-        </div>
+        </div> <!-- closing .footer-widget-area -->
 
         <div class="container-fluid footer">
           <div class="container">

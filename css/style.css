@@ -126,9 +126,6 @@ button span i.fa-bars {
   background-color: #152a69;
   color: #fff;
 }
-/*table.our-team {
-  width: 100%;
-}*/
 span.copyrite {
   width: 100%;
   text-align: center;
@@ -140,6 +137,10 @@ ul.property-press{
   list-style: none;
   padding-left: 0px;
 }
+
+/* Page styles
+----------------------------------------------------- */
+
 
 /* Form styles
 ----------------------------------------------------- */
