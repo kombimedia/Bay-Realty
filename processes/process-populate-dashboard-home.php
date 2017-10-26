@@ -1,7 +1,7 @@
 <?php
 // Populate Latest Listings
 $populate_dashboard_listings = "";
-$stmt = $mysqli->prepare("SELECT properties.listing_id, properties.agents, properties.title, properties.address, properties.categories, properties.price, properties.sell_method, properties.featured_image, categories.cat_id, categories.city, agents.agent_id, agents.first_name, agents.surname FROM properties INNER JOIN categories ON properties.categories = categories.cat_id  INNER JOIN agents ON properties.agents = agents.agent_id ORDER BY properties.listing_id DESC LIMIT 4");
+$stmt = $mysqli->prepare("SELECT properties.listing_id, properties.agents, properties.title, properties.address, properties.categories, properties.price, properties.sell_method, properties.featured_image, categories.cat_id, categories.city, agents.agent_id, agents.first_name, agents.surname FROM properties INNER JOIN categories ON properties.categories = categories.cat_id  INNER JOIN agents ON properties.agents = agents.agent_id ORDER BY properties.listing_id DESC LIMIT 5");
 $stmt->execute();
 $result = $stmt->get_result();
 // Check if there are any records to show

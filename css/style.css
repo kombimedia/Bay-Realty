@@ -142,6 +142,27 @@ ul.property-press{
 ----------------------------------------------------- */
 
 
+/* Error Messages
+-------------------------------------------------- */
+.success-message,
+.error-message {
+  width: 100%;
+  padding: 8px 0 8px 10px;
+  color: #152a69;
+  transition: opacity .5s;
+}
+.success-message {
+  background-color: rgba(111,216,6, 0.6);
+  margin-bottom: 25px;
+}
+.error-message {
+  background-color: rgba(255,0,0, 0.6);
+  margin-bottom: 25px;
+}
+.validate-error-message {
+  color: red;
+}
+
 /* Form styles
 ----------------------------------------------------- */
 form.search-form select {
