@@ -65,7 +65,7 @@ include 'includes/featured-listings.php';
       if ($result->num_rows > 0) {
           while($row = $result->fetch_assoc()) {
             $listing_id = $row['listing_id'];
-                    echo "<div class='col col-sm-12 col-md-6 col-lg-4 col-xl-4  property-listing-table'>";
+                    echo "<div class='col col-sm-12 col-md-4 col-lg-4 col-xl-4  property-listing-table'>";
                     echo "<div class='card' style='width: 20rem;'>";
                     echo "<table>";
                     echo "<tr><td><a class='view-listing' href='product.php?listing_id=$listing_id'><img class='card-img-top' src='images/uploads/" .$row['featured_image'] . "' alt='Card image cap''></a><td>";

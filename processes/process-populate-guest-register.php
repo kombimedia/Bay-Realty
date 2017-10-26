@@ -38,11 +38,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $_POST["guestPassword"] = md5($_POST["guestPassword"]);
 
     // Validate user role
-    $validRole = true;
-    if (empty($_POST["role"])) {
-        $_SESSION["userRoleError"] = "<div class='validate-error-message'>A User Role is required</div>";
-        $validRole = false;
-    }
 }
 
 // If all validation passes set validForm variable to true
