@@ -58,6 +58,9 @@ form button.btn {
 
 /* Content styles
 ----------------------------------------------------- */
+.home-image-widget h1 {
+  color: #fff;
+}
 
 .home-widget-top img{
   width: 100%;
@@ -76,7 +79,7 @@ form button.btn {
   display: inline-block;
   width: 100%;
   padding: 10px 10px 50px 10px !important;
-  
+
 }
 .property-listing-table img{
   width: 100%;
@@ -90,12 +93,12 @@ form button.btn {
 .property-listings-home-div{
   padding-bottom: 40px;
   min-width: 100%;
- 
+
   white-space: wrap;
 }
 .card-image-top img{
    width: 100% !important;
-  
+
 }
 .card-data{
   padding-left: 5px !important;

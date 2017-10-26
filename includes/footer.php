@@ -7,6 +7,8 @@
                   <div class="col-sm-6 col-md-3">
                     <div class="footer-widget">
                       <h3>About Us</h3>
+                      <p>With three offices situated in Tauranga, Mt Maunganui and Papamoa we have specialised sales consultants covering residential, lifestyle, sections and apartment sales throughout the Bay of Plenty.</p>
+                      <a href="/bay-realty/about-us">Read more...</a>
                     </div>
                   </div>
                   <div class="col-sm-6 col-md-3">

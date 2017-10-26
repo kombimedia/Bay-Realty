@@ -13,6 +13,7 @@ if($result->num_rows > 0) {
         $row['area_id'] = $row['city'];
       }
     $name = $row['first_name'] . " " . $row['surname'];
+    $row['description'] = substr($row['description'], 0, 150);
     $populate_view_agents = $populate_view_agents . "
     <tr>
         <td><img width='100' height='100' src='images/uploads/$row[profile_pic]'></td>
@@ -20,7 +21,7 @@ if($result->num_rows > 0) {
         <td>$name</td>
         <td>$row[email]</td>
         <td>$row[phone]</td>
-        <td>$row[description]</td>
+        <td>$row[description]...</td>
         <td>$row[area_id]</td>
     </tr>";
 
