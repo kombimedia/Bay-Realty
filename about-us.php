@@ -3,8 +3,6 @@
 $title = "Bay Realty - About_us";
 $metaD = "About_us_page";
 
-$title = "Bay Realty - About us";
-$metaD = "About us page";
 
 include 'includes/header.php';
 ?>
