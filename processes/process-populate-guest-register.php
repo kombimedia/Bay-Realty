@@ -5,10 +5,10 @@ ini_set('display_errors', '1');
 include 'process-functions-validation.php';
 
 // Save form data to global variables to repopulate form if submit fails
-// $_SESSION['storeguestFirstName'] = $_POST['guestFirstName'];
-// $_SESSION['storeguestSurname'] = $_POST['guestSurname'];
-// $_SESSION['storeguestEmail'] = $_POST['guestEmail'];
-// $_SESSION['storeguestPassword'] = $_POST['guestPassword'];
+$_SESSION['storeguestFirstName'] = $_POST['guestFirstName'];
+$_SESSION['storeguestSurname'] = $_POST['guestSurname'];
+$_SESSION['storeguestEmail'] = $_POST['guestEmail'];
+$_SESSION['storeguestPassword'] = $_POST['guestPassword'];
 
 // Validate input fields
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -37,7 +37,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     $_POST["guestPassword"] = md5($_POST["guestPassword"]);
 
-   
+    // Validate user role
+    $validRole = true;
+    if (empty($_POST["role"])) {
+        $_SESSION["userRoleError"] = "<div class='validate-error-message'>A User Role is required</div>";
+        $validRole = false;
+    }
 }
 
 // If all validation passes set validForm variable to true
