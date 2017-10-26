@@ -57,9 +57,8 @@ if ($validForm) {
         // if email has not previously been registered, add new user details to database
         $stmt1 = $mysqli->prepare("INSERT INTO users (first_name, surname, email, role, password) VALUES (?, ?, ?, ?, ?)");
         $stmt1->bind_param("sssis", $_POST['guestFirstName'], $_POST['guestSurname'], $_POST['guestEmail'], $guest_user_role, $_POST['guestPassword']);
-        if ($stmt1->execute()) {
-            header('location: ../wishlist.php');
-        } else {
+        if (!$stmt1->execute()) {
+             {
           // if insert is unsuccessful throw error
            header('location: ../guest-register.php');
            $_SESSION["errorMessage"] = "<div class='error-message'>An error has occurred: " . $stmt->errno . " " . $stmt->error. "</div>";
@@ -82,4 +81,4 @@ $new_user_id = mysqli_insert_id($mysqli);
 
 // if user is successfully created go back to dashboard 'add user' page and print success message
 $_SESSION["successMessage"] = "<div class='success-message'>New User with ID: " . $new_user_id . " successfully created.</div>";
-header('location: ../wishlist.php');
+header('location: ../guest-login.php');

@@ -5,6 +5,7 @@ include 'includes/header.php';
 ?>
 
 <div class="container-fluid">
+   <div><?php if (isset($_SESSION['successMessage'])) { echo $_SESSION['successMessage']; unset($_SESSION['successMessage']); }; ?></div>
     <div class="login-form-box">
       <form class="form-signin" method="post" role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>">
           <h2 class="form-signin-heading mb-4">Wish List log in</h2>

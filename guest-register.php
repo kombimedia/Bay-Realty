@@ -4,7 +4,7 @@ $title = "Bay Realty - Wish List Register Page";
 $metaD = "Wish List login page";
 include 'includes/header.php';
 ?>
-  <div><?php if (isset($_SESSION['successMessage'])) { echo $_SESSION['successMessage']; unset($_SESSION['successMessage']); }; ?></div>
+ 
   <div><?php if (isset($_SESSION['errorMessage'])) { echo $_SESSION['errorMessage']; unset($_SESSION['errorMessage']); }; ?></div>
 
 <div class="container-fluid">
