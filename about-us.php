@@ -1,7 +1,7 @@
 <?php
 
-$title = "Bay Realty - About us";
-$metaD = "About us page";
+$title = "Bay Realty - About_us";
+$metaD = "About_us_page";
 include 'includes/header.php';
 
 ?>
@@ -11,8 +11,8 @@ include 'includes/header.php';
 
 
 
-Content-------------------------------------
---------------About Us---------------------
+<!-- Content------------------------------------- -->
+<!-- --------------About Us--------------------- -->
 
 
 <div class="container">
