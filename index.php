@@ -54,7 +54,7 @@ include 'includes/featured-listings.php';
     <!-- Home widget bottom area - property listings -->
 
        <div class="container property-listing-div">
-      
+
               <h2 class="text-center mt-4">Listed Properties</h2>
               <div class="row no-gutters">
    <?php
@@ -66,7 +66,7 @@ include 'includes/featured-listings.php';
                     echo "<div class='col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4  property-listing-table'>";
                     echo "<div class='card'>";
                     echo "<table>";
-                    echo "<tr><td><a class='view-listing' href='product.php?listing_id=$listing_id'><img class='card-img-top' src='images/uploads/" .$row['featured_image'] . "' alt='Card image cap''></a><td>";
+                    echo "<tr><td><a class='view-listing' href='product.php?listing_id=$listing_id'><img class='card-img-top' src='images/uploads/" .$row['featured_image'] . "' alt='Card image cap''></a></td>";
                     echo "</tr>";
                     echo "<div class='card-block'>";
                     echo "<tr>";
@@ -85,7 +85,7 @@ include 'includes/featured-listings.php';
 
             </div>
           </div>
-     
+
 
     <?php
       include 'includes/footer.php';
