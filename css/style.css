@@ -196,10 +196,10 @@ form button.btn:hover {
   margin-top: 1em;
   margin-bottom: 0;
 }
-
-form .form-link {
-
+form.contact-form .form-inline .form-control {
+  width: 100%;
 }
+
 /* Slider styles
 ----------------------------------------------------- */
 .slider-inner {

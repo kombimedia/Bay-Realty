@@ -42,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $validAgentDes = false;
     }
 
-    // Validate user role
+    // Validate area
     $validArea = true;
     if (empty($_POST["area"])) {
         $_SESSION["areaError"] = "<div class='validate-error-message'>An area is required</div>";
