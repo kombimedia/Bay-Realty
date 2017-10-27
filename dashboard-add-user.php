@@ -8,7 +8,7 @@ if (!$_SESSION['logged_in']) {
   $metaD = "Admin dashboard page, add users";
   include 'includes/dashboard-header.php';
   include 'includes/dashboard-sidebar.php';
-  include 'processes/process-populate-add-user.php'
+  include 'processes/process-populate-add-user.php';
 ?>
 
   <h1>Add New User</h1>

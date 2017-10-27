@@ -8,6 +8,9 @@ $_SESSION['storeSurname'] = $_POST['surname'];
 $_SESSION['storeEmail'] = $_POST['email'];
 $_SESSION['storePhone'] = $_POST['phone'];
 $_SESSION['storeAgentDes'] = $_POST['agentDes'];
+if (isset($_POST['area'])) {
+    $_SESSION['storeArea'] = $_POST['area'];
+}
 
 // Validate input fields
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -125,4 +128,10 @@ $new_agent_id = mysqli_insert_id($mysqli);
 
 // if agent is successfully created go back to dashboard 'add agent' page and print success message
 $_SESSION["successMessage"] = "<div class='success-message'>New Agent with ID: " . $new_agent_id . " successfully created.</div>";
+unset($_SESSION['storeFirstName']);
+unset($_SESSION['storeSurname']);
+unset($_SESSION['storeEmail']);
+unset($_SESSION['storePhone']);
+unset($_SESSION['storeAgentDes']);
+unset($_SESSION['storeArea']);
 header('location: ../dashboard-add-agent');

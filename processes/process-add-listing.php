@@ -16,6 +16,29 @@ $_SESSION["storeHouseSize"] = $_POST['houseSize'];
 $_SESSION["storeLandSize"] = $_POST['landSize'];
 $_SESSION["storeMapCoord"] = $_POST['mapCoord'];
 $_SESSION["storeListingDescription"] = $_POST['propDes'];
+if (isset($_POST['salesAgent'])) {
+    $_SESSION['storeAgent'] = $_POST['salesAgent'];
+}
+if (isset($_POST['city'])) {
+    $_SESSION['storeCity'] = $_POST['city'];
+}
+if (isset($_POST['propertyType'])) {
+    $_SESSION['storeType'] = $_POST['propertyType'];
+}
+if (isset($_POST['bedrooms'])) {
+    $_SESSION['storeBeds'] = $_POST['bedrooms'];
+}
+if (isset($_POST['bathrooms'])) {
+    $_SESSION['storeBath'] = $_POST['bathrooms'];
+}
+if (isset($_POST['lounges'])) {
+    $_SESSION['storeLounge'] = $_POST['lounges'];
+}
+if (isset($_POST['garages'])) {
+    $_SESSION['storeGarage'] = $_POST['garages'];
+}
+
+
 
 // Validate input fields
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -172,7 +195,7 @@ if ($valid_listing) {
     // if insert execution fails throw error
     if (!$stmt->execute()) {
           //$_SESSION["errorMessage"] = "<div class='error-message'>Oops! Something went wrong... Please check you have entered all fields correctly</div>";
-          $_SESSION["errorMessage"] = "<div class='error-message'>Oops! Something went wrong... (" . $stmt->errno . ") " . $stmt->error . "</div>";
+          $_SESSION["errorMessage"] = "<div class='error-message'>Oops! Something went wrong... (" . $stmt->errno . ") " . $stmt->error . ".<br>Please see your website administrator and quote this error message.</div>";
           $stmt->close();
           header('location: ../dashboard-add-listing');
           exit;
@@ -243,6 +266,25 @@ for ($i = 0; $i < count($image_files); $i++) {
 
 // if listing is successfully created go back to dashboard 'add listing' page and print success message
 $_SESSION["successMessage"] = "<div class='success-message'>New listing successfully created. Listing ID is: " . $new_listing_id . "</div>";
+unset($_SESSION["storeListingTitle"]);
+unset($_SESSION["storeStreetAddress"]);
+unset($_SESSION["storePrice"]);
+unset($_SESSION["storeSaleMethod"]);
+unset($_SESSION["storeBedDescription"]);
+unset($_SESSION["storeBathDescription"]);
+unset($_SESSION["storeLoungeDescription"]);
+unset($_SESSION["storeGarageDescription"]);
+unset($_SESSION["storeHouseSize"]);
+unset($_SESSION["storeLandSize"]);
+unset($_SESSION["storeMapCoord"]);
+unset($_SESSION["storeListingDescription"]);
+unset($_SESSION['storeAgent']);
+unset($_SESSION['storeCity']);
+unset($_SESSION['storeType']);
+unset($_SESSION['storeBeds']);
+unset($_SESSION['storeBath']);
+unset($_SESSION['storeLounge']);
+unset($_SESSION['storeGarage']);
 header('location: ../dashboard-add-listing');
 
 // close db connection

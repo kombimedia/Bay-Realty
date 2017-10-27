@@ -49,7 +49,7 @@ $stmt->close();
 
 // Populate Newest Agents
 $populate_dashboard_agents = "";
-$stmt = $mysqli->prepare("SELECT agents.agent_id, agents.first_name, agents.surname, agents.email, agents.phone, agents.area_id, agents.profile_pic, categories.cat_id, categories.city FROM agents INNER JOIN categories ON agents.area_id = categories.cat_id ORDER BY agents.agent_id DESC LIMIT 4");
+$stmt = $mysqli->prepare("SELECT agents.agent_id, agents.first_name, agents.surname, agents.email, agents.phone, agents.area_id, agents.profile_pic, categories.cat_id, categories.city FROM agents INNER JOIN categories ON agents.area_id = categories.cat_id ORDER BY agents.agent_id DESC LIMIT 5");
 $stmt->execute();
 $result = $stmt->get_result();
 // Check if there are any records to show
@@ -78,7 +78,7 @@ $stmt->close();
 
 // Populate Latest Users
 $populate_dashboard_users = "";
-$stmt = $mysqli->prepare("SELECT users.user_id, users.first_name, users.surname, users.email, users.role, user_roles.role_id, user_roles.user_role FROM users INNER JOIN user_roles ON users.role = user_roles.role_id ORDER BY users.user_id DESC LIMIT 4");
+$stmt = $mysqli->prepare("SELECT users.user_id, users.first_name, users.surname, users.email, users.role, user_roles.role_id, user_roles.user_role FROM users INNER JOIN user_roles ON users.role = user_roles.role_id ORDER BY users.user_id DESC LIMIT 10");
 $stmt->execute();
 $result = $stmt->get_result();
 if($result->num_rows > 0) {
