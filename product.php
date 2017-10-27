@@ -48,7 +48,7 @@ include 'processes/process-populate-agent.php';
     <div class="col">
      <table>
        <?php echo $display_product ?>
-     </table> 
+     </table>
    </div>
  </div>
  <div id="product-2" class="row no-gutters">
@@ -80,7 +80,7 @@ include 'processes/process-populate-agent.php';
 </div>
 </div>
 </div>
-    
+
 </div>
 
 <?php

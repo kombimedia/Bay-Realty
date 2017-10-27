@@ -41,6 +41,7 @@ a:hover {
   color: #446da3;
   text-decoration: underline;
 }
+
 /* header styles
 ----------------------------------------------------- */
 nav img{
@@ -223,92 +224,64 @@ form.contact-form .form-inline .form-control {
 
 /* Homepage property listings
 ----------------------------------------------------- */
-.property-listing-table{
-
+.property-listing-table {
   padding: 0px !important;
-
 }
-.property-listing-table img{
+.property-listing-table img {
   width: 100%;
   height: 200px;
 }
-
-
-
+.card-image-top img {
+  width: 100% !important;
 }
-.card-image-top img{
-   width: 100% !important;
-
-}
-
 .card{
   background-color: #f1f1f1;
   padding-right: 0px !important;
   margin-right: 0px !important;
 }
 
-/* Homepage property listings
+/* Search Tool
 ----------------------------------------------------- */
-
-
-
-.search-listings td{
-
-padding: 5px 10px 5px 10px;
+.search-listings td {
+  padding: 5px 10px 5px 10px;
 }
-
-.search-listings p{
-
-font-size: 10pt;
-
+.search-listings p {
+  font-size: 10pt;
 }
-
-.search-listings-container h4{
-text-align: left;
-color: #42b3f4;
-
+.search-listings-container h4 {
+  text-align: left;
+  color: #42b3f4;
 }
 
 /* Carasaul styling on product page
 --------------------------------------- */
-
 .carousel-item img {
-
-        width: 100% !important;
-        height: 450px !important;
-
-      }
-
+  width: 100% !important;
+  height: 450px !important;
+}
 .carousel-item{
-   padding-left: 20px;
-   padding-right: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
-/* product content
+/* Product Content
 ----------------------------------------*/
-
-#product-3{
+#product-3 {
   padding-left: 2em;
   padding-top: 2em;
   background-color: #eaeaea;
   font-size: 10pt;
   margin-top: 16px;
-
 }
-
-#product-3 span{
-display: inline;
-color: #446da3;
+#product-3 span {
+  display: inline;
+  color: #446da3;
 }
-
-
-#product-2 p{
-
-font-size: 11pt;
-padding-right: 40px;
-
+#product-2 p {
+  font-size: 11pt;
+  padding-right: 40px;
 }
-.product-full{
+.product-full {
   margin-top: 5em;
   margin-bottom: 20px;
   padding-bottom: 2em;
@@ -316,35 +289,31 @@ padding-right: 40px;
   border-color: #eaeaea;
   border-radius: 3pt;
 }
-#product_content{
+#product_content {
   padding: 0px 40px 0px 40px !important;
 }
-
-.display-block-2{
+.display-block-2 {
   padding-right: 80px;
 }
-
-#wishlist-icon i{
-float: right;
-
+#wishlist-icon i {
+  float: right;
+}
+#map {
+  width: 100%;
+  height: 400px;
+  background-color: grey;
 }
 
- #map {
-        width: 100%;
-        height: 400px;
-        background-color: grey;
-      }
-
-/* agent contact on product page
+/* Agent Contact On Product Page
 ----------------------------------------*/
-.agent{
- padding-right: 0px !important;
- padding-left: 0px !important;
+.agent {
+  padding-right: 0px !important;
+  padding-left: 0px !important;
   border: 1pt solid;
   border-color: #189ebb;
   border-radius: 2;
 }
-.contact-agent h4{
+.contact-agent h4 {
   background-color: #189ebb;
   color: #fff;
   padding: 5px 5px 5px 5px;
@@ -352,48 +321,40 @@ float: right;
   border: 1pt solid;
   border-color: #189ebb;
 }
-#product-map-agent{
+#product-map-agent {
   margin-top: 40px;
 }
-
-.display-block-3{
+.display-block-3 {
   float: right;
   display: inline-block;
   padding-right: 0px !important;
 }
-
-.agent img{
+.agent img {
   width: 100px;
   height: 100px;
   display:block;
   margin:auto;
   padding-top: 10px;
 }
-
 a[href^="tel:"]:before {
-    content: "\260E";
-    display: inline-block;
-    margin-right: 0.6em;
-    color: #189ebb;
-    padding-top: 10px;
-    padding-bottom: 10px;
+  content: "\260E";
+  display: inline-block;
+  margin-right: 0.6em;
+  color: #189ebb;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
-
 a[href^="tel:"] {
-
-    color: #189ebb;
+  color: #189ebb;
 }
-
-
-.agent-descr{
+.agent-descr {
   font-size: 10pt;
 }
-.agent-data{
+.agent-data {
   padding:10px;
 }
-
-.agent-btn{
- display:block;
+.agent-btn {
+  display:block;
   margin:auto;
   margin-top: 30px;
   margin-bottom: 30px;
@@ -401,10 +362,9 @@ a[href^="tel:"] {
 .email{
   color: #189ebb !important;
 }
-/* contact us page
+
+/* Contact Us Page
 ----------------------------------------*/
-
-
 .contact-content-container {
   padding: 100px 10px;
 }
@@ -413,24 +373,15 @@ a[href^="tel:"] {
   max-height: 322px;
 }
 
-
 /* Media Queries
 ----------------------------------------*/
-@media (min-width: 1200px) {
-/*.footer-widget {
-  margin-top: 50px;
-  margin-bottom: 50px;
-}*/
-}
 @media (max-width: 720px) {
-
 .display-block-3{
   margin-top: 20px;
   padding-top: 20px;
   padding-left: 0px !important;
 }
-
-.carousel-item img{
+.carousel-item img {
   height: 80% !important;
 }
 }

@@ -1,6 +1,7 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
+$product_title = "";
 $display_product = "";
 $display_product2 = "";
 $display_product3 = "";
@@ -38,7 +39,7 @@ $listing_id = $_GET['listing_id'];
       $house_size = $row['house_size'];
       $land_size = $row['land_size'];
 
-      // used explode function to break up map co ordinates and stored into variables to be populated in google maps 
+      // used explode function to break up map co ordinates and stored into variables to be populated in google maps
       $map_co_ords = $row['map_co_ords'];
       list($mapa, $mapb) = explode(',', $map_co_ords);
 
@@ -46,24 +47,23 @@ $listing_id = $_GET['listing_id'];
       $featured_property = $row['featured_property'];
       $listing_id = $row['listing_id'];
 
-      // currency 
+      // currency
       $number = $price;
       setlocale(LC_MONETARY,"en_NZ");
       $price = money_format("%.0n", $number);
-     
       $display_product = $display_product . "
       <tr>
       <td><p>listing id: $listing_id </p><h4 style='color: #42b3f4'>$listing_title</h4><p style='color: grey'>$address </p><a class= 'wishlist-icon' href='guest-login.php' action= 'post' ><i class='fa fa-heart' aria-hidden='true'> Add to Wishlist</i></a>
       </tr>";
-        
+
 
         $display_product2 = $display_product2 . "
         <tr>
-       
+
         <hr>
         <p>$property_des</p>
         <h4 style='color: #42b3f4'>$price</h4>
-      
+
         <p><i class='fa fa-bed' aria-hidden='true'></i>  : $bed_no <i class='fa fa-bath' aria-hidden='true'></i> : $bath_no <i class='fa fa-car' aria-hidden='true'></i> : $garage_no </p></td>
 
 
@@ -89,9 +89,9 @@ $listing_id = $_GET['listing_id'];
          ";
 
          $display_map = $display_map . "
-      
+
         <div id='map'>
-       
+
         </div>
 
 
