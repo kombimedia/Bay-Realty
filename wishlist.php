@@ -6,26 +6,7 @@ include 'includes/search.php';
 ?>
 
  
-      <div class="container content-widget">
-        <div class="row">
-          <div class="col">
-          
-                       <div class="page-content-top">
-                         <h2 class="text-center">Featured Properties</h2>
-
-              
-<?php
-
-include 'includes/featured-listings.php';
-?>
-
-            </div>
-          </div>
-         
-        </div>
-      </div>
-    </div>
-
+      <div class="welcome ml-auto"><?php if (isset($_SESSION['guestUserName'])) { echo $_SESSION['guestUserName']; }; ?></div>
 
 <?php
   include 'includes/footer.php';
