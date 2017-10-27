@@ -5,7 +5,7 @@ include 'processes/process-populate-footer-our-team.php';
         <div class="container-fluid footer-widget-area">
           <div class="container">
             <div class="row">
-                  <div class="col col-md-12 col-lg-4 footer-widget">
+                  <div class="col col-md-12 col-xl-4 footer-widget">
                     <div class="footer-widget-content">
                       <h3>About Us</h3>
                       <p>With three offices situated in Tauranga, Mt Maunganui and Papamoa we have specialised sales consultants covering residential, lifestyle, sections and apartment sales throughout the Bay of Plenty.</p>
@@ -13,7 +13,7 @@ include 'processes/process-populate-footer-our-team.php';
                       <a href="/bay-realty/about-us">Read more...</a>
                     </div>
                   </div>
-                  <div class="col col-md-6 col-lg-4 footer-widget">
+                  <div class="col col-md-6 col-xl-4 footer-widget">
                     <div class="footer-widget-content">
                       <h3>Our Team</h3>
                           <table class="table table-responsive our-team">
@@ -21,7 +21,7 @@ include 'processes/process-populate-footer-our-team.php';
                           </table>
                     </div>
                   </div>
-                  <div class="col col-md-6 col-lg-4 footer-widget">
+                  <div class="col col-md-6 col-xl-4 footer-widget">
                     <div class="footer-widget-content">
                       <h3>Contact Us</h3>
                       <ul class="property-press">
