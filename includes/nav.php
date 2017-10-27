@@ -1,3 +1,4 @@
+
           <nav class="navbar navbar-expand-md fixed-top">
             <div class="container">
 
@@ -21,6 +22,9 @@
                     <li class="nav-item">
                       <a class="nav-link" href="/bay-realty/wishlist"><i class="fa fa-heart fa-lg"></i></a>
                     </li>
+                      <li class="nav-item">
+                    
+                  </li>
                   </ul>
                 </div>
             </div>

@@ -46,6 +46,7 @@ include 'processes/process-populate-agent.php';
 <div class="col" id="product_content">
   <div class="row">
     <div class="col">
+      <div class="welcome ml-auto"><?php if (isset($_SESSION['guestUserName'])) { echo $_SESSION['guestUserName']; }; ?></div>
      <table>
        <?php echo $display_product ?>
      </table>
