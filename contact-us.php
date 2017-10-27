@@ -5,7 +5,6 @@ $metaD = "contact us page";
 include 'includes/header.php';
 ?>
 
-
 <div class="container contact-content-container">
     <h1 class="mb-3">Contact Bay Realty</h1>
     <div class="row">
