@@ -12,7 +12,7 @@ $userPhone = ($_POST['contactPhone']);
 $userMessage = ($_POST['contactMessage']);
 $headers = "To: ".$adminFirstName." " .$adminSurName." <".$adminEmail."> \r\n";
 $headers .= "From: ".$fromName." <".$fromEmail."> \r\n";
-$headers .= 'Cc: cy@kombimedia.nz' . "\r\n";
+$headers .= 'Cc: danejbay@yahoo.com' . "\r\n";
 $headers .= "MIME-Version: 1.0 \r\n";
 $headers .= "Content-type: text/html; charset=iso-8859-1 \r\n";
 // construct contact form notification email

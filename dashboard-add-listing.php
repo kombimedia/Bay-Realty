@@ -25,7 +25,6 @@ include 'processes/process-populate-add-listing.php';
             <select class="form-control" name="salesAgent" id="type" required value="">
               <option value="" disabled selected>Select</option>
               <?php echo $option_agents ?>
-              <option value="14">Fail</option>
             </select>
             <div><?php if (isset($_SESSION['agentError'])) { echo $_SESSION['agentError']; unset($_SESSION['agentError']); }; ?></div>
           </div>

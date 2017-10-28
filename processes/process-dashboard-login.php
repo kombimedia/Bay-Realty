@@ -15,8 +15,10 @@ if (isset($_POST['submit'])) {
 
     // Validate password
     $validPassword = true;
-    if (!validate_password ($_POST['loginPassword'])) {
-        $validPassword = false;
+    // check if field is populated
+    if (empty($_POST['loginPassword'])) {
+      $_SESSION["passwordError"] = "<div class='validate-error-message mb-2'>A password is required</div>";
+      $validPassword = false;
     }
     $_POST['loginPassword'] = md5($_POST['loginPassword']);
 }
@@ -64,33 +66,3 @@ if ($valid_Login_form) {
         header('location: ../dashboard-login');
         exit;
       }
-
-
-
-
-
-//       if (isset($_POST['submit'])) {
-//     // Get form data and save into variables
-//     $login_email = ($_POST['loginEmail']);
-//     $login_password = ($_POST['loginPassword']);
-//     // Save login email to session to repopulate email field if login fails
-//     $_SESSION["storeLoginEmail"] = $login_email;
-//     // Validate input fields
-//     // validate email
-//     $valid_Login_email = true;
-//     // check if field is populated
-//     if (empty($_POST["loginEmail"])) {
-//       $valid_Login_email = false;
-//     } else {
-//       $valid_Login_email = true;
-//       }
-//     // validate password
-//     $valid_login_password = true;
-//     // check if field is populated
-//     if (empty($_POST["loginPassword"])) {
-//       $valid_login_password = false;
-//     } else {
-//       $valid_login_password = true;
-//       }
-//     $login_password = md5($login_password);
-// }

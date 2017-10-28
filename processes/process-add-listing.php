@@ -16,6 +16,29 @@ $_SESSION["storeHouseSize"] = $_POST['houseSize'];
 $_SESSION["storeLandSize"] = $_POST['landSize'];
 $_SESSION["storeMapCoord"] = $_POST['mapCoord'];
 $_SESSION["storeListingDescription"] = $_POST['propDes'];
+if (isset($_POST['salesAgent'])) {
+    $_SESSION['storeAgent'] = $_POST['salesAgent'];
+}
+if (isset($_POST['city'])) {
+    $_SESSION['storeCity'] = $_POST['city'];
+}
+if (isset($_POST['propertyType'])) {
+    $_SESSION['storeType'] = $_POST['propertyType'];
+}
+if (isset($_POST['bedrooms'])) {
+    $_SESSION['storeBeds'] = $_POST['bedrooms'];
+}
+if (isset($_POST['bathrooms'])) {
+    $_SESSION['storeBath'] = $_POST['bathrooms'];
+}
+if (isset($_POST['lounges'])) {
+    $_SESSION['storeLounge'] = $_POST['lounges'];
+}
+if (isset($_POST['garages'])) {
+    $_SESSION['storeGarage'] = $_POST['garages'];
+}
+
+
 
 // Validate input fields
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -23,27 +46,37 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Validate entry for Sales Agent
     $valid_agent = true;
     if (empty($_POST['salesAgent'])) {
-        $_SESSION["agentError"] = "<div class='validate-error-message'>Oops... Please select an Agent.</div>";
+        $_SESSION["agentError"] = "<div class='validate-error-message'>Oops... Please select an agent.</div>";
         $valid_agent = false;
     }
 
     // Validate entry Listing Title
     $valid_title = true;
-    if (!validate_listing_title ($_POST['listingTitle'])) {
+    if (!validate_input_field($_POST['listingTitle'], "titleError", $valid_title, "Listing title", "55")) {
         $valid_title = false;
     }
 
+    // $valid_title = true;
+    // if (!validate_listing_title ($_POST['listingTitle'])) {
+    //     $valid_title = false;
+    // }
+
     // Valid entry Street Address
     $valid_address = true;
-    if (!validate_street_address ($_POST['streetAddress'])) {
+    if (!validate_input_field($_POST['streetAddress'], "addressError", $valid_address, "Street address", "255")) {
         $valid_address = false;
     }
+
+    // $valid_address = true;
+    // if (!validate_street_address ($_POST['streetAddress'])) {
+    //     $valid_address = false;
+    // }
 
     // Valid entry City
     $valid_city = true;
     // Check that the field has an entry
     if (empty($_POST['city'])) {
-        $_SESSION["cityError"] = "<div class='validate-error-message'>Oops... Please select a City.</div>";
+        $_SESSION["cityError"] = "<div class='validate-error-message'>Oops... Please select a city.</div>";
         $valid_city = false;
     }
 
@@ -51,7 +84,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $valid_type = true;
     // Check that the field has an entry
     if (empty($_POST['propertyType'])) {
-        $_SESSION["typeError"] = "<div class='validate-error-message'>Oops... Please select a Property Type.</div>";
+        $_SESSION["typeError"] = "<div class='validate-error-message'>Oops... Please select a property type.</div>";
         $valid_type = false;
     }
 
@@ -71,79 +104,114 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $valid_bedrooms = true;
     // Check that the field has an entry
     if (empty($_POST['bedrooms'])) {
-        $_SESSION["bedError"] = "<div class='validate-error-message'>Oops... Please select a number of Bedrooms.</div>";
+        $_SESSION["bedError"] = "<div class='validate-error-message'>Oops... Please select a number of bedrooms.</div>";
         $valid_bedrooms = false;
     }
 
     // Valid entry Bedroom Description
     $valid_bed_des = true;
-    if (!validate_bedroom_description ($_POST['bedDescription'])) {
+    if (!validate_input_field($_POST['bedDescription'], "bedDesError", $valid_bed_des, "Bedroom description", "55")) {
         $valid_bed_des = false;
     }
+
+    // $valid_bed_des = true;
+    // if (!validate_bedroom_description ($_POST['bedDescription'])) {
+    //     $valid_bed_des = false;
+    // }
 
     // Valid entry Bathrooms
     $valid_bathrooms = true;
     // Check that the field has an entry
     if (empty($_POST['bathrooms'])) {
-        $_SESSION["bathError"] = "<div class='validate-error-message'>Oops... Please select a number of Bathrooms.</div>";
+        $_SESSION["bathError"] = "<div class='validate-error-message'>Oops... Please select a number of bathrooms.</div>";
         $valid_bathrooms = false;
     }
 
     // Valid entry Bathroom Description
     $valid_bath_des = true;
-    if (!validate_bathroom_description ($_POST['bathDescription'])) {
+    if (!validate_input_field($_POST['bathDescription'], "bathDesError", $valid_bath_des, "Bathroom description", "55")) {
         $valid_bath_des = false;
     }
+
+    // $valid_bath_des = true;
+    // if (!validate_bathroom_description ($_POST['bathDescription'])) {
+    //     $valid_bath_des = false;
+    // }
 
     // Valid entry Lounges
     $valid_lounges = true;
     // Check that the field has an entry
     if (empty($_POST['lounges'])) {
-        $_SESSION["loungeError"] = "<div class='validate-error-message'>Oops... Please select a number of Lounges.</div>";
+        $_SESSION["loungeError"] = "<div class='validate-error-message'>Oops... Please select a number of lounges.</div>";
         $valid_lounges = false;
     }
 
     // Valid entry Lounge Description
     $valid_lounge_des = true;
-    if (!validate_lounge_description($_POST['loungeDescription'])) {
+    if (!validate_input_field($_POST['loungeDescription'], "loungeDesError", $valid_lounge_des, "Lounge description", "55")) {
         $valid_lounge_des = false;
     }
+
+    // $valid_lounge_des = true;
+    // if (!validate_lounge_description($_POST['loungeDescription'])) {
+    //     $valid_lounge_des = false;
+    // }
 
     // Valid entry Garages
     $valid_garages = true;
     // Check that the field has an entry
     if (empty($_POST['garages'])) {
-        $_SESSION["garageError"] = "<div class='validate-error-message'>Oops... Please select a number of Garages.</div>";
+        $_SESSION["garageError"] = "<div class='validate-error-message'>Oops... Please select a number of garages.</div>";
         $valid_garages = false;
     }
 
     // Valid entry Garage Description
     $valid_garage_des = true;
-    if (!validate_garage_description($_POST['garageDescription'])) {
+    if (!validate_input_field($_POST['garageDescription'], "garageDesError", $valid_garage_des, "Garage description", "55")) {
         $valid_garage_des = false;
     }
 
+    // $valid_garage_des = true;
+    // if (!validate_garage_description($_POST['garageDescription'])) {
+    //     $valid_garage_des = false;
+    // }
+
     // Valid entry House Size
     $valid_h_size = true;
-    if (!validate_house_size($_POST['houseSize'])) {
+    if (!validate_property_size($_POST['houseSize'], "hSizeError", $valid_h_size, "House size")) {
         $valid_h_size = false;
     }
 
+    // $valid_h_size = true;
+    // if (!validate_house_size($_POST['houseSize'])) {
+    //     $valid_h_size = false;
+    // }
+
     // Valid entry Land Size
     $valid_l_size = true;
-    if (!validate_land_size($_POST['landSize'])) {
+    if (!validate_property_size($_POST['landSize'], "lSizeError", $valid_l_size, "Land size")) {
         $valid_l_size = false;
     }
 
+    // $valid_l_size = true;
+    // if (!validate_land_size($_POST['landSize'])) {
+    //     $valid_l_size = false;
+    // }
+
     // Valid entry Map Co-ordinates
     $valid_map = true;
-    if (!validate_map_coords($_POST['mapCoord'])) {
+    if (!validate_input_field($_POST['mapCoord'], "mapCoordError", $valid_map, "Map co-ordinates", "55")) {
         $valid_map = false;
     }
 
+    // $valid_map = true;
+    // if (!validate_map_coords($_POST['mapCoord'])) {
+    //     $valid_map = false;
+    // }
+
     // Valid entry Property Description
     $valid_prop_des = true;
-    if(!validate_property_description($_POST['propDes'])) {
+    if (!validate_input_field($_POST['propDes'], "propDesError", $valid_prop_des, "Property description", "1000")) {
         $valid_prop_des = false;
     }
 
@@ -172,7 +240,7 @@ if ($valid_listing) {
     // if insert execution fails throw error
     if (!$stmt->execute()) {
           //$_SESSION["errorMessage"] = "<div class='error-message'>Oops! Something went wrong... Please check you have entered all fields correctly</div>";
-          $_SESSION["errorMessage"] = "<div class='error-message'>Oops! Something went wrong... (" . $stmt->errno . ") " . $stmt->error . "</div>";
+          $_SESSION["errorMessage"] = "<div class='error-message'>Oops! Something went wrong... (" . $stmt->errno . ") " . $stmt->error . ".<br>Please see your website administrator and quote this error message.</div>";
           $stmt->close();
           header('location: ../dashboard-add-listing');
           exit;
@@ -243,6 +311,25 @@ for ($i = 0; $i < count($image_files); $i++) {
 
 // if listing is successfully created go back to dashboard 'add listing' page and print success message
 $_SESSION["successMessage"] = "<div class='success-message'>New listing successfully created. Listing ID is: " . $new_listing_id . "</div>";
+unset($_SESSION["storeListingTitle"]);
+unset($_SESSION["storeStreetAddress"]);
+unset($_SESSION["storePrice"]);
+unset($_SESSION["storeSaleMethod"]);
+unset($_SESSION["storeBedDescription"]);
+unset($_SESSION["storeBathDescription"]);
+unset($_SESSION["storeLoungeDescription"]);
+unset($_SESSION["storeGarageDescription"]);
+unset($_SESSION["storeHouseSize"]);
+unset($_SESSION["storeLandSize"]);
+unset($_SESSION["storeMapCoord"]);
+unset($_SESSION["storeListingDescription"]);
+unset($_SESSION['storeAgent']);
+unset($_SESSION['storeCity']);
+unset($_SESSION['storeType']);
+unset($_SESSION['storeBeds']);
+unset($_SESSION['storeBath']);
+unset($_SESSION['storeLounge']);
+unset($_SESSION['storeGarage']);
 header('location: ../dashboard-add-listing');
 
 // close db connection

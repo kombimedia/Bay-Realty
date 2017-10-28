@@ -35,7 +35,7 @@ include 'includes/header.php';
 
             <label for="contact-message" class="sr-only">Message</label>
             <textarea rows="6" class="form-control mb-2" name="contactMessage" id="contact-message" required placeholder="Message"><?php if (isset($_SESSION['storeMessage'])) { echo $_SESSION['storeMessage']; unset($_SESSION['storeMessage']); }; ?></textarea>
-            <div><?php if (isset($_SESSION['agentDesError'])) { echo $_SESSION['agentDesError']; unset($_SESSION['agentDesError']); }; ?></div>
+            <div><?php if (isset($_SESSION['messageError'])) { echo $_SESSION['messageError']; unset($_SESSION['messageError']); }; ?></div>
 
             <button class="btn btn-md btn-block" type="submit">Send Inquiry</button>
           </form>

@@ -6,18 +6,22 @@ $_SESSION['storeFirstName'] = $_POST['firstName'];
 $_SESSION['storeSurname'] = $_POST['surname'];
 $_SESSION['storeEmail'] = $_POST['email'];
 $_SESSION['storePassword'] = $_POST['password'];
+if (isset($_POST['role'])) {
+    $_SESSION['storeRole'] = $_POST['role'];
+}
 
 // Validate input fields
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
     // validate first name
     $validName = true;
-    if (!validate_first_name ($_POST["firstName"])) {
+    if (!validate_name ($_POST["firstName"], "firstNameError", "first name")) {
         $validName = false;
     }
 
     // Validate surname
     $validSName = true;
-    if (!validate_surname ($_POST["surname"])) {
+    if (!validate_name ($_POST["surname"], "surnameError", "surname")) {
         $validSName = false;
     }
 
@@ -83,4 +87,9 @@ $new_user_id = mysqli_insert_id($mysqli);
 
 // if user is successfully created go back to dashboard 'add user' page and print success message
 $_SESSION["successMessage"] = "<div class='success-message'>New User with ID: " . $new_user_id . " successfully created.</div>";
+unset($_SESSION['storeFirstName']);
+unset($_SESSION['storeSurname']);
+unset($_SESSION['storeEmail']);
+unset($_SESSION['storePassword']);
+unset($_SESSION['storeRole']);
 header('location: ../dashboard-add-user');

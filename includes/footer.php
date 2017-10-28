@@ -42,7 +42,7 @@ include 'processes/process-populate-footer-our-team.php';
         <div class="container-fluid footer">
           <div class="container">
             <div class="row">
-                  <span class="copyrite">Bay Realty Ltd <i class="fa fa-copyright" aria-hidden="true"></i> <?php echo date("Y"); ?></span>
+                  <span class="copyrite">Bay Realty Ltd <i class="fa fa-copyright" aria-hidden="true"></i> <?php echo date("Y"); ?> | Licensed under the Real Estate Agents Act 2008</span>
             </div>
           </div>
         </div>
