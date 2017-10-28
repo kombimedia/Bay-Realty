@@ -51,9 +51,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION["areaError"] = "<div class='validate-error-message'>An area is required</div>";
         $validArea = false;
     }
+  }
 
+// If all validation passes set validForm variable to true
+$validForm = $validName && $validSName && $validEmail && $validPhone && $validAgentDes && $validArea;
+
+if ($validForm) {
     // Validate profile image and upload
-    $validateProfileImage = true;
     if (isset($_FILES['file'])) {
        for ($i = 0; $i < count($_FILES['file']['name']); $i++) {
               // Accepted extensions
@@ -77,21 +81,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                   if (!move_uploaded_file($image_tmp, $file_path)) {
                       // if file was not moved throw error message
                       $_SESSION["imgUploadError"] = "<div class='validate-error-message'>Uh oh... Image(s) were not saved to the uploads folder.</div>";
-                      $validateProfileImage = false;
+                      header('location: ../dashboard-add-agent');
+                      exit;
                   }
                   // if file size or file type were incorrect throw error message
               } else {
                   $_SESSION["imgFileError"] = "<div class='validate-error-message'>Oops... Please upload an image, max 500kb and a jpg, jpeg or png.</div>";
-                  $validateProfileImage = false;
+                  header('location: ../dashboard-add-agent');
+                  exit;
                 }
           }
       }
-  }
 
-// If all validation passes set validForm variable to true
-$validForm = $validName && $validSName && $validEmail && $validPhone && $validAgentDes && $validArea && $validateProfileImage;
-
-if ($validForm) {
     // Create db connection
     include '../includes/db-connect.php';
     // Check whether email address has already been registered in the database

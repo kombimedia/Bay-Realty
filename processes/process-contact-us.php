@@ -41,12 +41,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!validate_input_field($_POST["contactMessage"], "messageError", $validMessage, "contact message", "500")) {
         $validMessage = false;
     }
-
-    // $validMessage = true;
-    // if (!validate_agent_description($_POST["contactMessage"])) {
-    //     $_SESSION["agentDesError"] = "<div class='validate-error-message mb-2'>Oops... You forgot your message!</div>";
-    //     $validMessage = false;
-    // }
 }
 
 // If all validation passes set validForm variable to true
