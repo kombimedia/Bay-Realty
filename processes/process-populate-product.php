@@ -11,7 +11,7 @@ $listing_id = $_GET['listing_id'];
 
 
 
- $stmt = $mysqli->prepare("SELECT listing_id, images, agents, title, address, categories, type, price, sell_method, property_des, bed_no, bed_des, bath_no, bath_des, lounge_no, lounge_des, garage_no, garage_des, house_size, land_size, map_co_ords, featured_image, featured_property FROM properties WHERE listing_id = ?");
+ $stmt = $mysqli->prepare("SELECT listing_id, agents, title, address, categories, type, price, sell_method, property_des, bed_no, bed_des, bath_no, bath_des, lounge_no, lounge_des, garage_no, garage_des, house_size, land_size, map_co_ords, featured_image, featured_property FROM properties WHERE listing_id = ?");
  $stmt->bind_param("i", $listing_id);
  $stmt->execute();
  $result = $stmt->get_result();
@@ -20,7 +20,7 @@ $listing_id = $_GET['listing_id'];
       // Loop through each row and save the array to a variable
       $agents = $row['agents'];
       $listing_title = $row['title'];
-      $images = $row['images'];
+      
       $property_des = $row['property_des'];
       $address = $row['address'];
       $categories = $row['categories'];
