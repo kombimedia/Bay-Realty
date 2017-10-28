@@ -8,7 +8,6 @@ if($result->num_rows > 0) {
   while($agents = $result->fetch_assoc()) {
       $agent_name = $agents['first_name'] . " " . $agents['surname'];
       // for each value found, create an 'option' for the select list
-      //$option_agents = $option_agents . "<option value='$agents[agent_id]'>$agent_name</option>";
       // Check whether an option has been selected and compare it to the db
       if (isset($_SESSION['storeAgent']) && $agents['agent_id'] == $_SESSION['storeAgent']) {
           // If an option is selected make this option selected when list is built (used for repopulating select list if validation fails)
@@ -32,7 +31,6 @@ if($result->num_rows > 0) {
   // Loop through data and output data array
   while($city = $result->fetch_assoc()) {
       // for each value found, create an 'option' for the select list
-      //$option_city = $option_city . "<option value='$city[cat_id]'>$city[city]</option>";
       // Check whether an option has been selected and compare it to the db
       if (isset($_SESSION['storeCity']) && $city['cat_id'] == $_SESSION['storeCity']) {
           // If an option is selected make this option selected when list is built (used for repopulating select list if validation fails)
@@ -56,7 +54,6 @@ if($result->num_rows > 0) {
   // Loop through data and output data array
   while($type = $result->fetch_assoc()) {
       // for each value found, create an 'option' for the select list
-      //$option_type = $option_type . "<option value='$type[pt_id]'>$type[type]</option>";
       // Check whether an option has been selected and compare it to the db
       if (isset($_SESSION['storeType']) && $type['pt_id'] == $_SESSION['storeType']) {
           // If an option is selected make this option selected when list is built (used for repopulating select list if validation fails)

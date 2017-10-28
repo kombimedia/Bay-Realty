@@ -67,7 +67,7 @@ function validate_email($email) {
 }
 
 // Validate password
-  // check if field is populated
+// check if field is populated
 function validate_password ($password) {
     if (empty($password)) {
       $_SESSION["passwordError"] = "<div class='validate-error-message mb-2'>A password is required</div>";

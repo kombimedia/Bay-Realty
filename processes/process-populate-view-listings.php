@@ -39,6 +39,27 @@ if($result->num_rows > 0) {
         $row['agents'] = $name;
       }
 
+    // Add + to the end of last option
+    if ($row['bed_no'] === "5") {
+        $row['bed_no'] = $row['bed_no'] . " +";
+      }
+
+    // Add + to the end of last option
+    if ($row['bath_no'] === "5") {
+        $row['bath_no'] = $row['bath_no'] . " +";
+      }
+
+    // Add + to the end of last option
+    if ($row['lounge_no'] === "3") {
+        $row['lounge_no'] = $row['lounge_no'] . " +";
+      }
+
+    // Add + to the end of last option
+    if ($row['garage_no'] === "3") {
+        $row['garage_no'] = $row['garage_no'] . " +";
+      }
+
+
     $populate_view_listings = $populate_view_listings . "
     <tr>
         <td><img width='150' src='images/uploads/$row[featured_image]'></td>
