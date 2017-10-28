@@ -57,7 +57,7 @@ include 'processes/process-populate-update-user.php';
             <div><?php if (isset($_SESSION['userRoleError'])) { echo $_SESSION['userRoleError']; unset($_SESSION['userRoleError']); }; ?></div>
           </div>
         </div>
-        <input type="submit" value="Update User" name="submit" class="btn"/>
+        <input id="update-user" type="submit" value="Update User" name="submit" class="btn"/>
     </div>
   </form>
 <?php

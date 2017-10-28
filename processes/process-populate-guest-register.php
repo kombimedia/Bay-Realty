@@ -14,13 +14,13 @@ $_SESSION['storeguestPassword'] = $_POST['guestPassword'];
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // validate first name
     $validName = true;
-    if (!validate_first_name ($_POST["guestFirstName"])) {
+    if (!validate_name ($_POST["guestFirstName"], "firstNameError", "first name")) {
         $validName = false;
     }
 
     // Validate surname
     $validSName = true;
-    if (!validate_surname ($_POST["guestSurname"])) {
+    if (!validate_name ($_POST["guestSurname"], "surnameError", "surname")) {
         $validSName = false;
     }
 
@@ -58,7 +58,7 @@ if ($validForm) {
         $stmt1 = $mysqli->prepare("INSERT INTO users (first_name, surname, email, role, password) VALUES (?, ?, ?, ?, ?)");
         $stmt1->bind_param("sssis", $_POST['guestFirstName'], $_POST['guestSurname'], $_POST['guestEmail'], $guest_user_role, $_POST['guestPassword']);
         if (!$stmt1->execute()) {
-             
+
           // if insert is unsuccessful throw error
            header('location: ../guest-register.php');
            $_SESSION["errorMessage"] = "<div class='error-message'>An error has occurred: " . $stmt->errno . " " . $stmt->error. "</div>";
@@ -67,7 +67,7 @@ if ($validForm) {
     } else {
         // if email already exists in db, throw error
         header('location: ../guest-register.php');
-        
+
         $_SESSION["emailError"] = "<div class='validate-error-message'>This email address is already registered</div>";
         exit;
     }

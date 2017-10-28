@@ -8,7 +8,7 @@ $(window).scroll(function() {
 });
 
 
-
+// Submit form with Ajax
 // $(document).ready(function()
 // {
 //  $('.add-listing-form').ajaxForm(function()

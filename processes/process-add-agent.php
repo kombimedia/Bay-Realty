@@ -14,15 +14,16 @@ if (isset($_POST['area'])) {
 
 // Validate input fields
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
     // validate first name
     $validName = true;
-    if (!validate_first_name ($_POST["firstName"])) {
+    if (!validate_name ($_POST["firstName"], "firstNameError", "first name")) {
         $validName = false;
     }
 
     // Validate surname
     $validSName = true;
-    if (!validate_surname ($_POST["surname"])) {
+    if (!validate_name ($_POST["surname"], "surnameError", "surname")) {
         $validSName = false;
     }
 
@@ -40,8 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Valid entry Agent Description
     $validAgentDes = true;
-    if (!validate_agent_description($_POST["agentDes"])) {
-        $_SESSION["agentDesError"] = "<div class='validate-error-message'>An Agent description is required</div>";
+    if (!validate_input_field($_POST["agentDes"], "agentDesError", $validAgentDes, "Agent description", "500")) {
         $validAgentDes = false;
     }
 

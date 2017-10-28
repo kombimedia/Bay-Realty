@@ -1,47 +1,24 @@
 <?php
-//--------------  USER LOGIN ----------------------------------
-// Validate first name
-function validate_first_name ($name) {
+//--------------  USER / AGENT INPUTS ----------------------------------
+
+// Validate name
+function validate_name ($name, $error, $message) {
      // check if field is populated
     if (empty($name)) {
-      $_SESSION["firstNameError"] = "<div class='validate-error-message mb-2'>Your first name is required</div>";
+      $_SESSION["$error"] = "<div class='validate-error-message mb-2'>Your $message is required</div>";
       $validName = false;
       return false;
     } else {
       // check if name contains only letters, a '-' or a space
       if (!preg_match("/^[a-zA-Z -]*$/",$name)) {
-        $_SESSION["firstNameError"] = "<div class='validate-error-message mb-2'>Only letters, a hyphen and a space are allowed</div>";
+        $_SESSION["$error"] = "<div class='validate-error-message mb-2'>Only letters, a hyphen and a space are allowed</div>";
         $validName = false;
         return false;
       }
       // check that name has at least two letters
       if (strlen($name) < 2) {
-        $_SESSION["firstNameError"] = "<div class='validate-error-message mb-2'>Your name must be at least 2 letters</div>";
+        $_SESSION["$error"] = "<div class='validate-error-message mb-2'>Your $message must be at least 2 letters</div>";
         $validName = false;
-        return false;
-      }
-    }
-    return true;
-}
-
-// Validate surname
-function validate_surname ($surname) {
-    // check if field is populated
-    if (empty($surname)) {
-      $_SESSION["surnameError"] = "<div class='validate-error-message mb-2'>Your surname is required</div>";
-      $validSName = false;
-      return false;
-    } else {
-      // check if name contains only letters, a '-' or a space
-      if (!preg_match("/^[a-zA-Z -]*$/",$surname)) {
-        $_SESSION["surnameError"] = "<div class='validate-error-message mb-2'>Only letters, a hyphen and a space are allowed</div>";
-        $validSName = false;
-        return false;
-      }
-      // check that name has at least two letters
-      if (strlen($surname) < 2) {
-        $_SESSION["surnameError"] = "<div class='validate-error-message mb-2'>Your surname must be at least 2 letters</div>";
-        $validSName = false;
         return false;
       }
     }
@@ -84,46 +61,30 @@ function validate_password ($password) {
     return true;
 }
 
-//--------------  PROPERTY LISTINGS ----------------------------------
-// Validate Listing Title
-function validate_listing_title ($listing_title) {
+// Validate phone number
+function validate_phone ($phone) {
     // Check that the field has an entry
-    if (empty($listing_title)) {
-        $_SESSION["titleError"] = "<div class='validate-error-message mb-2'>Oops... Please enter a listing title.</div>";
-        $valid_title = false;
+    if (empty($phone)) {
+        $_SESSION["phoneError"] = "<div class='validate-error-message mb-2'>Your phone number is required.</div>";
+        $validPhone = false;
         return false;
-        // Check the string length is not more than the db limit - varchar(55)
-    } elseif (strlen($listing_title) > 55) {
-          $_SESSION["titleError"] = "<div class='validate-error-message mb-2'>Oops... Listing title must be max 55 characters.</div>";
-          $valid_title = false;
-          return false;
-    }
-    $valid_title = true;
-    return true;
+    // Check that phone number meets defined format and character set
+    } elseif (!preg_match('/^(\(0\d\)\d{7}|\(02\d\)\d{6,8}|0800\s\d{5,8})$/', ($phone))) {
+        $_SESSION["phoneError"] = "<div class='validate-error-message mb-2'>Oops... Please enter a valid phone number - (021)1234567.</div>";
+        $validPhone = false;
+        return false;
+        }
+        $validPhone = true;
+        return true;
 }
 
- // Validate Street Address
-function validate_street_address ($street_address) {
-    // Check that the field has an entry
-    if (empty($street_address)) {
-        $_SESSION["addressError"] = "<div class='validate-error-message mb-2'>Oops... Please enter a Street Address.</div>";
-        $valid_address = false;
-        return false;
-        // Check the string length is not more than 255 characters
-    } elseif (strlen($street_address) > 255) {
-          $_SESSION["addressError"] = "<div class='validate-error-message mb-2'>Oops... Street address must be max 255 characters.</div>";
-          $valid_address = false;
-          return false;
-    }
-    $valid_address = true;
-    return true;
-}
+//--------------  PROPERTY LISTINGS ----------------------------------
 
 // Validate Price
 function validate_price ($price) {
     // Check that the field has an entry
     if (empty($price)) {
-        $_SESSION["priceError"] = "<div class='validate-error-message mb-2'>Oops... Please enter a Price.</div>";
+        $_SESSION["priceError"] = "<div class='validate-error-message mb-2'>Oops... Please enter a price.</div>";
         $valid_price = false;
         return false;
         // Check the value is a valid number
@@ -140,7 +101,7 @@ function validate_price ($price) {
 function validate_sale_method ($sale_method) {
     // Check the string length is not more than the db limit - varchar(24)
     if (strlen($sale_method) > 24) {
-          $_SESSION["sMethodError"] = "<div class='validate-error-message mb-2'>Oops... Sale Method must be max 24 characters.</div>";
+          $_SESSION["sMethodError"] = "<div class='validate-error-message mb-2'>Oops... Sale method must be max 24 characters.</div>";
           $valid_sale_method = false;
           return false;
     }
@@ -148,140 +109,38 @@ function validate_sale_method ($sale_method) {
     return true;
 }
 
-// Validate Bedroom Description
-function validate_bedroom_description ($bedroom_description) {
+// Validate Property Size
+function validate_property_size($name, $error, $valid, $message) {
     // Check that the field has an entry
-    if (empty($bedroom_description)) {
-        $_SESSION["bedDesError"] = "<div class='validate-error-message mb-2'>Oops... Please enter a Bedroom Description.</div>";
-        $valid_bed_des = false;
-        return false;
-        // Check the string length is not more than the db limit - varchar(55)
-    } elseif (strlen($bedroom_description) > 55) {
-          $_SESSION["bedDesError"] = "<div class='validate-error-message mb-2'>Oops... Bedroom Description must be max 55 characters.</div>";
-          $valid_bed_des = false;
-          return false;
-    }
-    $valid_bed_des = true;
-    return true;
-}
-
-// Validate Bathroom Description
-function validate_bathroom_description ($bathroom_description) {
-    // Check that the field has an entry
-    if (empty($bathroom_description)) {
-        $_SESSION["bathDesError"] = "<div class='validate-error-message mb-2'>Oops... Please enter a Bathroom Description.</div>";
-        $valid_bath_des = false;
-        return false;
-        // Check the string length is not more than the db limit - varchar(55)
-    } elseif (strlen($bathroom_description) > 55) {
-          $_SESSION["bathDesError"] = "<div class='validate-error-message mb-2'>Oops... Bathroom Description must be max 55 characters.</div>";
-          $valid_bath_des = false;
-          return false;
-    }
-    $valid_bath_des = true;
-    return true;
-}
-
-// Validate Lounge Description
-function validate_lounge_description($lounge_description) {
-    // Check that the field has an entry
-    if (empty($lounge_description)) {
-        $_SESSION["loungeDesError"] = "<div class='validate-error-message mb-2'>Oops... Please enter a Lounge Description.</div>";
-        $valid_lounge_des = false;
-        return false;
-        // Check the string length is not more than the db limit - varchar(55)
-    } elseif (strlen($lounge_description) > 55) {
-          $_SESSION["loungeDesError"] = "<div class='validate-error-message mb-2'>Oops... Lounge Description must be max 55 characters.</div>";
-          $valid_lounge_des = false;
-          return false;
-    }
-    $valid_lounge_des = true;
-    return true;
-}
-
-// Validate Garage Description
-function validate_garage_description($garage_description) {
-    // Check that the field has an entry
-    if (empty($garage_description)) {
-        $_SESSION["garageDesError"] = "<div class='validate-error-message mb-2'>Oops... Please enter a Garage Description.</div>";
-        $valid_garage_des = false;
-        return false;
-        // Check the string length is not more than the db limit - varchar(55)
-    } elseif (strlen($garage_description) > 55) {
-          $_SESSION["garageDesError"] = "<div class='validate-error-message mb-2'>Oops... Garage Description must be max 55 characters.</div>";
-          $valid_garage_des = false;
-          return false;
-    }
-    $valid_garage_des = true;
-    return true;
-}
-
-// Validate House Size
-function validate_house_size($house_size) {
-    // Check that the field has an entry
-    if (empty($house_size)) {
-        $_SESSION["hSizeError"] = "<div class='validate-error-message mb-2'>Oops... Please enter a House Size.</div>";
-        $valid_h_size = false;
+    if (empty($name)) {
+        $_SESSION["$error"] = "<div class='validate-error-message mb-2'>Oops... Please enter a " . $message . ".</div>";
+        $valid = false;
         return false;
         // Check the value is a valid number
-    } elseif (!preg_replace('/[^0-9]/', '', $house_size)) {
-          $_SESSION["hSizeError"] = "<div class='validate-error-message mb-2'>Oops... House Size must be a number only.</div>";
-          $valid_h_size = false;
+    } elseif (!preg_replace('/[^0-9]/', '', $name)) {
+          $_SESSION["$error"] = "<div class='validate-error-message mb-2'>Oops... " . $message . " must be a number only.</div>";
+          $valid = false;
           return false;
     }
-    $valid_h_size = true;
+    $valid = true;
     return true;
 }
 
-// Validate Land Size
-function validate_land_size($land_size) {
+// Validate Text Input Field
+function validate_input_field($name, $error, $valid, $message, $char_limit) {
     // Check that the field has an entry
-    if (empty($land_size)) {
-        $_SESSION["lSizeError"] = "<div class='validate-error-message mb-2'>Oops... Please enter a Land Size.</div>";
-        $valid_l_size = false;
+    if (empty($name)) {
+        $_SESSION["$error"] = "<div class='validate-error-message mt-2 mb-2'>Oops... Please enter a $message.</div>";
+        $valid = false;
         return false;
-        // Check the value is a valid number
-    } elseif (!preg_replace('/[^0-9]/', '', $land_size)) {
-          $_SESSION["lSizeError"] = "<div class='validate-error-message mb-2'>Oops... Land Size must be a number only.</div>";
-          $valid_l_size = false;
+    // Check the string length is not more than the defined number of characters
+    } elseif (strlen($name) > $char_limit) {
+          $char_count = strlen($name);
+          $_SESSION["$error"] = "<div class='validate-error-message mt-2 mb-2'>Oops... " . $message . " must be max " . $char_limit . " characters. You currently have " . $char_count . " characters.</div>";
+          $valid = false;
           return false;
     }
-    $valid_l_size = true;
-    return true;
-}
-
-// Validate Map Co-ordinates
-function validate_map_coords($map_coords) {
-    // Check that the field has an entry
-    if (empty($map_coords)) {
-        $_SESSION["mapCoordError"] = "<div class='validate-error-message mb-2'>Oops... Please enter valid Map Co-ordinates.</div>";
-        $valid_map = false;
-        return false;
-        // Check the string length is not more than the db limit - varchar(55)
-    } elseif (strlen($map_coords) > 55) {
-          $_SESSION["mapCoordError"] = "<div class='validate-error-message mb-2'>Oops... Map Co-ordinates must be max 55 characters.</div>";
-          $valid_map = false;
-          return false;
-    }
-    $valid_map = true;
-    return true;
-}
-
-// Validate Property Description
-function validate_property_description($property_description) {
-    // Check that the field has an entry
-    if (empty($property_description)) {
-        $_SESSION["propDesError"] = "<div class='validate-error-message mb-2'>Oops... Please enter a Property Description.</div>";
-        $valid_prop_des = false;
-        return false;
-    // Check the string length is not more than 500 characters
-    } elseif (strlen($property_description) > 1000) {
-          $char_count = strlen($property_description);
-          $_SESSION["propDesError"] = "<div class='validate-error-message mb-2'>Oops... Property Description must be max 1000 characters. You currently have " . $char_count . " characters.</div>";
-          $valid_prop_des = false;
-          return false;
-    }
-    $valid_prop_des = true;
+    $valid = true;
     return true;
 }
 
@@ -328,39 +187,3 @@ function validate_image_temp_folder($files) {
     return true;
 }
 
-//--------------  ADD AGENT ----------------------------------
-// Validate phone number
-function validate_phone ($phone) {
-    // Check that the field has an entry
-    if (empty($phone)) {
-        $_SESSION["phoneError"] = "<div class='validate-error-message mb-2'>Your phone number is required.</div>";
-        $validPhone = false;
-        return false;
-    // Check the string length is not more than 500 characters
-    } elseif (!preg_match('/^(\(0\d\)\d{7}|\(02\d\)\d{6,8}|0800\s\d{5,8})$/', ($phone))) {
-      //(!preg_match('/^\(?\+?([0-9]{1,4})\)?[-\. ]?(\d{3})[-\. ]?([0-9]{7})$/', trim($phone)))
-      $_SESSION["phoneError"] = "<div class='validate-error-message mb-2'>Oops... Please enter a valid phone number - (021)1234567.</div>";
-      $validPhone = false;
-      return false;
-      }
-    $validPhone = true;
-    return true;
-}
-
-// Validate agent Description
-function validate_agent_description($agent_description) {
-    // Check that the field has an entry
-    if (empty($agent_description)) {
-        $_SESSION["agentDesError"] = "<div class='validate-error-message mb-2'>An Agent description is required.</div>";
-        $valid_prop_des = false;
-        return false;
-    // Check the string length is not more than 500 characters
-    } elseif (strlen($agent_description) > 500) {
-          $char_count = strlen($agent_description);
-          $_SESSION["agentDesError"] = "<div class='validate-error-message mb-2'>Oops... Agent Description must be max 500 characters. You currently have " . $char_count . " characters.</div>";
-          $valid_prop_des = false;
-          return false;
-    }
-    $valid_prop_des = true;
-    return true;
-}
