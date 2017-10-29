@@ -26,10 +26,12 @@ $stmt->close();
 $stmt = $mysqli->prepare("DELETE FROM agents WHERE agent_id = ?");
 $stmt->bind_param("i", $agent_id);
 if (!$stmt->execute()) {
-    $_SESSION["agentDelError"] = "<div class='error-message'>Uh oh.. Agent wasn't deleted. Please contact website administrator.</div>";
+    $_SESSION["agentDelError"] = "<div class='error-message'>Oops! Something went wrong... (" . $stmt->errno . ") " . $stmt->error. ".<br>Please see your website administrator and quote this error message.</div>";
 } else {
     $_SESSION["successMessage"] = "<div class='success-message'>Agent ID: " . $agent_id ." was successfully deleted</div>";
 }
 $stmt->close();
+// Close db connection
 $mysqli->close();
+// Redirect back to 'view agents' page
 header('location: ../dashboard-view-agents');

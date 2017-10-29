@@ -25,7 +25,7 @@ $stmt->close();
 $stmt = $mysqli->prepare("DELETE FROM images WHERE listing_id = ?");
 $stmt->bind_param("i", $listing_id);
 if (!$stmt->execute()) {
-    $_SESSION["imgDelError"] = "<div class='error-message'>Uh oh.. Images weren't deleted from the database. Please contact the website administrator</div>";
+    $_SESSION["imgDelError"] = "<div class='error-message'>Oops! Something went wrong... (" . $stmt->errno . ") " . $stmt->error. ".<br>Please see your website administrator and quote this error message.</div>";
 }
 $stmt->close();
 
