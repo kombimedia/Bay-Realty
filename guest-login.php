@@ -8,8 +8,8 @@ include 'includes/header.php';
 ?>
 
 <div class="container-fluid">
-   <div><?php if (isset($_SESSION['successMessage'])) { echo $_SESSION['successMessage']; unset($_SESSION['successMessage']); }; ?></div>
     <div class="login-form-box">
+       <div><?php if (isset($_SESSION['successMessage'])) { echo $_SESSION['successMessage']; unset($_SESSION['successMessage']); }; ?></div>
        <form class="form-signin" method="post" name="submit" role="form" action="processes/process-guest-login.php">
           <h2 class="form-signin-heading mb-4">Wish List log in</h2>
           <label for="inputEmail" class="sr-only">Email address</label>

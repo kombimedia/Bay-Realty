@@ -4,11 +4,10 @@ $title = "Bay Realty - Wish List Register Page";
 $metaD = "Wish List login page";
 include 'includes/header.php';
 ?>
- 
-  <div><?php if (isset($_SESSION['errorMessage'])) { echo $_SESSION['errorMessage']; unset($_SESSION['errorMessage']); }; ?></div>
 
 <div class="container-fluid">
     <div class="login-form-box">
+      <div><?php if (isset($_SESSION['errorMessage'])) { echo $_SESSION['errorMessage']; unset($_SESSION['errorMessage']); }; ?></div>
       <form class="form-signin" method="post" role="form" action="processes/process-populate-guest-register.php">
           <h2 class="form-signin-heading mb-4">Wish List Sign Up</h2>
           <label for="guest-first-name" class="sr-only">First Name</label>

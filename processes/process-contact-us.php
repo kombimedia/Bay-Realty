@@ -47,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 $validForm = $validName && $validSName && $validEmail && $validPhone && $validMessage;
 
 if ($validForm) {
-    $_SESSION["successMessage"] = "<div class='success-message'>Thank you for contacting us " . $_POST['contactFirstName'] . ". We will get back to you ASAP.</div>";
+    $_SESSION["successMessage"] = "<div class='success-message'>Thanks for contacting us " . $_POST['contactFirstName'] . "! We will get back to you ASAP.</div>";
     // Once contact form is processed and success message is printed, clear form fields
     unset($_SESSION['storeFirstName']);
     unset($_SESSION['storeSurname']);
@@ -55,7 +55,7 @@ if ($validForm) {
     unset($_SESSION['storePhone']);
     unset($_SESSION['storeMessage']);
     header('location: ../contact-us');
-    // Send contact form notification to admins
+    // Send contact form email notification to admin's
     include 'process-send-contact-email.php';
 } else {
     header('location: ../contact-us');

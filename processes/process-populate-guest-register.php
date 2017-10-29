@@ -36,8 +36,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $validPassword = false;
     }
     $_POST["guestPassword"] = md5($_POST["guestPassword"]);
-
-    // Validate user role
 }
 
 // If all validation passes set validForm variable to true
@@ -81,5 +79,9 @@ if ($validForm) {
 $new_user_id = mysqli_insert_id($mysqli);
 
 // if user is successfully created go back to dashboard 'add user' page and print success message
-$_SESSION["successMessage"] = "<div class='success-message'>New User with ID: " . $new_user_id . " successfully created.</div>";
+$_SESSION["successMessage"] = "<div class='success-message'>Nice work " . $_POST["guestFirstName"] . "! You're all set up. Just log in to save properties to your wish list.</div>";
 header('location: ../guest-login.php');
+unset($_SESSION['storeguestFirstName']);
+unset($_SESSION['storeguestSurname']);
+unset($_SESSION['storeguestEmail']);
+unset($_SESSION['storeguestPassword']);

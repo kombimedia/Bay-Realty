@@ -22,7 +22,7 @@ if (isset($_POST['submit'])) {
               // Set image name
               $image_name = $_FILES['file']['name'][$i];
               // Get image size
-              $image_size = $_FILES['file']['size'][$i] . 'Bytes';
+              $image_size = $_FILES['file']['size'][$i];
               // Declare path for uploaded images
               $file_path = "../images/uploads/".$image_name;
               // Validate image before storing to folder and DB

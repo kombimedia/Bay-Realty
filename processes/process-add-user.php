@@ -6,6 +6,7 @@ $_SESSION['storeFirstName'] = $_POST['firstName'];
 $_SESSION['storeSurname'] = $_POST['surname'];
 $_SESSION['storeEmail'] = $_POST['email'];
 $_SESSION['storePassword'] = $_POST['password'];
+// Check if select option has been selected. If so, save selection to a session
 if (isset($_POST['role'])) {
     $_SESSION['storeRole'] = $_POST['role'];
 }
@@ -67,7 +68,7 @@ if ($validForm) {
         } else {
           // if insert is unsuccessful throw error
            header('location: ../dashboard-add-user');
-           $_SESSION["errorMessage"] = "<div class='error-message'>An error has occurred: " . $stmt->errno . " " . $stmt->error. "</div>";
+           $_SESSION["errorMessage"] = "<div class='error-message'>Oops! Something went wrong... (" . $stmt->errno . ") " . $stmt->error. ".<br>Please see your website administrator and quote this error message.</div>";
            }
            $stmt1->close();
     } else {
@@ -78,7 +79,7 @@ if ($validForm) {
     }
     $stmt->close();
 } else {
-    // if form does not pass validation redirect back to registration page
+    // if form does not pass validation redirect back to 'add user' page
     header('Location: ../dashboard-add-user');
     exit;
   }
@@ -87,6 +88,7 @@ $new_user_id = mysqli_insert_id($mysqli);
 
 // if user is successfully created go back to dashboard 'add user' page and print success message
 $_SESSION["successMessage"] = "<div class='success-message'>New User with ID: " . $new_user_id . " successfully created.</div>";
+// Reset form inputs and redirect back to 'add user' page
 unset($_SESSION['storeFirstName']);
 unset($_SESSION['storeSurname']);
 unset($_SESSION['storeEmail']);

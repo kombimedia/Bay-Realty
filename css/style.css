@@ -73,6 +73,10 @@ button span i.fa-bars {
   opacity: 1;
   transition: opacity .5s;
 }
+.welcome {
+  color: #189ebb;
+  font-size: 1.2rem;
+}
 .header-image {
   background-image: url("../images/page-header.jpg");
   position: relative;
@@ -82,7 +86,6 @@ button span i.fa-bars {
   height: 400px;
   width: 100%;
 }
-
 .page-image-widget {
   position: absolute;
   top: 50%;
@@ -96,7 +99,6 @@ button span i.fa-bars {
   transform: translate(-50%,-50%);
   color: #fff;
 }
-
 .content-widget {
   padding: 100px 20px;
 }
@@ -135,14 +137,10 @@ span.copyrite {
 table.our-team {
   font-size: 75%;
 }
-ul.property-press{
+ul.contact-details{
   list-style: none;
   padding-left: 0px;
 }
-
-/* Page styles
------------------------------------------------------ */
-
 
 /* Error Messages
 -------------------------------------------------- */
@@ -391,5 +389,3 @@ a[href^="tel:"] {
   height: 80% !important;
 }
 }
-
-
