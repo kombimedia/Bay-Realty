@@ -35,8 +35,8 @@ $listing_id = $_GET['listing_id'];
       $lounge_des = $row['lounge_des'];
       $garage_no = $row['garage_no'];
       $garage_des = $row['garage_des'];
-      $house_size = $row['house_size'];
-      $land_size = $row['land_size'];
+      $house_size = $row['house_size']."m<sup>2</sup>";
+      $land_size = $row['land_size']."m<sup>2</sup>";
 
       // used explode function to break up map co ordinates and stored into variables to be populated in google maps
       $map_co_ords = $row['map_co_ords'];
@@ -63,7 +63,7 @@ $listing_id = $_GET['listing_id'];
         <p>$property_des</p>
         <h4 style='color: #189ebb'>$price</h4>
 
-        <p><i class='fa fa-bed' aria-hidden='true'></i>  : $bed_no <i class='fa fa-bath' aria-hidden='true'></i> : $bath_no <i class='fa fa-car' aria-hidden='true'></i> : $garage_no </p></td>
+        <p><i class='fa fa-bed pr-1' aria-hidden='true'></i> $bed_no <i class='fa fa-bath pl-2 pr-1' aria-hidden='true'></i> $bath_no <i class='fa fa-car pl-2 pr-1' aria-hidden='true'></i> $garage_no </p></td>
 
 
         </tr>";
@@ -72,11 +72,11 @@ $listing_id = $_GET['listing_id'];
         <div class='container product2'>
         <tr>
         <td>
-        <p>Land size : <span>$land_size </span></p>
-        <p>house_size : <span>$house_size </span></p>
-        <p>Bedrooms : <span>$bed_des </span></p>
-        <p>Bathrooms <span>$bath_des </span></p>
-        <p>Garage :  <span>$garage_des </span></p>
+        <p>Land size: <span>$land_size</span></p>
+        <p>House size: <span>$house_size</span></p>
+        <p>Bedrooms: <span>$bed_des </span></p>
+        <p>Bathrooms: <span>$bath_des </span></p>
+        <p>Garages:  <span>$garage_des </span></p>
         </td>
         </tr>
         </div>";
