@@ -204,7 +204,7 @@ form.contact-form .form-inline .form-control {
 /* Slider styles
 ----------------------------------------------------- */
 .slider-inner {
-  padding-bottom: 3rem 0;
+  padding-bottom: 2rem;
 }
 
 /* featured listings
@@ -252,7 +252,7 @@ form.contact-form .form-inline .form-control {
 }
 .search-listings-container h4 {
   text-align: left;
-  color: #42b3f4;
+  color: #189ebb;
 }
 
 /* Carasaul styling on product page
@@ -268,9 +268,9 @@ form.contact-form .form-inline .form-control {
 
 /* Product Content
 ----------------------------------------*/
-/*.product-outer-container {
-  padding: 5rem 0;
-}*/
+.product-heading {
+  padding: 5rem 0 0 0;
+}
 #product-3 {
   padding-left: 2em;
   padding-top: 2em;
@@ -287,7 +287,7 @@ form.contact-form .form-inline .form-control {
   padding-right: 40px;
 }
 .product-full {
-  margin-top: 5rem;
+  /*margin-top: 5rem;*/
   margin-bottom: 5rem;
   padding: 2rem 1rem;
   border: 1pt solid;

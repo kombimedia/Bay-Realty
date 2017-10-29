@@ -52,7 +52,7 @@ $listing_id = $_GET['listing_id'];
       $price = money_format("%.0n", $number);
       $display_product = $display_product . "
       <tr>
-      <td><p>listing id: $listing_id </p><h4 style='color: #42b3f4'>$listing_title</h4><p style='color: grey'>$address </p><a class= 'wishlist-icon' href='processes/process-wishlist-button.php' action= 'post' ><i class='fa fa-heart' aria-hidden='true'> Add to Wishlist</i></a>
+      <td><p>listing id: $listing_id </p><h4 style='color: #189ebb'>$listing_title</h4><p style='color: grey'>$address </p><a class= 'wishlist-icon' href='processes/process-wishlist-button.php' action= 'post' ><i class='fa fa-heart' aria-hidden='true'> Add to Wishlist</i></a>
       </tr>";
 
 
@@ -61,7 +61,7 @@ $listing_id = $_GET['listing_id'];
 
         <hr>
         <p>$property_des</p>
-        <h4 style='color: #42b3f4'>$price</h4>
+        <h4 style='color: #189ebb'>$price</h4>
 
         <p><i class='fa fa-bed' aria-hidden='true'></i>  : $bed_no <i class='fa fa-bath' aria-hidden='true'></i> : $bath_no <i class='fa fa-car' aria-hidden='true'></i> : $garage_no </p></td>
 
