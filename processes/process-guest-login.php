@@ -33,14 +33,17 @@ if ($valid_Login_form) {
     // Create connection
     include '../includes/db-connect.php';
     // get users details from database and save to variables
-    $stmt = $mysqli->prepare("SELECT role, first_name FROM users WHERE email = ? AND  password = ?");
+    $stmt = $mysqli->prepare("SELECT user_id, role, first_name FROM users WHERE email = ? AND  password = ?");
     $stmt->bind_param("ss", $_POST['loginEmail'], $_POST['loginPassword']);
     $stmt->execute();
     $result = $stmt->get_result();
     if($result->num_rows > 0) {
       while($row = $result->fetch_assoc()) {
+
         $stored_name = $row["first_name"];
         $user_role = $row["role"];
+        $user_id = $row['user_id'];
+
     }
   } else {
     $_SESSION['user_access_error'] = "<div class='validate-error-message mb-2'>Oops... Please check your email and password are correct.<?div>";
@@ -56,6 +59,7 @@ if ($valid_Login_form) {
     // Register global variables for user role
     $_SESSION['guestUserName'] = "Welcome " . $stored_name . "!";
     $_SESSION['logged_in'] = true;
+    $_SESSION['user_id'] = $user_id;
     $admin_user_role = 3;
 
     if ($user_role === $user_role) {
