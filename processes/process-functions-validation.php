@@ -112,12 +112,12 @@ function validate_sale_method ($sale_method) {
 // Validate Property Size
 function validate_property_size($name, $error, $valid, $message) {
     // Check that the field has an entry
-    if (empty($name)) {
+    if (empty($name) && $name != 0) {
         $_SESSION["$error"] = "<div class='validate-error-message mb-2'>Oops... Please enter a " . $message . ".</div>";
         $valid = false;
         return false;
         // Check the value is a valid number
-    } elseif (!preg_replace('/[^0-9]/', '', $name)) {
+    } elseif (!preg_match('/^[0-9]+$/', $name)) {
           $_SESSION["$error"] = "<div class='validate-error-message mb-2'>Oops... " . $message . " must be a number only.</div>";
           $valid = false;
           return false;
