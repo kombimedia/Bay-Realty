@@ -20,7 +20,6 @@ $listing_id = $_GET['listing_id'];
       // Loop through each row and save the array to a variable
       $agents = $row['agents'];
       $listing_title = $row['title'];
-      
       $property_des = $row['property_des'];
       $address = $row['address'];
       $categories = $row['categories'];

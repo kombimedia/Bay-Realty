@@ -1,5 +1,7 @@
 <?php
 session_start();
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
 include 'process-functions-validation.php';
 
 if (isset($_POST['submit'])) {
@@ -15,8 +17,10 @@ if (isset($_POST['submit'])) {
 
     // Validate password
     $validPassword = true;
-    if (!validate_password ($_POST['loginPassword'])) {
-        $validPassword = false;
+    // check if field is populated
+    if (empty($_POST['loginPassword'])) {
+      $_SESSION["passwordError"] = "<div class='validate-error-message mb-2'>A password is required</div>";
+      $validPassword = false;
     }
     $_POST['loginPassword'] = md5($_POST['loginPassword']);
 }
@@ -41,12 +45,12 @@ if ($valid_Login_form) {
   } else {
     $_SESSION['user_access_error'] = "<div class='validate-error-message mb-2'>Oops... Please check your email and password are correct.<?div>";
     $_SESSION['logged_in'] = false;
-    header('location: ../guest-login');
+    header('location: ../guest-login.php');
     exit;
   }
     $stmt->close();
 } else {
-    header('location: ../wishlist.php');
+    header('location: ../guest-login.php');
     exit;
 }
     // Register global variables for user role
@@ -54,14 +58,13 @@ if ($valid_Login_form) {
     $_SESSION['logged_in'] = true;
     $admin_user_role = 3;
 
-    if ($user_role === $admin_user_role) {
+    if ($user_role === $user_role) {
         $_SESSION['logged_in'] = true;
-
         header('location: ../wishlist.php');
     } else {
-        $_SESSION['user_access_error'] = "<div class='validate-error-message mb-2'>Sorry " . $stored_name . ", you have not entered the correct details.<?div>";
+        $_SESSION['user_access_error'] = "<div class='validate-error-message mb-2'>Sorry " . $stored_name . ", you don't have access to the Admin Dashboard.<?div>";
         $_SESSION['logged_in'] = false;
-        unset($_SESSION['guestUserName']);
+        unset($_SESSION['userName']);
         header('location: ../guest-login');
         exit;
       }

@@ -1,5 +1,6 @@
 <?php
   include 'includes/db-connect.php';
+  session_start();
 ?>
 
 <!DOCTYPE html>
@@ -73,7 +74,7 @@ include 'includes/featured-listings.php';
                     echo "</tr>";
                     echo "<div class='card-block'>";
                     echo "<tr>";
-                    echo "<td><div class='card-data'><a class='view-listing' href='product.php?listing_id=$listing_id'><h4 class='card-title' >" . $row['title'] . "</h4></a><span>" . $row['address'] . "<br><span>Price: $" . $row['price'] . "</span><br><span> <i class='fa fa-bed' aria-hidden='true'></i> : " . $row['bed_no'] . " " .  "<i class='fa fa-bath' aria-hidden='true'></i>  :  " . $row['bath_no']  . " " .  "<i class='fa fa-car' aria-hidden='true'></i>  :  " . $row['garage_no'] . " <a style='float: right' class= 'wishlist-icon' href='guest-login.php' action= 'post' ><i class='fa fa-heart' aria-hidden='true'> </i></a>" . "</span></div></td>";
+                    echo "<td><div class='card-data'><a class='view-listing' href='product.php?listing_id=$listing_id'><h4 class='card-title' >" . $row['title'] . "</h4></a><span>" . $row['address'] . "<br><span>Price: $" . $row['price'] . "</span><br><span> <i class='fa fa-bed' aria-hidden='true'></i> : " . $row['bed_no'] . " " .  "<i class='fa fa-bath' aria-hidden='true'></i>  :  " . $row['bath_no']  . " " .  "<i class='fa fa-car' aria-hidden='true'></i>  :  " . $row['garage_no'] . " <a style='float: right' class= 'wishlist-icon' href='processes/process-wishlist-button.php' action= 'post' ><i class='fa fa-heart' aria-hidden='true'> </i></a>" . "</span></div></td>";
 
                     echo "</div>";
                     echo "</table>";

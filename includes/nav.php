@@ -19,11 +19,19 @@
                     <li class="nav-item">
                       <a class="nav-link" href="/bay-realty/contact-us">Contact Us</a>
                     </li>
+              
                     <li class="nav-item">
                       <a class="nav-link" href="/bay-realty/wishlist"><i class="fa fa-heart fa-lg"></i></a>
                     </li>
+                          
+               <li class="nav-item">
+                    <div class="welcome ml-auto"><?php if (isset($_SESSION['guestUserName'])) { echo "<a class='nav-link no-dropdown' href='processes/process-logout'><i class='fa fa-sign-out fa-2x fa-fw'></i><span class='d-none d-md-inline'> Logout</span></a>"; }; ?></div>
+                  </li>
                       <li class="nav-item">
                     
+                  </li>
+                  <li class="nav-item">
+                    <div class="welcome ml-auto"><?php if (isset($_SESSION['guestUserName'])) { echo "<p>" . $_SESSION['guestUserName'] . "</p>"; }; ?></div>
                   </li>
                   </ul>
                 </div>
