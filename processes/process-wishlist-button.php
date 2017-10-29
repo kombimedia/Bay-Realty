@@ -1,7 +1,7 @@
-<?php 
+<?php
 
 session_start();
-if (isset($_SESSION['guestUserName'])) { 
+if (isset($_SESSION['guestUserName'])) {
 
 	$listing_id = $_GET['listing_id'];
 
@@ -10,7 +10,7 @@ if (isset($_SESSION['guestUserName'])) {
 
   $stmt1 = $mysqli->prepare("INSERT INTO agents (wishlist) VALUES (?) WHERE ");
         $stmt1->bind_param("sssssis", $_POST['listing_id']);
- 
+
  $stmt->execute();
  $result = $stmt->get_result();
  if($result->num_rows > 0) {
