@@ -12,38 +12,36 @@ if (isset($_SESSION['guestUserName'])) {
 $stmt1 = $mysqli->prepare("SELECT my_wishlist FROM users WHERE user_id = ?");
 $stmt1->bind_param("i",  $user_id);
 if(!$stmt1->execute()) {
-	echo "select failed ("$stmt1->errno . ") " . $stmt1->error;
+  echo "select failed ("$stmt1->errno . ") " . $stmt1->error;
 }
 $result = $stmt1->get_result();
 
 
 if($result->num_rows > 0) {
-$wislist_array = $row['my_wishlist'];	
+$wislist_array = $row['my_wishlist']; 
 } else {
-	echo "no user row selected";
+  echo "no user row selected";
 }
 
 $stmt1->close();
 array_push($wishlist_array, $listing_id); 
 
 
-	
+  
 $stmt = $mysqli->prepare("UPDATE users SET my_wishlist = ? WHERE user_id = ?");
 $stmt->bind_param("ii", $wishlist_array, $user_id);
 if(!$stmt->execute()) {
-	echo "update failed ("$stmt->errno . ") " . $stmt->error;
+  echo "update failed ("$stmt->errno . ") " . $stmt->error;
 }
 
 $stmt->close();
 
 } else {
-	echo "login error";
+  echo "login error";
 }
 
 echo "script executed";
 
-	// else{
-	// 	header('location: ../guest-login');
-	// }
-
-   
+  // else{
+  //  header('location: ../guest-login');
+  // }
