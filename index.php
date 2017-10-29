@@ -34,20 +34,15 @@
       </div>
     </div>
     <!-- Home widget top area -->
-    <div class="container-fluid" id="featured-container">
+    <div class="container-fluid home-widget-top-background" id="featured-container">
       <div class="container home-widget-top-container">
         <div class="row">
-          <div class="col">
+          <!-- <div class="col"> -->
             <div class="home-widget-top">
-              <h2 class="text-center" >Featured Properties</h2>
-
-<?php
-
-include 'includes/featured-listings.php';
-?>
-
+              <h1 class="text-center" >Featured Properties</h1>
+              <?php include 'includes/featured-listings.php'; ?>
             </div>
-          </div>
+          <!-- </div> -->
         </div>
       </div>
     </div>
@@ -56,7 +51,7 @@ include 'includes/featured-listings.php';
 
        <div class="container property-listing-div">
 
-              <h2 class="text-center mt-4">Listed Properties</h2>
+              <h1 class="text-center">Listed Properties</h1>
               <div class="row no-gutters">
    <?php
   $sql = "SELECT listing_id, address, price, bed_no, bath_no, featured_image, title, garage_no FROM properties ORDER BY RAND()";
@@ -67,7 +62,7 @@ include 'includes/featured-listings.php';
                     echo "<div class='col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4  property-listing-table'>";
                     echo "<div class='card'>";
                     echo "<table>";
-                
+
 
                     echo "<tr><td><a class='view-listing' href='product.php?listing_id=$listing_id'><img class='card-img-top' src='images/uploads/" .$row['featured_image'] . "' alt='Card image cap''></a></td>";
 
@@ -90,9 +85,7 @@ include 'includes/featured-listings.php';
             </div>
           </div>
 
+    <?php include 'includes/footer.php'; ?>
 
-    <?php
-      include 'includes/footer.php';
-    ?>
   </body>
 </html>

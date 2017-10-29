@@ -204,7 +204,7 @@ form.contact-form .form-inline .form-control {
 /* Slider styles
 ----------------------------------------------------- */
 .slider-inner {
-  padding: 30px 0;
+  padding-bottom: 3rem 0;
 }
 
 /* featured listings
@@ -218,7 +218,6 @@ form.contact-form .form-inline .form-control {
   float: left;
   display: inline-block;
   background-color: #fff;
-
   padding: 10px 10px 20px 10px !important;
 }
 
@@ -242,6 +241,9 @@ form.contact-form .form-inline .form-control {
 
 /* Search Tool
 ----------------------------------------------------- */
+.search-listings-container {
+  padding: 5rem 0;
+}
 .search-listings td {
   padding: 5px 10px 5px 10px;
 }
@@ -266,6 +268,9 @@ form.contact-form .form-inline .form-control {
 
 /* Product Content
 ----------------------------------------*/
+/*.product-outer-container {
+  padding: 5rem 0;
+}*/
 #product-3 {
   padding-left: 2em;
   padding-top: 2em;
@@ -282,16 +287,16 @@ form.contact-form .form-inline .form-control {
   padding-right: 40px;
 }
 .product-full {
-  margin-top: 5em;
-  margin-bottom: 20px;
-  padding-bottom: 2em;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+  padding: 2rem 1rem;
   border: 1pt solid;
   border-color: #eaeaea;
   border-radius: 3pt;
 }
-#product_content {
+/*#product_content {
   padding: 0px 40px 0px 40px !important;
-}
+}*/
 .display-block-2 {
   padding-right: 80px;
 }
