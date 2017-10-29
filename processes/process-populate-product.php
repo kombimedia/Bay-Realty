@@ -52,7 +52,7 @@ $listing_id = $_GET['listing_id'];
       $price = money_format("%.0n", $number);
       $display_product = $display_product . "
       <tr>
-      <td><p>listing id: $listing_id </p><h4 style='color: #189ebb'>$listing_title</h4><p style='color: grey'>$address </p><a class= 'wishlist-icon' href='processes/process-wishlist-button.php' action= 'post' ><i class='fa fa-heart' aria-hidden='true'> Add to Wishlist</i></a>
+      <td><p>listing id: $listing_id </p><h4 style='color: #189ebb'>$listing_title</h4><p style='color: grey'>$address </p><a class= 'wishlist-icon' href='processes/process-wishlist-button.php?listing_id=$listing_id' action= 'post' ><i class='fa fa-heart' aria-hidden='true'> Add to Wishlist</i></a>
       </tr>";
 
 
