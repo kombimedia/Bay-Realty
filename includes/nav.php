@@ -21,7 +21,7 @@
                     </li>
               
                     <li class="nav-item">
-                      <a class="nav-link" href="/bay-realty/wishlist"><i class="fa fa-heart fa-lg"></i></a>
+                      <a class="nav-link" href="processes/process-wishlist-button.php"><i class="fa fa-heart fa-lg"></i></a>
                     </li>
                           
                <li class="nav-item">
