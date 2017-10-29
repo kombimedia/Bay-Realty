@@ -54,7 +54,7 @@ if ($valid_Login_form) {
     exit;
 }
     // Register global variables for user role
-    $_SESSION['guestUserName'] = "<p>Welcome " . $stored_name . "!</p>";
+    $_SESSION['guestUserName'] = "Welcome " . $stored_name . "!";
     $_SESSION['logged_in'] = true;
     $admin_user_role = 3;
 

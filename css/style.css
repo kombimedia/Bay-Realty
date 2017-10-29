@@ -73,6 +73,10 @@ button span i.fa-bars {
   opacity: 1;
   transition: opacity .5s;
 }
+.welcome {
+  color: #189ebb;
+  font-size: 1.2rem;
+}
 .header-image {
   background-image: url("../images/page-header.jpg");
   position: relative;
@@ -82,7 +86,6 @@ button span i.fa-bars {
   height: 400px;
   width: 100%;
 }
-
 .page-image-widget {
   position: absolute;
   top: 50%;
@@ -96,7 +99,6 @@ button span i.fa-bars {
   transform: translate(-50%,-50%);
   color: #fff;
 }
-
 .content-widget {
   padding: 100px 20px;
 }
@@ -135,14 +137,10 @@ span.copyrite {
 table.our-team {
   font-size: 75%;
 }
-ul.property-press{
+ul.contact-details{
   list-style: none;
   padding-left: 0px;
 }
-
-/* Page styles
------------------------------------------------------ */
-
 
 /* Error Messages
 -------------------------------------------------- */
@@ -204,21 +202,20 @@ form.contact-form .form-inline .form-control {
 /* Slider styles
 ----------------------------------------------------- */
 .slider-inner {
-  padding: 30px 0;
+  padding-bottom: 2rem;
 }
 
 /* featured listings
 ----------------------------------------------------- */
 .page-content-top img{
   width: 100%;
-  height: 300px;
+  height: 100%;
+  max-height: 300px;
 }
-
 .featured-property-table {
   float: left;
   display: inline-block;
   background-color: #fff;
-
   padding: 10px 10px 20px 10px !important;
 }
 
@@ -229,7 +226,8 @@ form.contact-form .form-inline .form-control {
 }
 .property-listing-table img {
   width: 100%;
-  height: 200px;
+  height: 100%;
+  max-height: 200px;
 }
 .card-image-top img {
   width: 100% !important;
@@ -242,6 +240,9 @@ form.contact-form .form-inline .form-control {
 
 /* Search Tool
 ----------------------------------------------------- */
+.search-listings-container {
+  padding: 5rem 0;
+}
 .search-listings td {
   padding: 5px 10px 5px 10px;
 }
@@ -250,14 +251,15 @@ form.contact-form .form-inline .form-control {
 }
 .search-listings-container h4 {
   text-align: left;
-  color: #42b3f4;
+  color: #189ebb;
 }
 
 /* Carasaul styling on product page
 --------------------------------------- */
 .carousel-item img {
   width: 100% !important;
-  height: 450px !important;
+  height: 100%;
+  max-height: 450px !important;
 }
 .carousel-item{
   padding-left: 20px;
@@ -266,12 +268,15 @@ form.contact-form .form-inline .form-control {
 
 /* Product Content
 ----------------------------------------*/
+.product-heading {
+  padding: 5rem 0 0 0;
+}
 #product-3 {
   padding-left: 2em;
   padding-top: 2em;
   background-color: #eaeaea;
   font-size: 10pt;
-  margin-top: 16px;
+  margin-top: 3em;
 }
 #product-3 span {
   display: inline;
@@ -282,16 +287,16 @@ form.contact-form .form-inline .form-control {
   padding-right: 40px;
 }
 .product-full {
-  margin-top: 5em;
-  margin-bottom: 20px;
-  padding-bottom: 2em;
+  /*margin-top: 5rem;*/
+  margin-bottom: 5rem;
+  padding: 2rem 1rem;
   border: 1pt solid;
   border-color: #eaeaea;
   border-radius: 3pt;
 }
-#product_content {
+/*#product_content {
   padding: 0px 40px 0px 40px !important;
-}
+}*/
 .display-block-2 {
   padding-right: 80px;
 }
@@ -309,17 +314,16 @@ form.contact-form .form-inline .form-control {
 .agent {
   padding-right: 0px !important;
   padding-left: 0px !important;
-  border: 1pt solid;
-  border-color: #189ebb;
-  border-radius: 2;
+  border: 1pt solid #189ebb;
+  border-radius: 2px;
+}
+.contact-agent{
+  background-color: #189ebb;
+  padding: 8px;
 }
 .contact-agent h4 {
-  background-color: #189ebb;
   color: #fff;
-  padding: 5px 5px 5px 5px;
-  padding: 5px;
-  border: 1pt solid;
-  border-color: #189ebb;
+  margin-bottom: 0;
 }
 #product-map-agent {
   margin-top: 40px;
@@ -336,7 +340,7 @@ form.contact-form .form-inline .form-control {
   margin:auto;
   padding-top: 10px;
 }
-a[href^="tel:"]:before {
+/*a[href^="tel:"]:before {
   content: "\260E";
   display: inline-block;
   margin-right: 0.6em;
@@ -346,7 +350,7 @@ a[href^="tel:"]:before {
 }
 a[href^="tel:"] {
   color: #189ebb;
-}
+}*/
 .agent-descr {
   font-size: 10pt;
 }
@@ -385,5 +389,3 @@ a[href^="tel:"] {
   height: 80% !important;
 }
 }
-
-

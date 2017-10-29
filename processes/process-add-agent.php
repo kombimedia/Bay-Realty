@@ -8,6 +8,7 @@ $_SESSION['storeSurname'] = $_POST['surname'];
 $_SESSION['storeEmail'] = $_POST['email'];
 $_SESSION['storePhone'] = $_POST['phone'];
 $_SESSION['storeAgentDes'] = $_POST['agentDes'];
+// Check if select option has been selected. If so, save selection to a session
 if (isset($_POST['area'])) {
     $_SESSION['storeArea'] = $_POST['area'];
 }
@@ -71,7 +72,7 @@ if ($validForm) {
               // Set image name
               $image_name = $_FILES['file']['name'][$i];
               // Get image size
-              $image_size = $_FILES['file']['size'][$i] . 'Bytes';
+              $image_size = $_FILES['file']['size'][$i];
               // Declare path for uploaded images
               $file_path = "../images/uploads/".$image_name;
               // Validate image before storing to folder and DB
@@ -107,7 +108,7 @@ if ($validForm) {
         if (!$stmt1->execute()) {
             // if insert is unsuccessful throw error
            header('location: ../dashboard-add-agent');
-           //$_SESSION["errorMessage"] = "<div class='error-message'>An error has occurred: " . $stmt1->errno . " " . $stmt1->error. "</div>";
+           $_SESSION["errorMessage"] = "<div class='error-message'>Oops. Something went wrong... (" . $stmt1->errno . ") " . $stmt1->error. ".<br>Please see your website administrator and quote this error message</div>";
            exit;
            }
            $stmt1->close();
@@ -124,11 +125,12 @@ if ($validForm) {
     exit;
   }
 
-// Get the just created listing_id and save to a variable
+// Get the just created agent_id and save to a variable
 $new_agent_id = mysqli_insert_id($mysqli);
 
 // if agent is successfully created go back to dashboard 'add agent' page and print success message
 $_SESSION["successMessage"] = "<div class='success-message'>New Agent with ID: " . $new_agent_id . " successfully created.</div>";
+// Reset all input fields
 unset($_SESSION['storeFirstName']);
 unset($_SESSION['storeSurname']);
 unset($_SESSION['storeEmail']);

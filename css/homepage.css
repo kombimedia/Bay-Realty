@@ -58,41 +58,36 @@ form button.btn {
 
 /* Content styles
 ----------------------------------------------------- */
+.home-widget-top-background {
+  background-color: #f1f1f1;
+  padding: 5rem 0;
+}
 .home-image-widget h1 {
   color: #fff;
 }
-
 .home-widget-top img{
   width: 100%;
-  
 }
-
-.home-widget-top,
+/*.home-widget-top,*/
 .home-widget-bottom {
   padding: 100px 20px;
 }
+
 /* Homepage property listings
 ----------------------------------------------------- */
 .property-listing-table{
-
   float: left;
   display: inline-block;
   width: 100%;
   padding: 10px 5px 10px 5px !important;
-
 }
 .property-listing-table img{
   width: 100%;
-  
 }
-
-
 .property-listing-div{
-  padding-bottom: 20px;
+  padding: 5rem 0;
 }
 .card-image-top img{
-   
-
 }
 .card-data{
   padding: 5px !important;
@@ -104,10 +99,10 @@ form button.btn {
 
 /* Homepage featured listings*/
 
-#featured-container{
+/*#featured-container{
   background-color: #f1f1f1;
   padding-bottom: 20px;
-}
+}*/
 
 
 

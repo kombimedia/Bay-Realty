@@ -3,14 +3,13 @@ $title = "Bay Realty - Product Page";
 $metaD = "Product page";
 include 'includes/header.php';
 include 'includes/search.php';
-?>
-
-<?php
 include 'processes/process-populate-product.php';
 include 'processes/process-populate-image-carousel.php';
 include 'processes/process-populate-agent.php';
 ?>
-
+<div class="container product-heading">
+  <h1 class="mb-3"><?php echo $listing_title ?></h1>
+</div>
 <div class="container product-full">
   <div class=" slider-inner">
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -49,7 +48,7 @@ include 'processes/process-populate-agent.php';
       <div class="welcome ml-auto"><?php if (isset($_SESSION['guestUserName'])) { echo $_SESSION['guestUserName']; }; ?></div>
      <table>
        <?php echo $display_product ?>
-     </table> 
+     </table>
    </div>
  </div>
  <div id="product-2" class="row no-gutters">
@@ -81,7 +80,6 @@ include 'processes/process-populate-agent.php';
 </div>
 </div>
 </div>
-    
 </div>
 
 <?php

@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Rename image and path to include property listing_id
             $image_name = $update_listing_id . '_' . $image_name;
             // Get image size
-            $image_size = $_FILES['file']['size'][$i] . 'Bytes';
+            $image_size = $_FILES['file']['size'][$i];
             // Declare path for uploaded images
             $file_path = "../images/uploads/".$image_name;
             // Validate image before storing to folder and DB
@@ -81,66 +81,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 // close db connection
 $mysqli->close();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // Get form data and save to variables
-    // $sales_agent = $_POST["updateSalesAgent"];
-    // $listing_title = $_POST["updateListingTitle"];
-    // $address = $_POST["updateStreetAddress"];
-    // $city = $_POST["updateCity"];
-    // $type = $_POST["updatePropertyType"];
-    // $price = $_POST["updatePrice"];
-    // $sell_method = $_POST["updateSaleMethod"];
-    // $bedrooms = $_POST["updateBedrooms"];
-    // $bed_des = $_POST["updateBedDescription"];
-    // $bathrooms = $_POST["updateBathrooms"];
-    // $bath_des = $_POST["updateBathDescription"];
-    // $lounges = $_POST["updateLounges"];
-    // $lounge_des = $_POST["updateLoungeDescription"];
-    // $garages = $_POST["updateGarages"];
-    // $garage_des = $_POST["updateGarageDescription"];
-    // $house_size = $_POST["updateHouseSize"];
-    // $land_size = $_POST["updateLandSize"];
-    // $map_co_ords = $_POST["updateMapCoord"];
-    // $property_des = $_POST["updatePropDes"];
-    // $featured_image = $_POST["updateFImage"];
-
-    // Get post data from validation script
-    // $sales_agent = $_SESSION["storeSalesAgent"];
-    // $listing_title = $_SESSION["storeListingTitle"];
-    // $address = $_SESSION["storeStreetAddress"];
-    // $city = $_SESSION["storeCity"];
-    // $type = $_SESSION["storePropertyType"];
-    // $price = $_SESSION["storePrice"];
-    // $sell_method = $_SESSION["storeSaleMethod"];
-    // $bedrooms = $_SESSION["storeBedrooms"];
-    // $bed_des = $_SESSION["storeBedDescription"];
-    // $bathrooms = $_SESSION["storeBathrooms"];
-    // $bath_des = $_SESSION["storeBathDescription"];
-    // $lounges = $_SESSION["storeLounges"];
-    // $lounge_des = $_SESSION["storeLoungeDescription"];
-    // $garages = $_SESSION["storeGarages"];
-    // $garage_des = $_SESSION["storeGarageDescription"];
-    // $house_size = $_SESSION["storeHouseSize"];
-    // $land_size = $_SESSION["storeLandSize"];
-    // $map_co_ords = $_SESSION["storeMapCoord"];
-    // $property_des = $_SESSION["storeListingDescription"];
-    // $featured_listing = $_SESSION["storeFeaturedListing"];
-    // $featured_image = $_SESSION["storeupdateFImage"];
-
-
-

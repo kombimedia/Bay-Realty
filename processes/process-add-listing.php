@@ -214,6 +214,7 @@ if ($valid_listing) {
     $new_listing_id = mysqli_insert_id($mysqli);
     // Close query
     $stmt->close();
+// If validation fails go back to the add listing page
 } else {
     header('Location: ../dashboard-add-listing.php');
     exit;
@@ -224,13 +225,13 @@ if ($valid_listing) {
 $tempdir = "../images/temp/";
 // Define images to get from folder
 $image_files = glob("$tempdir{*.jpg,*.jpeg,*.png}", GLOB_BRACE);
-//loop through images array to get individual element - name, extension
+//loop through images array to get individual elements - name, extension
 for ($i = 0; $i < count($image_files); $i++) {
     // Get extensions and store to a variable
     $ext = explode('.', basename($image_files[$i]));
     $image_type = end($ext);
     // Get file size
-    $image_size = filesize($image_files[$i]). 'Bytes';
+    $image_size = filesize($image_files[$i]);
     // Save temp file path to a variable
     $temp_files = $image_files[$i];
     // Get file name and save to a variable
