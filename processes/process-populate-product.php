@@ -48,12 +48,13 @@ $listing_id = $_GET['listing_id'];
 
       // currency
 
-      if ($sell_method !== "") {
-          $price = $sell_method;
-      }
+
       $number = $price;
       setlocale(LC_MONETARY,"en_NZ");
       $price = money_format("%.0n", $number);
+      if ($sell_method !== "") {
+          $price = $sell_method;
+      }
       $display_product = $display_product . "
       <tr>
       <td><p>listing id: $listing_id </p><h4 style='color: #189ebb'>$listing_title</h4><p style='color: grey'>$address </p><a class= 'wishlist-icon' href='processes/process-wishlist-button.php?listing_id=$listing_id' action= 'post' ><i class='fa fa-heart' aria-hidden='true'> Add to Wishlist</i></a>
