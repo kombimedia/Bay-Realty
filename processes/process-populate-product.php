@@ -47,6 +47,10 @@ $listing_id = $_GET['listing_id'];
       $listing_id = $row['listing_id'];
 
       // currency
+
+      if ($sell_method !== "") {
+          $price = $sell_method;
+      }
       $number = $price;
       setlocale(LC_MONETARY,"en_NZ");
       $price = money_format("%.0n", $number);
