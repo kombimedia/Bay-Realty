@@ -5,18 +5,47 @@ $search_output = "";
 $search_output2 = "";
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
-if(isset($_POST['submit_search'])){
-$search_bar = preg_replace('#[^a-z 0-9?!]#i', '', $_POST['search_bar']);
-$search_bar = "%" . $search_bar . "%";
+
+if (isset($_POST['city'])) {
+    $_POST['city'] = $_POST['city'];
+} else {
+    $_POST['city'] = "";
+}
+if (isset($_POST['type'])) {
+    $_POST['type'] = $_POST['type'];
+} else {
+    $_POST['type'] = "";
+}
+
+if (isset($_POST['submit_search'])) {
+    $search_bar = preg_replace('#[^a-z 0-9?!]#i', '', $_POST['search_bar']);
+    $search_bar = "%" . $search_bar . "%";
 
 // select query based on user input
 
-$stmt = $mysqli->prepare("SELECT listing_id, address, price, bed_no, bath_no, property_des, featured_image, title, garage_no FROM properties WHERE  property_des LIKE  (?) OR categories = ? AND type = ?");
-$stmt->bind_param("sii", $search_bar, $_POST['city'], $_POST['type']);
-$stmt->execute();
-$result = $stmt->get_result();
+// $stmt = $mysqli->prepare("SELECT listing_id, address, price, bed_no, bath_no, property_des, featured_image, title, garage_no FROM properties WHERE property_des LIKE ? OR categories = ? AND type = ?");
+// $stmt->bind_param("sii", $search_bar, $_POST['city'], $_POST['type']);
+// $stmt->execute();
+// $result = $stmt->get_result();
 
+if ($_POST['search_bar'] != "") {
+    $stmt = $mysqli->prepare("SELECT listing_id, address, price, bed_no, bath_no, property_des, featured_image, title, garage_no FROM properties WHERE property_des LIKE ? OR title LIKE ?");
+    $stmt->bind_param("ss", $search_bar, $search_bar);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
+} elseif ($_POST['city'] != "" && $_POST['type'] != "") {
+    $stmt = $mysqli->prepare("SELECT listing_id, address, price, bed_no, bath_no, property_des, featured_image, title, garage_no FROM properties WHERE categories = ? AND type = ?");
+    $stmt->bind_param("ii", $_POST['city'], $_POST['type']);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+} else {
+    $stmt = $mysqli->prepare("SELECT listing_id, address, price, bed_no, bath_no, property_des, featured_image, title, garage_no FROM properties WHERE categories = ? OR type = ?");
+    $stmt->bind_param("ii", $_POST['city'], $_POST['type']);
+    $stmt->execute();
+    $result = $stmt->get_result();
+}
 
 
 if($result->num_rows > 0) {
