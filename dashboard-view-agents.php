@@ -1,5 +1,6 @@
 <?php
 session_start();
+// Check visitor is logged in. If not redirect to login page
 if (!$_SESSION['logged_in']) {
     header('location: dashboard-login');
 }
@@ -12,7 +13,7 @@ include 'processes/process-populate-view-agents.php';
 ?>
 
 <h1>View Agents</h1>
-
+<!-- error/success messages -->
 <div><?php if (isset($_SESSION['successMessage'])) { echo $_SESSION['successMessage']; unset($_SESSION['successMessage']); }; ?></div>
 <div><?php if (isset($_SESSION['errorMessage'])) { echo $_SESSION['errorMessage']; unset($_SESSION['errorMessage']); }; ?></div>
 <div><?php if (isset($_SESSION['agentDelError'])) { echo $_SESSION['agentDelError']; unset($_SESSION['agentDelError']); }; ?></div>
@@ -36,6 +37,7 @@ include 'processes/process-populate-view-agents.php';
 </table>
 
 <script language="javascript">
+ // Confirm delete alert
  function deleteAgent(delagent) {
      if (confirm("Are you sure you want to delete this Agent?")) {
      window.location.href='processes/process-delete-agent.php?del_agent=' +delagent+'';

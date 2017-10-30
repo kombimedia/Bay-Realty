@@ -1,5 +1,6 @@
 <?php
 session_start();
+// Check visitor is logged in. If not redirect to login page
 if (!$_SESSION['logged_in']) {
     header('location: dashboard-login');
 }
@@ -12,7 +13,7 @@ include 'processes/process-populate-view-users.php';
 ?>
 
   <h1>View All Users</h1>
-<!-- DB error/success messages -->
+<!-- error/success messages -->
   <div><?php if (isset($_SESSION['successMessage'])) { echo $_SESSION['successMessage']; unset($_SESSION['successMessage']); }; ?></div>
   <div><?php if (isset($_SESSION['errorMessage'])) { echo $_SESSION['errorMessage']; unset($_SESSION['errorMessage']); }; ?></div>
 
@@ -31,6 +32,7 @@ include 'processes/process-populate-view-users.php';
 </table>
 
 <script language="javascript">
+ // Confirm delete alert
  function deleteUser(delluser) {
      if (confirm("Are you sure you want to delete this User?")) {
      window.location.href='processes/process-delete-user.php?del_user=' +delluser+'';

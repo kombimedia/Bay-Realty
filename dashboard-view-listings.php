@@ -1,5 +1,6 @@
 <?php
 session_start();
+// Check visitor is logged in. If not redirect to login page
 if (!$_SESSION['logged_in']) {
     header('location: dashboard-login');
 }
@@ -12,7 +13,7 @@ include 'processes/process-populate-view-listings.php';
 ?>
 
   <h1>View Listing</h1>
-
+  <!-- error/success messages -->
   <div><?php if (isset($_SESSION['successMessage'])) { echo $_SESSION['successMessage']; unset($_SESSION['successMessage']); }; ?></div>
   <div><?php if (isset($_SESSION['errorMessage'])) { echo $_SESSION['errorMessage']; unset($_SESSION['errorMessage']); }; ?></div>
   <div><?php if (isset($_SESSION['serverDelError'])) { echo $_SESSION['serverDelError']; unset($_SESSION['serverDelError']); }; ?></div>
@@ -46,6 +47,7 @@ include 'processes/process-populate-view-listings.php';
   </table>
 
 <script language="javascript">
+ // Confirm delete alert
  function deletelisting(dellisting) {
      if (confirm("Are you sure you want to delete this listing?")) {
      window.location.href='processes/process-delete-listing.php?del_listing=' +dellisting+'';

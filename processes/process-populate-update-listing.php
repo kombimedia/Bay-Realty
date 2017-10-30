@@ -216,7 +216,6 @@ $result = $stmt->get_result();
 if ($result->num_rows > 0) {
     // Loop through data and output each row
     while ($row4 = $result->fetch_assoc()) {
-        $arr[] = $row4;
         // Check to see which image is currently the featured image and 'check' this radio - current featured image will be preselected
         if ($row4['img_name'] == $featured_image) {
             // Build radio list populated with listing's featured image

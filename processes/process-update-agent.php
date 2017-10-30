@@ -36,7 +36,7 @@ if (isset($_POST['submit'])) {
                   }
                   // if file size or file type were incorrect throw error message
               } else {
-                  $_SESSION["imgFileError"] = "<div class='validate-error-message'>Oops... Please upload an image, max 500kb and a jpg, jpeg or png.</div>";
+                  //$_SESSION["imgFileError"] = "<div class='validate-error-message'>Oops... Please upload an image, max 500kb and a jpg, jpeg or png.</div>";
                   $validateProfileImage = false;
                 }
           }
@@ -56,7 +56,7 @@ if (isset($_POST['submit'])) {
             $path = "../images/uploads/" . $row['profile_pic'];
             } else {
                 // If no matching images are found there is an issue so throw error
-                $_SESSION["imageDelFileError"] = "<div class='error-message'>Old profile pic was not deleted from the server. Please contact website administrator</div>";
+                $_SESSION["imageDelFileError"] = "<div class='error-message'>Oops! Something went wrong... (" . $stmt->errno . ") " . $stmt->error. ".<br>Please see your website administrator and quote this error message.</div>";
               }
             // Delete image file from folder
             unlink($path);
@@ -71,6 +71,9 @@ if (isset($_POST['submit'])) {
                 header('location: ../dashboard-update-agent');
           }
           $stmt->close();
+      } else {
+            $_SESSION["errorMessage"] = "<div class='error-message'>Oops... Image wasn't uploaded to agent ID: " . $update_agent_id . ". Should be max 500kb and a jpg, jpeg or png. Please try again with a smaller image.</div>";
+            header('location: ../dashboard-view-agents');
       }
 
       // Update existing Agent details in database

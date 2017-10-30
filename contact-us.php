@@ -48,6 +48,7 @@ include 'includes/header.php';
 </div>
 
 <script>
+// Script to insert Google map
 function initMap() {
 var headOffice = {lat: -37.690429 , lng: 176.1678983};
 var map = new google.maps.Map(document.getElementById('map'), {

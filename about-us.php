@@ -1,20 +1,8 @@
-
 <?php
 $title = "Bay Realty - About_us";
 $metaD = "About_us_page";
-
-
 include 'includes/header.php';
 ?>
-
-
-
-
-
-<!-- Content------------------------------------- -->
-<!-- --------------About Us--------------------- -->
-
-
 
 <div class="container">
   <div class="content pt-5 pb-5">

@@ -1,5 +1,6 @@
 <?php
 session_start();
+// Check visitor is logged in. If not redirect to login page
 if (!$_SESSION['logged_in']) {
     header('location: dashboard-login');
 }
@@ -35,6 +36,7 @@ include 'processes/process-populate-images.php';
 </table>
 
 <script language="javascript">
+  // Delete confirm alert
  function deleteimage(dellimage) {
      if (confirm("Are you sure you want to delete this image?")) {
      window.location.href='processes/process-delete-image.php?del_image=' +dellimage+'';

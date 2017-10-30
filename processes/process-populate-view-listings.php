@@ -59,6 +59,7 @@ if($result->num_rows > 0) {
         $row['garage_no'] = $row['garage_no'] . " +";
       }
 
+    // Build table row to populate page
     $populate_view_listings = $populate_view_listings . "
     <tr>
         <td><img width='150' src='images/uploads/$row[featured_image]'></td>
