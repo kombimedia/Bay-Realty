@@ -8,13 +8,12 @@ $result = $stmt->get_result();
 if($result->num_rows > 0) {
   // Loop through data and save each row array to a variable
   while($row = $result->fetch_assoc()) {
-
     // Convert decimal from DB to currency to display on the page
     $number = $row['price'];
     setlocale(LC_MONETARY,"en_NZ");
     $row['price'] = money_format("%.0n", $number);
 
-// Category and agent are stored in the properties table as their ID. To convert this id to the string value we needed compare the Id to the corresponding table (categories and agents) then output the matching value string e.g Cy Messenger instead of 1
+// Category and agent are stored in the properties table as their ID. To convert this id to the string value we need to compare the Id to the corresponding table (categories and agents) then output the matching value string e.g Cy Messenger instead of 1
 
     // compare stored data to categories table and save ID as string value
     if ($row['categories'] === $row['cat_id']) {
@@ -28,6 +27,7 @@ if($result->num_rows > 0) {
         $row['agents'] = $name;
       }
 
+    // Build table row to populate page
     $populate_dashboard_listings = $populate_dashboard_listings . "
     <tr>
         <td><img width='150' src='images/uploads/$row[featured_image]'></td>
@@ -39,11 +39,9 @@ if($result->num_rows > 0) {
         <td>$row[price]</td>
         <td>$row[sell_method]</td>
     </tr>";
- }
-    } else {
-        $_SESSION["errorMessage"] = "<div class='error-message'>No listings to show</div>";
-        $stmt->close();
-        exit;
+    }
+} else {
+    $_SESSION["errorMessage"] = "<div class='error-message'>No listings to show</div>";
     }
 $stmt->close();
 
@@ -56,12 +54,14 @@ $result = $stmt->get_result();
 if($result->num_rows > 0) {
   // Loop through data and save each row array to a variable
   while($row = $result->fetch_assoc()) {
-
     // compare stored data to categories table and save ID as string value
     if ($row['area_id'] === $row['cat_id']) {
         $row['area_id'] = $row['city'];
       }
+
     $name = $row['first_name'] . " " . $row['surname'];
+
+    // Build table row to populate page
     $populate_dashboard_agents = $populate_dashboard_agents . "
     <tr>
         <td><img width='100' height='100' src='images/uploads/$row[profile_pic]'></td>
@@ -73,20 +73,26 @@ if($result->num_rows > 0) {
     </tr>";
 
   }
-}
+} else {
+    $_SESSION["errorMessage"] = "<div class='error-message'>No agents to show</div>";
+    }
 $stmt->close();
 
-// Populate Latest Users
+// Populate User Signups
 $populate_dashboard_users = "";
 $stmt = $mysqli->prepare("SELECT users.user_id, users.first_name, users.surname, users.email, users.role, user_roles.role_id, user_roles.user_role FROM users INNER JOIN user_roles ON users.role = user_roles.role_id ORDER BY users.user_id DESC LIMIT 10");
 $stmt->execute();
 $result = $stmt->get_result();
 if($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
+        // compare stored data to users table and save ID as string value
         if ($row['role'] === $row['role_id']) {
             $row['role'] = $row['user_role'];
         }
+
         $name = $row['first_name'] . " " . $row['surname'];
+
+        // Build table row to populate page
         $populate_dashboard_users = $populate_dashboard_users . "
             <tr>
                 <td>$row[user_id]</td>

@@ -12,7 +12,10 @@ if($result->num_rows > 0) {
     if ($row['area_id'] === $row['cat_id']) {
         $row['area_id'] = $row['city'];
       }
+
     $name = $row['first_name'] . " " . $row['surname'];
+
+    // Build table row to populate page
     $populate_our_team = $populate_our_team . "
     <tr>
         <td><img width='70' height='70' src='images/uploads/$row[profile_pic]'></td>
@@ -22,4 +25,3 @@ if($result->num_rows > 0) {
   }
 }
 $stmt->close();
-// <td>$row[email]<br>$row[area_id]</td>

@@ -10,6 +10,7 @@ $stmt->bind_param("i", $user_id);
 $stmt->execute();
 $result = $stmt->get_result();
 if($result->num_rows > 0) {
+    // Loop through data and output each row
     while($row = $result->fetch_assoc()) {
         // Set variables to populate form
         $first_name = $row['first_name'];
@@ -25,6 +26,6 @@ if($result->num_rows > 0) {
               }
         }
 } else {
-    $_SESSION["imageError"] = "<div class='error-message'>Uh oh... This form shouldn't be empty. Please contact your website administrator.</div>";
+    $_SESSION["imageError"] = "<div class='error-message'>Oops! Something went wrong... (" . $stmt->errno . ") " . $stmt->error. ".<br>Please see your website administrator and quote this error message.</div>";
     }
 $stmt->close();

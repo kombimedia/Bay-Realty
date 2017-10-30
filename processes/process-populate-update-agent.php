@@ -28,6 +28,6 @@ if($result->num_rows > 0) {
               }
         }
 } else {
-    $_SESSION["imageError"] = "<div class='error-message'>Uh oh... This form shouldn't be empty. Please contact your website administrator.</div>";
+    $_SESSION["imageError"] = "<div class='error-message'>Oops! Something went wrong... (" . $stmt->errno . ") " . $stmt->error. ".<br>Please see your website administrator and quote this error message.</div>";
     }
 $stmt->close();

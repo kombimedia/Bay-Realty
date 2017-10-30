@@ -8,8 +8,8 @@ $stmt->bind_param("i", $listing_id);
 $stmt->execute();
 $result = $stmt->get_result();
 if($result->num_rows > 0) {
+    // Loop through each row and save the array to a variable
     while($row = $result->fetch_assoc()) {
-      // Loop through each row and save the array to a variable
       $agents = $row['agents'];
       $listing_title = $row['title'];
       $address = $row['address'];
@@ -34,11 +34,12 @@ if($result->num_rows > 0) {
     }
 } else {
       // If there is no data to be displayed throw an error message
-      $_SESSION["propertiesErrorMessage"] = "<div class='error-message'>Ahhhh... It appears most of the form fields are empty. That's annoying! You should maybe contact the website administrator and get that fixed.</div>";
+      $_SESSION["propertiesErrorMessage"] = "<div class='error-message'>Oops! Something went wrong... (" . $stmt->errno . ") " . $stmt->error. ".<br>Please see your website administrator and quote this error message.</div>";
       }
 $stmt->close();
 
 // Get data for the 'select lists' to dynamically build each list with the saved option preselected
+// Agents select options
 $options_agents = "";
 $stmt = $mysqli->prepare("SELECT agent_id, first_name, surname FROM agents");
 $stmt->execute();
@@ -46,7 +47,6 @@ $result = $stmt->get_result();
 if($result->num_rows > 0) {
     // Loop through data and output each row
     while($row1 = $result->fetch_assoc()) {
-        $arr[] = $row1;
         $agent_name = $row1['first_name'] . " " . $row1['surname'];
           // compare the stored value from the properties table to that of the agents table. If there is a match add the 'selected' tag to that option
         if ($agents == $row1['agent_id']) {
@@ -58,10 +58,11 @@ if($result->num_rows > 0) {
       }
 } else {
       // If there is no data to be displayed throw an error message
-      $_SESSION["agentsErrorMessage"] = "<div class='error-message'>Hmmmm... For some reason the correct Agent's name hasn't been selected. That's annoying! You should maybe contact the website administrator and get that fixed.</div>";
+      $_SESSION["agentsErrorMessage"] = "<div class='error-message'>Oops! Something went wrong... (" . $stmt->errno . ") " . $stmt->error. ".<br>Please see your website administrator and quote this error message.</div>";
       }
 $stmt->close();
 
+// City select options
 $options_city = "";
 $stmt = $mysqli->prepare("SELECT cat_id, city FROM categories");
 $stmt->execute();
@@ -69,7 +70,6 @@ $result = $stmt->get_result();
 if($result->num_rows > 0) {
     // Loop through data and output each row
     while($row2 = $result->fetch_assoc()) {
-      $arr[] = $row2;
       // compare the stored value from the properties table to that of the categories table. If there is a match add the 'selected' tag to that option
       if ($categories == $row2['cat_id']) {
             $options_city = $options_city . "<option selected value='$row2[cat_id]'>$row2[city]</option>";
@@ -80,10 +80,11 @@ if($result->num_rows > 0) {
       }
 } else {
       // If there is no data to be displayed throw an error message
-      $_SESSION["categoriesErrorMessage"] = "<div class='error-message'>Hmmmm... For some reason the correct City hasn't been selected. That's annoying! You should maybe contact the website administrator and get that fixed.</div>";
+      $_SESSION["categoriesErrorMessage"] = "<div class='error-message'>Oops! Something went wrong... (" . $stmt->errno . ") " . $stmt->error. ".<br>Please see your website administrator and quote this error message.</div>";
       }
 $stmt->close();
 
+// Type select options
 $options_type = "";
 $stmt = $mysqli->prepare("SELECT pt_id, type FROM property_type");
 $stmt->execute();
@@ -91,7 +92,6 @@ $result = $stmt->get_result();
 if($result->num_rows > 0) {
     // Loop through data and output each row
     while($row3 = $result->fetch_assoc()) {
-      $arr[] = $row3;
       // compare the stored value from the properties table to that of the type table. If there is a match add the 'selected' tag to that option
       if ($type == $row3['pt_id']) {
           $options_type = $options_type . "<option selected value='$row3[pt_id]'>$row3[type]</option>";
@@ -102,10 +102,11 @@ if($result->num_rows > 0) {
         }
 } else {
       // If there is no data to be displayed throw an error message
-      $_SESSION["typeErrorMessage"] = "<div class='error-message'>Hmmmm... For some reason the correct Property Type hasn't been selected. That's annoying! You should maybe contact the website administrator and get that fixed.</div>";
+      $_SESSION["typeErrorMessage"] = "<div class='error-message'>Oops! Something went wrong... (" . $stmt->errno . ") " . $stmt->error. ".<br>Please see your website administrator and quote this error message.</div>";
       }
 $stmt->close();
 
+// Beds select options
 $options_beds = "";
 for($i = 1; $i <= 5; $i++) {
     // Add a + to the end of the last option
@@ -130,6 +131,7 @@ for($i = 1; $i <= 5; $i++) {
     }
 }
 
+// Bathroom select options
 $options_bath = "";
 for($i = 1; $i <= 5; $i++) {
     // Add a + to the end of the last option
@@ -154,6 +156,7 @@ for($i = 1; $i <= 5; $i++) {
     }
 }
 
+// Lounge select options
 $options_lounge = "";
 for($i = 1; $i <= 3; $i++) {
     // Add a + to the end of the last option
@@ -178,6 +181,7 @@ for($i = 1; $i <= 3; $i++) {
     }
 }
 
+// Garage select options
 $options_garage = "";
 for($i = 1; $i <= 3; $i++) {
     // Add a + to the end of the last option
@@ -234,6 +238,6 @@ if ($result->num_rows > 0) {
     }
 } else {
       // If there is no data to be displayed throw an error message
-      $_SESSION["featuredImErrorMessage"] = "<div class='error-message'>Hmmmm... For some reason the Featured Image isn't showing. That's annoying! You should maybe contact the website administrator and get that fixed.</div>";
+      $_SESSION["featuredImErrorMessage"] = "<div class='error-message'>Oops! Something went wrong... (" . $stmt->errno . ") " . $stmt->error. ".<br>Please see your website administrator and quote this error message.</div>";
       }
 $stmt->close();
