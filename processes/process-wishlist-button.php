@@ -1,6 +1,6 @@
- <?php
-include "../includes/db-connect.php";
+<?php
 session_start();
+include "../includes/db-connect.php";
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 $listing_id = $_GET['listing_id'];
@@ -35,4 +35,6 @@ if (isset($_SESSION['guestUserName'])) {
     }
     $stmt->close();
     header ('location: ../wishlist');
+} else {
+  header('location: ../guest-login');
 }

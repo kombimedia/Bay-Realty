@@ -16,7 +16,7 @@
                     echo "<td><a class='view-listing' href='product.php?listing_id=$listing_id'><img src='images/uploads/" .$row['featured_image'] . "'></a></td>";
                     echo "</tr>";
                     echo "<tr>";
-                    echo "<td><a class='view-listing' href='product.php?listing_id=$listing_id'><h3>" . $row['title'] . "</h3></a><span>" . $row['address'] . "<br><span>"  . $price . "</span><br><span> <i class='fa fa-bed pr-2' aria-hidden='true'></i>" . $row['bed_no'] . " " .  "<i class='fa fa-bath pl-2 pr-2' aria-hidden='true'></i>" . $row['bath_no']  . " " .  "<i class='fa fa-car pl-2 pr-2' aria-hidden='true'></i>" . $row['garage_no'] . "<a id= 'wishlist-icon' href='processes/process-wishlist-button.php' action= 'post' ><i class='fa fa-heart' aria-hidden='true'> Add to Wishlist</i></a></span></td>";
+                    echo "<td><a class='view-listing' href='product.php?listing_id=$listing_id'><h3>" . $row['title'] . "</h3></a><span>" . $row['address'] . "<br><span>"  . $price . "</span><br><span> <i class='fa fa-bed pr-2' aria-hidden='true'></i>" . $row['bed_no'] . " " .  "<i class='fa fa-bath pl-2 pr-2' aria-hidden='true'></i>" . $row['bath_no']  . " " .  "<i class='fa fa-car pl-2 pr-2' aria-hidden='true'></i>" . $row['garage_no'] . "<a id= 'wishlist-icon' href='processes/process-wishlist-button.php?listing_id=$listing_id' action= 'post' ><i class='fa fa-heart' aria-hidden='true'> Add to Wishlist</i></a></span></td>";
                     echo "</tr>";
 
                     echo "</table>";
