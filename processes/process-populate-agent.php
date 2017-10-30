@@ -5,11 +5,8 @@ $display_agent = "";
 
 $listing_id = $_GET['listing_id'];
 
-
-
-
- $stmt = $mysqli->prepare("SELECT first_name, surname, email, phone, description, profile_pic FROM agents  ORDER BY RAND() LIMIT 1");
-
+ $stmt = $mysqli->prepare("SELECT agents.first_name, agents.surname, agents.email, agents.phone, agents.description, agents.profile_pic FROM agents INNER JOIN properties ON agents.agent_id = properties.agents WHERE properties.listing_id = ?");
+ $stmt->bind_param("i", $listing_id);
  $stmt->execute();
  $result = $stmt->get_result();
  if($result->num_rows > 0) {
