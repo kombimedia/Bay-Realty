@@ -1,5 +1,5 @@
 <?php
-
+//session_start();
 
 
 
@@ -22,25 +22,39 @@ if (isset($_SESSION['guestUserName'])) {
 
        $my_wishlist = explode(',', $my_wishlist);
 
-       foreach ($my_wishlist as  $wish) {
+       // foreach ($my_wishlist as  $wish) {
+
+       // }
+  }
+}
+$stmt->close();
+
+foreach ($my_wishlist as  $wish) {
 
 
-       	 $stmt = $mysqli->prepare("SELECT * FROM properties WHERE listing_id = ?");
-         $stmt->bind_param("i", $wish);
-         $stmt->execute();
-         $result = $stmt->get_result();
+
+ $stmt = $mysqli->prepare("SELECT * FROM properties WHERE listing_id = ?");
+ $stmt->bind_param("i", $wish);
+ $stmt->execute();
+ $result = $stmt->get_result();
  if($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
 
 
 		  $string = $row['property_des'] . "";
-   $string = substr($string, 0, 200);
+      $string = substr($string, 0, 200);
 
-   $price = $row['price'];
+      $price = $row['price'];
       $number = $price;
       setlocale(LC_MONETARY,"en_NZ");
       $price = money_format("%.0n", $number);
-          	
+
+      if ($row['sell_method'] !== "") {
+                $price = $row['sell_method'];
+            }
+
+      $listing_id = $row['listing_id'];
+
        	   $display_wishlist = $display_wishlist . "   <tr>
         <td> <a class='view-listing' href='product.php?listing_id=$listing_id'><img width='280' height='200px'  src='images/uploads/$row[featured_image]'></a></td>
         <td><a class='view-listing' href='product.php?listing_id=$listing_id'><h4 >$row[title]</h4></a><a id= 'wishlist-icon' href='processes/process-wishlist-button.php?listing_id=$listing_id' action= 'post' ><i class='fa fa-heart' aria-hidden='true'>  Add to Wishlist</i></a><p style='color: grey'>$row[address] </p><hr>
@@ -52,13 +66,14 @@ if (isset($_SESSION['guestUserName'])) {
 
         </tr>";
        }
-  header('location: ../wishlist.php');
+  //header('location: ../wishlist.php');
 
-     
+
      }
+}
 $stmt->close();
 
-}}}}
+}
 else {
   header('location: ../guest-login');
 }
