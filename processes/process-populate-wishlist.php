@@ -1,5 +1,5 @@
 <?php
-
+//session_start();
 
 
 
@@ -22,24 +22,33 @@ if (isset($_SESSION['guestUserName'])) {
 
        $my_wishlist = explode(',', $my_wishlist);
 
-       foreach ($my_wishlist as  $wish) {
+       // foreach ($my_wishlist as  $wish) {
+
+       // }
+  }
+}
+$stmt->close();
+
+foreach ($my_wishlist as  $wish) {
 
 
-       	 $stmt = $mysqli->prepare("SELECT * FROM properties WHERE listing_id = ?");
-         $stmt->bind_param("i", $wish);
-         $stmt->execute();
-         $result = $stmt->get_result();
+
+ $stmt = $mysqli->prepare("SELECT * FROM properties WHERE listing_id = ?");
+ $stmt->bind_param("i", $wish);
+ $stmt->execute();
+ $result = $stmt->get_result();
  if($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
 
 
 		  $string = $row['property_des'] . "";
-   $string = substr($string, 0, 200);
+      $string = substr($string, 0, 200);
 
-   $price = $row['price'];
+      $price = $row['price'];
       $number = $price;
       setlocale(LC_MONETARY,"en_NZ");
       $price = money_format("%.0n", $number);
+
       $listing_id = $row['listing_id'];
 
        	   $display_wishlist = $display_wishlist . "   <tr>
@@ -53,13 +62,14 @@ if (isset($_SESSION['guestUserName'])) {
 
         </tr>";
        }
-  header('location: ../wishlist.php');
+  //header('location: ../wishlist.php');
 
-     
+
      }
+}
 $stmt->close();
 
-}}}}
+}
 else {
   header('location: ../guest-login');
 }
