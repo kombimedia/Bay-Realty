@@ -1,5 +1,5 @@
  <?php
-  $sql = "SELECT listing_id ,address, price, bed_no, bath_no, featured_image, title, garage_no FROM properties WHERE featured_property = 1 ORDER BY RAND() LIMIT 2";
+  $sql = "SELECT listing_id ,address, price, bed_no, bath_no, featured_image, title, garage_no, sell_method FROM properties WHERE featured_property = 1 ORDER BY RAND() LIMIT 2";
     $result = $mysqli->query($sql);
       if ($result->num_rows > 0) {
           while($row = $result->fetch_assoc()) {
@@ -7,6 +7,11 @@
             $number = $price;
       setlocale(LC_MONETARY,"en_NZ");
       $price = money_format("%.0n", $number);
+
+      // Display the sell method if populated in listing
+      if ($row['sell_method'] !== "") {
+                $price = $row['sell_method'];
+            }
 
             $listing_id = $row['listing_id'];
 

@@ -29,19 +29,19 @@ if (isset($_POST['submit_search'])) {
 // $result = $stmt->get_result();
 
 if ($_POST['search_bar'] != "") {
-    $stmt = $mysqli->prepare("SELECT listing_id, address, price, bed_no, bath_no, property_des, featured_image, title, garage_no FROM properties WHERE property_des LIKE ? OR title LIKE ?");
+    $stmt = $mysqli->prepare("SELECT listing_id, address, price, bed_no, bath_no, property_des, featured_image, title, garage_no, sell_method FROM properties WHERE property_des LIKE ? OR title LIKE ?");
     $stmt->bind_param("ss", $search_bar, $search_bar);
     $stmt->execute();
     $result = $stmt->get_result();
 
 } elseif ($_POST['city'] != "" && $_POST['type'] != "") {
-    $stmt = $mysqli->prepare("SELECT listing_id, address, price, bed_no, bath_no, property_des, featured_image, title, garage_no FROM properties WHERE categories = ? AND type = ?");
+    $stmt = $mysqli->prepare("SELECT listing_id, address, price, bed_no, bath_no, property_des, featured_image, title, garage_no, sell_method FROM properties WHERE categories = ? AND type = ?");
     $stmt->bind_param("ii", $_POST['city'], $_POST['type']);
     $stmt->execute();
     $result = $stmt->get_result();
 
 } else {
-    $stmt = $mysqli->prepare("SELECT listing_id, address, price, bed_no, bath_no, property_des, featured_image, title, garage_no FROM properties WHERE categories = ? OR type = ?");
+    $stmt = $mysqli->prepare("SELECT listing_id, address, price, bed_no, bath_no, property_des, featured_image, title, garage_no, sell_method FROM properties WHERE categories = ? OR type = ?");
     $stmt->bind_param("ii", $_POST['city'], $_POST['type']);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -63,6 +63,11 @@ if($result->num_rows > 0) {
       $number = $price;
       setlocale(LC_MONETARY,"en_NZ");
       $price = money_format("%.0n", $number);
+
+      // Display the sell method if populated in listing
+      if ($row['sell_method'] !== "") {
+                $price = $row['sell_method'];
+            }
 
 // populate search listings
     $search_output = $search_output . "
