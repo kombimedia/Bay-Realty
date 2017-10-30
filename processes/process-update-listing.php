@@ -54,8 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $stmt->bind_param("sssi", $image_name, $image_size, $image_type, $update_listing_id);
                 // if insert execution is unsuccessful throw error
                 if (!$stmt->execute()) {
-                      $_SESSION["errorMessage"] = "<div class='error-message'>Oops! Something went wrong... Image data wasn't added to the database. Please contact the site administrator</div>";
-                      //$_SESSION["errorMessage"] = "<div class='error-message'>Oops! Something went wrong... (" . $stmt->errno . ") " . $stmt->error . "</div>";
+                      $_SESSION["errorMessage"] = "<div class='error-message'>Oops! Something went wrong... (" . $stmt->errno . ") " . $stmt->error. ".<br>Please see your website administrator and quote this error message.</div>";
                       $stmt->close();
                       header('location: ../dashboard-update-listing');
                 }
@@ -69,13 +68,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 }
                 // if file size or file type were incorrect throw error message
             } else {
-                $_SESSION["imgFileError"] = "<div class='validate-error-message'>Oops... Image should be max 500kb and a jpg, jpeg or png.</div>";
-                //$_SESSION["imgFileError"] = var_dump(!isset($_FILES['file']['name']));
-                header('location: ../dashboard-update-listing');
+                $_SESSION["errorMessage"] = "<div class='error-message'>Oops... Image wasn't uploaded to listing ID: " . $update_listing_id . ". Should be max 500kb and a jpg, jpeg or png. Please try again with a smaller image.</div>";
+                header('location: ../dashboard-view-listing');
               }
         }
     }
-    // if listing is successful updated go to dashboard 'view listings' page and print success message
+    // if listing is successfully updated go to dashboard 'view listings' page and print success message
     $_SESSION["successMessage"] = "<div class='success-message'>Listing with ID: " . $update_listing_id . " was successfully updated.</div>";
     header('location: ../dashboard-view-listings');
 }

@@ -57,7 +57,7 @@ if (isset($_SESSION['guestUserName'])) {
               <h1 class="text-center">Current Listings</h1>
               <div class="row no-gutters">
    <?php
-  $sql = "SELECT listing_id, address, price, bed_no, bath_no, featured_image, title, garage_no FROM properties ORDER BY RAND()";
+  $sql = "SELECT listing_id, address, price, bed_no, bath_no, featured_image, title, garage_no, sell_method FROM properties ORDER BY RAND()";
     $result = $mysqli->query($sql);
       if ($result->num_rows > 0) {
           while($row = $result->fetch_assoc()) {
@@ -66,6 +66,11 @@ if (isset($_SESSION['guestUserName'])) {
             $number = $row['price'];
             setlocale(LC_MONETARY,"en_NZ");
             $price = money_format("%.0n", $number);
+
+            // Display the sell method if populated in listing
+            if ($row['sell_method'] !== "") {
+                $price = $row['sell_method'];
+            }
 
             $listing_id = $row['listing_id'];
                     echo "<div class='col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4  property-listing-table'>";

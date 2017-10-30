@@ -69,6 +69,7 @@ if ($validForm) {
           // if insert is unsuccessful throw error
            header('location: ../dashboard-add-user');
            $_SESSION["errorMessage"] = "<div class='error-message'>Oops! Something went wrong... (" . $stmt->errno . ") " . $stmt->error. ".<br>Please see your website administrator and quote this error message.</div>";
+           exit;
            }
            $stmt1->close();
     } else {

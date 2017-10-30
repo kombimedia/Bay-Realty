@@ -52,6 +52,8 @@ $listing_id = $_GET['listing_id'];
       $number = $price;
       setlocale(LC_MONETARY,"en_NZ");
       $price = money_format("%.0n", $number);
+
+      // Display the sell method if populated in listing
       if ($sell_method !== "") {
           $price = $sell_method;
       }

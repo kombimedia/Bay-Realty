@@ -1,5 +1,6 @@
 <?php
 session_start();
+// Check visitor is logged in. If not redirect to login page
 if (!$_SESSION['logged_in']) {
     header('location: dashboard-login');
 }
@@ -12,7 +13,7 @@ include 'processes/process-populate-update-listing.php';
 ?>
 
 <h1>Update Listing</h1>
-  <!-- DB error/success messages -->
+  <!-- error/success messages -->
   <div><?php if (isset($_SESSION['successMessage'])) { echo $_SESSION['successMessage']; unset($_SESSION['successMessage']); }; ?></div>
   <div><?php if (isset($_SESSION['errorMessage'])) { echo $_SESSION['errorMessage']; unset($_SESSION['errorMessage']); }; ?></div>
   <div><?php if (isset($_SESSION['propertiesErrorMessage'])) { echo $_SESSION['propertiesErrorMessage']; unset($_SESSION['propertiesErrorMessage']); }; ?></div>
@@ -196,7 +197,6 @@ include 'processes/process-populate-update-listing.php';
         <div><?php if (isset($_SESSION['imgUploadError'])) { echo $_SESSION['imgUploadError']; unset($_SESSION['imgUploadError']); }; ?></div>
         <div><?php if (isset($_SESSION['imgFileError'])) { echo $_SESSION['imgFileError']; unset($_SESSION['imgFileError']); }; ?></div>
         <div><?php if (isset($_SESSION['imgError'])) { echo $_SESSION['imgError']; unset($_SESSION['imgError']); }; ?></div>
-        <!-- <div id="return-messages"></div> -->  <!-- Image error messages -->
       </div>
     </div>
   </div>

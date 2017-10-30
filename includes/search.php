@@ -11,13 +11,13 @@ include 'processes/process-populate-search-listing.php'
       <form action="category.php" method="post" role="form" class="search-form">
         <div class="form-row mb-2 mt-4">
           <div class="col">
-            <input name="search_bar" type="text" maxlength="88" class="form-control" id="search-input" placeholder="location, keyword, property ID">
+            <input name="search_bar" type="text" maxlength="88" class="form-control" id="search-input" placeholder="Search word or phrase" >
           </div>
         </div>
         <div class="form-row form-inline mb-2">
           <div class="col">
             <select name="city" class="form-control" id="search-area">
-              <option value="2,3,4" disabled selected>Area</option>
+              <option value="" disabled selected>Area</option>
               <?php echo $option_city ?>
             </select>
           </div>
@@ -30,7 +30,7 @@ include 'processes/process-populate-search-listing.php'
           </div>
         </div>
 
-        <div class="form-row form-inline">
+        <!-- <div class="form-row form-inline">
           <div class="col-6 col-xl-2">
             <select class="form-control mb-2" id="search-price-from">
               <option value="" disabled selected>Price from</option>
@@ -107,7 +107,7 @@ include 'processes/process-populate-search-listing.php'
                 <option>5 +</option>
               </select>
           </div>
-        </div>
+        </div> -->
         <button name= "submit_search" type="submit" class="btn">Search for Homes!</button>
       </form>
   </div>
