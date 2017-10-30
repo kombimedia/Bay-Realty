@@ -20,7 +20,7 @@
               <a class="nav-link" href="/bay-realty/contact-us">Contact Us</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/bay-realty/processes/process-populate-wishlist.php"><i class="fa fa-heart fa-lg"></i></a>
+              <a class="nav-link" href="/bay-realty/wishlist.php"><i class="fa fa-heart fa-lg"></i></a>
             </li>
             <li class="nav-item">
               <div class="pl-5"><?php if (isset($_SESSION['guestUserName'])) { echo "<a class='nav-link no-dropdown' href='processes/process-logout'><span class='d-none d-md-inline'> Log out</span></a>"; }; ?>
