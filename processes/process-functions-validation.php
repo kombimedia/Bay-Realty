@@ -164,7 +164,7 @@ function validate_image_temp_folder($files) {
         $file_path = "../images/temp/" . $image_name;
 
         // Validate image before storing to temp folder
-        // Limit file size to less than 500kb
+        // Limit file size to max 500kb
         if (($image_size < 500001) && in_array($image_type, $validextensions)) {
 
             // Save image files to temp folder

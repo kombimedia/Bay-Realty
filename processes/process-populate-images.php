@@ -4,6 +4,7 @@ $stmt = $mysqli->prepare("SELECT image_id, listing_id, img_name, img_size, img_t
 $stmt->execute();
 $result = $stmt->get_result();
 if($result->num_rows > 0) {
+  // Loop through data and output data array
   while($row = $result->fetch_assoc()) {
       // Convert file size to KB and round to whole number
       $row['img_size'] = ($row['img_size']) / 1000;
