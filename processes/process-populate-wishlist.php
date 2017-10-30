@@ -40,7 +40,8 @@ if (isset($_SESSION['guestUserName'])) {
       $number = $price;
       setlocale(LC_MONETARY,"en_NZ");
       $price = money_format("%.0n", $number);
-          	
+      $listing_id = $row['listing_id'];
+
        	   $display_wishlist = $display_wishlist . "   <tr>
         <td> <a class='view-listing' href='product.php?listing_id=$listing_id'><img width='280' height='200px'  src='images/uploads/$row[featured_image]'></a></td>
         <td><a class='view-listing' href='product.php?listing_id=$listing_id'><h4 >$row[title]</h4></a><a id= 'wishlist-icon' href='processes/process-wishlist-button.php?listing_id=$listing_id' action= 'post' ><i class='fa fa-heart' aria-hidden='true'>  Add to Wishlist</i></a><p style='color: grey'>$row[address] </p><hr>

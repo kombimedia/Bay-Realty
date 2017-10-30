@@ -5,6 +5,8 @@ include "../includes/db-connect.php";
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 $listing_id = $_GET['listing_id'];
+$user_id = $_SESSION['user_id'];
+
 $wislist_array = array();
 
 if (isset($_SESSION['guestUserName'])) {
