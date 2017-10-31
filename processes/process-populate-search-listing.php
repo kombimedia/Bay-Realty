@@ -34,7 +34,7 @@ if ($_POST['search_bar'] != "") {
     $stmt->execute();
     $result = $stmt->get_result();
 
-} elseif ($_POST['city'] != "" && $_POST['type'] != "") {
+} elseif ($_POST['city'] != "" && $_POST['type'] != "" ) {
     $stmt = $mysqli->prepare("SELECT listing_id, address, price, bed_no, bath_no, property_des, featured_image, title, garage_no, sell_method FROM properties WHERE categories = ? AND type = ?");
     $stmt->bind_param("ii", $_POST['city'], $_POST['type']);
     $stmt->execute();
