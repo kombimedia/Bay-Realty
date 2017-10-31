@@ -32,8 +32,8 @@ $user_id = $_SESSION['user_id'];
               }
 
          	   $display_wishlist = $display_wishlist . " <div class='row'> <div class='col-lg-4 col-md-6 col-sm-12'> <tr>
-          <td> <a class='view-listing' href='product.php?listing_id=$listing_id'><img width='280' height='200px'  src='images/uploads/$row[featured_image]'></a></td></div>
-          <div class='col-lg-12 col-md-7 col-sm-12'><td><a class='view-listing' href='product.php?listing_id=$listing_id'><h4 >$row[title]</h4></a><a class='view-user-delete' href='#' onClick='deleteWishlist($row[listing_id])'><img src='images/x.png'></a><p style='color: grey'>$row[address] </p><hr>
+          <td> <a class='view-listing' href='product.php?listing_id=$listing_id#product_page'><img width='280' height='200px'  src='images/uploads/$row[featured_image]'></a></td></div>
+          <div class='col-lg-12 col-md-7 col-sm-12'><td><a class='view-listing' href='product.php?listing_id=$listing_id#product_page'><h4 >$row[title]</h4></a><a class='view-user-delete' href='#' onClick='deleteWishlist($row[listing_id])'><img src='images/x.png'></a><p style='color: grey'>$row[address] </p><hr>
           <p>$string ...</p>
           <h4>$price</h4>
 

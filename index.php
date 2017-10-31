@@ -78,12 +78,12 @@ if (isset($_SESSION['guestUserName'])) {
                     echo "<table>";
 
 
-                    echo "<tr><td><a class='view-listing' href='product.php?listing_id=$listing_id'><img class='card-img-top' src='images/uploads/" .$row['featured_image'] . "' alt='Card image cap''></a></td>";
+                    echo "<tr><td><a class='view-listing' href='product.php?listing_id=$listing_id#product_page'><img class='card-img-top' src='images/uploads/" .$row['featured_image'] . "' alt='Card image cap''></a></td>";
 
                     echo "</tr>";
                     echo "<div class='card-block'>";
                     echo "<tr>";
-                    echo "<td><div class='card-data'><a class='view-listing' href='product.php?listing_id=$listing_id'><h4 class='card-title' >" . $row['title'] . "</h4></a><span>" . $row['address'] . "<br><span>" . $price . "</span><br><span> <i class='fa fa-bed pr-2' aria-hidden='true'></i>" . $row['bed_no'] . " " .  "<i class='fa fa-bath pl-2 pr-2' aria-hidden='true'></i>" . $row['bath_no']  . " " .  "<i class='fa fa-car pl-2 pr-2' aria-hidden='true'></i>" . $row['garage_no'] . " <a style='float: right' class= 'wishlist-icon' href='processes/process-wishlist-button.php?listing_id=$listing_id' action= 'post' ><i class='fa fa-heart' aria-hidden='true'> </i></a>" . "</span></div></td>";
+                    echo "<td><div class='card-data'><a class='view-listing' href='product.php?listing_id=$listing_id#product_page'><h4 class='card-title' >" . $row['title'] . "</h4></a><span>" . $row['address'] . "<br><span>" . $price . "</span><br><span> <i class='fa fa-bed pr-2' aria-hidden='true'></i>" . $row['bed_no'] . " " .  "<i class='fa fa-bath pl-2 pr-2' aria-hidden='true'></i>" . $row['bath_no']  . " " .  "<i class='fa fa-car pl-2 pr-2' aria-hidden='true'></i>" . $row['garage_no'] . " <a style='float: right' class= 'wishlist-icon' href='processes/process-wishlist-button.php?listing_id=$listing_id' action= 'post' ><i class='fa fa-heart' aria-hidden='true'> </i></a>" . "</span></div></td>";
 
                     echo "</div>";
                     echo "</table>";

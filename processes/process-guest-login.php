@@ -64,7 +64,7 @@ if ($valid_Login_form) {
 
     if ($user_role === $user_role) {
         $_SESSION['logged_in'] = true;
-        header('location: ../wishlist.php');
+        header('location: ../wishlist');
     } else {
         $_SESSION['guestAccessError'] = "<div class='validate-error-message mb-2'>Sorry " . $stored_name . ", you don't have access to the Admin Dashboard.<?div>";
         $_SESSION['logged_in'] = false;

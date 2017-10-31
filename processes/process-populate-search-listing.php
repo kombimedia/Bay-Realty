@@ -73,8 +73,8 @@ if($result->num_rows > 0) {
     $search_output = $search_output . "
 
         <tr>
-        <td> <a class='view-listing' href='product.php?listing_id=$listing_id'><img width='280' height='200px'  src='images/uploads/$row[featured_image]'></a></td>
-        <td><a class='view-listing' href='product.php?listing_id=$listing_id'><h4 >$row[title]</h4></a><a id= 'wishlist-icon' href='processes/process-wishlist-button.php?listing_id=$listing_id' action= 'post' ><i class='fa fa-heart' aria-hidden='true'>  Add to Wishlist</i></a><p style='color: grey'>$row[address] </p><hr>
+        <td> <a class='view-listing' href='product.php?listing_id=$listing_id#product_page'><img width='280' height='200px'  src='images/uploads/$row[featured_image]'></a></td>
+        <td><a class='view-listing' href='product.php?listing_id=$listing_id#product_page'><h4 >$row[title]</h4></a><a id= 'wishlist-icon' href='processes/process-wishlist-button.php?listing_id=$listing_id' action= 'post' ><i class='fa fa-heart' aria-hidden='true'>  Add to Wishlist</i></a><p style='color: grey'>$row[address] </p><hr>
         <p>$string ...</p>
         <h4>$price</h4>
 

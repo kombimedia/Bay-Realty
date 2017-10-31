@@ -25,7 +25,7 @@ if($result->num_rows > 0) {
         $ws_listing_id = false;
         // echo "this listing is already in your wishlist";
         $_SESSION['wlError'] = "Listing with ID: " . $listing_id . " is already saved to your wishlist";
-        header('location: ../wishlist');
+        header('location: ../wishlist#my_wishlist');
         exit;
       }
   }
@@ -39,4 +39,4 @@ if ($ws_listing_id) {
     $stmt->close();
 }
 $_SESSION['wlSuccess'] = "Listing with ID: " . $listing_id . " successfully added to your wishlist";
-header('location: ../wishlist');
+header('location: ../wishlist#my_wishlist');

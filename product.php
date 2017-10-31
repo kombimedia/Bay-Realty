@@ -7,7 +7,7 @@ include 'processes/process-populate-product.php';
 include 'processes/process-populate-image-carousel.php';
 include 'processes/process-populate-agent.php';
 ?>
-<div class="container product-heading">
+<div class="container product-heading" id="product_page">
   <h1 class="mb-3"><?php echo $listing_title ?></h1>
 </div>
 <div class="container product-full">
