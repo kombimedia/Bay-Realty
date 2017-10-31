@@ -8,33 +8,18 @@ $user_id = $_SESSION['user_id'];
 
 if (isset($_SESSION['guestUserName'])) {
 
-    $stmt = $mysqli->prepare("DELETE FROM wishlist WHERE user_id = ?");
-$stmt->bind_param("i", $user_id);
+    $stmt = $mysqli->prepare("DELETE FROM wishlist WHERE listing_id = ?");
+$stmt->bind_param("i", $listing_id);
      $stmt->execute();
- $result = $stmt->get_result();
- if($result->num_rows > 0) {
-    while($row = $result->fetch_assoc()) {
-      // Loop through each row and save the array to a variable
-      $my_wishlist = $row['my_wishlist'];
-
-       $my_wishlist = explode(',', $my_wishlist);
-
-       
-  }
+ 
+ if (!$stmt->execute()) {
+    $_SESSION["listDelError"] = "<div class='error-message'>Oops! Something went wrong... (" . $stmt->errno . ") " . $stmt->error. ".<br>Please see your website administrator and quote this error message.</div>";
+} else {
+    $_SESSION["successMessage"] = "<div class='success-message'>User ID: " . $listing_id ." was successfully deleted</div>";
+}
 }
 $stmt->close();
 
-foreach ($my_wishlist as  $wish) {
 
-
- 
-	if($wish === $listing_id) {
-
-		unset($wish);
 
 // Remove from array
-
-	}
-
-}
-}
