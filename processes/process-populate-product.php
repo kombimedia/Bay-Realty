@@ -41,14 +41,11 @@ $listing_id = $_GET['listing_id'];
       // used explode function to break up map co ordinates and stored into variables to be populated in google maps
       $map_co_ords = $row['map_co_ords'];
       list($mapa, $mapb) = explode(',', $map_co_ords);
-
+// define variables
       $featured_image = $row['featured_image'];
       $featured_property = $row['featured_property'];
       $listing_id = $row['listing_id'];
-
       // currency
-
-
       $number = $price;
       setlocale(LC_MONETARY,"en_NZ");
       $price = money_format("%.0n", $number);
@@ -56,25 +53,22 @@ $listing_id = $_GET['listing_id'];
       // Display the sell method if populated in listing
       if ($sell_method !== "") {
           $price = $sell_method;
+      // Build table rows to be displayed responsively on product page
       }
       $display_product = $display_product . "
       <tr>
       <td><p>listing id: $listing_id </p><h4 style='color: #189ebb'>$listing_title</h4><p style='color: grey'>$address </p><a class= 'wishlist-icon' href='processes/process-wishlist-button.php?listing_id=$listing_id' action= 'post' ><i class='fa fa-heart' aria-hidden='true'> Add to Wishlist</i></a>
       </tr>";
-
-
+       // Build table rows to be displayed responsively on product page
         $display_product2 = $display_product2 . "
         <tr>
-
         <hr>
         <p>$property_des</p>
         <h4 style='color: #189ebb'>$price</h4>
 
         <p><i class='fa fa-bed pr-1' aria-hidden='true'></i> $bed_no <i class='fa fa-bath pl-2 pr-1' aria-hidden='true'></i> $bath_no <i class='fa fa-car pl-2 pr-1' aria-hidden='true'></i> $garage_no </p></td>
-
-
-        </tr>";
-
+        </tr>"; 
+        // Build table rows to be displayed responsively on product page
         $display_product3 = $display_product3 . "
         <div class='container product2'>
         <tr>
@@ -87,20 +81,13 @@ $listing_id = $_GET['listing_id'];
         </td>
         </tr>
         </div>";
-
-
          $display_map = $display_map . "
-
-
          ";
 
          $display_map = $display_map . "
 
         <div id='map'>
-
-        </div>
-
-
+        </div> 
         <script>
       function initMap() {
         var uluru = {lat: $mapa , lng: $mapb};
@@ -117,12 +104,6 @@ $listing_id = $_GET['listing_id'];
      <script async defer
     src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBMqh-VZSDxYkS4Gm8baEjOCnYOItBi4jQ&callback=initMap'>
     </script>";
-
-
-
-
-
-
 }
 
 $stmt->close();

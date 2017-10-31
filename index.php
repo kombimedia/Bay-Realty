@@ -57,8 +57,10 @@ if (isset($_SESSION['guestUserName'])) {
               <h1 class="text-center">Current Listings</h1>
               <div class="row no-gutters">
    <?php
-  $sql = "SELECT listing_id, address, price, bed_no, bath_no, featured_image, title, garage_no, sell_method FROM properties ORDER BY RAND()";
-    $result = $mysqli->query($sql);
+
+   $stmt = $mysqli->prepare("SELECT listing_id, address, price, bed_no, bath_no, featured_image, title, garage_no, sell_method FROM properties ORDER BY RAND()");
+ $stmt->execute();
+     $result = $stmt->get_result();
       if ($result->num_rows > 0) {
           while($row = $result->fetch_assoc()) {
 

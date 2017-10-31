@@ -27,19 +27,19 @@ if (isset($_POST['submit_search'])) {
 // $stmt->bind_param("sii", $search_bar, $_POST['city'], $_POST['type']);
 // $stmt->execute();
 // $result = $stmt->get_result();
-
+// select query based on user input in search bar
 if ($_POST['search_bar'] != "") {
     $stmt = $mysqli->prepare("SELECT listing_id, address, price, bed_no, bath_no, property_des, featured_image, title, garage_no, sell_method FROM properties WHERE property_des LIKE ? OR title LIKE ?");
     $stmt->bind_param("ss", $search_bar, $search_bar);
     $stmt->execute();
     $result = $stmt->get_result();
-
+// select query based on  what user has selected 
 } elseif ($_POST['city'] != "" && $_POST['type'] != "" ) {
     $stmt = $mysqli->prepare("SELECT listing_id, address, price, bed_no, bath_no, property_des, featured_image, title, garage_no, sell_method FROM properties WHERE categories = ? AND type = ?");
     $stmt->bind_param("ii", $_POST['city'], $_POST['type']);
     $stmt->execute();
     $result = $stmt->get_result();
-
+// select query based what user has selected
 } else {
     $stmt = $mysqli->prepare("SELECT listing_id, address, price, bed_no, bath_no, property_des, featured_image, title, garage_no, sell_method FROM properties WHERE categories = ? OR type = ?");
     $stmt->bind_param("ii", $_POST['city'], $_POST['type']);

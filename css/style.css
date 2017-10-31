@@ -366,6 +366,16 @@ form.contact-form .form-inline .form-control {
   max-height: 322px;
 }
 
+/* wishlist Page
+----------------------------------------*/
+
+#wish2 p{
+  font-size: 10pt;
+}
+.view-user-delete{
+  
+  float: right;
+}
 /* Media Queries
 ----------------------------------------*/
 @media (max-width: 720px) {
@@ -378,3 +388,4 @@ form.contact-form .form-inline .form-control {
   height: 80% !important;
 }
 }
+
