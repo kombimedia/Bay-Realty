@@ -9,9 +9,22 @@ include 'includes/header.php';
 include 'includes/search.php';
 include 'processes/process-populate-wishlist.php';
 ?>
-	<table>
+
+<div class="container col search-listings-container">
+	<h3>My Wishlist</h3>
+	<table class="table-striped table-responsive search-listings">
 	<? echo $display_wishlist ?>
  	</table>
+</div>
+ 	<script language="javascript">
+ // Confirm delete alert
+ function deleteWishlist(dellwishlist) {
+     if (confirm("Are you sure you want to delete this Listing?")) {
+     window.location.href='processes/process-delete-wishlist.php?del_wish=' +dellwishlist+'';
+     return true;
+    }
+ }
+</script>
 
 <?php
   include 'includes/footer.php';
