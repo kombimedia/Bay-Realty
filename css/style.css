@@ -172,7 +172,7 @@ form.search-form select {
   background-color: #f1f1f1;
 }
 .search-form-inner {
- padding: 70px 0 90px 0;
+ padding: 2rem 0 3rem 0;
 }
 form button.btn {
   background-color: #189ebb;
@@ -340,17 +340,6 @@ form.contact-form .form-inline .form-control {
   margin:auto;
   padding-top: 10px;
 }
-/*a[href^="tel:"]:before {
-  content: "\260E";
-  display: inline-block;
-  margin-right: 0.6em;
-  color: #189ebb;
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-a[href^="tel:"] {
-  color: #189ebb;
-}*/
 .agent-descr {
   font-size: 10pt;
 }
