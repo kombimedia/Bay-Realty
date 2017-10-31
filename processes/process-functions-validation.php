@@ -186,4 +186,3 @@ function validate_image_temp_folder($files) {
     $valid_image = true;
     return true;
 }
-

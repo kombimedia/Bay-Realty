@@ -14,7 +14,7 @@ include 'includes/search.php';
 include 'processes/process-populate-wishlist.php';
 ?>
 <div class="container col search-listings-container">
-	<h3>My Wishlist</h3>
+	<h1>My Wishlist</h1>
   <div><?php if (isset($_SESSION['wlSuccess'])) { echo $_SESSION['wlSuccess']; unset($_SESSION['wlSuccess']); }; ?></div>
   <div><?php if (isset($_SESSION['wlError'])) { echo $_SESSION['wlError']; unset($_SESSION['wlError']); }; ?></div>
 	<table class="table-striped table-responsive search-listings">

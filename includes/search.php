@@ -1,10 +1,6 @@
-
-
 <?php
 include 'processes/process-populate-search-listing.php'
 ?>
-
-
 
 <div class="container-fluid search-form-outer">
   <div class="container search-form-inner">

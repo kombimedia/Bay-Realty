@@ -19,7 +19,7 @@ if (isset($_POST['submit'])) {
     $validPassword = true;
     // check if field is populated
     if (empty($_POST['loginPassword'])) {
-      $_SESSION["passwordError"] = "<div class='validate-error-message mb-2'>A password is required</div>";
+      $_SESSION["guestPasswordError"] = "<div class='validate-error-message mb-2'>A password is required</div>";
       $validPassword = false;
     }
     $_POST['loginPassword'] = md5($_POST['loginPassword']);
@@ -46,7 +46,7 @@ if ($valid_Login_form) {
 
     }
   } else {
-    $_SESSION['user_access_error'] = "<div class='validate-error-message mb-2'>Oops... Please check your email and password are correct.<?div>";
+    $_SESSION['guestLoginError'] = "<div class='validate-error-message mb-2'>Oops... Please check your email and password are correct.<?div>";
     $_SESSION['logged_in'] = false;
     header('location: ../guest-login.php');
     exit;
@@ -66,7 +66,7 @@ if ($valid_Login_form) {
         $_SESSION['logged_in'] = true;
         header('location: ../wishlist.php');
     } else {
-        $_SESSION['user_access_error'] = "<div class='validate-error-message mb-2'>Sorry " . $stored_name . ", you don't have access to the Admin Dashboard.<?div>";
+        $_SESSION['guestAccessError'] = "<div class='validate-error-message mb-2'>Sorry " . $stored_name . ", you don't have access to the Admin Dashboard.<?div>";
         $_SESSION['logged_in'] = false;
         unset($_SESSION['userName']);
         header('location: ../guest-login');
