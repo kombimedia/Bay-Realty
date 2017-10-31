@@ -15,7 +15,7 @@ $stmt->bind_param("ii", $listing_id, $user_id);
     exit;
 } else {
      $_SESSION['wlSuccess'] = "Listing with ID: " . $listing_id . " was successfully removed from your wishlist ";
-        header('location: ../wishlist');
+        header('location: ../wishlist#my_wishlist');
 }
 
 // close db connection
