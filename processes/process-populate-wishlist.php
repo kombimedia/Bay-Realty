@@ -9,7 +9,7 @@ $display_wishlist = "";
 //$wish = $_GET['del_wish'];
 $user_id = $_SESSION['user_id'];
 
- $stmt = $mysqli->prepare("SELECT properties.title, properties.property_des, properties.address, properties.price, properties.sell_method, properties.bed_no, properties.bath_no, properties.garage_no, properties.featured_image, wishlist.user_id, wishlist.listing_id FROM properties INNER JOIN wishlist ON properties.listing_id = wishlist.listing_id WHERE wishlist.user_id = ?");
+ $stmt = $mysqli->prepare("SELECT properties.title, properties.property_des, properties.address, properties.price, properties.sell_method, properties.bed_no, properties.bath_no, properties.garage_no, properties.featured_image, wishlist.user_id, wishlist.listing_id FROM properties INNER JOIN wishlist ON properties.listing_id = wishlist.listing_id WHERE wishlist.user_id = ? ORDER BY wishlist.wishlist_id DESC");
  $stmt->bind_param("i", $user_id);
  $stmt->execute();
  $result = $stmt->get_result();
