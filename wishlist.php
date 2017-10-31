@@ -21,7 +21,7 @@ include 'processes/process-populate-wishlist.php';
    <!-- Failed message that displays if listing unable to be added -->
   <div><?php if (isset($_SESSION['wlError'])) { echo $_SESSION['wlError']; unset($_SESSION['wlError']); }; ?></div>
   <!-- $display wishlist built in process wishlist page  and displayed here if logged in-->
-	<table class="table-striped table-responsive search-listings">
+	<table id="tablelist" class="table-striped table-responsive search-listings">
 	<? echo $display_wishlist ?>
  	</table>
 </div>

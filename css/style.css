@@ -376,6 +376,15 @@ form.contact-form .form-inline .form-control {
   
   float: right;
 }
+#listimg{
+   width: 280px;
+   min-height: 200px;
+    height: 200px;
+    min-height: 200px;
+}
+#tablelist td{
+  min-width: 300px;
+}
 /* Media Queries
 ----------------------------------------*/
 @media (max-width: 720px) {
