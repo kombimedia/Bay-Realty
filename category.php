@@ -7,7 +7,7 @@ include 'includes/header.php';
 include 'includes/search.php';
 ?>
 
-<div class="container col search-listings-container">
+<div class="container col search-listings-container" id="search_result">
   <h1>Search Results </h1><hr>
   <div><?php if (isset($_SESSION['noListings'])) { echo $_SESSION['noListings']; unset($_SESSION['noListings']); }; ?></div>
   <table class="table-striped table-responsive search-listings">

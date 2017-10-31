@@ -4,7 +4,7 @@ include 'processes/process-populate-search-listing.php'
 
 <div class="container-fluid search-form-outer">
   <div class="container search-form-inner">
-      <form action="category.php" method="post" role="form" class="search-form">
+      <form action="category.php#search_result" method="post" role="form" class="search-form">
         <div class="form-row mb-2 mt-4">
           <div class="col">
             <input name="search_bar" type="text" maxlength="88" class="form-control" id="search-input" placeholder="Search word or phrase" >
