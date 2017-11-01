@@ -1,4 +1,5 @@
  <?php
+ // Featured listing is displayed on selected pages and is pulled in at random and limited to 2 listings
   $sql = "SELECT listing_id ,address, price, bed_no, bath_no, featured_image, title, garage_no, sell_method FROM properties WHERE featured_property = 1 ORDER BY RAND() LIMIT 2";
     $result = $mysqli->query($sql);
       if ($result->num_rows > 0) {

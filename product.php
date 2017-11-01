@@ -11,6 +11,7 @@ include 'processes/process-populate-agent.php';
   <h1 class="mb-3"><?php echo $listing_title ?></h1>
 </div>
 <div class="container product-full">
+  <!-- image carousel -->
   <div class=" slider-inner">
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
@@ -41,7 +42,7 @@ include 'processes/process-populate-agent.php';
   </a>
 </div>
 </div>
-
+<!-- product content built in process-product page to be displayed on this page  -->
 <div class="col" id="product_content">
   <div class="row">
     <div class="col">
@@ -81,7 +82,6 @@ include 'processes/process-populate-agent.php';
 </div>
 </div>
 </div>
-
 <?php
 include 'includes/footer.php';
 ?>
